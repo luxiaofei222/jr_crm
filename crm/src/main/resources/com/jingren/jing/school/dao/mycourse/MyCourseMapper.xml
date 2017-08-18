@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.mycourse.MyCourseMapper">
+	<resultMap type="com.jingren.jing.school.bean.mycourse.MyCourse"
+		id="BaseResultMap">
+		<id column="my_course_id" property="my_course_id" />
+		<result column="video_id" property="video_id" />
+		<result column="user_id" property="user_id" />
+		<result column="my_course_time" property="my_course_time" />
+		<result column="daoqi_time" property="daoqi_time" />
+		<result column="course_id" property="course_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="note" property="note" />
+		<result column="employee_name" property="employee_name" />
+	</resultMap>
+	<!--添加我的课程信息 -->
+	<insert id="saveMyCourse" parameterType="com.jingren.jing.school.bean.mycourse.MyCourse">
+		insert into my_course
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="my_course_time != null">
+				my_course_time,
+			</if>
+			<if test="daoqi_time != null">
+				daoqi_time,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="note != null">
+				note,
+			</if>
+			<if test="employee_name != null">
+				employee_name
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="my_course_time != null">
+				#{my_course_time},
+			</if>
+			<if test="daoqi_time != null">
+				#{daoqi_time},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="note != null">
+				#{note},
+			</if>
+			<if test="employee_name != null">
+				#{employee_name}
+			</if>
+		</trim>
+	</insert>
+	<!--修改到期时间 -->
+	<update id="updateMyCourse" parameterType="com.jingren.jing.school.bean.mycourse.MyCourse">
+		update my_course
+		<set>
+			<if test="daoqi_time != null">
+				daoqi_time=#{daoqi_time},
+			</if>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="note != null">
+				note=#{note},
+			</if>
+			<if test="employee_name != null">
+				employee_name=#{employee_name}
+			</if>
+		</set>
+		where my_course_id=#{my_course_id}
+	</update>
+
+	<!--删除我的课程信息 -->
+	<delete id="deleteMyCourse" parameterType="Map">
+		delete from my_course where
+		<if test="my_course_id !=null">
+			my_course_id=#{my_course_id}
+		</if>
+		<if test="video_id !=null">
+			video_id=#{video_id}
+		</if>
+	</delete>
+	<!--获取我的课程信息 -->
+	<select id="getMyCourse" parameterType="Map" resultMap="BaseResultMap">
+		select * from my_course
+		<where>
+			<if test="my_course_id !=null">
+				my_course_id=#{my_course_id}
+			</if>
+			<if test="video_id !=null">
+				video_id=#{video_id}
+			</if>
+			<if test="user_id !=null">
+				and user_id=#{user_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询我的课程列表 -->
+	<select id="getMyCourseList" parameterType="Map" resultMap="BaseResultMap">
+		select * from my_course
+		<where>
+			<if test="video_id != null">
+				video_id = #{video_id}
+			</if>
+			<if test="user_id != null">
+				and user_id = #{user_id}
+			</if>
+			<if test="not_video_id != null">
+				and video_id != #{not_video_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询我的课程数量 -->
+	<select id="getMyCourseNumber" parameterType="Map" resultType="int">
+		select count(*) from my_course
+		<where>
+			<if test="video_id != null">
+				video_id = #{video_id}
+			</if>
+			<if test="user_id != null">
+				user_id = #{user_id}
+			</if>
+		</where>
+	</select>
+</mapper>

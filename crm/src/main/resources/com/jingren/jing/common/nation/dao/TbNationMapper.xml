@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.nation.dao.TbNationMapper">
+	<resultMap type="com.jingren.jing.common.nation.bean.TbNation" id="BaseResultMap">
+		<id column="id" property="id" />
+		<result column="nationid" property="nationid" />
+		<result column="nation" property="nation" />
+	</resultMap>
+	<!--获取民族列表 -->
+	<select id="getTbNationList" parameterType="Map" resultMap="BaseResultMap">
+		select * from tp_nation
+	</select>
+</mapper>

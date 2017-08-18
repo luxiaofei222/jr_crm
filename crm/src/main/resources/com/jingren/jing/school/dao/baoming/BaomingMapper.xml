@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.baoming.BaomingMapper">
+	<resultMap type="com.jingren.jing.school.bean.baoming.Baoming"
+		id="BaseResultMap">
+		<id column="baoming_id" property="baoming_id" />
+		<result column="course_name" property="course_name" />
+		<result column="course_leibie" property="course_leibie" />
+		<result column="course_dic" property="course_dic" />
+		<result column="course_xuexiao" property="course_xuexiao" />
+		<result column="course_zhuanye" property="course_zhuanye" />
+		<result column="user_name" property="user_name" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_qq" property="user_qq" />
+		<result column="course_content" property="course_content" />
+		<result column="baoming_time" property="baoming_time" />
+		<result column="user_ip" property="user_ip" />
+	</resultMap>
+	<!--添加报名信息 -->
+	<insert id="saveBaoming"
+		parameterType="com.jingren.jing.school.bean.baoming.Baoming">
+		insert into course_baoming
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="course_name != null">
+				course_name,
+			</if>
+			<if test="course_leibie != null">
+				course_leibie,
+			</if>
+			<if test="course_dic != null">
+				course_dic,
+			</if>
+			<if test="course_xuexiao != null">
+				course_xuexiao,
+			</if>
+			<if test="course_zhuanye != null">
+				course_zhuanye,
+			</if>
+			<if test="user_name != null">
+				user_name,
+			</if>
+			<if test="user_phone != null">
+				user_phone,
+			</if>
+			<if test="user_qq != null">
+				user_qq,
+			</if>
+			<if test="course_content != null">
+				course_content,
+			</if>
+			<if test="baoming_time != null">
+				baoming_time,
+			</if>
+			<if test="user_ip != null">
+				user_ip
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="course_name != null">
+				#{course_name},
+			</if>
+			<if test="course_leibie != null">
+				#{course_leibie},
+			</if>
+			<if test="course_dic != null">
+				#{course_dic},
+			</if>
+			<if test="course_xuexiao != null">
+				#{course_xuexiao},
+			</if>
+			<if test="course_zhuanye != null">
+				#{course_zhuanye},
+			</if>
+			<if test="user_name != null">
+				#{user_name},
+			</if>
+			<if test="user_phone != null">
+				#{user_phone},
+			</if>
+			<if test="user_qq != null">
+				#{user_qq},
+			</if>
+			<if test="course_content != null">
+				#{course_content},
+			</if>
+			<if test="baoming_time != null">
+				#{baoming_time},
+			</if>
+			<if test="user_ip != null">
+				#{user_ip}
+			</if>
+		</trim>
+	</insert>
+	<!-- 删除报名信息 -->
+	<delete id="deleteBaoming" parameterType="java.lang.Integer">
+		delete from
+		course_baoming where
+		baoming_id=#{baoming_id}
+	</delete>
+	<!--获取报名信息 -->
+	<select id="getBaoming" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_baoming
+		<where>
+			<if test="baoming_id !=null">
+				baoming_id=#{baoming_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询报名列表 -->
+	<select id="getBaomingList" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_baoming
+		<where>
+			<if test="user_phone != null">
+				user_phone =#{user_phone}
+			</if>
+			<if test="user_name != null">
+				user_name =#{user_name}
+			</if>
+		</where>
+		order by baoming_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询报名数量 -->
+	<select id="getBaomingNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from course_baoming
+		<where>
+			<if test="user_phone != null">
+				user_phone =#{user_phone}
+			</if>
+			<if test="user_name != null">
+				user_name =#{user_name}
+			</if>
+		</where>
+	</select>
+</mapper>

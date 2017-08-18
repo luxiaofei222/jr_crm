@@ -1,0 +1,20 @@
+.welcome{
+	text-align:center;
+	margin:0 auto;
+	width:692px;
+	height:660px;
+	position:relative;
+	margin-top:4%;
+}
+.welcome img{
+	text-align:center;
+	margin:0 auto;
+	width:692px;
+	height:660px;
+}
+.welcome_item{
+	position:absolute;
+	z-index:3;
+	top:46%;
+	left:39.5%;
+}

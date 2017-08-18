@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.say.EmployeeSayMapper">
+	<cache eviction="FIFO" flushInterval="60000"  size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.school.bean.say.EmployeeSay"
+		id="BaseResultMap">
+		<id column="say_id" property="say_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="say_level" property="say_level" />
+		<result column="say_pic" property="say_pic" />
+		<result column="say_content" property="say_content" />
+		<result column="say_time" property="say_time" />
+		<result column="zan_times" property="zan_times" />
+		<result column="parent_employee_id" property="parent_employee_id" />
+		<result column="content_type" property="content_type" />
+		<association property="employee" column="employee_id"
+		select="com.jingren.jing.school.dao.employee.EmployeeMapper.getEmployeeByid"></association>
+	</resultMap>
+	<!--添加说说 -->
+	<insert id="saveEmployeeSay"  flushCache="true" parameterType="com.jingren.jing.school.bean.say.EmployeeSay">
+		insert into say_say
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="say_level != null">
+				say_level,
+			</if>
+			<if test="say_pic != null">
+				say_pic,
+			</if>
+			<if test="say_content != null">
+				say_content,
+			</if>
+			<if test="say_time != null">
+				say_time,
+			</if>
+			<if test="zan_times != null">
+				zan_times,
+			</if>
+			<if test="content_type != null">
+				content_type,
+			</if>
+			<if test="parent_employee_id != null">
+				parent_employee_id
+			</if>
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="say_level != null">
+				#{say_level},
+			</if>
+			<if test="say_pic != null">
+				#{say_pic},
+			</if>
+			<if test="say_content != null">
+				#{say_content},
+			</if>
+			<if test="say_time != null">
+				#{say_time},
+			</if>
+			<if test="zan_times != null">
+				#{zan_times},
+			</if>
+			<if test="content_type != null">
+				#{content_type},
+			</if>
+			<if test="parent_employee_id != null">
+				#{parent_employee_id}
+			</if>
+		</trim>
+	</insert>
+	<!-- 编辑说说  -->
+	<update id="updateEmployeeSay"  flushCache="true"  parameterType="com.jingren.jing.school.bean.say.EmployeeSay">
+		update say_say
+		<set>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="say_level != null">
+				say_level=#{say_level},
+			</if>
+			<if test="say_pic != null">
+				say_pic=#{say_pic},
+			</if>
+			<if test="say_content != null">
+				say_content=#{say_content},
+			</if>
+			<if test="say_time != null">
+				say_time=#{say_time},
+			</if>
+			<if test="zan_times != null">
+				zan_times=#{zan_times},
+			</if>
+			<if test="content_type != null">
+				content_type=#{content_type},
+			</if>
+			<if test="parent_employee_id != null">
+				parent_employee_id=#{parent_employee_id}
+			</if>
+		</set>
+		where say_id=#{say_id}
+	</update>
+	<!--删除说说 -->
+	<delete id="deleteEmployeeSay"  flushCache="true" parameterType="java.lang.Integer">
+		delete from say_say where say_id=#{say_id}
+	</delete>
+	<!--获取说说 -->
+	<select id="getEmployeeSay" parameterType="Map" resultMap="BaseResultMap">
+		select * from say_say
+		<where>
+			<if test="say_id !=null">
+				say_id=#{say_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询说说列表 -->
+	<select id="getEmployeeSayList" parameterType="Map" resultMap="BaseResultMap">
+		select * from v_say
+		<where>
+		1=1
+			<if test="employee_id != null">
+			and	employee_id=#{employee_id}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id=#{parent_id}
+			</if>
+			<if test="say_level != null">
+				and say_level=#{say_level}
+			</if>
+			<if test="content_type != null">
+				and content_type=#{content_type}
+			</if>
+			<if test="start_time != null">
+			and	say_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	say_time &lt;=#{end_time}
+			</if>
+		</where>
+		<if test="huifuleve == 0">
+				order by say_time DESC
+		</if>
+		<if test="huifuleve == 1">
+				order by say_time ASC
+		</if>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询说说数量 -->
+	<select id="getEmployeeSayNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from v_say
+		<where>
+			1=1
+			<if test="employee_id != null">
+			and	employee_id=#{employee_id}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id=#{parent_id}
+			</if>
+			<if test="say_level != null">
+				and say_level=#{say_level}
+			</if>
+			<if test="content_type != null">
+				and content_type=#{content_type}
+			</if>
+			<if test="start_time != null">
+			and	say_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	say_time &lt;=#{end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

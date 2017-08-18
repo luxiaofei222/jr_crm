@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/js/common/jquery-1.11.1.min.js"></script>
+	<link rel="stylesheet" href="/css/school/back/common/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/school/back/layui/css/layui.css">
+<link rel="stylesheet" href="/css/school/back/common/tankuang.css" />
+<script type="text/javascript" src="/js/school/back/common/bootstrap.min.js"></script>
+<script type="text/javascript" src="/css/school/back/layui/layui.js"></script>
+<script src="/js/school/back/common/tanchuang.js" type="text/javascript"></script>
+<title>查看低价体系</title>
+<style type="text/css">
+*{
+	margin:0px;
+	padding:0px;
+	font-family:"微软雅黑";
+	color:#444;
+	}
+body{
+	padding:20px;
+}
+h4{
+	margin:0 auto;
+	text-align:center;
+	margin-top:20px;
+}
+p{
+	margin:0 auto;
+	text-align:left;
+	text-indent:2em;
+	margin-top:10px;
+	color:orange;
+}
+div{
+	text-align:right;
+}
+</style>
+</head>
+<body>
+	<p>分类：${baoming.course_leibie }</p>
+	<p>报名类别/学校：${baoming.course_name }${baoming.course_xuexiao }</p>
+	<p>报名等级/专业：${baoming.course_dic }${baoming.course_zhuanye }</p>
+	<p>姓名：${baoming.user_name }</p>
+	<p>手机号：${baoming.user_phone }</p>
+	<p>用户QQ：${baoming.user_qq }</p>
+	<p>报名内容：${baoming.course_content }</p>
+	<p>用户IP：${baoming.user_ip }</p>
+	<div><fmt:formatDate type="both" value="${baoming.baoming_time }" /></div>
+</body>
+</html>

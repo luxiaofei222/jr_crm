@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.personal.dao.leave.BackLeaveMapper">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.personal.bean.leave.BackLeave"
+		id="BaseResultMap">
+		<id column="leave_id" property="leave_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="leave_content" property="leave_content" />
+		<result column="leave_start_time" property="leave_start_time" />
+		<result column="end_time" property="end_time" />
+		<result column="leave_type" property="leave_type" />
+		<result column="jingli_id" property="jingli_id" />
+		<result column="jingli_message" property="jingli_message" />
+		<result column="zongjian_id" property="zongjian_id" />
+		<result column="zongjian_message" property="zongjian_message" />
+		<result column="boss_id" property="boss_id" />
+		<result column="boss_message" property="boss_message" />
+		<result column="leave_time" property="leave_time" />
+		<result column="leave_state" property="leave_state" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="leave_shichang" property="leave_shichang" />
+		<result column="xiaojia_time" property="xiaojia_time" />
+		<result column="beizhu" property="beizhu" />
+		<result column="nianyue" property="nianyue" />
+		<result column="nianyueri" property="nianyueri" />
+	</resultMap>
+	<!--添加请假信息 -->
+	<insert id="saveBackLeave" flushCache="true"
+		parameterType="com.jingren.jing.personal.bean.leave.BackLeave">
+		insert into backleave 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="leave_content != null">
+				leave_content,
+			</if>
+			<if test="leave_start_time != null">
+				leave_start_time,
+			</if>
+			<if test="leave_end_time != null">
+				leave_end_time,
+			</if>
+			<if test="leave_type != null">
+				leave_type,
+			</if>
+			<if test="jingli_id != null">
+				jingli_id,
+			</if>
+			<if test="jingli_message != null">
+				jingli_message,
+			</if>
+			<if test="zongjian_id != null">
+				zongjian_id,
+			</if>
+			<if test="zongjian_message != null">
+				zongjian_message,
+			</if>
+			<if test="boss_id != null">
+				boss_id,
+			</if>
+			<if test="boss_message != null">
+				boss_message,
+			</if>
+			<if test="leave_time != null">
+				leave_time,
+			</if>
+			<if test="leave_state != null">
+				leave_state,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="leave_shichang != null">
+				leave_shichang,
+			</if>
+			<if test="nianyue != null">
+				nianyue,
+			</if>
+			<if test="nianyueri != null">
+				nianyueri
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="leave_content != null">
+				#{leave_content},
+			</if>
+			<if test="leave_start_time != null">
+				#{leave_start_time},
+			</if>
+			<if test="leave_end_time != null">
+				#{leave_end_time},
+			</if>
+			<if test="leave_type != null">
+				#{leave_type},
+			</if>
+			<if test="jingli_id != null">
+				#{jingli_id},
+			</if>
+			<if test="jingli_message != null">
+				#{jingli_message},
+			</if>
+			<if test="zongjian_id != null">
+				#{zongjian_id},
+			</if>
+			<if test="zongjian_message != null">
+				#{zongjian_message},
+			</if>
+			<if test="boss_id != null">
+				#{boss_id},
+			</if>
+			<if test="boss_message != null">
+				#{boss_message},
+			</if>
+			<if test="leave_time != null">
+				#{leave_time},
+			</if>
+			<if test="leave_state != null">
+				#{leave_state},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="leave_shichang != null">
+				#{leave_shichang},
+			</if>
+			<if test="nianyue != null">
+				#{nianyue},
+			</if>
+			<if test="nianyueri != null">
+				#{nianyueri}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改请假信息 -->
+	<update id="updateBackLeave" flushCache="true"
+		parameterType="com.jingren.jing.personal.bean.leave.BackLeave">
+		update backleave
+		<set>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="leave_content != null">
+				leave_content=#{leave_content},
+			</if>
+			<if test="leave_start_time != null">
+				leave_start_time=#{leave_start_time},
+			</if>
+			<if test="leave_end_time != null">
+				leave_end_time=#{leave_end_time},
+			</if>
+			<if test="leave_type != null">
+				leave_type=#{leave_type},
+			</if>
+			<if test="jingli_id != null">
+				jingli_id=#{jingli_id},
+			</if>
+			<if test="jingli_message != null">
+				jingli_message=#{jingli_message},
+			</if>
+			<if test="zongjian_id != null">
+				zongjian_id=#{zongjian_id},
+			</if>
+			<if test="zongjian_message != null">
+				zongjian_message=#{zongjian_message},
+			</if>
+			<if test="boss_id != null">
+				boss_id=#{boss_id},
+			</if>
+			<if test="boss_message != null">
+				boss_message=#{boss_message},
+			</if>
+			<if test="leave_time != null">
+				leave_time=#{leave_time},
+			</if>
+			<if test="leave_state != null">
+				leave_state=#{leave_state},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="leave_shichang != null">
+				leave_shichang=#{leave_shichang},
+			</if>
+			<if test="xiaojia_time != null">
+				xiaojia_time=#{xiaojia_time},
+			</if>
+			<if test="beizhu != null">
+				beizhu=#{beizhu}
+			</if>
+		</set>
+		where leave_id=#{leave_id}
+	</update>
+	<!--删除请假信息 -->
+	<delete id="delteBackLeave" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		backleave where
+		leave_id=#{leave_id}
+	</delete>
+	<!-- 查看请假详情 -->
+	<select id="getBackLeave" parameterType="Map" resultMap="BaseResultMap">
+		select * from backleave
+		<where>
+			<if test="leave_id != null">
+				leave_id =#{leave_id}
+			</if>
+		</where>
+	</select>
+	<!--查询请假信息列表 -->
+	<select id="getBackLeaveList" parameterType="Map" resultMap="BaseResultMap">
+		select * from backleave
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="leave_type != null">
+				and leave_type =#{leave_type}
+			</if>
+			<if test="jingli_id != null">
+				and jingli_id =#{jingli_id}
+			</if>
+			<if test="zongjian_id != null">
+				and zongjian_id =#{zongjian_id}
+			</if>
+			<if test="boss_id != null">
+				and boss_id =#{boss_id}
+			</if>
+			<if test="nianyue != null">
+				and nianyue =#{nianyue}
+			</if>
+			<if test="nianyueri != null">
+				and nianyueri =#{nianyueri}
+			</if>
+			<if test="start_time != null">
+				and leave_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and leave_time &lt;=#{end_time}
+			</if>
+		</where>
+		order by leave_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询请假信息数量 -->
+	<select id="getBackLeaveNumber" parameterType="Map" resultType="int">
+		select count(*) from backleave
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="leave_type != null">
+				and leave_type =#{leave_type}
+			</if>
+			<if test="jingli_id != null">
+				and jingli_id =#{jingli_id}
+			</if>
+			<if test="zongjian_id != null">
+				and zongjian_id =#{zongjian_id}
+			</if>
+			<if test="boss_id != null">
+				and boss_id =#{boss_id}
+			</if>
+			<if test="nianyue != null">
+				and nianyue =#{nianyue}
+			</if>
+			<if test="nianyueri != null">
+				and nianyueri =#{nianyueri}
+			</if>
+			<if test="start_time != null">
+				and leave_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and leave_time &lt;=#{end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

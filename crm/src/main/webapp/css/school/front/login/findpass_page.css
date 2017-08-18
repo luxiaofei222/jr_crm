@@ -1,0 +1,392 @@
+.rpage_wrap{
+	width:100%;
+}
+.rpage_top{
+	width:100%;
+	height:70px;
+	margin:0 auto;
+	background-color:white;
+}
+.logo{
+	width:1200px;
+	height:70px;
+	margin:0 auto;
+}
+.logo img{
+	margin-top:30px;
+}
+.rpage_info_w{
+	width:100%;
+	height:600px;
+	background-color:#06C1AE;
+}
+.rpage_info{
+	width:1200px;
+	height:600px;
+	padding-top:15px;
+	margin:0 auto;
+	position:relative;
+}/*注册框*/
+.zhucek_w{
+	width:362px;
+	height:551px;
+	margin:0 auto;
+	margin-top:30px;
+}
+.zhucek_title{
+	height:40px;
+	width:100%;
+	overflow:hidden;
+}
+.zhucek_title1{
+	float:left;
+	font-size:20px;
+	color:#222;
+	line-height:40px;
+	margin-left:120px;
+	font-weight:600;
+}
+.zhucek_title2{
+	float:right;
+	font-size:16px;
+	color:#222;
+	line-height:40px;
+	cursor:pointer;
+}
+.zhucek_title2:hover{
+	color:#06C1AE;
+}
+.inputz{
+	width:362px;
+	height:408px;
+	position:relative;
+}
+.inputz input{
+	width:360px;
+	height:50px;
+	/*margin-top:30px;*/
+	border:1px solid #ccc;
+	font-size:16px;
+	text-indent:3em;
+	color:#333;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	outline:none;
+}
+.tishi{
+	width:360px;
+	height:30px;
+	font-size:12px;
+	line-height:30px;
+	color:#ccc;
+	visibility:hidden;
+}
+.focus{
+	border:1px solid #06C1AE!important;
+}
+.dui{
+	width:28px;
+	height:28px;
+	position:absolute;
+	background:url("/images/school/front/login/zhengque.png");
+}
+.cuo{
+	width:27px;
+	height:27px;
+	position:absolute;
+	background:url("/images/school/front/login/cuowu.png");
+}
+.dui1{
+	top:43px;
+	left:323px;
+	display:none;
+}
+.cuo1{
+	top:43px;
+	left:323px;
+	display:none;
+}
+.dui2{
+	top:123px;
+	left:266px;
+	display:none;
+}
+.cuo2{
+	top:123px;
+	left:266px;
+	display:none;
+}
+.dui3{
+	top:205px;
+	left:323px;
+	display:none;
+}
+.cuo3{
+	top:205px;
+	left:323px;
+	display:none;
+}
+.dui4{
+	top:287px;
+	left:323px;
+	display:none;
+}
+.cuo4{
+	top:287px;
+	left:323px;
+	display:none;
+}
+.dui5{
+	top:367px;
+	left:323px;
+	display:none;
+}
+.cuo5{
+	top:367px;
+	left:323px;
+	display:none;
+}
+.inputz .mailicon{
+	width:26px;
+	height:18px;
+	position:absolute;
+	top:46px;
+	left:10px;
+	z-index:600;
+	background:url("/images/school/front/login/youxiang.png");
+} 
+.inputz .mailicon1{
+	width:26px;
+	height:30px;
+	position:absolute;
+	top:46px;
+	left:10px;
+	z-index:600;
+	background:url("/images/school/front/index/tel_phone.png");
+}
+.inputz .codeicon{
+	width:19px;
+	height:23px;
+	position:absolute;
+	top:125px;
+	left:15px;
+	z-index:600;
+	background:url("/images/school/front/login/yanzhengma.png");
+}
+.inputz .send1{
+	color:#06C1AE;
+	font-size:16px;
+	width:65px;
+	height:26px;
+	position:absolute;
+	top:113px;
+	left:297px;
+	line-height:26px;
+	text-align:center;
+	border:none;
+	background:none;
+	font-family:"微软雅黑";
+	margin-top:12px;
+	border-left:1px solid #ccc;
+	cursor:pointer;
+}
+.inputz .ncicon{
+	width:25px;
+	height:25px;
+	position:absolute;
+	top:207px;
+	left:13px;
+	z-index:600;
+	background:url("/images/school/front/login/nicheng.png");
+}
+.inputz .ncicon{
+	width:25px;
+	height:25px;
+	position:absolute;
+	top:207px;
+	left:13px;
+	z-index:600;
+	background:url("/images/school/front/login/nicheng.png");
+}
+.inputz .mimaicon{
+	width:18px;
+	height:25px;
+	position:absolute;
+	top:287px;
+	left:15px;
+	z-index:600;
+	background:url("/images/school/front/login/mima.png");
+}
+.inputz .mimaicon2{
+	width:18px;
+	height:25px;
+	position:absolute;
+	top:367px;
+	left:15px;
+	z-index:600;
+	background:url("/images/school/front/login/mima.png");
+}
+.coverfull{
+	position:fixed;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:133%;
+	background-color:black;
+	opacity:0.5;
+	filter:Alpha(opacity=50);
+	z-index:99999;
+	display:none;
+}
+.inputz .iargee1{
+	overflow:hidden;
+	height:18px;
+	font-size:16px;
+}
+.inputz input.check1{
+	width:18px;
+	height:18px;
+	float:left;
+	line-height:18px;
+	margin-top:0px;
+	text-indent:0em;
+}
+.inputz .iargee{
+	float:left;
+	line-height:18px;
+	margin-left:6px;
+}
+.inputz .zhucebu{
+	width:360px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	display:block;
+	margin-top:5px;
+	border:none;
+	background-color:#06C1AE;
+	font-size:18px;
+	color:white;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	font-family:"微软雅黑";
+	letter-spacing:2px;
+	cursor:pointer;
+}
+/*登录框*/
+.dengluk{
+	position:absolute;
+	top:72px;
+	left:55%;
+	width:450px;
+	height:380px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	background-color:white;
+	z-index:1000000;
+	font-family:"微软雅黑";
+}
+.forget{
+	display:block;
+	color:#06C1AE;
+	font-size:16px;
+	width:85px;
+	height:26px;
+	position:absolute;
+	top:113px;
+	left:277px;
+	line-height:26px;
+	text-align:center;
+	border:none;
+	background:none;
+	font-family:"微软雅黑";
+	margin-top:12px;
+	cursor:pointer;
+}
+.fangshi{
+	margin:0 auto;
+	width:360px;
+	height:40px;
+}
+.fghx{
+	overflow:hidden;
+	width:360px;
+	height:40px;
+	margin-top:30px;	
+}
+.fghx1{
+	float:left;
+	width:110px;
+	height:20px;
+	margin-top:19px;
+	border-top:1px solid #ccc;
+}
+.fghx2{
+	float:left;
+	font-size:16px;
+	color:#ccc;
+	line-height:40px;
+	text-align:center;
+	margin-left:16px;
+}
+.fghx3{
+	float:right;
+	height:20px;
+	width:110px;
+	margin-top:19px;
+	border-top:1px solid #ccc;
+}
+.fangshiz{
+	width:306px;
+	height:90px;
+	margin:0 auto;
+	margin-top:20px;
+}
+.fangshi1{
+	float:left;
+}
+.fangshi2{
+	float:left;
+	margin-left:68px;
+}
+.fangshi3{
+	float:right;
+}
+/*找回密码*/
+.backpsd{
+	margin:0 auto;
+	width:450px;
+	height:517px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	background-color:white;
+	z-index:1000000;
+	font-family:"微软雅黑";
+}
+.backbtn{
+	float:left;
+	line-height:40px;
+	cursor:pointer;
+	margin-top:13px;
+}
+.back_wz{
+	float:left;
+	font-size:20px;
+	color:#222;
+	line-height:40px;
+	font-weight:600;
+	margin-left:120px;
+	margin-top:10px;
+}

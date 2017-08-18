@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.university.dao.ReviewMapper">
+	<resultMap type="com.jingren.jing.common.university.bean.Review" id="BaseResultMap">
+		<id column="review_id" property="review_id" />
+		<result column="course_id" property="course_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="review_name" property="review_name" />
+		<result column="review_time" property="review_time" />
+	</resultMap>
+	<!--获取职称评审列表 -->
+	<select id="getReviewList" parameterType="Map" resultMap="BaseResultMap">
+		select * from review
+		<where>
+			<if test="course_id !=null">
+				course_id=#{course_id}
+			</if>
+		</where>
+	</select>
+	<!--  获取职称评审信息-->
+	<select id="getReview" parameterType="Map" resultMap="BaseResultMap">
+		select * from review
+		<where>
+			<if test="review_id !=null">
+				review_id=#{review_id}
+			</if>
+		</where>
+	</select>
+</mapper>

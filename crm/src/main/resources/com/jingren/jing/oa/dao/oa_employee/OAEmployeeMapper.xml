@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.oa.dao.oa_employee.OAEmployeeMapper">
+	<resultMap
+		type="com.jingren.jing.oa.bean.oa_employee.OAEmployee"
+		id="BaseResultMap">
+		<id column="oa_employee_id" property="oa_employee_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="gangwei_id" property="gangwei_id" />
+		<result column="ruzhi_time" property="ruzhi_time" />
+		<result column="xingming" property="xingming" />
+		<result column="xingbie" property="xingbie" />
+		<result column="minzu" property="minzu" />
+		<result column="birthday" property="birthday" />
+		<result column="zhengzhi_mianmao" property="zhengzhi_mianmao" />
+		<result column="hunyin_state" property="hunyin_state" />
+		<result column="zuigao_xueli" property="zuigao_xueli" />
+		<result column="phone" property="phone" />
+		<result column="qq" property="qq" />
+		<result column="card_number" property="card_number" />
+		<result column="mail" property="mail" />
+		<result column="huji" property="huji" />
+		<result column="now_addr" property="now_addr" />
+		<result column="gangwei_state" property="gangwei_state" />
+		<result column="oa_employee_time" property="oa_employee_time" />
+		<result column="employee_pic" property="employee_pic" />
+		<result column="zhuanzheng_time" property="zhuanzheng_time" />
+		<result column="lizhi_time" property="lizhi_time" />
+		
+	</resultMap>
+	<!--添加员工入职信息 -->
+	<insert id="saveOAEmployee" useGeneratedKeys="true" keyProperty="oa_employee_id"
+		parameterType="com.jingren.jing.oa.bean.oa_employee.OAEmployee">
+		insert into oa_employee
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="gangwei_id != null">
+				gangwei_id,
+			</if>
+			<if test="ruzhi_time != null">
+				ruzhi_time,
+			</if>
+			<if test="xingming != null">
+				xingming,
+			</if>
+			<if test="xingbie != null">
+				xingbie,
+			</if>
+			<if test="minzu != null">
+				minzu,
+			</if>
+			<if test="birthday != null">
+				birthday,
+			</if>
+			<if test="zhengzhi_mianmao != null">
+				zhengzhi_mianmao,
+			</if>
+			<if test="hunyin_state != null">
+				hunyin_state,
+			</if>
+			<if test="zuigao_xueli != null">
+				zuigao_xueli,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="qq != null">
+				qq,
+			</if>
+			<if test="card_number != null">
+				card_number,
+			</if>
+			<if test="mail != null">
+				mail,
+			</if>
+			<if test="huji != null">
+				huji,
+			</if>
+			<if test="now_addr != null">
+				now_addr,
+			</if>
+			<if test="gangwei_state != null">
+				gangwei_state,
+			</if>
+			<if test="oa_employee_time != null">
+				oa_employee_time,
+			</if>
+			<if test="employee_pic != null">
+				employee_pic,
+			</if>
+			<if test="zhuanzheng_time != null">
+				zhuanzheng_time,
+			</if>
+			<if test="jiguan != null">
+				jiguan
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="gangwei_id != null">
+				#{gangwei_id},
+			</if>
+			<if test="ruzhi_time != null">
+				#{ruzhi_time},
+			</if>
+			<if test="xingming != null">
+				#{xingming},
+			</if>
+			<if test="xingbie != null">
+				#{xingbie},
+			</if>
+			<if test="minzu != null">
+				#{minzu},
+			</if>
+			<if test="birthday != null">
+				#{birthday},
+			</if>
+			<if test="zhengzhi_mianmao != null">
+				#{zhengzhi_mianmao},
+			</if>
+			<if test="hunyin_state != null">
+				#{hunyin_state},
+			</if>
+			<if test="zuigao_xueli != null">
+				#{zuigao_xueli},
+			</if>
+			<if test="phone != null">
+				#{phone},
+			</if>
+			<if test="qq != null">
+				#{qq},
+			</if>
+			<if test="card_number != null">
+				#{card_number},
+			</if>
+			<if test="mail != null">
+				#{mail},
+			</if>
+			<if test="huji != null">
+				#{huji},
+			</if>
+			<if test="now_addr != null">
+				#{now_addr},
+			</if>
+			<if test="gangwei_state != null">
+				#{gangwei_state},
+			</if>
+			<if test="oa_employee_time != null">
+				#{oa_employee_time},
+			</if>
+			<if test="employee_pic != null">
+				#{employee_pic},
+			</if>
+			<if test="zhuanzheng_time != null">
+				#{zhuanzheng_time},
+			</if>
+			<if test="jiguan != null">
+				#{jiguan}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改员工信息-->
+	<update id="updateOAEmployee"
+		parameterType="com.jingren.jing.oa.bean.oa_employee.OAEmployee">
+		update oa_employee
+		<set>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="gangwei_id != null">
+				gangwei_id=#{gangwei_id},
+			</if>
+			<if test="ruzhi_time != null">
+				ruzhi_time=#{ruzhi_time},
+			</if>
+			<if test="xingming != null">
+				xingming=#{xingming},
+			</if>
+			<if test="xingbie != null">
+				xingbie=#{xingbie},
+			</if>
+			<if test="minzu != null">
+				minzu=#{minzu},
+			</if>
+			<if test="birthday != null">
+				birthday=#{birthday},
+			</if>
+			<if test="zhengzhi_mianmao != null">
+				zhengzhi_mianmao=#{zhengzhi_mianmao},
+			</if>
+			<if test="hunyin_state != null">
+				hunyin_state=#{hunyin_state},
+			</if>
+			<if test="zuigao_xueli != null">
+				zuigao_xueli=#{zuigao_xueli},
+			</if>
+			<if test="phone != null">
+				phone=#{phone},
+			</if>
+			<if test="qq != null">
+				qq=#{qq},
+			</if>
+			<if test="card_number != null">
+				card_number=#{card_number},
+			</if>
+			<if test="mail != null">
+				mail=#{mail},
+			</if>
+			<if test="huji != null">
+				huji=#{huji},
+			</if>
+			<if test="now_addr != null">
+				now_addr=#{now_addr},
+			</if>
+			<if test="gangwei_state != null">
+				gangwei_state=#{gangwei_state},
+			</if>
+			<if test="oa_employee_time != null">
+				oa_employee_time=#{oa_employee_time},
+			</if>
+			<if test="employee_pic != null">
+				employee_pic=#{employee_pic},
+			</if>
+			<if test="zhuanzheng_time != null">
+				zhuanzheng_time=#{zhuanzheng_time},
+			</if>
+			<if test="jiguan != null">
+				jiguan=#{jiguan},
+			</if>
+			<if test="lizhi_time != null">
+				lizhi_time=#{lizhi_time}
+			</if>
+		</set>
+		where 
+		<if test=" oa_employee_id != null">
+		oa_employee_id=#{oa_employee_id}
+		</if>
+	</update>
+	<!--删除员工信息 -->
+	<delete id="deleteOAEmployee" parameterType="java.lang.Integer">
+		delete from
+		oa_employee where
+		oa_employee_id=#{oa_employee_id}
+	</delete>
+	<!--获取员工详细信息 -->
+	<select id="getOAEmployee" parameterType="Map" resultMap="BaseResultMap">
+		select * from oa_employee
+		<where>
+			<if test="oa_employee_id !=null">
+				oa_employee_id=#{oa_employee_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询员工信息列表 -->
+	<select id="getOAEmployeeList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from oa_employee
+		<where>
+			1=1
+			<if test="xingbie != null">
+			and	xingbie =#{xingbie}
+			</if>
+			<if test="xingming != null">
+			and	xingming =#{xingming}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="card_number != null">
+			and	card_number =#{card_number}
+			</if>
+			<if test="bumen_id != null">
+			and	bumen_id =#{bumen_id}
+			</if>
+			<if test="birthday != null">
+			and	birthday =#{birthday}
+			</if>
+			<if test="gangwei_state != null">
+			and	gangwei_state =#{gangwei_state}
+			</if>
+			<if test="ruzhi_time_start != null">
+			and	ruzhi_time &gt;=#{ruzhi_time_start}
+			</if>
+			<if test="ruzhi_time_end != null">
+			and	ruzhi_time &lt;=#{ruzhi_time_end}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-纠错信息数量 -->
+	<select id="getOAEmployeeNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from oa_employee
+		<where>
+			1=1
+				<if test="xingbie != null">
+			and	xingbie =#{xingbie}
+			</if>
+			<if test="xingming != null">
+			and	xingming =#{xingming}
+			</if>
+			<if test="card_number != null">
+			and	card_number =#{card_number}
+			</if>
+			<if test="bumen_id != null">
+			and	bumen_id =#{bumen_id}
+			</if>
+			<if test="birthday != null">
+			and	birthday =#{birthday}
+			</if>
+			<if test="gangwei_state != null">
+			and	gangwei_state =#{gangwei_state}
+			</if>
+			<if test="ruzhi_time_start != null">
+			and	ruzhi_time &gt;=#{ruzhi_time_start}
+			</if>
+			<if test="ruzhi_time_end != null">
+			and	ruzhi_time &lt;=#{ruzhi_time_end}
+			</if>
+		</where>
+	</select>
+</mapper>

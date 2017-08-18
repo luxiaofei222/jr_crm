@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.chapter_exercises.ChapterQuestionMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.chapter_exercises.ChapterQuestion"
+		id="BaseResultMap">
+		<id column="chapter_question_id" property="chapter_question_id" />
+		<result column="zhang_id" property="zhang_id" />
+		<result column="jie_id" property="jie_id" />
+		<result column="question_id" property="question_id" />
+		<result column="question_name" property="question_name" />
+		<result column="question_name_pic" property="question_name_pic" />
+		<result column="question_type" property="question_type" />
+		<result column="chapter_question_time" property="chapter_question_time" />
+		<result column="question_course_id" property="question_course_id" />
+		<result column="answer" property="answer" />
+		<result column="analysis" property="analysis" />
+		<result column="difficulty" property="difficulty" />
+		<result column="zhenti_question_id" property="zhenti_question_id" />
+		<result column="fenzhi" property="fenzhi" />
+	</resultMap>
+	<!--添加章节练习-章节题目信息 -->
+	<insert id="saveChapterQuestion" useGeneratedKeys="true" keyProperty="chapter_question_id"
+		parameterType="com.jingren.jing.question.bean.chapter_exercises.ChapterQuestion">
+		insert into chapter_question
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="zhang_id != null">
+				zhang_id,
+			</if>
+			<if test="jie_id != null">
+				jie_id,
+			</if>
+			<if test="question_id != null">
+				question_id,
+			</if>
+			<if test="question_name != null">
+				question_name,
+			</if>
+			<if test="question_name_pic != null">
+				question_name_pic,
+			</if>
+			<if test="question_type != null">
+				question_type,
+			</if>
+			<if test="chapter_question_time != null">
+				chapter_question_time,
+			</if>
+			<if test="question_course_id != null">
+				question_course_id,
+			</if>
+			<if test="answer != null">
+				answer,
+			</if>
+			<if test="analysis != null">
+				analysis,
+			</if>
+			<if test="difficulty != null">
+				difficulty,
+			</if>
+			<if test="zhenti_question_id != null">
+				zhenti_question_id,
+			</if>
+			<if test="fenzhi != null">
+				fenzhi
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="zhang_id != null">
+				#{zhang_id},
+			</if>
+			<if test="jie_id != null">
+				#{jie_id},
+			</if>
+			<if test="question_id != null">
+				#{question_id},
+			</if>
+			<if test="question_name != null">
+				#{question_name},
+			</if>
+			<if test="question_name_pic != null">
+				#{question_name_pic},
+			</if>
+			<if test="question_type != null">
+				#{question_type},
+			</if>
+			<if test="chapter_question_time != null">
+				#{chapter_question_time},
+			</if>
+			<if test="question_course_id != null">
+				#{question_course_id},
+			</if>
+			<if test="answer != null">
+				#{answer},
+			</if>
+			<if test="analysis != null">
+				#{analysis},
+			</if>
+			<if test="difficulty != null">
+				#{difficulty},
+			</if>
+			<if test="zhenti_question_id != null">
+				#{zhenti_question_id},
+			</if>
+			<if test="fenzhi != null">
+				#{fenzhi}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改章节练习-章节题目信息 -->
+	<update id="updateChapterQuestion"
+		parameterType="com.jingren.jing.question.bean.chapter_exercises.ChapterQuestion">
+		update chapter_question
+		<set>
+			<if test="zhang_id != null">
+				zhang_id=#{zhang_id},
+			</if>
+			<if test="jie_id != null">
+				jie_id=#{jie_id},
+			</if>
+			<if test="question_id != null">
+				question_id=#{question_id},
+			</if>
+			<if test="question_name != null">
+				question_name=#{question_name},
+			</if>
+			<if test="question_name_pic != null">
+				question_name_pic=#{question_name_pic},
+			</if>
+			<if test="question_type != null">
+				question_type=#{question_type},
+			</if>
+			<if test="chapter_question_time != null">
+				chapter_question_time=#{chapter_question_time},
+			</if>
+			<if test="analysis != null">
+				analysis=#{analysis},
+			</if>
+			<if test="answer != null">
+				answer=#{answer},
+			</if>
+			<if test="zhenti_question_id != null">
+				zhenti_question_id=#{zhenti_question_id},
+			</if>
+			<if test="fenzhi != null">
+				fenzhi=#{fenzhi}
+			</if>
+		</set>
+		where chapter_question_id=#{chapter_question_id}
+	</update>
+	<!--删除章节练习-章节题目信息 -->
+	<delete id="deleteChapterQuestion" parameterType="java.lang.Integer">
+		delete from
+		chapter_question where
+		chapter_question_id=#{chapter_question_id}
+	</delete>
+	<!--根据章ID删除  -->
+	<delete id="deleteChapterQuestionByzhang_id" parameterType="java.lang.Integer">
+		delete from
+		chapter_question where
+		zhang_id=#{zhang_id}
+	</delete>
+	<!--根据节ID删除  -->
+	<delete id="deleteChapterQuestionByjie_id" parameterType="java.lang.Integer">
+		delete from
+		chapter_question where
+		jie_id=#{jie_id}
+	</delete>
+	<!--根据课ID删除  -->
+	<delete id="deleteChapterQuestionByquestion_id" parameterType="java.lang.Integer">
+		delete from
+		chapter_question where
+		question_id=#{question_id}
+	</delete>
+	<!--获取章节练习-章节题目信息 -->
+	<select id="getChapterQuestion" parameterType="Map" resultMap="BaseResultMap">
+		select * from chapter_question
+		<where>
+			<if test="chapter_question_id !=null">
+				chapter_question_id=#{chapter_question_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询章节练习-章节信列表 -->
+	<select id="getChapterQuestionList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from chapter_question
+		<where>
+			<if test="question_type != null">
+				question_type =#{question_type}
+			</if>
+			<if test="question_id != null">
+				question_id =#{question_id}
+			</if>
+			<if test="zhang_id != null">
+				zhang_id =#{zhang_id}
+			</if>
+			<if test="jie_id != null">
+				jie_id =#{jie_id}
+			</if>
+			<if test="question_course_id != null">
+				question_course_id =#{question_course_id}
+			</if>
+			<if test="zhenti_question_id != null">
+				zhenti_question_id =#{zhenti_question_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-章节题目信息数量 -->
+	<select id="getChapterQuestionNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from chapter_question
+		<where>
+			<if test="question_type != null">
+				question_type =#{question_type}
+			</if>
+			<if test="question_id != null">
+				question_id =#{question_id}
+			</if>
+			<if test="zhang_id != null">
+				zhang_id =#{zhang_id}
+			</if>
+			<if test="jie_id != null">
+				jie_id =#{jie_id}
+			</if>
+			<if test="question_course_id != null">
+				question_course_id=#{question_course_id}
+			</if>
+		</where>
+	</select>
+</mapper>

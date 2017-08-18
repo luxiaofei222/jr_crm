@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.role.RoleMapper">
+	<resultMap type="com.jingren.jing.school.bean.role.Role"
+		id="BaseResultMap">
+		<id column="role_id" property="role_id" />
+		<result column="role_name" property="role_name" />
+		<result column="role_dis" property="role_dis" />
+		<result column="role_time" property="role_time" />
+	</resultMap>
+	<!--添加角色信息 -->
+	<insert id="saveRole" parameterType="com.jingren.jing.school.bean.role.Role">
+		insert into role
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="role_name != null">
+				role_name,
+			</if>
+			<if test="role_dis != null">
+				role_dis,
+			</if>
+			<if test="role_time != null">
+				role_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="role_name != null">
+				#{role_name},
+			</if>
+			<if test="role_dis != null">
+				#{role_dis},
+			</if>
+			<if test="role_time != null">
+				#{role_time}
+			</if>
+		</trim>
+	</insert>
+	<!--删除角色信息 -->
+	<delete id="deleteRole" parameterType="java.lang.Integer">
+		delete from
+		role where
+		role_id=#{role_id}
+	</delete>
+	<!--获取角色信息 -->
+	<select id="getRole" parameterType="Map" resultMap="BaseResultMap">
+		select * from role
+		<where>
+			<if test="role_id !=null">
+				role_id=#{role_id}
+			</if>
+			<if test="role_name !=null">
+				role_name=#{role_name}
+			</if>
+		</where>
+	</select>
+
+	<!--查询角色列表 -->
+	<select id="getRoleList" parameterType="Map" resultMap="BaseResultMap">
+		select * from role
+		<where>
+			<if test="role_name != null">
+				role_name like "%"#{role_name}"%"
+			</if>
+		</where>
+		order by role_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询角色数量 -->
+	<select id="getRoleNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from role
+		<where>
+			<if test="role_name != null">
+				role_name = #{role_name}
+			</if>
+		</where>
+	</select>
+</mapper>

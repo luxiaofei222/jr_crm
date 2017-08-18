@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.employee.EmployeeMapper">
+ 	<cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+	<resultMap type="com.jingren.jing.school.bean.employee.Employee"
+		id="BaseResultMap">
+		<id column="employee_id" property="employee_id" />
+		<result column="employee_name" property="employee_name" />
+		<result column="employee_sex" property="employee_sex" />
+		<result column="employee_qq" property="employee_qq" />
+		<result column="employee_phone" property="employee_phone" />
+		<result column="employee_mail" property="employee_mail" />
+		<result column="employee_trades" property="employee_trades" />
+		<result column="employee_time" property="employee_time" />
+		<result column="login_name" property="login_name" />
+		<result column="login_password" property="login_password" />
+		<result column="role_id" property="role_id" />
+		<result column="organization_id" property="organization_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="employee_state" property="employee_state" />
+		<result column="employee_pic" property="employee_pic" />
+		<result column="job_number" property="job_number" />
+		<result column="zuoxi" property="zuoxi" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="jifen" property="jifen" />
+		<result column="fengmian" property="fengmian" />
+		<result column="beijing" property="beijing" />
+	</resultMap>
+	<!--添加员工信息 -->
+	<insert id="saveEmployee" flushCache="true" parameterType="com.jingren.jing.school.bean.employee.Employee">
+		insert into employee
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_name != null">
+				employee_name,
+			</if>
+			<if test="employee_sex != null">
+				employee_sex,
+			</if>
+			<if test="employee_qq != null">
+				employee_qq,
+			</if>
+			<if test="employee_phone != null">
+				employee_phone,
+			</if>
+			<if test="employee_mail != null">
+				employee_mail,
+			</if>
+			<if test="employee_trades != null">
+				employee_trades,
+			</if>
+			<if test="employee_time != null">
+				employee_time,
+			</if>
+			<if test="login_name !=null">
+				login_name,
+			</if>
+			<if test="login_password !=null">
+				login_password,
+			</if>
+			<if test="role_id !=null">
+				role_id,
+			</if>
+			<if test="organization_id !=null">
+				organization_id,
+			</if>
+			<if test="parent_id !=null">
+				parent_id,
+			</if>
+			<if test="employee_state !=null">
+				employee_state,
+			</if>
+			<if test="job_number !=null">
+				job_number,
+			</if>
+			<if test="zuoxi !=null">
+				zuoxi,
+			</if>
+			<if test="jifen !=null">
+				jifen,
+			</if>
+			<if test="bumen_id !=null">
+				bumen_id
+			</if>
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_name != null">
+				#{employee_name},
+			</if>
+			<if test="employee_sex != null">
+				#{employee_sex},
+			</if>
+			<if test="employee_qq != null">
+				#{employee_qq},
+			</if>
+			<if test="employee_phone != null">
+				#{employee_phone},
+			</if>
+			<if test="employee_mail != null">
+				#{employee_mail},
+			</if>
+			<if test="employee_trades != null">
+				#{employee_trades},
+			</if>
+			<if test="employee_time != null">
+				#{employee_time},
+			</if>
+			<if test="login_name !=null">
+				#{login_name},
+			</if>
+			<if test="login_password !=null">
+				#{login_password},
+			</if>
+			<if test="role_id !=null">
+				#{role_id},
+			</if>
+			<if test="organization_id !=null">
+				#{organization_id},
+			</if>
+			<if test="parent_id !=null">
+				#{parent_id},
+			</if>
+			<if test="employee_state !=null">
+				#{employee_state},
+			</if>
+			<if test="job_number !=null">
+				#{job_number},
+			</if>
+			<if test="zuoxi !=null">
+				#{zuoxi},
+			</if>
+			<if test="jifen !=null">
+				#{jifen},
+			</if>
+			<if test="bumen_id !=null">
+				#{bumen_id}
+			</if>
+		</trim>
+	</insert>
+	<!--修改员工 -->
+	<update id="updateEmployee" flushCache="true" parameterType="com.jingren.jing.school.bean.employee.Employee">
+		update employee
+		<set>
+			<if test="employee_name != null">
+				employee_name=#{employee_name},
+			</if>
+			<if test="employee_sex != null">
+				employee_sex=#{employee_sex},
+			</if>
+			<if test="employee_qq != null">
+				employee_qq=#{employee_qq},
+			</if>
+			<if test="employee_phone != null">
+				employee_phone=#{employee_phone},
+			</if>
+			<if test="employee_mail != null">
+				employee_mail=#{employee_mail},
+			</if>
+			<if test="employee_trades != null">
+				employee_trades=#{employee_trades},
+			</if>
+			<if test="employee_time != null">
+				employee_time=#{employee_time},
+			</if>
+			<if test="login_name !=null">
+				login_name=#{login_name},
+			</if>
+			<if test="login_password !=null">
+				login_password=#{login_password},
+			</if>
+			<if test="role_id !=null">
+				role_id=#{role_id},
+			</if>
+			<if test="organization_id !=null">
+				organization_id=#{organization_id},
+			</if>
+			<if test="parent_id !=null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="employee_state !=null">
+				employee_state=#{employee_state},
+			</if>
+			<if test="employee_pic !=null">
+				employee_pic=#{employee_pic},
+			</if>
+			<if test="job_number !=null">
+				job_number=#{job_number},
+			</if>
+			<if test="jifen !=null">
+				jifen=#{jifen},
+			</if>
+			<if test="zuoxi !=null">
+				zuoxi=#{zuoxi},
+			</if>
+			<if test="fengmian !=null">
+				fengmian=#{fengmian},
+			</if>
+			<if test="beijing !=null">
+				beijing=#{beijing},
+			</if>
+			<if test="bumen_id !=null">
+				bumen_id=#{bumen_id}
+			</if>
+		</set>
+		where employee_id=#{employee_id}
+	</update>
+	<!--删除员工信息 -->
+	<delete id="deleteEmployee" flushCache="true"  parameterType="java.lang.Integer">
+		delete from
+		employee where
+		employee_id=#{employee_id}
+	</delete>
+	<!--获取员工信息 -->
+	<select id="getEmployee" parameterType="Map" resultMap="BaseResultMap" >
+		select 
+		<if test="zuoxi ==null">
+			* 
+		</if>
+		<if test="zuoxi !=null">
+			employee_id,employee_name 
+		</if>
+		from employee
+		<where>
+			<if test="employee_id !=null">
+				employee_id=#{employee_id}
+			</if>
+			<if test="login_name !=null">
+				login_name=#{login_name}
+			</if>
+			<if test="job_number !=null">
+				job_number=#{job_number}
+			</if>
+			<if test="zuoxi !=null">
+				zuoxi=#{zuoxi}
+			</if>
+		</where>
+	</select>
+
+	<!--通过ID获取员工信息  -->
+	<select id="getEmployeeByid" parameterType="int" resultMap="BaseResultMap">
+		select * from employee where employee_id=#{employee_id}
+	</select>
+	<!--查询员工列表 -->
+	<select id="getEmployeeList" parameterType="Map" resultMap="BaseResultMap" >
+		select * from employee
+		<where>
+		1=1
+			<if test="employee_name != null">
+			and	employee_name like "%"#{employee_name}"%"
+			</if>
+			<if test="employee_name_crm != null">
+			and	employee_name =#{employee_name_crm}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id =#{parent_id}
+			</if>
+			<if test="employee_sex != null">
+			and	employee_sex =#{employee_sex}
+			</if>
+			<if test="organization_id != null">
+			and	organization_id =#{organization_id}
+			</if>
+			<if test="role_id != null">
+			and	role_id =#{role_id}
+			</if>
+			<if test="zuoxi != null">
+			and	zuoxi != 0
+			</if>
+			<if test="crm_zuoxi != null">
+			and	zuoxi = 0
+			</if>
+			<if test="employee_state_cen != null">
+			and employee_state =#{employee_state_cen}
+			</if>
+			<if test="task_bumen_id != null">
+			and	bumen_id =#{task_bumen_id}
+			</if>
+			<if test="employee_state != null">
+			and	employee_state =#{employee_state}
+			</if>
+			<if test="parent_id_zuoxi != null">
+			and	parent_id =#{parent_id_zuoxi}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+			and bumen_id =#{bumen_id}
+			</if>
+		</where>
+		<!-- order by employee_time DESC -->
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询员工数量 -->
+	<select id="getEmployeeNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from employee
+		<where>
+			1=1
+			<if test="employee_name != null">
+			and	employee_name like "%"#{employee_name}"%"
+			</if>
+			<if test="employee_name_crm != null">
+			and	employee_name =#{employee_name_crm}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id =#{parent_id}
+			</if>
+			<if test="employee_sex != null">
+			and	employee_sex =#{employee_sex}
+			</if>
+			<if test="organization_id != null">
+			and	organization_id =#{organization_id}
+			</if>
+			<if test="role_id != null">
+			and	role_id =#{role_id}
+			</if>
+			<if test="zuoxi != null">
+			and	zuoxi != 0
+			</if>
+			<if test="crm_zuoxi != null">
+			and	zuoxi = 0
+			</if>
+			<if test="employee_state_cen != null">
+			and employee_state =#{employee_state_cen}
+			</if>
+			<if test="task_bumen_id != null">
+			and	bumen_id =#{task_bumen_id}
+			</if>
+			<if test="employee_state != null">
+			and	employee_state =#{employee_state}
+			</if>
+			<if test="parent_id_zuoxi != null">
+			and	parent_id =#{parent_id_zuoxi}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+			and bumen_id =#{bumen_id}
+			</if>
+		</where>
+	</select>
+	<!-- 获取最大的工号 -->
+	<select id="getEmployeeJobnumber" resultType="String">
+	SELECT MAX(job_number) FROM employee
+	</select>
+</mapper>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.entrysystem.dao.repair.RepairMoneyMapper">
+	<resultMap type="com.jingren.jing.school.entrysystem.bean.repair.RepairMoney"
+		id="BaseResultMap">
+		<id column="repair_id" property="repair_id" />
+		<result column="repair_name" property="repair_name" />
+		<result column="pay_money" property="pay_money" />
+		<result column="pay_time" property="pay_time" />
+		<result column="repair_time" property="repair_time" />
+		<result column="entry_info_id" property="entry_info_id" />
+		<result column="entryplan_id" property="entryplan_id" />
+		<result column="entrycondition_id" property="entrycondition_id" />
+		<result column="note" property="note" />
+		<result column="paytype" property="paytype" />
+	</resultMap>
+	<!--添加学员补费信息 -->
+	<insert id="saveRepairMoney"
+		parameterType="com.jingren.jing.school.entrysystem.bean.repair.RepairMoney">
+		insert into repair_money
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="repair_name != null">
+				repair_name,
+			</if>
+			<if test="pay_money != null">
+				pay_money,
+			</if>
+			<if test="pay_time != null">
+				pay_time,
+			</if>
+			<if test="repair_time != null">
+				repair_time,
+			</if>
+			<if test="entry_info_id != null">
+				entry_info_id,
+			</if>
+			<if test="entryplan_id != null">
+				entryplan_id,
+			</if>
+			<if test="entrycondition_id != null">
+				entrycondition_id,
+			</if>
+			<if test="note != null">
+				note,
+			</if>
+			<if test="paytype != null">
+				paytype
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="repair_name != null">
+				#{repair_name},
+			</if>
+			<if test="pay_money != null">
+				#{pay_money},
+			</if>
+			<if test="pay_time != null">
+				#{pay_time},
+			</if>
+			<if test="repair_time != null">
+				#{repair_time},
+			</if>
+			<if test="entry_info_id != null">
+				#{entry_info_id},
+			</if>
+			<if test="entryplan_id != null">
+				#{entryplan_id},
+			</if>
+			<if test="entrycondition_id != null">
+				#{entrycondition_id},
+			</if>
+			<if test="note != null">
+				#{note},
+			</if>
+			<if test="paytype != null">
+				#{paytype}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改学员补费信息 -->
+	<update id="updateRepairMoney"
+		parameterType="com.jingren.jing.school.entrysystem.bean.repair.RepairMoney">
+		update repair_money
+		<set>
+			<if test="repair_name != null">
+				repair_name=#{repair_name},
+			</if>
+			<if test="pay_money != null">
+				pay_money=#{pay_money},
+			</if>
+			<if test="pay_time != null">
+				pay_time=#{pay_time},
+			</if>
+			<if test="repair_time != null">
+				repair_time=#{repair_time},
+			</if>
+			<if test="entry_info_id != null">
+				entry_info_id=#{entry_info_id},
+			</if>
+			<if test="entryplan_id != null">
+				entryplan_id=#{entryplan_id},
+			</if>
+			<if test="entrycondition_id != null">
+				entrycondition_id=#{entrycondition_id},
+			</if>
+			<if test="note != null">
+				note=#{note},
+			</if>
+			<if test="paytype != null">
+				paytype=#{paytype}
+			</if>
+		</set>
+		where repair_id=#{repair_id}
+	</update>
+	<!--删除学员补费信息 -->
+	<delete id="deleteRepairMoney" parameterType="java.lang.Integer">
+		delete from
+		repair_money where
+		repair_id=#{repair_id}
+	</delete>
+	<!--获取学员补费信息 -->
+	<select id="getRepairMoney" parameterType="Map" resultMap="BaseResultMap">
+		select * from repair_money
+		<where>
+			<if test="repair_id !=null">
+				repair_id=#{repair_id}
+			</if>
+		</where>
+	</select>
+	<!--查询学员补费列表 -->
+	<select id="getRepairMoneyList" parameterType="Map" resultMap="BaseResultMap">
+		select * from repair_money
+		<where>
+			<if test="entry_info_id != null">
+				entry_info_id =#{entry_info_id}
+			</if>
+			<if test="start_time != null">
+			and	repair_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	repair_time &lt;=#{end_time}
+			</if>
+			<if test="bao_start_time != null">
+			and	pay_time &gt;=#{bao_start_time}
+			</if>
+			<if test="bao_end_time != null">
+			and	pay_time &lt;=#{bao_end_time}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,113 @@
+body {
+  background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92,#75517d, #1b2947);
+  background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 95%, #f7f7b6);
+  background-attachment: fixed;
+  overflow: hidden;
+  padding: 100px 0px 30px 0px;
+}
+ 
+ 
+@keyframes rotate {
+  0% {
+    transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+  }
+  100% {
+    transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+  }
+}
+.stars {
+  transform: perspective(500px);
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 0;
+  perspective-origin: 50% 100%;
+  left: 50%;
+  animation: rotate 90s infinite linear;
+}
+
+.star {
+  width: 2px;
+  height: 2px;
+  background: #F7F7B6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0 -300px;
+  transform: translate3d(0, 0, -300px);
+  backface-visibility: hidden;
+}
+.back_color {
+  background-color:#fff;
+  opacity:0.5;
+  filter:alpha(opactiy=50);
+  width:520px;
+  height:380px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-190px;
+  margin-left:-260px;
+  border-radius:15px;
+  z-index:1;
+}
+.back_login {
+  z-index:99;
+  width:520px;
+  height:380px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-190px;
+  margin-left:-260px;
+}
+.back_login h2 {
+  color:#06C2BE;
+  font-size: 37px;
+  text-align:center;
+  font-family:"黑体";
+}
+.back_login .login-form {
+  background-color:inherit;
+}
+.back_login .form-control {
+  height:55px;
+}
+.back_login .login-form .login-field-icon {
+  top:8px;
+}
+.back_login .login-form {
+  padding-top:5px;
+}.back_login .login-form .form-group {
+  margin-bottom:30px;
+}
+.back_login .error {
+  margin-left:22px;
+  height:30px;
+  line-height:30px;
+  font-size:14px;
+  color:#444;
+}
+.copyright {
+  margin:0 auto;
+  /* text-align: center; */
+   font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  margin-top:100px;
+  width: 550px;
+}
+.copyright a{
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  opacity:0.5;
+  filter:alpha(opactiy=50);
+  cursor:pointer;
+}
+.copyright a:hover{
+	color: #000;
+	transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}

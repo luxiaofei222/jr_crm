@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.educational.dao.viate.EntryViateMapper">
+	<resultMap type="com.jingren.jing.educational.bean.viate.EntryViate"
+		id="BaseResultMap">
+		<id column="vitae_id" property="vitae_id" />
+		<result column="entry_info_id" property="entry_info_id" />
+		<result column="time_qujian" property="time_qujian" />
+		<result column="danwei_xuexiao" property="danwei_xuexiao" />
+		<result column="zhengmingren" property="zhengmingren" />
+	</resultMap>
+	<!--添加个人简历信息 -->
+	<insert id="saveEntryViate" parameterType="com.jingren.jing.educational.bean.viate.EntryViate">
+		insert into entry_info_vitae
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="entry_info_id != null">
+				entry_info_id,
+			</if>
+			<if test="time_qujian != null">
+				time_qujian,
+			</if>
+			<if test="danwei_xuexiao != null">
+				danwei_xuexiao,
+			</if>
+			<if test="zhengmingren != null">
+				zhengmingren
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="entry_info_id != null">
+				#{entry_info_id},
+			</if>
+			<if test="time_qujian != null">
+				#{time_qujian},
+			</if>
+			<if test="danwei_xuexiao != null">
+				#{danwei_xuexiao},
+			</if>
+			<if test="zhengmingren != null">
+				#{zhengmingren}
+			</if>
+		</trim>
+	</insert>
+	<!--修改个人简历 -->
+	<update id="updateEntryViate" parameterType="com.jingren.jing.educational.bean.viate.EntryViate">
+		update entry_info_vitae
+		<set>
+			<if test="entry_info_id != null">
+				entry_info_id=#{entry_info_id},
+			</if>
+			<if test="time_qujian != null">
+				time_qujian=#{time_qujian},
+			</if>
+			<if test="danwei_xuexiao != null">
+				danwei_xuexiao=#{danwei_xuexiao},
+			</if>
+			<if test="zhengmingren != null">
+				zhengmingren=#{zhengmingren}
+			</if>
+		</set>
+		where
+		<if test=" vitae_id != null">
+			vitae_id=#{vitae_id}
+		</if>
+	</update>
+	<!--删除个人简历信息 -->
+	<delete id="deleteEntryViate" parameterType="java.lang.Integer">
+		delete from
+		entry_info_vitae where
+		entry_info_id=#{entry_info_id}
+	</delete>
+
+	<!--查询个人简历列表 -->
+	<select id="getEntryViateList" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select * from entry_info_vitae where
+		entry_info_id=#{entry_info_id}
+	</select>
+</mapper>

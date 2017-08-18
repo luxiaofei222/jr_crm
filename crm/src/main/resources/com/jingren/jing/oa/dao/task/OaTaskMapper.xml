@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.oa.dao.task.OaTaskMapper">
+	<resultMap
+		type="com.jingren.jing.oa.bean.task.OaTask"
+		id="BaseResultMap">
+		<id column="task_id" property="task_id" />
+		<result column="fabu_employee_id" property="fabu_employee_id" />
+		<result column="task_finish_time" property="task_finish_time" />
+		<result column="task_time" property="task_time" />
+		<result column="task_employee_id" property="task_employee_id" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="gangwei" property="gangwei" />
+		<result column="task_content" property="task_content" />
+		<result column="fujian" property="fujian" />
+		<result column="task_type" property="task_type" />
+		<result column="pingjia_content" property="pingjia_content" />
+		<result column="pingfen" property="pingfen" />
+		<result column="task_jibie" property="task_jibie" />
+		<result column="zhongyao_state" property="zhongyao_state" />
+		<result column="task_jianyi" property="task_jianyi" />
+		<result column="finish_time" property="finish_time" />
+	</resultMap>
+	<!--添加任务信息 -->
+	<insert id="saveOaTask" 
+		parameterType="com.jingren.jing.oa.bean.task.OaTask">
+		insert into task
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="fabu_employee_id != null">
+				fabu_employee_id,
+			</if>
+			<if test="task_finish_time != null">
+				task_finish_time,
+			</if>
+			<if test="task_time != null">
+				task_time,
+			</if>
+			<if test="task_employee_id != null">
+				task_employee_id,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="gangwei != null">
+				gangwei,
+			</if>
+			<if test="task_content != null">
+				task_content,
+			</if>
+			<if test="fujian != null">
+				fujian,
+			</if>
+			<if test="task_type != null">
+				task_type,
+			</if>
+			<if test="pingjia_content != null">
+				pingjia_content,
+			</if>
+			<if test="pingfen != null">
+				pingfen,
+			</if>
+			<if test="task_jibie != null">
+				task_jibie,
+			</if>
+			<if test="zhongyao_state != null">
+				zhongyao_state,
+			</if>
+			<if test="task_jianyi != null">
+				task_jianyi
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="fabu_employee_id != null">
+				#{fabu_employee_id},
+			</if>
+			<if test="task_finish_time != null">
+				#{task_finish_time},
+			</if>
+			<if test="task_time != null">
+				#{task_time},
+			</if>
+			<if test="task_employee_id != null">
+				#{task_employee_id},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="gangwei != null">
+				#{gangwei},
+			</if>
+			<if test="task_content != null">
+				#{task_content},
+			</if>
+			<if test="fujian != null">
+				#{fujian},
+			</if>
+			<if test="task_type != null">
+				#{task_type},
+			</if>
+			<if test="pingjia_content != null">
+				#{pingjia_content},
+			</if>
+			<if test="pingfen != null">
+				#{pingfen},
+			</if>
+			<if test="task_jibie != null">
+				#{task_jibie},
+			</if>
+			<if test="zhongyao_state != null">
+				#{zhongyao_state},
+			</if>
+			<if test="task_jianyi != null">
+				#{task_jianyi}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改任务信息-->
+	<update id="updateOaTask"
+		parameterType="com.jingren.jing.oa.bean.task.OaTask">
+		update task
+		<set>
+			<if test="fabu_employee_id != null">
+				fabu_employee_id=#{fabu_employee_id},
+			</if>
+			<if test="task_finish_time != null">
+				task_finish_time=#{task_finish_time},
+			</if>
+			<if test="task_time != null">
+				task_time=#{task_time},
+			</if>
+			<if test="task_employee_id != null">
+				task_employee_id=#{task_employee_id},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="gangwei != null">
+				gangwei=#{gangwei},
+			</if>
+			<if test="task_content != null">
+				task_content=#{task_content},
+			</if>
+			<if test="fujian != null">
+				fujian=#{fujian},
+			</if>
+			<if test="task_type != null">
+				task_type=#{task_type},
+			</if>
+			<if test="pingjia_content != null">
+				pingjia_content=#{pingjia_content},
+			</if>
+			<if test="pingfen != null">
+				pingfen=#{pingfen},
+			</if>
+			<if test="task_jibie != null">
+				task_jibie=#{task_jibie},
+			</if>
+			<if test="zhongyao_state != null">
+				zhongyao_state=#{zhongyao_state},
+			</if>
+			<if test="task_jianyi != null">
+				task_jianyi=#{task_jianyi},
+			</if>
+			<if test="finish_time != null">
+				finish_time=#{finish_time}
+			</if>
+			
+		</set>
+		where task_id=#{task_id}
+	</update>
+	<!--删除任务信息 -->
+	<delete id="deleteOaTask" parameterType="java.lang.Integer">
+		delete from
+		task where task_id=#{task_id}
+	</delete>
+	<!--获取任务详细信息 -->
+	<select id="getOaTask" parameterType="Map" resultMap="BaseResultMap">
+		select * from task
+		<where>
+			<if test="task_id !=null">
+				task_id=#{task_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询员工信息列表 -->
+	<select id="getOaTaskList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from task
+		<where>
+			1=1
+			<if test="fabu_employee_id != null">
+			and	fabu_employee_id =#{fabu_employee_id}
+			</if>
+			<if test="task_employee_id != null">
+			and	task_employee_id =#{task_employee_id}
+			</if>
+			<if test="bumen_id != null">
+			and	bumen_id =#{bumen_id}
+			</if>
+			<if test="task_type != null">
+			and	task_type =#{task_type}
+			</if>
+			<if test="task_jibie != null">
+			and	task_jibie =#{task_jibie}
+			</if>
+			<if test="zhongyao_state != null">
+			and	zhongyao_state =#{zhongyao_state}
+			</if>
+			<if test="task_jibie != null">
+			and	task_jibie =#{task_jibie}
+			</if>
+			<if test="finish_time_start != null">
+			and	task_finish_time &gt;=#{ruzhi_time_start}
+			</if>
+			<if test="finish_time_end != null">
+			and	task_finish_time &lt;=#{ruzhi_time_end}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 任务数量-->
+	<select id="getOaTaskNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from task
+		<where>
+			1=1
+			<if test="fabu_employee_id != null">
+			and	fabu_employee_id =#{fabu_employee_id}
+			</if>
+			<if test="task_employee_id != null">
+			and	task_employee_id =#{task_employee_id}
+			</if>
+			<if test="bumen_id != null">
+			and	bumen_id =#{bumen_id}
+			</if>
+			<if test="task_type != null">
+			and	task_type =#{task_type}
+			</if>
+			<if test="task_jibie != null">
+			and	task_jibie =#{task_jibie}
+			</if>
+			<if test="zhongyao_state != null">
+			and	zhongyao_state =#{zhongyao_state}
+			</if>
+			<if test="task_jibie != null">
+			and	task_jibie =#{task_jibie}
+			</if>
+			<if test="finish_time_start != null">
+			and	task_finish_time &gt;=#{ruzhi_time_start}
+			</if>
+			<if test="finish_time_end != null">
+			and	task_finish_time &lt;=#{ruzhi_time_end}
+			</if>
+		</where>
+	</select>
+	<!-- 获取任务人列表 -->
+	<select id="getOataskJieEmployee" parameterType="Map"
+		resultMap="BaseResultMap">
+		select task_employee_id from task
+		<where>
+			<if test="fabu_employee_id != null">
+				fabu_employee_id =#{fabu_employee_id}
+			</if>
+		</where>
+		group by task_employee_id
+	</select>
+</mapper>

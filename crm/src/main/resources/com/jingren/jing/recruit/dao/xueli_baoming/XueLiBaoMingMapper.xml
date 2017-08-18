@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.recruit.dao.xueli_baoming.XueLiBaoMingMapper">
+	<resultMap id="BaseResultMap"
+		type="com.jingren.jing.recruit.bean.xueli_baoming.XueLiBaoMing">
+		<id column="baoming_id" property="baoming_id" />
+		<result column="baoming_diqu" property="baoming_diqu" />
+		<result column="zhaosheng_id" property="zhaosheng_id" />
+		<result column="xuexi_zhongxin" property="xuexi_zhongxin" />
+		<result column="yuanxiao" property="yuanxiao" />
+		<result column="cnegci" property="cnegci" />
+		<result column="zhuanye" property="zhuanye" />
+		<result column="user_name" property="user_name" />
+		<result column="card_number" property="card_number" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_mail" property="user_mail" />
+		<result column="qq" property="qq" />
+		<result column="weixin" property="weixin" />
+		<result column="baoming_time" property="baoming_time" />
+		<result column="type" property="type" />
+		<result column="user_ip" property="user_ip" />
+	</resultMap>
+	<!--查询学历报名列表 -->
+	<select id="getXueLiBaoMingList" parameterType="Map" resultMap="BaseResultMap">
+		select * from xueli_baoming
+		<where>
+		1=1
+			<if test="zhaosheng_id != null">
+			and	zhaosheng_id = #{zhaosheng_id}
+			</if>
+			<if test="type != null">
+			and	type=#{type}
+			</if>
+			<if test="user_phone != null">
+			and	user_phone like "%"#{user_phone}"%"
+			</if>
+			<if test="user_name != null">
+			and	user_name like "%"#{user_name}"%"
+			</if>
+			<if test="zhuanye != null">
+			and	zhuanye=#{zhuanye}
+			</if>
+			<if test="cnegci != null">
+			and	cnegci=#{cnegci}
+			</if>
+		</where>
+		order by baoming_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 获取学历报名 -->
+	<select id="getXueLiBaoMing" parameterType="Map" resultMap="BaseResultMap">
+		select * from xueli_baoming
+		<where>
+			<if test="baoming_id != null">
+				baoming_id=#{baoming_id}
+			</if>
+		</where>
+	</select>
+	<!-- 获取数量 -->
+	<select id="getXueLiBaoMingNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from xueli_baoming
+		<where>
+		1=1
+			<if test="zhaosheng_id != null">
+			and	zhaosheng_id = #{zhaosheng_id}
+			</if>
+			<if test="type != null">
+			and	type=#{type}
+			</if>
+			<if test="user_phone != null">
+			and	user_phone like "%"#{user_phone}"%"
+			</if>
+			<if test="user_name != null">
+			and	user_name like "%"#{user_name}"%"
+			</if>
+			<if test="zhuanye != null">
+			and	zhuanye=#{zhuanye}
+			</if>
+			<if test="cnegci != null">
+			and	cnegci=#{cnegci}
+			</if>
+		</where>
+	</select>
+	<!-- 删除学历报名 -->
+	<delete id="deleteXueLiBaoMing" parameterType="Map">
+	<if test="baoming_id != null">
+	delete from xueli_baoming where baoming_id=#{baoming_id}
+	</if>
+	<if test="zhaosheng_id != null">
+	delete from xueli_baoming where zhaosheng_id=#{zhaosheng_id}
+	</if>
+	</delete>
+	<!--添加学历报名 -->
+	<insert id="saveXueLiBaoMing" parameterType="com.jingren.jing.recruit.bean.xueli_baoming.XueLiBaoMing">
+		insert into xueli_baoming
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="baoming_diqu != null">
+				baoming_diqu,
+			</if>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id,
+			</if>
+			<if test="xuexi_zhongxin != null">
+				xuexi_zhongxin,
+			</if>
+			<if test="yuanxiao != null">
+				yuanxiao,
+			</if>
+			<if test="cnegci != null">
+				cnegci,
+			</if>
+			<if test="zhuanye != null">
+				zhuanye,
+			</if>
+			<if test="user_name != null">
+				user_name,
+			</if>
+			<if test="card_number != null">
+				card_number,
+			</if>
+			<if test="user_phone != null">
+				user_phone,
+			</if>
+			<if test="user_mail != null">
+				user_mail,
+			</if>
+			<if test="qq != null">
+				qq,
+			</if>
+			<if test="weixin != null">
+				weixin,
+			</if>
+			<if test="baoming_time != null">
+				baoming_time,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="user_ip != null">
+				user_ip
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="baoming_diqu != null">
+				#{baoming_diqu},
+			</if>
+			<if test="zhaosheng_id != null">
+				#{zhaosheng_id},
+			</if>
+			<if test="xuexi_zhongxin != null">
+				#{xuexi_zhongxin},
+			</if>
+			<if test="yuanxiao != null">
+				#{yuanxiao},
+			</if>
+			<if test="cnegci != null">
+				#{cnegci},
+			</if>
+			<if test="zhuanye != null">
+				#{zhuanye},
+			</if>
+			<if test="user_name != null">
+				#{user_name},
+			</if>
+			<if test="card_number != null">
+				#{card_number},
+			</if>
+			<if test="user_phone != null">
+				#{user_phone},
+			</if>
+			<if test="user_mail != null">
+				#{user_mail},
+			</if>
+			<if test="qq != null">
+				#{qq},
+			</if>
+			<if test="weixin != null">
+				#{weixin},
+			</if>
+			<if test="baoming_time != null">
+				#{baoming_time},
+			</if>
+			<if test="type != null">
+				#{type},
+			</if>
+			<if test="user_ip != null">
+				#{user_ip}
+			</if>
+		</trim>
+	</insert>
+</mapper>

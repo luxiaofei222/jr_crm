@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.zhentiyear.ZhentiYearsMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.zhentiyear.ZhentiYears"
+		id="BaseResultMap">
+		<id column="zhenti_id" property="zhenti_id" />
+		<result column="question_course_id" property="question_course_id" />
+		<result column="zhenti_year" property="zhenti_year" />
+		<result column="zhenti_name" property="zhenti_name" />
+		<result column="zhenti_kaoshi_time" property="zhenti_kaoshi_time" />
+		<result column="zhenti_new_price" property="zhenti_new_price" />
+		<result column="zhenti_old_price" property="zhenti_old_price" />
+		<result column="zhneti_shoufei_type" property="zhneti_shoufei_type" />
+		<result column="zhenti_time" property="zhenti_time" />
+		<result column="fenzhi" property="fenzhi" />
+		<result column="is_show" property="is_show" />
+		<result column="zhentitype" property="zhentitype" />
+		<result column="zhenti_yue" property="zhenti_yue" />
+	</resultMap>
+	<!--添加历年真题-真题标题信息 -->
+	<insert id="saveZhentiYears"
+		parameterType="com.jingren.jing.question.bean.zhentiyear.ZhentiYears">
+		insert into zhenti_years
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="question_course_id != null">
+				question_course_id,
+			</if>
+			<if test="zhenti_year != null">
+				zhenti_year,
+			</if>
+			<if test="zhenti_name != null">
+				zhenti_name,
+			</if>
+			<if test="zhenti_kaoshi_time != null">
+				zhenti_kaoshi_time,
+			</if>
+			<if test="zhenti_new_price != null">
+				zhenti_new_price,
+			</if>
+			<if test="zhenti_old_price != null">
+				zhenti_old_price,
+			</if>
+			<if test="zhneti_shoufei_type != null">
+				zhneti_shoufei_type,
+			</if>
+			<if test="zhenti_time != null">
+				zhenti_time,
+			</if>
+			<if test="zhentitype != null">
+				zhentitype,
+			</if>
+			<if test="fenzhi != null">
+				fenzhi,
+			</if>
+			<if test="zhenti_yue != null">
+				zhenti_yue
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="question_course_id != null">
+				#{question_course_id},
+			</if>
+			<if test="zhenti_year != null">
+				#{zhenti_year},
+			</if>
+			<if test="zhenti_name != null">
+				#{zhenti_name},
+			</if>
+			<if test="zhenti_kaoshi_time != null">
+				#{zhenti_kaoshi_time},
+			</if>
+			<if test="zhenti_new_price != null">
+				#{zhenti_new_price},
+			</if>
+			<if test="zhenti_old_price != null">
+				#{zhenti_old_price},
+			</if>
+			<if test="zhneti_shoufei_type != null">
+				#{zhneti_shoufei_type},
+			</if>
+			<if test="zhenti_time != null">
+				#{zhenti_time},
+			</if>
+			<if test="zhentitype != null">
+				#{zhentitype},
+			</if>
+			<if test="fenzhi != null">
+				#{fenzhi},
+			</if>
+			<if test="zhenti_yue != null">
+				#{zhenti_yue}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改历年真题-真题标题信息-->
+	<update id="updateZhentiYears"
+		parameterType="com.jingren.jing.question.bean.zhentiyear.ZhentiYears">
+		update zhenti_years
+		<set>
+			<if test="question_course_id != null">
+				question_course_id=#{question_course_id},
+			</if>
+			<if test="zhenti_year != null">
+				zhenti_year=#{zhenti_year},
+			</if>
+			<if test="zhenti_name != null">
+				zhenti_name=#{zhenti_name},
+			</if>
+			<if test="zhenti_kaoshi_time != null">
+				zhenti_kaoshi_time=#{zhenti_kaoshi_time},
+			</if>
+			<if test="zhenti_new_price != 0">
+				zhenti_new_price=#{zhenti_new_price},
+			</if>
+			<if test="zhenti_old_price != 0">
+				zhenti_old_price=#{zhenti_old_price},
+			</if>
+			<if test="zhneti_shoufei_type != null">
+				zhneti_shoufei_type=#{zhneti_shoufei_type},
+			</if>
+			<if test="zhenti_time != null">
+				zhenti_time=#{zhenti_time},
+			</if>
+			<if test="fenzhi != null">
+				fenzhi=#{fenzhi},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show},
+			</if>
+			<if test="zhenti_yue != null">
+				zhenti_yue=#{zhenti_yue}
+			</if>
+		</set>
+		where 
+		<if test=" zhenti_id != null">
+		zhenti_id=#{zhenti_id}
+		</if>
+	</update>
+	<!--删除历年真题-真题标题信息 -->
+	<delete id="deleteZhentiYears" parameterType="java.lang.Integer">
+		delete from
+		zhenti_years where
+		zhenti_id=#{zhenti_id}
+	</delete>
+	<!--获取历年真题-真题标题信息 -->
+	<select id="getZhentiYears" parameterType="Map" resultMap="BaseResultMap">
+		select * from zhenti_years
+		<where>
+			<if test="zhenti_id !=null">
+				zhenti_id=#{zhenti_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询章节练习-章节信列表 -->
+	<select id="getZhentiYearsList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from zhenti_years
+		<where>
+			<if test="question_course_id !=null">
+				question_course_id=#{question_course_id}
+			</if>
+			<if test="is_show !=null">
+				and is_show=#{is_show}
+			</if>
+			<if test="zhentitype !=null">
+				and zhentitype=#{zhentitype}
+			</if>
+		</where>
+		order by zhenti_year DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-章节信息数量 -->
+	<select id="getZhentiYearsNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from zhenti_years
+		<where>
+			<if test="question_course_id !=null">
+				question_course_id=#{question_course_id}
+			</if>
+			<if test="is_show !=null">
+				and is_show=#{is_show}
+			</if>
+			<if test="zhentitype !=null">
+				and zhentitype=#{zhentitype}
+			</if>
+		</where>
+	</select>
+</mapper>

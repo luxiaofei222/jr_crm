@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.entrysystem.dao.entryplace.EntryPlaceMapper">
+	<resultMap type="com.jingren.jing.school.entrysystem.bean.entryplace.EntryPlace"
+		id="BaseResultMap">
+		<id column="entryplace_id" property="entryplace_id" />
+		<result column="entryplace_name" property="entryplace_name" />
+		<result column="parent_id" property="parent_id" />
+		<result column="entryplace_leavel" property="entryplace_leavel" />
+	</resultMap>
+
+	<!--查询报名地点列表 -->
+	<select id="getEntryPlaceList" parameterType="Map" resultMap="BaseResultMap">
+		select * from entryplace
+		<where>
+			<if test="parent_id != null">
+				parent_id = #{parent_id}
+			</if>
+			<if test="entryplace_leavel != null">
+				entryplace_leavel = #{entryplace_leavel}
+			</if>
+		</where>
+	</select>
+	<!--  获取地点信息-->
+	<select id="getEntryPlace" parameterType="Map" resultMap="BaseResultMap">
+		select * from entryplace
+		<where>
+			<if test="entryplace_id != null">
+				entryplace_id = #{entryplace_id}
+			</if>
+		</where>
+	</select>
+</mapper>

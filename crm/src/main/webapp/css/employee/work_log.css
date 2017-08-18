@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* CSS Document */
+.content {
+	width:1200px;
+	margin:15px auto;
+	background-color:#fff;
+	}
+
+.content .work_log {
+	width:1095px;
+	height:200px;
+	margin:0 auto;
+	padding-top: 50px;
+	}
+.content .work_log textarea {
+	width:1083px;
+	height:113px;
+	border:#ccc solid 1px;
+	border-radius: 5px;
+	padding:5px;
+	font-size:14px;
+	line-height: 20px;
+	}
+.content .work_log input {
+	width:95px;
+	height:35px;
+	text-align:center;
+	line-height:35px;
+	color:#fff;
+	float:right;
+	margin-right:5px;
+	border:none;
+	border-radius:3px;
+	background-color:#ea592d;
+	margin-right:10px;
+	margin-top:10px;
+	}
+
+.content .filter {
+	margin-left:50px;
+	margin-bottom:30px;
+	}
+.content .filter select {
+	width:135px;
+	height:35px;
+	padding-left:15px;
+	border:none;
+	border:#ccc solid 1px;
+	border-radius:5px;
+	background-image:url(/images/personal/bg_select.png);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:3px;
+	float:left;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	}
+.content .filter input {
+	/* background-image:url(/images/personal/serach.png); */
+	background-repeat:no-repeat;
+	background-color:#fff;
+	width:22px;
+	height:22px;
+	border:none;
+	display:block;
+	float:left;
+	cursor:pointer;
+	margin-top: 5px;
+    margin-left: 20px;
+	}
+
+#log_list {
+	padding-bottom: 100px;
+}
+.main-timeline {
+	position: relative;
+	margin-left:110px;
+	-webkit-transition: all 0.4s ease 0s;
+	-moz-transition: all 0.4s ease 0s;
+	-ms-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+.main-timeline:before {
+	content: "";
+	width: 1px;
+	height: 100%;
+	background: #ea592d;
+	position: absolute;
+	top: 10px;
+	left: -45px;
+}
+.main-timeline .timeline {
+	margin-bottom: 50px;
+	position: relative;
+}
+.main-timeline .timeline:before,  .main-timeline .timeline:after {
+	content: "";
+	display: block;
+	width: 100%;
+	clear: both;
+}
+.main-timeline .timeline-icon {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: #ea592d solid 1px;
+	background-color:#fff;
+	overflow: hidden;
+	margin-left: -10px;
+	position: absolute;
+	top: 0;
+	left: -45px;
+	text-align: center;
+}
+.main-timeline .timeline-icon i {
+	font-size: 30px;
+	line-height: 50px;
+	color: #fff;
+}
+.main-timeline .timeline-content {
+	width: 1028px;
+	position: relative;
+    padding-top: 30px;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-ms-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.main-timeline .title {
+	font-size: 16px;
+	font-weight: 300;
+	color: #444;
+	padding: 10px;
+	position: absolute;
+    top: -7px;
+	left: -10px;
+}
+
+.daily_record {
+	background-color:#f4f7f8;
+	border-radius:10px;
+	padding: 20px;
+	}
+.daily_record .daily img,.daily_record .appraise img {
+	width:43px;
+	height:43px;
+	border-radius:50%;
+	float:left;
+	}
+.daily_record .left p.name {
+	font-size:14px;
+	color:#ea592d;
+	margin-left:15px;
+	margin-bottom:5px;
+	}
+.daily_record .daily .left p.time {
+	font-size:12px;
+	color:#999;
+	margin-left:15px;
+	}
+.daily_record p.message {
+	margin-left:58px;
+	margin-top:10px;
+	line-height:25px;
+	font-size:14px;
+	color:#444;
+	}
+	
+.daily_record .appraise {
+	position:relative;
+	padding:13px 20px;
+	margin:20px 0px;
+	background-color:#fff;
+	border-radius:8px;
+	}
+.daily_record .appraise .appraise_time {
+	font-size:12px;
+	color:#999;
+	position:absolute;
+	right:20px;
+	top:15px;
+	}
+.daily_record .appraise .appraise_grade {
+	margin-left:15px;
+	}
+.daily_record .appraise .appraise_grade img {
+	width:15px;
+	height:15px;
+	margin-right:2px;
+	}
+ .page{
+	float:right;
+	margin-right:35px;
+	height:28px;
+	margin-top:23px;
+	}
+ .page span{
+	border:1px solid #999;
+	color:#999;
+	display:inline-block;
+	height:26px;
+	line-height:26px;
+	padding:0px 3px;
+	border-radius:3px;
+	min-width:20px;
+	text-align:center;
+   }
+.page span.active{
+	  background-color: #ea592d;
+	  color:white;
+	  border:1px solid #ea592d;
+	  }
+.page span:hover{
+	  background-color: #ea592d;
+	  color:white;
+	  border:1px solid #ea592d;
+	  }
+.page span.noacitve{
+	  background-color:  #999;
+	  color:white;
+	  border:1px solid #999;
+	  }

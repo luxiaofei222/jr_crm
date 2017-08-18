@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.educational.dao.grade.UserGradeMapper">
+	<resultMap
+		type="com.jingren.jing.educational.bean.grade.UserGrade"
+		id="BaseResultMap">
+		<id column="grade_id" property="grade_id" />
+		<result column="user_name" property="user_name" />
+		<result column="user_sex" property="user_sex" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_card" property="user_card" />
+		<result column="user_zhunkao" property="user_zhunkao" />
+		<result column="course_id" property="course_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="review_id" property="review_id" />
+		<result column="province" property="province" />
+		<result column="dictionary_id" property="dictionary_id" />
+		<result column="xuexiao" property="xuexiao" />
+		<result column="zhuanye" property="zhuanye" />
+		<result column="parent_id" property="parent_id" />
+		<result column="kemu" property="kemu" />
+		<result column="grade" property="grade" />
+		<result column="grade_time" property="grade_time" />
+		<result column="kaoshenghao" property="kaoshenghao" />
+	</resultMap>
+	<!--添加网络咨询客户信息 -->
+	<insert id="saveUserGrade" useGeneratedKeys="true" keyProperty="grade_id"
+		parameterType="com.jingren.jing.educational.bean.grade.UserGrade">
+		insert into user_grade
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_name != null">
+				user_name,
+			</if>
+			<if test="user_sex != null">
+				user_sex,
+			</if>
+			<if test="user_phone != null">
+				user_phone,
+			</if>
+			<if test="user_card != null">
+				user_card,
+			</if>
+			<if test="user_zhunkao != null">
+				user_zhunkao,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="review_id != null">
+				review_id,
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id,
+			</if>
+			<if test="xuexiao != null">
+				xuexiao,
+			</if>
+			<if test="zhuanye != null">
+				zhuanye,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="kemu != null">
+				kemu,
+			</if>
+			<if test="grade != null">
+				grade,
+			</if>
+			<if test="grade_time != null">
+				grade_time,
+			</if>
+			<if test="kaoshenghao != null">
+				kaoshenghao
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_name != null">
+				#{user_name},
+			</if>
+			<if test="user_sex != null">
+				#{user_sex},
+			</if>
+			<if test="user_phone != null">
+				#{user_phone},
+			</if>
+			<if test="user_card != null">
+				#{user_card},
+			</if>
+			<if test="user_zhunkao != null">
+				#{user_zhunkao},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="review_id != null">
+				#{review_id},
+			</if>
+			<if test="dictionary_id != null">
+				#{dictionary_id},
+			</if>
+			<if test="xuexiao != null">
+				#{xuexiao},
+			</if>
+			<if test="zhuanye != null">
+				#{zhuanye},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="kemu != null">
+				#{kemu},
+			</if>
+			<if test="grade != null">
+				#{grade},
+			</if>
+			<if test="grade_time != null">
+				#{grade_time},
+			</if>
+			<if test="kaoshenghao != null">
+				#{kaoshenghao}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改学员成绩信息-->
+	<update id="updateUserGrade"
+		parameterType="com.jingren.jing.educational.bean.grade.UserGrade">
+		update user_grade
+		<set>
+			<if test="user_name != null">
+				user_name=#{user_name},
+			</if>
+			<if test="user_sex != null">
+				user_sex=#{user_sex},
+			</if>
+			<if test="user_phone != null">
+				user_phone=#{user_phone},
+			</if>
+			<if test="user_card != null">
+				user_card=#{user_card},
+			</if>
+			<if test="user_zhunkao != null">
+				user_zhunkao=#{user_zhunkao},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="review_id != null">
+				review_id=#{review_id},
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id=#{dictionary_id},
+			</if>
+			<if test="xuexiao != null">
+				xuexiao=#{xuexiao},
+			</if>
+			<if test="zhuanye != null">
+				zhuanye=#{zhuanye},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="kemu != null">
+				kemu=#{kemu},
+			</if>
+			<if test="grade != null">
+				grade=#{grade},
+			</if>
+			<if test="grade_time != null">
+				grade_time=#{grade_time},
+			</if>
+			<if test="kaoshenghao != null">
+				kaoshenghao=#{kaoshenghao}
+			</if>
+		</set>
+		where grade_id=#{grade_id}
+	</update>
+	<!--删除学员成绩信息 -->
+	<delete id="deleteUserGrade" parameterType="Map">
+			<if test="grade_id !=null">
+			delete from user_grade where grade_id=#{grade_id}
+			</if>
+			<if test="parent_id !=null">
+			delete from user_grade where parent_id=#{parent_id}
+			</if>
+	</delete>
+	<!--获取学员成绩详细信息 -->
+	<select id="getUserGrade" parameterType="Map" resultMap="BaseResultMap">
+		select * from user_grade
+		<where>
+			<if test="grade_id !=null">
+				grade_id=#{grade_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询学员成绩信息列表 -->
+	<select id="getUserGradeList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from user_grade
+		<where>
+			1=1
+			<if test="user_name != null">
+			and	user_name =#{user_name}
+			</if>
+			<if test="user_phone != null">
+			and	user_phone = #{user_phone} 
+			</if>
+			<if test="user_card != null">
+			and	user_card =#{user_card}
+			</if>
+			<if test="user_zhunkao != null">
+			and	user_zhunkao =#{user_zhunkao}
+			</if>
+			<if test="course_id != null">
+			and	course_id = #{course_id}
+			</if>
+			<if test="course_parent_id != null">
+			and	course_parent_id =#{course_parent_id}
+			</if>
+			<if test="review_id != null">
+			and	review_id =#{review_id}
+			</if>
+			<if test="dictionary_id != null">
+			and	dictionary_id =#{dictionary_id}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id =#{parent_id}
+			</if>
+			<if test="kaoshenghao != null">
+			and	kaoshenghao=#{kaoshenghao}
+			</if>
+		</where>
+		order by grade_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询学员成绩信息数量 -->
+	<select id="getUserGradeNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from user_grade
+		<where>
+			1=1
+			<if test="user_name != null">
+			and	user_name =#{user_name}
+			</if>
+			<if test="user_phone != null">
+			and	user_phone = #{user_phone} 
+			</if>
+			<if test="user_card != null">
+			and	user_card =#{user_card}
+			</if>
+			<if test="user_zhunkao != null">
+			and	user_zhunkao =#{user_zhunkao}
+			</if>
+			<if test="course_id != null">
+			and	course_id = #{course_id}
+			</if>
+			<if test="course_parent_id != null">
+			and	course_parent_id =#{course_parent_id}
+			</if>
+			<if test="review_id != null">
+			and	review_id =#{review_id}
+			</if>
+			<if test="dictionary_id != null">
+			and	dictionary_id =#{dictionary_id}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id =#{parent_id}
+			</if>
+			<if test="kaoshenghao != null">
+			and	kaoshenghao=#{kaoshenghao}
+			</if>
+		</where>
+	</select>
+</mapper>

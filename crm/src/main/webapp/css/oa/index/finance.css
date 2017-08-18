@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+.right_content .operation button {
+	background-color: #18d1bb!important;
+	color: #fff;
+}
+.right_content .operation .select2-choice {
+    padding: 5px 39px 5px 15px;
+}
+.right_content .operation .top_select {
+    background-color: #18d1bb!important;
+}
+.select2-chosen {
+    color: white!important;
+}
+.right_content .operation .select2-arrow {
+	border-color: #fff transparent;
+}
+.select2-drop .select2-highlighted>.select2-result-label {
+	background-color: #18d1bb!important;
+}
+.right_content .table tr td label.label-success {
+	background-color: #18d1bb!important;
+}
+.right_content .table tr td label.label-success:hover {
+	background-color: #18d1bb!important;
+}
+#check_val:focus{
+	border-color:#18d1bb!important;
+}
+.form-group input:focus{
+	border-color:#18d1bb!important;
+}
+.form-group select:focus{
+	border-color:#18d1bb!important;
+}
+/* pages */
+.right_content .pages .pagination li>a:hover,.right_content .pages .pagination li>span:hover,.right_content .pages .pagination li>a:focus,.right_content .pages .pagination li>span:focus {
+	background-color: #18d1bb!important;
+}
+.right_content .pages .pagination li>a:hover,.right_content .pages .pagination li>span:hover,.right_content .pages .pagination li>a:focus,.right_content .pages .pagination li>span:focus {
+	background-color: #18d1bb!important;
+}
+.right_content .pages .pagination li.active>a,.right_content .pages  .pagination li.active>span,.right_content .pages  .pagination li.active>a:hover,.right_content .pages  .pagination li.active>span:hover,.right_content .pages  .pagination li.active>a:focus,.right_content .pages  .pagination li.active>span:focus {
+	background-color: #18d1bb!important;
+}
+
+.pages .pagination li.pagination-dropdown ul.dropdown-menu {
+	background-color: #18d1bb!important;
+}
+.pages .go_page a {
+	background-color: #18d1bb!important;
+}
+.pages .pagination li.pagination-dropdown ul.dropdown-menu li a:hover {
+    background-color: #18d1bb!important;
+}
+
+.right_content .table tr td i{
+	font-size:25px;
+	}
+.right_content .table tr td i.one{
+	color:#fb9613;	
+}
+.right_content .table tr td i.two{
+	color:#51b7f1;	
+}
+.right_content .table tr td i.three{
+	color:#f15151;	
+}

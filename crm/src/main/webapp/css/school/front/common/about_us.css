@@ -1,0 +1,351 @@
+@charset "utf-8";
+/*=========================Reset_start==========================*/
+body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+html,body{font-family:"微软雅黑","宋体",Arail,Tabhoma; font-size: 12px; }
+ul,ol{list-style: none;}
+img{border: 0;}
+input,select,textarea{outline:0;}
+textarea{resize:none;}
+table{border-collapse: collapse; border-spacing: 0;}
+th,strong,var,em{font-weight: normal; font-style: normal;}
+a{text-decoration: none;}
+/*a:link,a:visited,a:hover,a:active{text-decoration:none;} */
+/*==========================Reset_End===========================*/
+
+body{
+	/*background-color:red;*/
+	width:100%;
+	min-width:1200px;
+	background:#e6e6e6;
+}
+.banner{
+	width:100%;
+	height:auto;
+}
+.banner img{
+	width:100%;
+	height:auto;
+}
+.intro{
+	background:#f5f5f5;
+	padding-top:20px;
+	width:1200px;
+	margin:0 auto;
+}
+.intro .title1{
+	font-size:40px;
+	color:#084D9E;
+	line-height:67px;
+	margin:0 auto;
+}
+.intro .title2{
+	font-size:36px;
+	line-height:46px;
+	color:#e5e5e5;
+	text-transform:uppercase;
+}
+.intro .title3{
+	font-size:30px;
+	line-height:50px;
+	color:black;
+	margin-left:3%;
+}
+.intro .title4{
+	font-size:14px;
+	line-height:30px;
+	color:#666;
+	margin-left:3%;
+
+}
+.intro .cont{
+	width:100%;
+	margin-top:21px;
+	overflow:hidden;
+}
+.intro .cont .box{
+	width:42%;
+	margin-right:5%;
+	margin-left:3%;
+	font-size:14px;
+	line-height:30px;
+	float:left;
+}
+.intro .cont .box p{
+	color:#666;
+}
+
+
+
+/**********发展历程**********/
+
+.course-wrap {
+	padding-bottom: 94px;
+	transition: normal;
+}
+
+.course-wrap.m-wrap {
+	padding-top: 15px;
+	position: relative;
+}
+
+.course-wrap p.f48 {
+	font-size: 40px;
+	line-height: 69px;
+	color: #ab0309;
+}
+
+.course-wrap.m-wrap p.f48 {
+	font-size: 20px;
+	line-height: 34px;
+}
+
+.course-wrap span.f14 {
+	display: block;
+	width: 100%;
+	line-height: 34px;
+}
+
+.course-wrap.m-wrap span.f14 {
+	line-height: 22px;
+}
+
+.course-wrap .course-list {
+	margin-top: 58px;
+	width: 100%;
+	position: relative;
+}
+
+.course-wrap.m-wrap .course-list {
+	margin-top: 20px;
+}
+
+.course-wrap .course-list .ovh {
+	width: 91%;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	background: url("/images/school/front/aboutus/bg_12.png") repeat-x left center;
+}
+
+.course-wrap.m-wrap .course-list .ovh {
+	background: none;
+	width: 100%;
+}
+
+.course-wrap .course-list li {
+	width: 300px;
+	position: relative;
+	margin-right: -93px;
+	float:left;
+}
+
+.course-wrap.m-wrap .course-list li {
+	margin-right: 0;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.course-wrap .course-list .main {
+	padding: 17px 20px 27px;
+	background-color: #fff;
+	width: 260px;
+	color: #777;
+}
+
+.course-wrap .course-list .main p {
+	padding-left: 18px;
+	background: url("/images/school/front/aboutus/ico_125.jpg") no-repeat left 9px;
+}
+
+.course-wrap.m-wrap .course-list .main {
+	width: 94%;
+	padding: 17px 3% 27px;
+}
+
+.course-wrap .course-list li .top {
+	background: url("/images/school/front/aboutus/bg_10.png") no-repeat left top;
+	padding-top: 45px;
+	height: 42px;
+	line-height: 42px;
+	font-family: "Arial";
+	font-size: 18px;
+	text-align: center;
+}
+
+.course-wrap.m-wrap .course-list li .top {
+	padding-top: 0;
+	padding-left: 3%;
+	width: 97%;
+	text-align: left;
+	background: #e8e8e8;
+}
+
+.course-wrap .course-list li.odd {
+	margin-top: 0;
+}
+
+.course-wrap.m-wrap .course-list li.odd {
+	position: relative;
+}
+
+.course-wrap .course-list li.odd .top {
+	background: url("/images/school/front/aboutus/bg_11.png") no-repeat left bottom;
+	padding-bottom: 45px;
+	padding-top: 0;
+}
+
+.course-wrap.m-wrap .course-list li.odd .top {
+	padding-bottom: 0;
+	background: #e8e8e8;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.course-wrap.m-wrap .course-list li.odd .main {
+	margin-top: 42px;
+}
+
+.course-wrap .course-list .butn {
+	display: block;
+	width: 42px;
+	height: 42px;
+	position: absolute;
+	top: 50%;
+	margin-top: -21px;
+	cursor: pointer;
+}
+
+.course-wrap.m-wrap .course-list .butn {
+	display: none;
+}
+
+.course-wrap .course-list .prev {
+	background: url("/images/school/front/aboutus/ico_40.png") no-repeat center top;
+	left: 0;
+}
+
+.course-wrap .course-list .next {
+	background: url("/images/school/front/aboutus/ico_39.png") no-repeat center top;
+	right: 0;
+}
+
+.course-wrap .course-list .butn:hover {
+	background-position: center bottom;
+}
+
+.course-wrap .course-list li:hover .top {
+	background: url("/images/school/front/aboutus/bg_10.png") no-repeat right top;
+	color: #fff;
+}
+
+.course-wrap.m-wrap .course-list li:hover .top,
+.course-wrap.m-wrap .course-list li.odd:hover .top {
+	background: #e8e8e8;
+	color: #666;
+}
+
+.course-wrap .course-list li.odd:hover .top {
+	background: url("/images/school/front/aboutus/bg_11.png")  no-repeat right top;
+	color: #fff;
+}
+
+/* 如何购课 */
+.how_buy {
+	width:1160px;
+	margin:0 auto;
+	font-size:14px;
+	color:#444;
+	padding:35px 20px;
+	background-color: #fff;
+	}
+.how_buy .buy_info {
+	margin-bottom:20px;
+	}
+.how_buy .buy_info a {
+	color:#06c1ae;
+	margin-left:10px;
+	}
+.how_buy .buy_info a:hover {
+	text-decoration:underline;
+	}
+.how_buy .buy_info span,.how_buy .buy_success span {
+	background-color:#f94c4c;
+	color:#fff;
+	padding:12px 33px;
+	margin:0px 10px;
+	border-radius:5px;
+	}
+.how_buy .buy_success {
+	margin-top:40px;
+	}
+.how_buy .buy_success p {
+	margin-bottom:20px;
+	}
+.how_buy .buy_success span {
+	background-color:#06c1ae;
+	}
+.how_buy .buy_success span.buy_car {
+	border:#f0f0f0 solid 1px;
+	border-radius:5px;
+	background-color:#fafafa;
+	padding:12px 10px;
+	color:#444;
+	}
+.how_buy .buy_success span.buy_car i {
+	color:#06c1ae;
+	margin-right: 15px;
+    font-size: 18px;
+	}
+.how_buy .buy_success span.buy_car span {
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	background-color:#ff0000;
+	color:#fff;
+	text-align:center;
+	line-height:20px;
+	display: inline-block;
+    padding: 0px;
+	}
+.how_buy img {
+	width: 864px;
+	margin: 0 auto;
+}
+/* 如何注册 */
+.how_resign {
+	width:1160px;
+	margin:0 auto;
+	font-size:14px;
+	color:#444;
+	padding:35px 20px;
+	background-color: #fff;
+	}
+.how_resign .resign_info {
+	margin-bottom:20px;
+	}
+
+.how_resign .resign_success {
+	margin-top:40px;
+	}
+.how_resign .resign_success p {
+	margin-bottom:20px;
+	}
+.how_resign img {
+	width: 860px;
+	margin: 0 auto;
+}
+.how_resign .resign_away {
+	margin-bottom: 20px;
+}
+/* 如何学习  */
+.how_study{
+	width:1200px;
+	height:auto;
+	margin:0 auto;
+}
+.how_study img{
+	width:1200px;
+	height:auto;
+}

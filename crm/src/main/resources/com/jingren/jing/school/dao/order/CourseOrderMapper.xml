@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.order.CourseOrderMapper">
+	<resultMap type="com.jingren.jing.school.bean.order.CourseOrder" id="BaseResultMap">
+		<id column="order_id" property="order_id" />
+		<result column="video_id" property="video_id" />
+		<result column="user_id" property="user_id" />
+		<result column="pay_money" property="pay_money" />
+		<result column="pay_time" property="pay_time" />
+		<result column="order_time" property="order_time" />
+		<result column="order_state" property="order_state" />
+		<result column="order_number" property="order_number" />
+		<result column="pay_type" property="pay_type" />
+		<result column="is_show" property="is_show" />
+		<result column="other_order_no" property="other_order_no" />
+		<result column="clearance_id" property="clearance_id" />
+	</resultMap>
+	<!--添加订单信息 -->
+	<insert id="saveCourseOrder" useGeneratedKeys="true" keyProperty="order_id" parameterType="com.jingren.jing.school.bean.order.CourseOrder">
+		insert into course_order
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="order_id != null">
+				order_id,
+			</if>
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="pay_money != null">
+				pay_money,
+			</if>
+			<if test="pay_time != null">
+				pay_time,
+			</if>
+			<if test="order_time != null">
+				order_time,
+			</if>
+			<if test="order_state != null">
+				order_state,
+			</if>
+			<if test="order_number != null">
+				order_number,
+			</if>
+			<if test="pay_type != null">
+				pay_type,
+			</if>
+			<if test="is_show != null">
+				is_show,
+			</if>
+			<if test="other_order_no != null">
+				other_order_no,
+			</if>
+			<if test="clearance_id != null">
+				clearance_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="order_id != null">
+				#{order_id},
+			</if>
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="pay_money != null">
+				#{pay_money},
+			</if>
+			<if test="pay_time != null">
+				#{pay_time},
+			</if>
+			<if test="order_time != null">
+				#{order_time},
+			</if>
+			<if test="order_state != null">
+				#{order_state},
+			</if>
+			<if test="order_number != null">
+				#{order_number},
+			</if>
+			<if test="pay_type != null">
+				#{pay_type},
+			</if>
+			<if test="is_show != null">
+				#{is_show},
+			</if>
+			<if test="other_order_no != null">
+				#{other_order_no},
+			</if>
+			<if test="clearance_id != null">
+				#{clearance_id}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改订单信息 -->
+	<update id="updateCourseOrder" parameterType="com.jingren.jing.school.bean.order.CourseOrder">
+		update course_order
+		<set>
+			<if test="video_id != null">
+				video_id=#{video_id},
+			</if>
+			<if test="user_id != null">
+				user_id=#{user_id},
+			</if>
+			<if test="pay_money != null">
+				pay_money=#{pay_money},
+			</if>
+			<if test="pay_time != null">
+				pay_time=#{pay_time},
+			</if>
+			<if test="order_time != null">
+				order_time=#{order_time},
+			</if>
+			<if test="order_state != null">
+				order_state=#{order_state},
+			</if>
+			<if test="order_number != null">
+				order_number=#{order_number},
+			</if>
+			<if test="pay_type != null">
+				pay_type=#{pay_type},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show},
+			</if>
+			<if test="other_order_no != null">
+				other_order_no=#{other_order_no},
+			</if>
+			<if test="clearance_id != null">
+				clearance_id=#{clearance_id}
+			</if>
+		</set>
+		where
+		<if test="order_id != null">
+			order_id=#{order_id}
+		</if>
+	</update>
+	<!--删除订单信息 -->
+	<delete id="deleteCourseOrder" parameterType="java.lang.String">
+		delete from course_order where
+		order_id=#{order_id}
+	</delete>
+	<!--获取订单信息 -->
+	<select id="getCourseOrder" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_order
+		<where>
+			<if test="order_id !=null">
+				order_id=#{order_id}
+			</if>
+			<if test="order_number != null">
+				order_number=#{order_number}
+			</if>
+			<if test="video_id !=null">
+				video_id=#{video_id}
+			</if>
+			<if test="user_id !=null">
+				and	user_id=#{user_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询订单列表 -->
+	<select id="getCourseOrderList" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_order
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+			<if test="order_number != null">
+				order_number like "%"#{order_number}"%"
+			</if>
+			<if test="video_id != null">
+				video_id =#{video_id}
+			</if>
+			<if test="pay_type != null">
+				pay_type =#{pay_type}
+			</if>
+			<if test="order_state != null">
+				order_state =#{order_state}
+			</if>
+			<if test="is_show != null">
+				and is_show =#{is_show}
+			</if>
+		</where>
+		order by order_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询订单数量 -->
+	<select id="getCouseOrderNumber" parameterType="Map" resultType="int">
+		select count(*) from course_order
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+			<if test="order_number != null">
+				order_number like "%"#{order_number}"%"
+			</if>
+			<if test="video_id != null">
+				video_id =#{video_id}
+			</if>
+			<if test="pay_type != null">
+				pay_type =#{pay_type}
+			</if>
+			<if test="order_state != null">
+				order_state =#{order_state}
+			</if>
+			<if test="is_show != null">
+				and is_show =#{is_show}
+			</if>
+		</where>
+	</select>
+</mapper>

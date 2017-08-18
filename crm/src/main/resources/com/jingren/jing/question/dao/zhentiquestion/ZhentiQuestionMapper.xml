@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.zhentiquestion.ZhentiQuestionMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.zhentiquestion.ZhentiQuestion"
+		id="BaseResultMap">
+		<id column="zhenti_question_id" property="zhenti_question_id" />
+		<result column="zhenti_id" property="zhenti_id" />
+		<result column="question_name" property="question_name" />
+		<result column="question_name_pic" property="question_name_pic" />
+		<result column="question_type" property="question_type" />
+		<result column="question_course_id" property="question_course_id" />
+		<result column="answer" property="answer" />
+		<result column="analysis" property="analysis" />
+		<result column="question_time" property="question_time" />
+		<result column="difficulty" property="difficulty" />
+		<result column="fenzhi" property="fenzhi" />
+	</resultMap>
+	<!--添加历年真题-题目信息 -->
+	<insert id="saveZhentiQuestion" useGeneratedKeys="true" keyProperty="zhenti_question_id" parameterType="com.jingren.jing.question.bean.zhentiquestion.ZhentiQuestion">
+		insert into zhenti_question 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="zhenti_id != null">
+				zhenti_id,
+			</if>
+			<if test="question_name != null">
+				question_name,
+			</if>
+			<if test="question_name_pic != null">
+				question_name_pic,
+			</if>
+			<if test="question_type != null">
+				question_type,
+			</if>
+			<if test="question_course_id != null">
+				question_course_id,
+			</if>
+			<if test="answer != null">
+				answer,
+			</if>
+			<if test="analysis != null">
+				analysis,
+			</if>
+			<if test="question_time != null">
+				question_time,
+			</if>
+			<if test="difficulty != null">
+				difficulty,
+			</if>
+			<if test="fenzhi != null">
+				fenzhi
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="zhenti_id != null">
+				#{zhenti_id},
+			</if>
+			<if test="question_name != null">
+				#{question_name},
+			</if>
+			<if test="question_name_pic != null">
+				#{question_name_pic},
+			</if>
+			<if test="question_type != null">
+				#{question_type},
+			</if>
+			<if test="question_course_id != null">
+				#{question_course_id},
+			</if>
+			<if test="answer != null">
+				#{answer},
+			</if>
+			<if test="analysis != null">
+				#{analysis},
+			</if>
+			<if test="question_time != null">
+				#{question_time},
+			</if>
+			<if test="difficulty != null">
+				#{difficulty},
+			</if>
+			<if test="fenzhi != null">
+				#{fenzhi}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改历年真题-题目信息-->
+	<update id="updateZhentiQuestion"
+		parameterType="com.jingren.jing.question.bean.zhentiquestion.ZhentiQuestion">
+		update zhenti_question
+		<set>
+			<if test="zhenti_id != null">
+				zhenti_id=#{zhenti_id},
+			</if>
+			<if test="question_name != null">
+				question_name=#{question_name},
+			</if>
+			<if test="question_name_pic != null">
+				question_name_pic=#{question_name_pic},
+			</if>
+			<if test="question_type != null">
+				question_type=#{question_type},
+			</if>
+			<if test="question_course_id != null">
+				question_course_id=#{question_course_id},
+			</if>
+			<if test="answer != null">
+				answer=#{answer},
+			</if>
+			<if test="analysis != null">
+				analysis=#{analysis},
+			</if>
+			<if test="question_time != null">
+				question_time=#{question_time},
+			</if>
+			<if test="difficulty != null">
+				difficulty=#{difficulty},
+			</if>
+			<if test="fenzhi != null">
+				fenzhi=#{fenzhi}
+			</if>
+		</set>
+		where 
+		<if test=" zhenti_question_id != null">
+		zhenti_question_id=#{zhenti_question_id}
+		</if>
+	</update>
+	<!--删除历年真题-题目信息 -->
+	<delete id="deleteZhentiQuestion" parameterType="java.lang.Integer">
+		delete from
+		zhenti_question where
+		zhenti_question_id=#{zhenti_question_id}
+	</delete>
+	<!--获取历年真题-题目信息 -->
+	<select id="getZhentiQuestion" parameterType="Map" resultMap="BaseResultMap">
+		select * from zhenti_question
+		<where>
+			<if test="zhenti_question_id !=null">
+				zhenti_question_id=#{zhenti_question_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询章节练习-章节信列表 -->
+	<select id="getZhentiQuestionList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from zhenti_question
+		<where>
+			<if test="question_course_id !=null">
+				question_course_id=#{question_course_id}
+			</if>
+			<if test="zhenti_id !=null">
+				zhenti_id=#{zhenti_id}
+			</if>
+			<if test="question_type !=null">
+				and question_type=#{question_type}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-章节信息数量 -->
+	<select id="getZhentiQuestionNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from zhenti_question
+		<where>
+			<if test="question_course_id !=null">
+				question_course_id=#{question_course_id}
+			</if>
+			<if test="zhenti_id !=null">
+				zhenti_id=#{zhenti_id}
+			</if>
+			<if test="question_type !=null">
+				and question_type=#{question_type}
+			</if>
+		</where>
+	</select>
+</mapper>

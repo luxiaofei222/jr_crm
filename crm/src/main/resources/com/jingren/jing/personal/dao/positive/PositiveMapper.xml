@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.personal.dao.positive.PositiveMapper">
+	<resultMap type="com.jingren.jing.personal.bean.positive.Positive"
+		id="BaseResultMap">
+		<id column="positive_id" property="positive_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="positive_content" property="positive_content" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="gangwei" property="gangwei" />
+		<result column="shenqing_time" property="shenqing_time" />
+		<result column="positive_time" property="positive_time" />
+		<result column="jingli_id" property="jingli_id" />
+		<result column="jingli_message" property="jingli_message" />
+		<result column="zongjian_id" property="zongjian_id" />
+		<result column="zongjian_message" property="zongjian_message" />
+		<result column="boss_id" property="boss_id" />
+		<result column="boss_message" property="boss_message" />
+		<result column="hr_id" property="hr_id" />
+		<result column="hr_message" property="hr_message" />
+		<result column="positive_state" property="positive_state" />
+	</resultMap>
+	<!--添加转正申请信息 -->
+	<insert id="savePositive" 
+		parameterType="com.jingren.jing.personal.bean.positive.Positive">
+		insert into positive 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="positive_content != null">
+				positive_content,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="gangwei != null">
+				gangwei,
+			</if>
+			<if test="shenqing_time != null">
+				shenqing_time,
+			</if>
+			<if test="positive_time != null">
+				positive_time,
+			</if>
+			<if test="jingli_id != null">
+				jingli_id,
+			</if>
+			<if test="jingli_message != null">
+				jingli_message,
+			</if>
+			<if test="zongjian_id != null">
+				zongjian_id,
+			</if>
+			<if test="zongjian_message != null">
+				zongjian_message,
+			</if>
+			<if test="boss_id != null">
+				boss_id,
+			</if>
+			<if test="boss_message != null">
+				boss_message,
+			</if>
+			<if test="hr_id != null">
+				hr_id,
+			</if>
+			<if test="hr_message != null">
+				hr_message,
+			</if>
+			<if test="positive_state != null">
+				positive_state
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="positive_content != null">
+				#{positive_content},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="gangwei != null">
+				#{gangwei},
+			</if>
+			<if test="shenqing_time != null">
+				#{shenqing_time},
+			</if>
+			<if test="positive_time != null">
+				#{positive_time},
+			</if>
+			<if test="jingli_id != null">
+				#{jingli_id},
+			</if>
+			<if test="jingli_message != null">
+				#{jingli_message},
+			</if>
+			<if test="zongjian_id != null">
+				#{zongjian_id},
+			</if>
+			<if test="zongjian_message != null">
+				#{zongjian_message},
+			</if>
+			<if test="boss_id != null">
+				#{boss_id},
+			</if>
+			<if test="boss_message != null">
+				#{boss_message},
+			</if>
+			<if test="hr_id != null">
+				#{hr_id},
+			</if>
+			<if test="hr_message != null">
+				#{hr_message},
+			</if>
+			<if test="positive_state != null">
+				#{positive_state}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改转正信息 -->
+	<update id="updatePositive" 
+		parameterType="com.jingren.jing.personal.bean.positive.Positive">
+		update positive
+		<set>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="positive_content != null">
+				positive_content=#{positive_content},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="gangwei != null">
+				gangwei=#{gangwei},
+			</if>
+			<if test="shenqing_time != null">
+				shenqing_time=#{shenqing_time},
+			</if>
+			<if test="positive_time != null">
+				positive_time=#{positive_time},
+			</if>
+			<if test="jingli_id != null">
+				jingli_id=#{jingli_id},
+			</if>
+			<if test="jingli_message != null">
+				jingli_message=#{jingli_message},
+			</if>
+			<if test="zongjian_id != null">
+				zongjian_id=#{zongjian_id},
+			</if>
+			<if test="zongjian_message != null">
+				zongjian_message=#{zongjian_message},
+			</if>
+			<if test="boss_id != null">
+				boss_id=#{boss_id},
+			</if>
+			<if test="boss_message != null">
+				boss_message=#{boss_message},
+			</if>
+			<if test="hr_id != null">
+				hr_id=#{hr_id},
+			</if>
+			<if test="hr_message != null">
+				hr_message=#{hr_message},
+			</if>
+			<if test="positive_state != null">
+				positive_state=#{positive_state}
+			</if>
+		</set>
+		where positive_id=#{positive_id}
+	</update>
+	<!--删除转正信息 -->
+	<delete id="deltePositive"  parameterType="java.lang.Integer">
+		delete from
+		positive where
+		positive_id=#{positive_id}
+	</delete>
+	<!-- 查看转正详情 -->
+	<select id="getPositive" parameterType="Map" resultMap="BaseResultMap">
+		select * from positive
+		<where>
+			<if test="positive_id != null">
+				positive_id =#{positive_id}
+			</if>
+		</where>
+	</select>
+	<!--查询转正信息列表 -->
+	<select id="getPositiveList" parameterType="Map" resultMap="BaseResultMap">
+		select * from positive
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="positive_state != null">
+				and positive_state =#{positive_state}
+			</if>
+			<if test="jingli_id != null">
+				and jingli_id =#{jingli_id}
+			</if>
+			<if test="zongjian_id != null">
+				and zongjian_id =#{zongjian_id}
+			</if>
+			<if test="boss_id != null">
+				and boss_id =#{boss_id}
+			</if>
+			<if test="hr_id != null">
+				and hr_id =#{hr_id}
+			</if>
+			<if test="start_time != null">
+				and shenqing_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and shenqing_time &lt;=#{end_time}
+			</if>
+		</where>
+		order by shenqing_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询转正信息数量 -->
+	<select id="getPositiveNumber" parameterType="Map" resultType="int">
+		select count(*) from positive
+		<where>
+			1=1
+				<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="positive_state != null">
+				and positive_state =#{positive_state}
+			</if>
+			<if test="jingli_id != null">
+				and jingli_id =#{jingli_id}
+			</if>
+			<if test="zongjian_id != null">
+				and zongjian_id =#{zongjian_id}
+			</if>
+			<if test="boss_id != null">
+				and boss_id =#{boss_id}
+			</if>
+			<if test="hr_id != null">
+				and hr_id =#{hr_id}
+			</if>
+			<if test="start_time != null">
+				and shenqing_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and shenqing_time &lt;=#{end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

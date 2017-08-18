@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.menu.MenuMapper">
+	<resultMap type="com.jingren.jing.school.bean.menu.Menu"
+		id="BaseResultMap">
+		<id column="menu_id" property="menu_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="menu_name" property="menu_name" />
+		<result column="menu_link" property="menu_link" />
+		<result column="menu_dis" property="menu_dis" />
+		<result column="menu_icon" property="menu_icon" />
+		<result column="menu_time" property="menu_time" />
+		<result column="menu_leval" property="menu_leval" />
+		<result column="menu_limit" property="menu_limit" />
+	</resultMap>
+
+	<!--查询菜单列表 -->
+	<select id="getMenuList" parameterType="Map" resultMap="BaseResultMap">
+		select * from menu
+		<where>
+			<if test="parent_id != null">
+				parent_id =#{parent_id}
+			</if>
+			<if test="menu_leval != null">
+				menu_leval =#{menu_leval}
+			</if>
+		</where>
+		order by menu_time ASC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 获取权限 -->
+	<select id="getMenuListPermission" parameterType="Map" resultMap="BaseResultMap">
+			SELECT
+		m.menu_id,m.parent_id,m.menu_name,m.menu_link,m.menu_icon,m.menu_leval,m.menu_limit
+		FROM
+		employee e LEFT JOIN role r ON e.role_id=r.role_id
+		LEFT JOIN
+		role_menu rm ON r.role_id=rm.role_id
+		LEFT JOIN menu m ON
+		rm.menu_id=m.menu_id
+		where 
+		<if test="parent_id != null">
+				m.parent_id =#{parent_id}
+		</if>
+		<if test="menu_leval != null">
+				m.menu_leval =#{menu_leval}
+		</if>
+		<if test="employee_id != null">
+				 and e.employee_id=#{employee_id}
+		</if>
+		
+	</select>
+	<!-- 查询菜单数量 -->
+	<select id="getMenuNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from menu
+		<where>
+			<if test="parent_id != null">
+				parent_id =#{parent_id}
+			</if>
+			<if test="menu_leval != null">
+				menu_leval =#{menu_leval}
+			</if>
+		</where>
+	</select>
+	<!-- 获取菜单信息 -->
+	<select id="getMenu" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from menu
+		<where>
+			<if test="menu_id != null">
+				menu_id =#{menu_id}
+			</if>
+		</where>
+	</select>
+</mapper>

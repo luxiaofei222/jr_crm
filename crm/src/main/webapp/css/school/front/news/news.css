@@ -1,0 +1,79 @@
+.breadcrumb{
+	height: 54px;
+	width: 1200px;
+	background: #ffffff;
+	margin:0 auto;
+	border-bottom:#06c1ae solid 2px;
+}
+.breadcrumb .home{
+	
+	margin-right:63px;
+	margin:13px 0;
+	float: left;
+
+}
+.breadcrumb a{
+	float: left;
+	color:#444444;
+	margin-top:3px;
+	font-size:14px;
+	line-height: 22px;
+}
+.breadcrumb .home i.fa-home {
+	font-size: 20px;
+	color: #06c1ae;
+}
+.breadcrumb a:nth-child(2){
+	margin:3px 0 3px 6px;
+
+}
+.zixun_content {
+	width:1200px;
+	margin:0 auto;
+	margin-bottom:60px;
+	} 
+.zixun_content .zixun_title h3 {
+	text-align:center;
+	color:#222;
+	font-size:20px;
+	margin:30px auto;
+	}
+.zixun_content .zixun_info {
+	width:555px;
+	text-align:center;
+	margin:0 auto;
+	height:25px;
+	}
+.zixun_content .zixun_info ul li {
+	float:left;
+	margin-right:70px;
+	font-size:14px;
+	color:#999;
+	}
+.zixun_content .zixun_info ul li:last-child {
+	margin-right:0px;
+	}
+.zixun_content .daodu {
+	width:1168px;
+	min-height:60px;
+	border:#06c1ae dashed 1px;
+	padding:15px;
+	background-color:#fafafa;
+	margin-top:30px;
+	}
+.zixun_content .daodu p {
+	line-height:30px;
+	color:#666;
+	font-size:14px;
+	}
+.zixun_content .zixun_contents p {
+	margin-top:15px;
+	text-indent:2em;
+	font-size:14px;
+	color:#444;
+	line-height:30px;
+	}
+.zixun_content .zixun_contents p.zanwu {
+	text-align: center;
+	color: orange;
+}

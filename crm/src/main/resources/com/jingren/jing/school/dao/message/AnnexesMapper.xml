@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.message.AnnexesMapper">
+	<resultMap type="com.jingren.jing.school.bean.message.Annexes"
+		id="BaseResultMap">
+		<id column="message_id" property="message_id" />
+		<result column="message_annexes" property="message_annexes" />
+		<result column="annexes_file" property="annexes_file" />
+	</resultMap>
+	<!--添加附件信息 -->
+	<insert id="saveAnnexes"
+		parameterType="com.jingren.jing.school.bean.message.Annexes">
+		insert into message_annexes
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="message_id != null">
+				message_id,
+			</if>
+			<if test="message_annexes != null">
+				message_annexes,
+			</if>
+			<if test="annexes_file != null">
+				annexes_file
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="message_id != null">
+				#{message_id},
+			</if>
+			<if test="message_annexes != null">
+				#{message_annexes},
+			</if>
+			<if test="annexes_file != null">
+				#{annexes_file}
+			</if>
+		</trim>
+	</insert>
+
+	<!--删除附件信息 -->
+	<delete id="deleteAnnexes" parameterType="java.lang.Integer">
+		delete from
+		message_annexes where
+		message_id=#{message_id}
+	</delete>
+
+	<!--查询附件列表 -->
+	<select id="getAnnexesList" parameterType="Map" resultMap="BaseResultMap">
+		select * from message_annexes
+		<where>
+			<if test="message_id != null">
+				message_id =#{message_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询附件数量 -->
+	<select id="getAnnexesNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from message_annexes
+		<where>
+			<if test="message_id != null">
+				message_id =#{message_id}
+			</if>
+		</where>
+	</select>
+</mapper>

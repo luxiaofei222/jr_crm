@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.oa.dao.oa_file.OaFileMapper">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.oa.bean.oa_file.OaFile" id="BaseResultMap">
+		<id column="file_id" property="file_id" />
+		<result column="file_name" property="file_name" />
+		<result column="file_addr" property="file_addr" />
+		<result column="file_time" property="file_time" />
+		<result column="file_down_time" property="file_down_time" />
+	</resultMap>
+	<!--添加公司文件 -->
+	<insert id="saveOaFile" flushCache="true"
+		parameterType="com.jingren.jing.oa.bean.oa_file.OaFile">
+		insert into oa_file
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="file_name != null">
+				file_name,
+			</if>
+			<if test="file_addr != null">
+				file_addr,
+			</if>
+			<if test="file_time != null">
+				file_time,
+			</if>
+			<if test="file_down_time != null">
+				file_down_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="file_name != null">
+				#{file_name},
+			</if>
+			<if test="file_addr != null">
+				#{file_addr},
+			</if>
+			<if test="file_time != null">
+				#{file_time},
+			</if>
+			<if test="file_down_time != null">
+				#{file_down_time}
+			</if>
+		</trim>
+	</insert>
+<update id="updateOaFile" flushCache="true" parameterType="com.jingren.jing.oa.bean.oa_file.OaFile">
+		update oa_file
+		<set>
+			<if test="file_name != null">
+				file_name=#{file_name},
+			</if>
+			<if test="file_addr != null">
+				file_addr=#{file_addr},
+			</if>
+			<if test="file_time != null">
+				file_time=#{file_time},
+			</if>
+			<if test="file_down_time != null">
+				file_down_time=#{file_down_time}
+			</if>
+		</set>
+		where file_id=#{file_id}
+	</update>
+	<!--删除公司文件 -->
+	<delete id="deleteOaFile" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		oa_file where
+		file_id=#{file_id}
+	</delete>
+	<!--查询公司文件列表 -->
+	<select id="getOaFileList" parameterType="Map" resultMap="BaseResultMap">
+		select * from oa_file
+		<where>
+			1=1
+			<if test="file_id != null">
+				and file_id =#{file_id}
+			</if>
+			<if test="start_time != null">
+			and	file_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	file_time &lt;=#{end_time}
+			</if>
+		</where>
+		order by file_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询公司文件数量 -->
+	<select id="getOaFileNumber" parameterType="Map" resultType="int">
+		select count(*) from oa_file
+		<where>
+			1=1
+			<if test="file_id != null">
+				and file_id =#{file_id}
+			</if>
+			<if test="start_time != null">
+			and	file_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	file_time &lt;=#{end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

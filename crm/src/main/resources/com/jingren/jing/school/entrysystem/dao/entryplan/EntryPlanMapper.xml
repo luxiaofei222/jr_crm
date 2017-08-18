@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.entrysystem.dao.entryplan.EntryPlanMapper">
+	<resultMap type="com.jingren.jing.school.entrysystem.bean.entryplan.EntryPlan"
+		id="BaseResultMap">
+		<id column="entryplan_id" property="entryplan_id" />
+		<result column="entryplan_content" property="entryplan_content" />
+		<result column="entryplan_explain" property="entryplan_explain" />
+		<result column="validity_time" property="validity_time" />
+		<result column="parent_id" property="parent_id" />
+		<result column="course_id" property="course_id" />
+		<result column="entryplan_time" property="entryplan_time" />
+		<result column="is_show" property="is_show" />
+		<result column="baomingfei" property="baomingfei" />
+		<result column="jiaocaifei" property="jiaocaifei" />
+		<result column="putongbanfei" property="putongbanfei" />
+		<result column="jingjiangbanfei" property="jingjiangbanfei" />
+		<result column="chengkao_nian" property="chengkao_nian" />
+		<result column="chengkao_zong" property="chengkao_zong" />
+		<result column="review_id" property="review_id" />
+		<result column="university_id" property="university_id" />
+	</resultMap>
+	<!--添加报名计划信息 -->
+	<insert id="saveEntryPlan"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entryplan.EntryPlan">
+		insert into entryplan
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="entryplan_content != null">
+				entryplan_content,
+			</if>
+			<if test="entryplan_explain != null">
+				entryplan_explain,
+			</if>
+			<if test="validity_time != null">
+				validity_time,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="entryplan_time != null">
+				entryplan_time,
+			</if>
+			<if test="is_show != null">
+				is_show,
+			</if>
+			<if test="baomingfei != null">
+				baomingfei,
+			</if>
+			<if test="jiaocaifei != null">
+				jiaocaifei,
+			</if>
+			<if test="putongbanfei != null">
+				putongbanfei,
+			</if>
+			<if test="jingjiangbanfei != null">
+				jingjiangbanfei,
+			</if>
+			<if test="chengkao_nian != null">
+				chengkao_nian,
+			</if>
+			<if test="chengkao_zong != null">
+				chengkao_zong,
+			</if>
+			<if test="review_id != null">
+				review_id,
+			</if>
+			<if test="university_id != null">
+				university_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		<if test="entryplan_content != null">
+				#{entryplan_content},
+			</if>
+			<if test="entryplan_explain != null">
+				#{entryplan_explain},
+			</if>
+			<if test="validity_time != null">
+				#{validity_time},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="entryplan_time != null">
+				#{entryplan_time},
+			</if>
+			<if test="is_show != null">
+				#{is_show},
+			</if>
+			<if test="baomingfei != null">
+				#{baomingfei},
+			</if>
+			<if test="jiaocaifei != null">
+				#{jiaocaifei},
+			</if>
+			<if test="putongbanfei != null">
+				#{putongbanfei},
+			</if>
+			<if test="jingjiangbanfei != null">
+				#{jingjiangbanfei},
+			</if>
+			<if test="chengkao_nian != null">
+				#{chengkao_nian},
+			</if>
+			<if test="chengkao_zong != null">
+				#{chengkao_zong},
+			</if>
+			<if test="review_id != null">
+				#{review_id},
+			</if>
+			<if test="university_id != null">
+				#{university_id}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改报名计划信息 -->
+	<update id="updateEntryPlan"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entryplan.EntryPlan">
+		update entryplan
+		<set>
+			<if test="entryplan_content != null">
+				entryplan_content=#{entryplan_content},
+			</if>
+			<if test="entryplan_explain != null">
+				entryplan_explain=#{entryplan_explain},
+			</if>
+			<if test="validity_time != null">
+				validity_time=#{validity_time},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="entryplan_time != null">
+				entryplan_time=#{entryplan_time},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show},
+			</if>
+			<if test="baomingfei != null">
+				baomingfei=#{baomingfei},
+			</if>
+			<if test="jiaocaifei != null">
+				jiaocaifei=#{jiaocaifei},
+			</if>
+			<if test="putongbanfei != null">
+				putongbanfei=#{putongbanfei},
+			</if>
+			<if test="jingjiangbanfei != null">
+				jingjiangbanfei=#{jingjiangbanfei},
+			</if>
+			<if test="chengkao_nian != null">
+				chengkao_nian=#{chengkao_nian},
+			</if>
+			<if test="chengkao_zong != null">
+				chengkao_zong=#{chengkao_zong},
+			</if>
+			<if test="review_id != null">
+				review_id=#{review_id},
+			</if>
+			<if test="university_id != null">
+				university_id=#{university_id}
+			</if>
+		</set>
+		where entryplan_id=#{entryplan_id}
+	</update>
+	<!--删除报名计划信息 -->
+	<delete id="deleteEntryPlan" parameterType="java.lang.Integer">
+		delete from
+		entryplan where
+		entryplan_id=#{entryplan_id}
+	</delete>
+	<!--获取报名计划信息 -->
+	<select id="getEntryPlan" parameterType="Map" resultMap="BaseResultMap">
+		select * from entryplan
+		<where>
+			<if test="entryplan_id !=null">
+				entryplan_id=#{entryplan_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询报名计划列表 -->
+	<select id="getEntryPlanList" parameterType="Map" resultMap="BaseResultMap">
+		select * from entryplan
+		<where>
+			1=1
+			<if test="entryplan_content != null">
+				and entryplan_content like "%"#{entryplan_content}"%"
+			</if>
+			<if test="entryplan_explain != null">
+				and entryplan_explain like "%"#{entryplan_explain}"%"
+			</if>
+			<if test="parent_id != null">
+				and parent_id = #{parent_id}
+			</if>
+			<if test="course_id != null">
+				and course_id = #{course_id}
+			</if>
+			<if test="is_show != null">
+				and is_show = #{is_show}
+			</if>
+			<if test="review_id != null">
+				and review_id = #{review_id}
+			</if>
+			<if test="now != null">
+				and validity_time &gt;= #{now}
+			</if>
+		</where>
+		order by entryplan_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询报名计划数量 -->
+	<select id="getEntryPlanNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from entryplan
+		<where>
+				1=1
+			<if test="entryplan_content != null">
+				and entryplan_content like "%"#{entryplan_content}"%"
+			</if>
+			<if test="entryplan_explain != null">
+				and entryplan_explain like "%"#{entryplan_explain}"%"
+			</if>
+			<if test="parent_id != null">
+				and parent_id = #{parent_id}
+			</if>
+			<if test="course_id != null">
+				and course_id = #{course_id}
+			</if>
+			<if test="is_show != null">
+				and is_show = #{is_show}
+			</if>
+			<if test="now != null">
+				and validity_time &gt;=#{now}
+			</if>
+		</where>
+	</select>
+	<!-- 去重查询  -->
+	<select id="getEntryQuChongPlanList" parameterType="Map" resultMap="BaseResultMap">
+			select distinct 
+			<if test="course_id != null">
+			course_id 
+			</if>
+			<if test="parent_id != null">
+			parent_id 
+			</if>
+			<if test="review_id != null">
+			review_id 
+			</if>
+			from entryplan where is_show = #{is_show}  
+			<if test="course_parent_id != null">
+			and parent_id =#{course_parent_id}
+			</if>
+			<if test="course_review_id != null">
+			and course_id =#{course_review_id}
+			</if>
+			<if test="now != null">
+				and validity_time &gt;= #{now}
+			</if>
+	</select>
+</mapper>

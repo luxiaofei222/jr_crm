@@ -1,0 +1,190 @@
+/*网上报名*/
+.hot_class> h3,
+.star_teacher> h3,
+.register_online> h3 {
+	width: 250px;
+	border-left: 100px solid #333;
+	border-right: 100px solid #333;
+	font-size: 42px;
+	line-height: 1px;
+	margin: 20px auto;
+	text-align: center;
+	font-weight: normal;
+}
+.register_online {
+	width: 1200px;
+	margin: 60px auto;
+}
+
+.register_online form {
+	width: 700px;
+	margin-top: 50px;
+}
+
+.register_online form input[type="text"],
+.register_online form select,
+.register_online form textarea {
+	width: 688px;
+	height: 60px;
+	background-color: #cfd8dc;
+	line-height: 60px;
+	color: #9999;
+	font-size: 15px;
+	margin-bottom: 15px;
+	border: none;
+	padding-left: 12px;
+}
+
+.register_online form select.select_zhuanye {
+	width: 345px;
+	color: #595757;
+	float:left;
+}
+.register_online form select.select_dengji {
+	margin-left:10px;
+	width: 345px;
+	color: #595757;
+	float:left;
+}
+.register_online form select option {
+	background-color: #fff;
+}
+
+.register_online form textarea {
+	line-height: 25px;
+	resize: vertical;
+}
+
+.register_online form input[type="button"] {
+	width: 185px;
+	height: 45px;
+	line-height: 45px;
+	color: #fff;
+	background-color: #abcd05;
+	text-align: center;
+	border: none;
+	font-size:20px;
+	font-family: "微软雅黑";
+	letter-spacing: 3px;
+	cursor:pointer;
+}
+
+.register_online .bm_right {
+	margin-top: 50px;
+	margin-left: 45px;
+}
+
+.register_online .bm_right ul li {
+	font-size: 14px;
+	color: #595757;
+	margin-top: 23px;
+}
+.register_online .bm_right ul li a {
+	font-size: 14px;
+	color: #595757;
+	margin-top: 23px;
+}
+.register_online .bm_right ul li a:hover{
+	color: #ABCD05;
+}
+.register_online .bm_right ul li i {
+	font-size: 25px;
+	margin-right: 8px;
+}
+
+.register_online .bm_right ul li p {
+	text-align: center;
+}
+/* 后加的底部 */
+.jia_footer{
+	/* padding: 30px 0; */
+    min-width: 75pc;
+    background: #484848;
+}
+.jia_wrapper{
+	width:1200px;
+	margin:0 auto;
+	overflow:hidden;
+	background: #484848;
+}
+.br_bk1, .br_bl, .br_p045.br_bl{
+    border-right: 1px solid #5e5d5d;
+    }
+.bottom_right_font {
+    margin-top: 5px;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+}
+.bottom_title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+}
+.bottom_show {
+    line-height: 24px;
+}
+.bottom_show,.bottom_show a:link,.bottom_show a:visited {
+    color: #898787;
+    font-size: 15px;
+}
+.bottom_show a:hover {
+    color: #ee7800;
+}
+.beian {
+    padding: 35px 0;
+    /* width: 100%; */
+    height: 90px;
+    background: #484848;
+    text-align: center;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 24px;
+    color:white;
+    float:right;
+    margin-right:100px;
+    margin-top:10px;
+}
+.beian a{
+   color: white;
+}
+.right_phone {
+ 
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+}
+.right_phone .rt_ph {
+    color: #ee7800;
+    padding-right: 8px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+.bottom_phone {
+    color: #fff;
+    font-size: 15px;
+    line-height: 30px;
+}
+.bottom_phone a{
+	cursor:pointer;
+}
+.zx_h30 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+}
+.zx_h30 a:link,.zx_h30 a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+.zx_h30 a:hover {
+    color: #ee7800;
+}
+.br_p045 {
+    padding: 0 45px;
+}

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.chapter_exercises.ChapterExercisesMapper">
+	<cache/>
+	<resultMap
+		type="com.jingren.jing.question.bean.chapter_exercises.ChapterExercises"
+		id="BaseResultMap">
+		<id column="chapter_exercises_id" property="chapter_exercises_id" />
+		<result column="textbook_version" property="textbook_version" />
+		<result column="question_course_id" property="question_course_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="chapter_level" property="chapter_level" />
+		<result column="chapter_name" property="chapter_name" />
+		<result column="chapter_time" property="chapter_time" />
+		<result column="chapter_number" property="chapter_number" />
+	</resultMap>
+	<!--添加章节练习-章节信息 -->
+	<insert id="saveChapterExercises" flushCache="true"
+		parameterType="com.jingren.jing.question.bean.chapter_exercises.ChapterExercises">
+		insert into chapter_exercises
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="textbook_version != null">
+				textbook_version,
+			</if>
+			<if test="question_course_id != null">
+				question_course_id,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="chapter_level != null">
+				chapter_level,
+			</if>
+			<if test="chapter_name != null">
+				chapter_name,
+			</if>
+			<if test="chapter_time != null">
+				chapter_time,
+			</if>
+			<if test="chapter_number != null">
+				chapter_number
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		<if test="textbook_version != null">
+				#{textbook_version},
+			</if>
+			<if test="question_course_id != null">
+				#{question_course_id},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="chapter_level != null">
+				#{chapter_level},
+			</if>
+			<if test="chapter_name != null">
+				#{chapter_name},
+			</if>
+			<if test="chapter_time != null">
+				#{chapter_time},
+			</if>
+			<if test="chapter_number != null">
+				#{chapter_number}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改章节练习-章节信息 -->
+	<update id="updateChapterExercises" flushCache="true"
+		parameterType="com.jingren.jing.question.bean.chapter_exercises.ChapterExercises">
+		update chapter_exercises
+		<set>
+		<if test="textbook_version != null">
+				textbook_version=#{textbook_version},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="chapter_level != null">
+				chapter_level=#{chapter_level},
+			</if>
+			<if test="chapter_name != null">
+				chapter_name=#{chapter_name},
+			</if>
+			<if test="chapter_time != null">
+				chapter_time=#{chapter_time},
+			</if>
+			<if test="chapter_number != null">
+				chapter_number=#{chapter_number}
+			</if>
+		</set>
+		where 
+		<if test=" chapter_exercises_id != null">
+		chapter_exercises_id=#{chapter_exercises_id}
+		</if>
+		<if test=" question_course_id != null">
+		question_course_id=#{question_course_id}
+		</if>
+	</update>
+	<!--删除章节练习-章节信息 -->
+	<delete id="deleteChapterExercises" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		chapter_exercises where
+		chapter_exercises_id=#{chapter_exercises_id}
+	</delete>
+	<!--获取章节练习-章节信息 -->
+	<select id="getChapterExercises" parameterType="Map" resultMap="BaseResultMap">
+		select * from chapter_exercises
+		<where>
+			<if test="chapter_exercises_id !=null">
+				chapter_exercises_id=#{chapter_exercises_id}
+			</if>
+			<if test="question_course_id !=null">
+				question_course_id=#{question_course_id}
+			</if>
+			<if test="chapter_level !=null">
+				and chapter_level=#{chapter_level}
+			</if>
+			<if test="chapter_number !=null">
+				and chapter_number=#{chapter_number}
+			</if>
+		</where>
+	</select>
+
+	<!--查询章节练习-章节信列表 -->
+	<select id="getChapterExercisesList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from chapter_exercises
+		<where>
+			<if test="parent_id != null">
+				parent_id =#{parent_id}
+			</if>
+			<if test="question_course_id !=null">
+				and question_course_id=#{question_course_id}
+			</if>
+			<if test="chapter_level != null">
+				chapter_level =#{chapter_level}
+			</if>
+		</where>
+		<if test="paixu !=null">
+		order by chapter_number DESC
+		</if>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-章节信息数量 -->
+	<select id="getChapterExercisesNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from chapter_exercises
+		<where>
+			<if test="parent_id != null">
+				parent_id =#{parent_id}
+			</if>
+			<if test="question_course_id !=null">
+				and question_course_id=#{question_course_id}
+			</if>
+			<if test="chapter_level != null">
+				chapter_level =#{chapter_level}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getChapterExercisesQuchongList" parameterType="Map" resultMap="BaseResultMap">
+		SELECT DISTINCT(textbook_version) FROM chapter_exercises 
+		<where>
+			<if test="question_course_id != null">
+				question_course_id =#{question_course_id}
+			</if>
+		</where>
+	</select>
+</mapper>

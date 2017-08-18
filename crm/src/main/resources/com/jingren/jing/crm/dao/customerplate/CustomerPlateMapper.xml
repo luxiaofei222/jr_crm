@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.crm.dao.customerplate.CustomerPlateMapper">
+	<resultMap type="com.jingren.jing.crm.bean.customerplate.CustomerPlate"
+		id="BaseResultMap">
+		<id column="plate_id" property="plate_id" />
+		<result column="customer_id" property="customer_id" />
+		<result column="palte_title" property="palte_title" />
+		<result column="plate_content" property="plate_content" />
+		<result column="plate_time" property="plate_time" />
+		<result column="company_id" property="company_id" />
+	</resultMap>
+	<!--添加客户增加板块信息 -->
+	<insert id="saveCustomerPlate"
+		parameterType="com.jingren.jing.crm.bean.customerplate.CustomerPlate">
+		insert into customer_add_plate
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="customer_id != null">
+				customer_id,
+			</if>
+			<if test="palte_title != null">
+				palte_title,
+			</if>
+			<if test="plate_content != null">
+				plate_content,
+			</if>
+			<if test="plate_time != null">
+				plate_time,
+			</if>
+			<if test="company_id != null">
+				company_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="customer_id != null">
+				#{customer_id},
+			</if>
+			<if test="palte_title != null">
+				#{palte_title},
+			</if>
+			<if test="plate_content != null">
+				#{plate_content},
+			</if>
+			<if test="plate_time != null">
+				#{plate_time},
+			</if>
+			<if test="company_id != null">
+				#{company_id}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改客户增加板块信息 -->
+	<update id="updateCustomerPlate"
+		parameterType="com.jingren.jing.crm.bean.customerplate.CustomerPlate">
+		update customer_add_plate
+		<set>
+			<if test="customer_id != null">
+				customer_id=#{customer_id},
+			</if>
+			<if test="palte_title != null">
+				palte_title=#{palte_title},
+			</if>
+			<if test="plate_content != null">
+				plate_content=#{plate_content},
+			</if>
+			<if test="plate_time != null">
+				plate_time=#{plate_time}
+			</if>
+		</set>
+		where plate_id=#{plate_id}
+	</update>
+	<!--删除客户增加板块信息 -->
+	<delete id="deleteCustomerPlate" parameterType="java.lang.Integer">
+		delete from
+		customer_add_plate where
+		company_id=#{company_id}
+	</delete>
+	<!--获取客户增加板块信息 -->
+	<select id="getCustomerPlate" parameterType="Map" resultMap="BaseResultMap">
+		select * from customer_add_plate
+		<where>
+			<if test="plate_id !=null">
+				plate_id=#{plate_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询客户增加板块列表 -->
+	<select id="getCustomerPlateList" parameterType="Map" resultMap="BaseResultMap">
+		select * from customer_add_plate
+		<where>
+			<if test="customer_id != null">
+				customer_id =#{customer_id}
+			</if>
+			<if test="company_id != null">
+				company_id =#{company_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询客户增加板块数量 -->
+	<select id="getCustomerPlateNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from customer_add_plate
+		<where>
+			<if test="customer_id != null">
+				customer_id =#{customer_id}
+			</if>
+			<if test="company_id != null">
+				company_id =#{company_id}
+			</if>
+		</where>
+	</select>
+</mapper>

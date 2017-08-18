@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.personal.dao.punch.PunchMapper">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.personal.bean.punch.Punch"
+		id="BaseResultMap">
+		<id column="punch_id" property="punch_id" />
+		<result column="employee_name" property="employee_name" />
+		<result column="employee_id" property="employee_id" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="bumen_shangji" property="bumen_shangji" />
+		<result column="punch_time" property="punch_time" />
+		<result column="shijianduan" property="shijianduan" />
+		<result column="daka_time" property="daka_time" />
+		<result column="punch_info" property="punch_info" />
+		<result column="renshi_state" property="renshi_state" />
+		<result column="renshi_info" property="renshi_info" />
+		<result column="gangwei_id" property="gangwei_id" />
+		<result column="nianyue" property="nianyue" />
+		<result column="nianyueri" property="nianyueri" />
+	</resultMap>
+	<!--添加忘记打卡信息 -->
+	<insert id="savePunch" flushCache="true"
+		parameterType="com.jingren.jing.personal.bean.punch.Punch">
+		insert into punch 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_name != null">
+				employee_name,
+			</if>
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="bumen_shangji != null">
+				bumen_shangji,
+			</if>
+			<if test="punch_time != null">
+				punch_time,
+			</if>
+			<if test="shijianduan != null">
+				shijianduan,
+			</if>
+			<if test="daka_time != null">
+				daka_time,
+			</if>
+			<if test="punch_info != null">
+				punch_info,
+			</if>
+			<if test="renshi_state != null">
+				renshi_state,
+			</if>
+			<if test="renshi_info != null">
+				renshi_info,
+			</if>
+			<if test="gangwei_id != null">
+				gangwei_id,
+			</if>
+			<if test="nianyue != null">
+				nianyue,
+			</if>
+			<if test="nianyueri != null">
+				nianyueri
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_name != null">
+				#{employee_name},
+			</if>
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="bumen_shangji != null">
+				#{bumen_shangji},
+			</if>
+			<if test="punch_time != null">
+				#{punch_time},
+			</if>
+			<if test="shijianduan != null">
+				#{shijianduan},
+			</if>
+			<if test="daka_time != null">
+				#{daka_time},
+			</if>
+			<if test="punch_info != null">
+				#{punch_info},
+			</if>
+			<if test="renshi_state != null">
+				#{renshi_state},
+			</if>
+			<if test="renshi_info != null">
+				#{renshi_info},
+			</if>
+			<if test="gangwei_id != null">
+				#{gangwei_id},
+			</if>
+			<if test="nianyue != null">
+				#{nianyue},
+			</if>
+			<if test="nianyueri != null">
+				#{nianyueri}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改忘记打卡信息 -->
+	<update id="updatePunch" flushCache="true"
+		parameterType="com.jingren.jing.personal.bean.punch.Punch">
+		update punch
+		<set>
+			<if test="employee_name != null">
+				employee_name=#{employee_name},
+			</if>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="bumen_shangji != null">
+				bumen_shangji=#{bumen_shangji},
+			</if>
+			<if test="punch_time != null">
+				punch_time=#{punch_time},
+			</if>
+			<if test="shijianduan != null">
+				shijianduan=#{shijianduan},
+			</if>
+			<if test="daka_time != null">
+				daka_time=#{daka_time},
+			</if>
+			<if test="punch_info != null">
+				punch_info=#{punch_info},
+			</if>
+			<if test="renshi_state != null">
+				renshi_state=#{renshi_state},
+			</if>
+			<if test="renshi_info != null">
+				renshi_info=#{renshi_info},
+			</if>
+			<if test="gangwei_id != null">
+				gangwei_id=#{gangwei_id}
+			</if>
+		</set>
+		where punch_id=#{punch_id}
+	</update>
+	<!--删除忘记打卡信息 -->
+	<delete id="deletePunch" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		punch where
+		punch_id=#{punch_id}
+	</delete>
+	<!-- 查看请假详情 -->
+	<select id="getPunch" parameterType="Map" resultMap="BaseResultMap">
+		select * from punch
+		<where>
+			<if test="punch_id != null">
+				punch_id =#{punch_id}
+			</if>
+		</where>
+	</select>
+	<!--查询忘记打卡信息列表 -->
+	<select id="getPunchList" parameterType="Map" resultMap="BaseResultMap">
+		select * from punch
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="renshi_state != null">
+				and renshi_state =#{renshi_state}
+			</if>
+			<if test="nianyue != null">
+				and nianyue =#{nianyue}
+			</if>
+			<if test="nianyueri != null">
+				and nianyueri =#{nianyueri}
+			</if>
+			<if test="start_time != null">
+				and daka_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and daka_time &lt;=#{end_time}
+			</if>
+		</where>
+		order by punch_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询忘记打卡信息数量 -->
+	<select id="getPunchNumber" parameterType="Map" resultType="int">
+		select count(*) from punch
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="renshi_state != null">
+				and renshi_state =#{renshi_state}
+			</if>
+			<if test="nianyue != null">
+				and nianyue =#{nianyue}
+			</if>
+			<if test="nianyueri != null">
+				and nianyueri =#{nianyueri}
+			</if>
+			<if test="start_time != null">
+				and daka_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and daka_time &lt;=#{end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

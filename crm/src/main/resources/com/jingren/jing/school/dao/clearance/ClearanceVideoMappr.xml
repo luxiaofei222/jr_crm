@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.clearance.ClearanceVideoMappr">
+	<resultMap type="com.jingren.jing.school.bean.clearance.ClearanceVideo"
+		id="BaseResultMap">
+		<id column="clear_video_id" property="clear_video_id" />
+		<result column="clearance_id" property="clearance_id" />
+		<result column="video_id" property="video_id" />
+		<result column="video_name" property="video_name" />
+		<result column="video_price" property="video_price" />
+	</resultMap>
+	<!--添加通关方案信息 -->
+	<insert id="saveClearanceVideo"
+		parameterType="com.jingren.jing.school.bean.clearance.ClearanceVideo">
+		insert into clearance_video
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="clearance_id != null">
+				clearance_id,
+			</if>
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="video_name != null">
+				video_name,
+			</if>
+			<if test="video_price != null">
+				video_price
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="clearance_id != null">
+				#{clearance_id},
+			</if>
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="video_name != null">
+				#{video_name},
+			</if>
+			<if test="video_price != null">
+				#{video_price}
+			</if>
+		</trim>
+	</insert>
+
+	<!--删除通关方案课程信息 -->
+	<delete id="deleteClearanceVideo" parameterType="java.lang.Integer">
+		delete from
+		clearance_video where
+		clear_video_id=#{clear_video_id}
+	</delete>
+
+	<!--查询通关方案列表 -->
+	<select id="getClearanceVideoList" parameterType="Map" resultMap="BaseResultMap">
+		select * from clearance_video
+		<where>
+			<if test="video_id != null">
+				video_id =#{video_id}
+			</if>
+			<if test="clearance_id != null">
+				clearance_id =#{clearance_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+</mapper>

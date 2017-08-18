@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.course.CourseInfoMapper">
+	<cache eviction="FIFO" flushInterval="60000"  size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.school.bean.course.CourseInfo"
+		id="BaseResultMap">
+		<id column="info_id" property="info_id" />
+		<result column="info_type" property="info_type" />
+		<result column="info_title" property="info_title" />
+		<result column="course_id" property="course_id" />
+		<result column="info_content" property="info_content" />
+		<result column="info_time" property="info_time" />
+		<result column="info_user" property="info_user" />
+		<result column="info_laiyuan" property="info_laiyuan" />
+		<result column="meta_title" property="meta_title" />
+		<result column="meta_dis" property="meta_dis" />
+		<result column="meta_key" property="meta_key" />
+		<result column="info_zhaiyao" property="info_zhaiyao" />
+		<result column="parent_course_id" property="parent_course_id" />
+		<result column="dictionary_id" property="dictionary_id" />
+		<result column="is_hot" property="is_hot" />
+		<result column="is_dic" property="is_dic" />
+	</resultMap>
+	<!--添加课程资讯 -->
+	<insert id="saveCourseInfo" flushCache="true" parameterType="com.jingren.jing.school.bean.course.CourseInfo">
+		insert into course_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="info_type != null">
+				info_type,
+			</if>
+			<if test="info_title != null">
+				info_title,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="info_content != null">
+				info_content,
+			</if>
+			<if test="info_time != null">
+				info_time,
+			</if>
+			<if test="info_user != null">
+				info_user,
+			</if>
+			<if test="info_laiyuan != null">
+				info_laiyuan,
+			</if>
+			<if test="meta_title != null">
+				meta_title,
+			</if>
+			<if test="meta_dis != null">
+				meta_dis,
+			</if>
+			<if test="meta_key != null">
+				meta_key,
+			</if>
+			<if test="info_zhaiyao != null">
+				info_zhaiyao,
+			</if>
+			<if test="parent_course_id != null">
+				parent_course_id,
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id,
+			</if>
+			<if test="is_dic != null">
+				is_dic
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="info_type != null">
+				#{info_type},
+			</if>
+			<if test="info_title != null">
+				#{info_title},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="info_content != null">
+				#{info_content},
+			</if>
+			<if test="info_time != null">
+				#{info_time},
+			</if>
+			<if test="info_user != null">
+				#{info_user},
+			</if>
+			<if test="info_laiyuan != null">
+				#{info_laiyuan},
+			</if>
+			<if test="meta_title != null">
+				#{meta_title},
+			</if>
+			<if test="meta_dis != null">
+				#{meta_dis},
+			</if>
+			<if test="meta_key != null">
+				#{meta_key},
+			</if>
+			<if test="info_zhaiyao != null">
+				#{info_zhaiyao},
+			</if>
+			<if test="parent_course_id != null">
+				#{parent_course_id},
+			</if>
+			<if test="dictionary_id != null">
+				#{dictionary_id},
+			</if>
+			<if test="is_dic != null">
+				#{is_dic}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改课程资讯信息 -->
+	<update id="updateCourseInfo" flushCache="true" parameterType="com.jingren.jing.school.bean.course.CourseInfo">
+		update course_info
+		<set>
+			<if test="info_type != null">
+				info_type=#{info_type},
+			</if>
+			<if test="info_title != null">
+				info_title=#{info_title},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="info_content != null">
+				info_content=#{info_content},
+			</if>
+			<if test="info_time != null">
+				info_time=#{info_time},
+			</if>
+			<if test="info_user != null">
+				info_user=#{info_user},
+			</if>
+			<if test="info_laiyuan != null">
+				info_laiyuan=#{info_laiyuan},
+			</if>
+			<if test="meta_title != null">
+				meta_title=#{meta_title},
+			</if>
+			<if test="meta_dis != null">
+				meta_dis=#{meta_dis},
+			</if>
+			<if test="meta_key != null">
+				meta_key=#{meta_key},
+			</if>
+			<if test="info_zhaiyao != null">
+				info_zhaiyao=#{info_zhaiyao},
+			</if>
+			<if test="parent_course_id != null">
+				parent_course_id=#{parent_course_id},
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id=#{dictionary_id},
+			</if>
+			<if test="is_hot != null">
+				is_hot=#{is_hot},
+			</if>
+			<if test="is_dic != null">
+				is_dic=#{is_dic}
+			</if>
+		</set>
+		where info_id=#{info_id}
+	</update>
+	<!--删除课程资讯信息 -->
+	<delete id="deleteCourseInfo" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		course_info where
+		info_id=#{info_id}
+	</delete>
+	<!--获取课程咨询信息 -->
+	<select id="getCourseInfo" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_info
+		<where>
+			<if test="info_id !=null">
+				info_id=#{info_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询课程咨询列表 -->
+	<select id="getCourseInfoList" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_info
+		<where>
+		1=1
+			<if test="info_type != null">
+			and	info_type = #{info_type}
+			</if>
+			<if test="info_title != null">
+			and	info_title like "%"#{info_title}"%"
+			</if>
+			<if test="course_id != null">
+			and	course_id = #{course_id}
+			</if>
+			<if test="parent_course_id != null">
+			and	parent_course_id = #{parent_course_id}
+			</if>
+		</where>
+		order by info_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!--资讯列表二级页面  -->
+	<select id="getCourseInfoList_erji" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_info
+		<where>
+			<if test="course_id != null">
+				course_id = #{course_id}
+			</if>
+			<if test="info_type != null">
+				and	info_type = #{info_type}
+			</if>
+			<if test="dictionary_id != null">
+				and	dictionary_id = #{dictionary_id}
+			</if>
+			<if test="is_hot != null">
+				and	is_hot = #{is_hot}
+			</if>
+			<if test="is_dic != null">
+				and	is_dic = #{is_dic}
+			</if>
+		</where>
+		order by info_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 通过课程id获取相关资讯 -->
+	<select id="getCourseInfoListByCourseId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select * from course_info where course_id = #{course_id}
+	</select>
+	<!-- 查询课程资讯数量 -->
+	<select id="getCourseInfoNumber" parameterType="Map" resultType="int">
+		select count(*) from course_info
+		<where>
+		1=1
+			<if test="info_type != null">
+			and	info_type = #{info_type}
+			</if>
+			<if test="info_title != null">
+			and	info_title like "%"#{info_title}"%"
+			</if>
+			<if test="course_id != null">
+			and	course_id = #{course_id}
+			</if>
+			<if test="parent_course_id != null">
+			and	parent_course_id = #{parent_course_id}
+			</if>
+		</where>
+	</select>
+</mapper>

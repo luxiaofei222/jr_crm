@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.downerror.dao.DownErrorMapper">
+	<resultMap type="com.jingren.jing.common.downerror.bean.DownError"
+		id="BaseResultMap">
+		<id column="user_id" property="user_id" />
+		<result column="user_ip" property="user_ip" />
+		<result column="down_type" property="down_type" />
+		<result column="down_time" property="down_time" />
+		<result column="video_id" property="video_id" />
+	</resultMap>
+	<insert id="saveDownError"  
+		parameterType="com.jingren.jing.common.downerror.bean.DownError" >
+		insert into down_error
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="user_ip != null">
+				user_ip,
+			</if>
+			<if test="down_type != null">
+				down_type,
+			</if>
+			<if test="down_time != null">
+				down_time,
+			</if>
+			<if test="video_id != null">
+				video_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="user_ip != null">
+				#{user_ip},
+			</if>
+			<if test="down_type != null">
+				#{down_type},
+			</if>
+			<if test="down_time != null">
+				#{down_time},
+			</if>
+			<if test="video_id != null">
+				#{video_id}
+			</if>
+		</trim>
+	</insert>
+	<delete id="deleteDownError" >
+		delete from down_error
+	</delete>
+	<select id="getDownErrorList" parameterType="Map" resultMap="BaseResultMap">
+		select * from down_error
+		<where>
+			<if test="user_id !=null">
+				user_id=#{user_id}
+			</if>
+		</where>
+	</select>
+</mapper>

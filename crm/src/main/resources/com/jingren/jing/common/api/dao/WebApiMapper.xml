@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.api.dao.WebApiMapper">
+	<resultMap type="com.jingren.jing.common.api.bean.WebApi" id="BaseResultMap">
+		<id column="api_id" property="api_id" />
+		<result column="api_info" property="api_info" />
+		<result column="api_time" property="api_time" />
+	</resultMap>
+	<insert id="saveWebApi" 
+		parameterType="com.jingren.jing.common.api.dao.WebApiMapper">
+		insert into web_api 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="api_info != null">
+				api_info,
+			</if>
+			<if test="api_time != null">
+				api_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="api_info != null">
+				#{api_info},
+			</if>
+			<if test="api_time != null">
+				#{api_time}
+			</if>
+		</trim>
+	</insert>
+	<!--获取api列表 -->
+	<select id="getWebApiList" parameterType="Map" resultMap="BaseResultMap">
+		select * from web_api order by api_time DESC
+	</select>
+</mapper>

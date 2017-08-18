@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.recruit.dao.chengkaoyuanxiao.CKZhaoShengMapper">
+	<resultMap
+		type="com.jingren.jing.recruit.bean.chengkaoyuanxiao.CKZhaoSheng"
+		id="BaseResultMap">
+		<id column="zhaosheng_id" property="zhaosheng_id" />
+		<result column="chengkao_id" property="chengkao_id" />
+		<result column="xiaohui" property="xiaohui" />
+		<result column="remen_zhuanye" property="remen_zhuanye" />
+		<result column="shouye_beijing" property="shouye_beijing" />
+		<result column="xiangqing_beijing" property="xiangqing_beijing" />
+		<result column="yuanxiao_jieshao" property="yuanxiao_jieshao" />
+		<result column="fugai_quyu" property="fugai_quyu" />
+		<result column="xuelizhengshu" property="xuelizhengshu" />
+		<result column="xuewei_zhengshu" property="xuewei_zhengshu" />
+		<result column="tijiao_time" property="tijiao_time" />
+		<result column="zhaosheng_state" property="zhaosheng_state" />
+		<result column="xuexiao_name" property="xuexiao_name" />
+		<result column="wangjiao_id" property="wangjiao_id" />
+		<result column="xuexiao_type" property="xuexiao_type" />
+		<result column="is_show" property="is_show" />
+		<result column="xiaoxun" property="xiaoxun" />
+		<result column="yuanli_pic" property="yuanli_pic" />
+		<result column="yuanli_file" property="yuanli_file" />
+		<result column="yuanli_name" property="yuanli_name" />
+		<result column="xuesheng_shouce" property="xuesheng_shouce" />
+		<result column="shoufei_shuoming" property="shoufei_shuoming" />
+		<result column="moniti" property="moniti" />
+	</resultMap>
+	<!--添加招生信息 -->
+	<insert id="saveCKZhaoSheng" useGeneratedKeys="true" keyProperty="zhaosheng_id"
+		parameterType="com.jingren.jing.recruit.bean.chengkaoyuanxiao.CKZhaoSheng">
+		insert into chengkao_zhaosheng
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="chengkao_id != null">
+				chengkao_id,
+			</if>
+			<if test="xiaohui != null">
+				xiaohui,
+			</if>
+			<if test="remen_zhuanye != null">
+				remen_zhuanye,
+			</if>
+			<if test="shouye_beijing != null">
+				shouye_beijing,
+			</if>
+			<if test="xiangqing_beijing != null">
+				xiangqing_beijing,
+			</if>
+			<if test="yuanxiao_jieshao != null">
+				yuanxiao_jieshao,
+			</if>
+			<if test="fugai_quyu != null">
+				fugai_quyu,
+			</if>
+			<if test="xuelizhengshu != null">
+				xuelizhengshu,
+			</if>
+			<if test="xuewei_zhengshu != null">
+				xuewei_zhengshu,
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time,
+			</if>
+			<if test="zhaosheng_state != null">
+				zhaosheng_state,
+			</if>
+			<if test="xuexiao_name != null">
+				xuexiao_name,
+			</if>
+			<if test="wangjiao_id != null">
+				wangjiao_id,
+			</if>
+			<if test="xuexiao_type != null">
+				xuexiao_type,
+			</if>
+			<if test="is_show != null">
+				is_show,
+			</if>
+			<if test="xiaoxun != null">
+				xiaoxun,
+			</if>
+			<if test="yuanli_pic != null">
+				yuanli_pic,
+			</if>
+			<if test="yuanli_file != null">
+				yuanli_file,
+			</if>
+			<if test="yuanli_name != null">
+				yuanli_name
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="chengkao_id != null">
+				#{chengkao_id},
+			</if>
+			<if test="xiaohui != null">
+				#{xiaohui},
+			</if>
+			<if test="remen_zhuanye != null">
+				#{remen_zhuanye},
+			</if>
+			<if test="shouye_beijing != null">
+				#{shouye_beijing},
+			</if>
+			<if test="xiangqing_beijing != null">
+				#{xiangqing_beijing},
+			</if>
+			<if test="yuanxiao_jieshao != null">
+				#{yuanxiao_jieshao},
+			</if>
+			<if test="fugai_quyu != null">
+				#{fugai_quyu},
+			</if>
+			<if test="xuelizhengshu != null">
+				#{xuelizhengshu},
+			</if>
+			<if test="xuewei_zhengshu != null">
+				#{xuewei_zhengshu},
+			</if>
+			<if test="tijiao_time != null">
+				#{tijiao_time},
+			</if>
+			<if test="zhaosheng_state != null">
+				#{zhaosheng_state},
+			</if>
+			<if test="xuexiao_name != null">
+				#{xuexiao_name},
+			</if>
+			<if test="wangjiao_id != null">
+				#{wangjiao_id},
+			</if>
+			<if test="xuexiao_type != null">
+				#{xuexiao_type},
+			</if>
+			<if test="is_show != null">
+				#{is_show},
+			</if>
+			<if test="xiaoxun != null">
+				#{xiaoxun},
+			</if>
+			<if test="yuanli_pic != null">
+				#{yuanli_pic},
+			</if>
+			<if test="yuanli_file != null">
+				#{yuanli_file},
+			</if>
+			<if test="yuanli_name != null">
+				#{yuanli_name}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改招生信息-->
+	<update id="updateCKZhaoSheng"
+		parameterType="com.jingren.jing.recruit.bean.chengkaoyuanxiao.CKZhaoSheng">
+		update chengkao_zhaosheng
+		<set>
+			<if test="chengkao_id != null">
+				chengkao_id=#{chengkao_id},
+			</if>
+			<if test="xiaohui != null">
+				xiaohui=#{xiaohui},
+			</if>
+			<if test="remen_zhuanye != null">
+				remen_zhuanye=#{remen_zhuanye},
+			</if>
+			<if test="shouye_beijing != null">
+				shouye_beijing=#{shouye_beijing},
+			</if>
+			<if test="xiangqing_beijing != null">
+				xiangqing_beijing=#{xiangqing_beijing},
+			</if>
+			<if test="yuanxiao_jieshao != null">
+				yuanxiao_jieshao=#{yuanxiao_jieshao},
+			</if>
+			<if test="fugai_quyu != null">
+				fugai_quyu=#{fugai_quyu},
+			</if>
+			<if test="xuelizhengshu != null">
+				xuelizhengshu=#{xuelizhengshu},
+			</if>
+			<if test="xuewei_zhengshu != null">
+				xuewei_zhengshu=#{xuewei_zhengshu},
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time=#{tijiao_time},
+			</if>
+			<if test="zhaosheng_state != null">
+				zhaosheng_state=#{zhaosheng_state},
+			</if>
+			<if test="xuexiao_name != null">
+				xuexiao_name=#{xuexiao_name},
+			</if>
+			<if test="wangjiao_id != null">
+				wangjiao_id=#{wangjiao_id},
+			</if>
+			<if test="xuexiao_type != null">
+				xuexiao_type=#{xuexiao_type},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show},
+			</if>
+			<if test="xiaoxun != null">
+				xiaoxun=#{xiaoxun},
+			</if>
+			<if test="yuanli_pic != null">
+				yuanli_pic=#{yuanli_pic},
+			</if>
+			<if test="yuanli_file != null">
+				yuanli_file=#{yuanli_file},
+			</if>
+			<if test="yuanli_name != null">
+				yuanli_name=#{yuanli_name},
+			</if>
+			<if test="xuesheng_shouce != null">
+				xuesheng_shouce=#{xuesheng_shouce},
+			</if>
+			<if test="shoufei_shuoming != null">
+				shoufei_shuoming=#{shoufei_shuoming},
+			</if>
+			<if test="moniti != null">
+				moniti=#{moniti}
+			</if>
+		</set>
+		where zhaosheng_id=#{zhaosheng_id}
+	</update>
+	<!--删除招生信息 -->
+	<delete id="deleteCKZhaoSheng" parameterType="java.lang.Integer">
+		delete from chengkao_zhaosheng where zhaosheng_id=#{zhaosheng_id}
+	</delete>
+	<!--获取招生详细信息 -->
+	<select id="getCKZhaoSheng" parameterType="Map" resultMap="BaseResultMap">
+		select * from chengkao_zhaosheng
+		<where>
+			<if test="zhaosheng_id !=null">
+				zhaosheng_id=#{zhaosheng_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询招生信息列表 -->
+	<select id="getCKZhaoShengList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from chengkao_zhaosheng
+		<where>
+			1=1
+			<if test="chengkao_id != null">
+			and	chengkao_id =#{chengkao_id}
+			</if>
+			<if test="wangjiao_id != null">
+			and	wangjiao_id =#{wangjiao_id}
+			</if>
+			<if test="xuexiao_type != null">
+			and	xuexiao_type =#{xuexiao_type}
+			</if>
+			<if test="xuexiao_name != null">
+			and	xuexiao_name like "%"#{xuexiao_name}"%"
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询招生信息数量 -->
+	<select id="getCKZhaoShengNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from chengkao_zhaosheng
+		<where>
+			1=1
+			<if test="chengkao_id != null">
+			and	chengkao_id =#{chengkao_id}
+			</if>
+			<if test="wangjiao_id != null">
+			and	wangjiao_id =#{wangjiao_id}
+			</if>
+			<if test="xuexiao_type != null">
+			and	xuexiao_type =#{xuexiao_type}
+			</if>
+			<if test="xuexiao_name != null">
+			and	xuexiao_name like "%"#{xuexiao_name}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

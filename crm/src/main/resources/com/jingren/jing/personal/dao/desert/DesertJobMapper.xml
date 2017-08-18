@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.personal.dao.desert.DesertJobMapper">
+	<resultMap type="com.jingren.jing.personal.bean.desert.DesertJob"
+		id="BaseResultMap">
+		<id column="desert_id" property="desert_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="gangwei" property="gangwei" />
+		<result column="desert_time" property="desert_time" />
+		<result column="tijiao_time" property="tijiao_time" />
+		<result column="desert_content" property="desert_content" />
+		<result column="jingli_id" property="jingli_id" />
+		<result column="jingli_message" property="jingli_message" />
+		<result column="zongjian_id" property="zongjian_id" />
+		<result column="zongjian_message" property="zongjian_message" />
+		<result column="boss_id" property="boss_id" />
+		<result column="boss_message" property="boss_message" />
+		<result column="desert_state" property="desert_state" />
+	</resultMap>
+	<!--添加离职信息 -->
+	<insert id="saveDesertJob" 
+		parameterType="com.jingren.jing.personal.bean.desert.DesertJob">
+		insert into desert_job 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="gangwei != null">
+				gangwei,
+			</if>
+			<if test="desert_time != null">
+				desert_time,
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time,
+			</if>
+			<if test="desert_content != null">
+				desert_content,
+			</if>
+			<if test="jingli_id != null">
+				jingli_id,
+			</if>
+			<if test="jingli_message != null">
+				jingli_message,
+			</if>
+			<if test="zongjian_id != null">
+				zongjian_id,
+			</if>
+			<if test="zongjian_message != null">
+				zongjian_message,
+			</if>
+			<if test="boss_id != null">
+				boss_id,
+			</if>
+			<if test="boss_message != null">
+				boss_message,
+			</if>
+			<if test="desert_state != null">
+				desert_state
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="gangwei != null">
+				#{gangwei},
+			</if>
+			<if test="desert_time != null">
+				#{desert_time},
+			</if>
+			<if test="tijiao_time != null">
+				#{tijiao_time},
+			</if>
+			<if test="desert_content != null">
+				#{desert_content},
+			</if>
+			<if test="jingli_id != null">
+				#{jingli_id},
+			</if>
+			<if test="jingli_message != null">
+				#{jingli_message},
+			</if>
+			<if test="zongjian_id != null">
+				#{zongjian_id},
+			</if>
+			<if test="zongjian_message != null">
+				#{zongjian_message},
+			</if>
+			<if test="boss_id != null">
+				#{boss_id},
+			</if>
+			<if test="boss_message != null">
+				#{boss_message},
+			</if>
+			<if test="desert_state != null">
+				#{desert_state}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改离职信息 -->
+	<update id="updateDesertJob" 
+		parameterType="com.jingren.jing.personal.bean.desert.DesertJob">
+		update desert_job
+		<set>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="gangwei != null">
+				gangwei=#{gangwei},
+			</if>
+			<if test="desert_time != null">
+				desert_time=#{desert_time},
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time=#{tijiao_time},
+			</if>
+			<if test="desert_content != null">
+				desert_content=#{desert_content},
+			</if>
+			<if test="jingli_id != null">
+				jingli_id=#{jingli_id},
+			</if>
+			<if test="jingli_message != null">
+				jingli_message=#{jingli_message},
+			</if>
+			<if test="zongjian_id != null">
+				zongjian_id=#{zongjian_id},
+			</if>
+			<if test="zongjian_message != null">
+				zongjian_message=#{zongjian_message},
+			</if>
+			<if test="boss_id != null">
+				boss_id=#{boss_id},
+			</if>
+			<if test="boss_message != null">
+				boss_message=#{boss_message},
+			</if>
+			<if test="desert_state != null">
+				desert_state=#{desert_state}
+			</if>
+		</set>
+		where desert_id=#{desert_id}
+	</update>
+	<!--删除离职信息 -->
+	<delete id="delteDesertJob"  parameterType="java.lang.Integer">
+		delete from
+		desert_job where
+		desert_id=#{desert_id}
+	</delete>
+	<!-- 查看离职详情 -->
+	<select id="getDesertJob" parameterType="Map" resultMap="BaseResultMap">
+		select * from desert_job
+		<where>
+			<if test="desert_id != null">
+				desert_id =#{desert_id}
+			</if>
+		</where>
+	</select>
+	<!--查询离职信息列表 -->
+	<select id="getDesertJobList" parameterType="Map" resultMap="BaseResultMap">
+		select * from desert_job
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="desert_state != null">
+				and desert_state =#{desert_state}
+			</if>
+			<if test="jingli_id != null">
+				and jingli_id =#{jingli_id}
+			</if>
+			<if test="zongjian_id != null">
+				and zongjian_id =#{zongjian_id}
+			</if>
+			<if test="boss_id != null">
+				and boss_id =#{boss_id}
+			</if>
+			<if test="start_time != null">
+				and tijiao_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and tijiao_time &lt;=#{end_time}
+			</if>
+		</where>
+		order by tijiao_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询离职信息数量 -->
+	<select id="getDesertJobNumber" parameterType="Map" resultType="int">
+		select count(*) from desert_job
+		<where>
+			1=1
+			<if test="employee_id != null">
+				and employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id =#{bumen_id}
+			</if>
+			<if test="desert_state != null">
+				and desert_state =#{desert_state}
+			</if>
+			<if test="jingli_id != null">
+				and jingli_id =#{jingli_id}
+			</if>
+			<if test="zongjian_id != null">
+				and zongjian_id =#{zongjian_id}
+			</if>
+			<if test="boss_id != null">
+				and boss_id =#{boss_id}
+			</if>
+			<if test="start_time != null">
+				and tijiao_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+				and tijiao_time &lt;=#{end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

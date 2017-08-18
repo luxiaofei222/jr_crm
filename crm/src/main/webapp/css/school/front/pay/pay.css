@@ -1,0 +1,322 @@
+body {
+	background-color: #e6e6e6;
+	color:#444;
+}
+.pay_wrap {
+	width: 1200px;
+	background-color: white;
+	margin-top: 20px;
+	min-width: 1200px;
+	margin: 0 auto;
+	margin-top:25px;
+}
+
+.pay_title {
+	width: 1150px;
+	height: 56px;
+	margin: 0 auto;
+	background-color: white;
+	border-bottom: 2px solid #06C1AE;
+	font-size: 20px;
+	line-height: 56px;
+}
+
+.pay_course_info {
+	width: 1150px;
+	margin: 0 auto;
+	margin-top:20px;
+	overflow:hidden;
+}
+.pay_course_info ul li{
+	width: 1147px;
+	height:170px;
+	margin: 0 auto;
+	background-color: #FAFAFA;
+	border: 1px solid #e6e6e6;
+	margin-bottom:5px;
+}
+.pay_course_info1 img{
+	width:234px;
+	height:122px;
+	margin-top:25px;
+	margin-left:20px;
+	float:left;
+}
+.pay_course_info1 img:hover{
+	transform: scale(1.1, 1.1);
+	transition: transform 0.6s ease 0s;
+}
+.pay_course_info2 span{
+	float:left;
+	font-size:18px;
+	width:377px;
+	height:55px;
+	color:#444;
+	display:block;
+	margin-top:50px;
+	margin-left:10px;
+}
+.pay_course_info2 span:hover{
+	color:#06C1AE;
+}
+.pay_course_info3{
+	float:right;
+	color:#444;
+	display:block-inline;
+	font-size:18px;
+	margin-top:73px;
+	margin-right:60px;	
+}
+.pay_course_info4{
+	color:#f94c4c;
+	font-size:18px;
+}
+.pay_info_l{
+	float:left;
+}
+.pay_info_l1{
+	display:block;
+	font-size:20px;
+	color:#444;
+	margin-left:30px;
+	margin-top:20px;
+	cursor:pointer;
+}
+.pay_info_l2{
+	display:block;
+	font-size:16px;
+	color:#444;
+	margin-left:30px;
+	margin-top:20px;
+	cursor:pointer;
+}
+.pay_info_r{
+	float:right;
+}
+.pay_info_r1{
+	display:block;
+	font-size:20px;
+	color:#444;
+	text-align:right;
+	margin-right:30px;
+	margin-top:20px;
+	cursor:pointer;
+}
+.pay_info_red{
+	color:#f94c4c!important;
+}
+.pay_info_r2{
+	display:block;
+	font-size:16px;
+	color:#444;
+	margin-right:30px;
+	margin-top:20px;
+	cursor:pointer;
+}
+.pay_title2{
+	width: 1150px;
+	height: 56px;
+	margin: 0 auto;
+	background-color: white;
+	border-bottom: 2px solid #06C1AE;
+	font-size: 20px;
+	line-height: 56px;
+	margin-top:20px;
+}
+.pay_way{
+	width:1200px;
+	margin: 0 auto;
+	overflow:hidden;
+}
+.pay_way1{
+	height:107px;
+	margin-top:60px;
+	height:200px;
+	overflow:hidden;
+	/*display:none;*/
+}
+.pay_way_c1{
+	margin-left:50px;
+	margin-top:40px;
+	width: 29px;
+	height: 29px;
+	float: left;
+	padding-top: 3px;
+	cursor: pointer;
+	margin-right: 15px;
+	background:url(/images/school/front/pay/inputradio.jpg) no-repeat 0px 0px;
+}
+.radioclass {
+	width: 29px;
+	height: 29px;
+	opacity: 0;
+	cursor: pointer;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+.on {
+	background-position:0px -32px;
+}
+.pay_way1 img{
+	float:left;
+	width:230px;
+	height:107px;
+	cursor:pointer;
+}
+.payoff{
+	width:155px;
+	height:55px;
+	margin-top:20px;
+ 	text-align:right;
+ 	float:right;
+ 	margin-right:20px;
+ 	margin-bottom:20px;
+}
+.payoff button{
+	background-color:#06C1AE;
+	width:155px;
+	height:55px;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:20px;
+	letter-spacing:1px;
+	color:white;
+	font-family:"微软雅黑";
+}
+.payoff button:hover{
+	background-color:#18E3CF;
+}
+.pay_way_list{
+	width:1150px;
+	height:50px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.pay_way_list span{
+	float:left;
+	width:150px;
+	height:48px;
+	font-size:18px;
+	line-height:50px;
+	cursor:pointer;
+	color:#444;
+	display:block-inline;
+	text-align:center;
+	border:1px solid #ccc;
+	border-top:none;
+}
+.norightb{
+	border-right:none!important;
+}
+.pay_way_list span:hover{
+	color:white;
+	background-color:#06C1AE;
+}
+.select_pay{
+	color:white!important;
+	background-color:#06C1AE;
+}
+.pay_way2{
+	width:1150px;
+	margin:0 auto;
+	margin-top:25px;
+	height:235px;
+	display:none;
+}
+.pay_way2 table{
+	width:1150px;
+	font-size:18px;
+	color:#444;
+	background-color:#fffeee;
+	padding-left:20px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border:1px solid #ccc;
+	text-align:center;
+	line-height:45px;
+}
+.pay_way2 table th{
+	font-weight:bold;
+	border:1px solid #ccc;
+}
+.pay_way2 table td{
+	border:1px solid #ccc;
+}
+.pay_way3{
+	width:1150px;
+	margin:0 auto;
+	background-color:#fffeee;
+	font-size:20px;
+	text-align:center;
+	margin-top:60px;
+	height:150px;
+	padding-top:50px;
+	display:none;
+}
+.zhezhao{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:50;
+	background-color:rgba(0,0,0,0.6);
+}
+.taocan_z .title_z{
+	overflow:hidden;
+	border-bottom:1px solid #e6e6e6;
+	background-color:#fafafa;
+	line-height:45px;
+	padding:0px 15px;
+	font-size:15px;
+}
+.taocan_z .taocan_f{
+	height:auto;
+}
+.taocan_z .taocan_f .taocan_title{	
+	color:#fd8536;
+	float:left;
+}
+.taocan_z .taocan_f .taocan_price{
+	float:right;
+	color:#f00;
+}
+.kecheng_f img{
+	height:60px;
+	float:left;
+	margin-top:5px;
+	margin-right:30px;
+	margin-left:30px;
+}
+.kecheng_z .kecheng_f{
+	overflow:hidden;
+	width: auto!important;
+    height: 70px;
+    line-height:70px;
+    padding:0px 15px;
+    border:none;
+    margin-bottom:0px;
+    background-color:white;
+    border-bottom:1px solid #eee;
+}
+.kecheng_f span{
+	display:inline-block;
+	float:left;
+	font-size:16px;
+	margin-left:30px;
+}
+.kecheng_f span.kecheng_price{
+	float:right;
+}
+.kecheng_ks{
+	width: 500px;
+    text-align: center;
+}
+.pay_course_info2{
+	font-size:16px;
+	color:#444;
+}
+.pay_course_info2:hover{
+	color:#06c1ae;
+}

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.entrysystem.dao.entrycondition.EntryConditionMapper">
+	<resultMap type="com.jingren.jing.school.entrysystem.bean.entrycondition.EntryCondition"
+		id="BaseResultMap">
+		<id column="entrycondition_id" property="entrycondition_id" />
+		<result column="entryplan_id" property="entryplan_id" />
+		<result column="dictionary_id" property="dictionary_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="entrycondition_content" property="entrycondition_content" />
+		<result column="entrycondition_time" property="entrycondition_time" />
+		<result column="course_id" property="course_id" />
+		<result column="xiangguang_info" property="xiangguang_info" />
+		<result column="kaoshi_qici" property="kaoshi_qici" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="zhuanye_id" property="zhuanye_id" />
+		<result column="university_id" property="university_id" />
+		<result column="kaoshi_pici" property="kaoshi_pici" />
+		<result column="baokao_cengci" property="baokao_cengci" />
+		<result column="chengkao_kemu" property="chengkao_kemu" />
+		<result column="review_id" property="review_id" />
+		<result column="chengkao_xuefei" property="chengkao_xuefei" />
+	</resultMap>
+	<!--添加报名条件信息 -->
+	<insert id="saveEntryCondition" useGeneratedKeys="true" keyProperty="entrycondition_id"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entrycondition.EntryCondition">
+		insert into entrycondition
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="entryplan_id != null">
+				entryplan_id,
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="entrycondition_content != null">
+				entrycondition_content,
+			</if>
+			<if test="entrycondition_time != null">
+				entrycondition_time,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="xiangguang_info != null">
+				xiangguang_info,
+			</if>
+			<if test="kaoshi_qici != null">
+				kaoshi_qici,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="zhuanye_id !=null">
+				zhuanye_id,
+			</if>
+			<if test="university_id !=null">
+				university_id,
+			</if>
+			<if test="kaoshi_pici !=null">
+				kaoshi_pici,
+			</if>
+			<if test="baokao_cengci !=null">
+				baokao_cengci,
+			</if>
+			<if test="chengkao_kemu !=null">
+				chengkao_kemu,
+			</if>
+			<if test="review_id !=null">
+				review_id,
+			</if>
+			<if test="chengkao_xuefei !=null">
+				chengkao_xuefei
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="entryplan_id != null">
+				#{entryplan_id},
+			</if>
+			<if test="dictionary_id != null">
+				#{dictionary_id},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="entrycondition_content != null">
+				#{entrycondition_content},
+			</if>
+			<if test="entrycondition_time != null">
+				#{entrycondition_time},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="xiangguang_info != null">
+				#{xiangguang_info},
+			</if>
+			<if test="kaoshi_qici != null">
+				#{kaoshi_qici},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="zhuanye_id !=null">
+				#{zhuanye_id},
+			</if>
+			<if test="university_id !=null">
+				#{university_id},
+			</if>
+			<if test="kaoshi_pici !=null">
+				#{kaoshi_pici},
+			</if>
+			<if test="baokao_cengci !=null">
+				#{baokao_cengci},
+			</if>
+			<if test="chengkao_kemu !=null">
+				#{chengkao_kemu},
+			</if>
+			<if test="review_id !=null">
+				#{review_id},
+			</if>
+			<if test="chengkao_xuefei !=null">
+				#{chengkao_xuefei}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改报名条件信息 -->
+	<update id="updateEntryCondition"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entrycondition.EntryCondition">
+		update entrycondition
+		<set>
+			<if test="entryplan_id != null">
+				entryplan_id=#{entryplan_id},
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id=#{dictionary_id},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="entrycondition_content != null">
+				entrycondition_content=#{entrycondition_content},
+			</if>
+			<if test="entrycondition_time != null">
+				entrycondition_time=#{entrycondition_time},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="xiangguang_info != null">
+				xiangguang_info=#{xiangguang_info},
+			</if>
+			<if test="kaoshi_qici != null">
+				kaoshi_qici=#{kaoshi_qici},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="zhuanye_id !=null">
+				zhuanye_id=#{zhuanye_id},
+			</if>
+			<if test="university_id !=null">
+				university_id=#{university_id},
+			</if>
+			<if test="kaoshi_pici !=null">
+				kaoshi_pici=#{kaoshi_pici},
+			</if>
+			<if test="chengkao_kemu !=null">
+				chengkao_kemu=#{chengkao_kemu},
+			</if>
+			<if test="review_id !=null">
+				review_id=#{review_id},
+			</if>
+			<if test="chengkao_xuefei !=null">
+				chengkao_xuefei=#{chengkao_xuefei}
+			</if>
+		</set>
+		where entrycondition_id=#{entrycondition_id}
+	</update>
+	<!--删除报名条件信息 -->
+	<delete id="delteEntryCondition" parameterType="java.lang.Integer">
+		delete from
+		entrycondition where
+		entrycondition_id=#{entrycondition_id}
+	</delete>
+	<!--获取报名条件信息 -->
+	<select id="getEntryCondition" parameterType="Map" resultMap="BaseResultMap">
+		select * from entrycondition
+		<where>
+			<if test="entrycondition_id !=null">
+				entrycondition_id=#{entrycondition_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询报名条件列表 -->
+	<select id="getEntryConditionList" parameterType="Map" resultMap="BaseResultMap">
+		select * from entrycondition
+		<where>
+			<if test="entryplan_id != null">
+				entryplan_id = #{entryplan_id} and
+			</if>
+			<if test="parent_id != null">
+				parent_id = #{parent_id}
+			</if>
+			<if test="dictionary_id != null">
+				and dictionary_id = #{dictionary_id}
+			</if>
+			<if test="university_id != null">
+				and university_id = #{university_id}
+			</if>
+			<if test="baokao_cengci != null">
+				and baokao_cengci = #{baokao_cengci}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询报名条件数量 -->
+	<select id="getEntryConditionNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from entrycondition
+		<where>
+			<if test="entryplan_id != null">
+				entryplan_id = #{entryplan_id}
+			</if>
+			<if test="parent_id != null">
+				parent_id = #{parent_id}
+			</if>
+		</where>
+	</select>
+	<!--获取去重的申报条件课程级别  -->
+	<select id="getEntryConditionListByCourseParent" parameterType="Map" resultMap="BaseResultMap">
+	select * from entrycondition where entryplan_id=#{entryplan_id}
+	<if test="dictionary_id != null">
+		and dictionary_id = #{dictionary_id}
+	</if>
+	 AND parent_id=0 GROUP BY course_id
+	</select>
+	
+	<!-- 去重查询 -->
+		<select id="getEntryConditionListByQuchong" parameterType="Map" resultMap="BaseResultMap">
+			select * from entrycondition where course_id=#{course_id} and  entrycondition_id in 
+		(select max(entrycondition_id) 
+		from entrycondition where entryplan_id =#{entryplan_id} and parent_id=0  group by dictionary_id)
+	</select>
+	
+		<select id="getEntryConditionListByQuchonghoutai" parameterType="Map" resultMap="BaseResultMap">
+			select * from entrycondition where course_id=#{course_id} and  entrycondition_id in 
+		(select max(entrycondition_id) 
+		from entrycondition where entryplan_id =#{entryplan_id} and parent_id!=0  group by dictionary_id)
+	</select>
+	<!-- 网络教育查询条件 -->
+		<select id="getEntryConditionListByCourseWangjiao" parameterType="Map" resultMap="BaseResultMap">
+			select * from entrycondition where course_id=#{course_id} and  entrycondition_id in 
+		(select max(entrycondition_id) 
+		from entrycondition where entryplan_id =#{entryplan_id} and parent_id!=0  group by baokao_cengci)
+		</select>
+	<!-- 等级ID是1001时候 -->
+	<select id="getEntryConditionListByDic" parameterType="Map" resultMap="BaseResultMap">
+		select * from entrycondition where entryplan_id=#{entryplan_id} AND parent_id!=0 GROUP BY parent_id
+	</select>
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.conult.dao.track.ConTrackMapper">
+	<resultMap type="com.jingren.jing.conult.bean.track.ConTrack"
+		id="BaseResultMap">
+		<id column="track_id" property="track_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="consult_id" property="consult_id" />
+		<result column="content" property="content" />
+		<result column="track_time" property="track_time" />
+		<result column="conult_state" property="conult_state" />
+	</resultMap>
+	<!--添加客户追踪记录信息 -->
+	<insert id="saveConTrack"
+		parameterType="com.jingren.jing.conult.bean.track.ConTrack">
+		insert into conult_track
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="consult_id != null">
+				consult_id,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+			<if test="track_time != null">
+				track_time,
+			</if>
+			<if test="conult_state != null">
+				conult_state
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="consult_id != null">
+				#{consult_id},
+			</if>
+			<if test="content != null">
+				#{content},
+			</if>
+			<if test="track_time != null">
+				#{track_time},
+			</if>
+			<if test="conult_state != null">
+				#{conult_state}
+			</if>
+		</trim>
+	</insert>
+
+	<!--删除客户追踪记录课程信息 -->
+	<delete id="deleteConTrack" parameterType="java.lang.Integer">
+		delete from
+		conult_track where
+		track_id=#{track_id}
+	</delete>
+
+	<!--查询客户追踪记录列表 -->
+	<select id="getConTrackList" parameterType="Map" resultMap="BaseResultMap">
+		select * from conult_track
+		<where>
+		1=1
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="consult_id != null">
+			and	consult_id =#{consult_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+</mapper>

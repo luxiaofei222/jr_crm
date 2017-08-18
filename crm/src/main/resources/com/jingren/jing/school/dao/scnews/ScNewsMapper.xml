@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.scnews.ScNewsMapper">
+	<resultMap type="com.jingren.jing.school.bean.scnews.ScNews"
+		id="BaseResultMap">
+		<id column="news_id" property="news_id" />
+		<result column="news_title" property="news_title" />
+		<result column="news_content" property="news_content" />
+		<result column="news_abstrack" property="news_abstrack" />
+		<result column="news_eidit" property="news_eidit" />
+		<result column="news_time" property="news_time" />
+		<result column="news_type" property="news_type" />
+		<result column="news_laiyuan" property="news_laiyuan" />
+		<result column="news_yinyong" property="news_yinyong" />
+		<result column="meta_title" property="meta_title" />
+		<result column="meta_dis" property="meta_dis" />
+		<result column="meta_key" property="meta_key" />
+	</resultMap>
+	<!--添加新闻信息 -->
+	<insert id="saveNews" parameterType="com.jingren.jing.school.bean.scnews.ScNews">
+		insert into news
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="news_title != null">
+				news_title,
+			</if>
+			<if test="news_content != null">
+				news_content,
+			</if>
+			<if test="news_abstrack != null">
+				news_abstrack,
+			</if>
+			<if test="news_eidit != null">
+				news_eidit,
+			</if>
+			<if test="news_time != null">
+				news_time,
+			</if>
+			<if test="news_type != null">
+				news_type,
+			</if>
+			<if test="news_laiyuan != null">
+				news_laiyuan,
+			</if>
+			<if test="news_yinyong != null">
+				news_yinyong,
+			</if>
+			<if test="meta_title != null">
+				meta_title,
+			</if>
+			<if test="meta_dis != null">
+				meta_dis,
+			</if>
+			<if test="meta_key != null">
+				meta_key
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="news_title != null">
+				#{news_title},
+			</if>
+			<if test="news_content != null">
+				#{news_content},
+			</if>
+			<if test="news_abstrack != null">
+				#{news_abstrack},
+			</if>
+			<if test="news_eidit != null">
+				#{news_eidit},
+			</if>
+			<if test="news_time != null">
+				#{news_time},
+			</if>
+			<if test="news_type != null">
+				#{news_type},
+			</if>
+			<if test="news_laiyuan != null">
+				#{news_laiyuan},
+			</if>
+			<if test="news_yinyong != null">
+				#{news_yinyong},
+			</if>
+			<if test="meta_title != null">
+				#{meta_title},
+			</if>
+			<if test="meta_dis != null">
+				#{meta_dis},
+			</if>
+			<if test="meta_key != null">
+				#{meta_key}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改新闻信息 -->
+	<update id="updateNews" parameterType="com.jingren.jing.school.bean.scnews.ScNews">
+		update news
+		<set>
+			<if test="news_title != null">
+				news_title=#{news_title},
+			</if>
+			<if test="news_content != null">
+				news_content=#{news_content},
+			</if>
+			<if test="news_abstrack != null">
+				news_abstrack=#{news_abstrack},
+			</if>
+			<if test="news_eidit != null">
+				news_eidit=#{news_eidit},
+			</if>
+			<if test="news_time != null">
+				news_time=#{news_time},
+			</if>
+			<if test="news_type != null">
+				news_type=#{news_type},
+			</if>
+			<if test="news_laiyuan != null">
+				news_laiyuan=#{news_laiyuan},
+			</if>
+			<if test="news_yinyong != null">
+				news_yinyong=#{news_yinyong},
+			</if>
+			<if test="meta_title != null">
+				meta_title=#{meta_title},
+			</if>
+			<if test="meta_dis != null">
+				meta_dis=#{meta_dis},
+			</if>
+			<if test="meta_key != null">
+				meta_key=#{meta_key}
+			</if>
+		</set>
+		where news_id=#{news_id}
+	</update>
+	<!--删除新闻信息 -->
+	<delete id="deleteNews" parameterType="java.lang.Integer">
+		delete from
+		news where
+		news_id=#{news_id}
+	</delete>
+	<!--获取新闻信息 -->
+	<select id="getNews" parameterType="Map" resultMap="BaseResultMap">
+		select * from news
+		<where>
+			<if test="news_id !=null">
+				news_id=#{news_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询新闻列表 -->
+	<select id="getNewsList" parameterType="Map" resultMap="BaseResultMap">
+		select * from news
+		<where>
+			<if test="news_title != null">
+				news_title like "%"#{news_title}"%"
+			</if>
+			<if test="news_eidit != null">
+				news_eidit like "%"#{news_eidit}"%"
+			</if>
+			<if test="news_type !=null">
+				news_type=#{news_type}
+			</if>
+		</where>
+		order by news_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询新闻数量 -->
+	<select id="getNewsNumber" parameterType="Map" resultType="int">
+		select count(*) from news
+		<where>
+			<if test="news_title != null">
+				news_title like "%"#{news_title}"%"
+			</if>
+			<if test="news_eidit != null">
+				news_eidit like "%"#{news_eidit}"%"
+			</if>
+			<if test="news_type !=null">
+				news_type=#{news_type}
+			</if>
+		</where>
+	</select>
+</mapper>

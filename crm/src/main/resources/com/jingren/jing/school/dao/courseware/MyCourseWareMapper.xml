@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.courseware.MyCourseWareMapper">
+	<resultMap type="com.jingren.jing.school.bean.courseware.MyCourseWare"
+		id="BaseResultMap">
+		<id column="user_id" property="user_id" />
+		<result column="courseware_id" property="courseware_id" />
+		<result column="add_time" property="add_time" />
+	</resultMap>
+	<!--添加课件信息 -->
+	<insert id="saveCourseWare"
+		parameterType="com.jingren.jing.school.bean.courseware.MyCourseWare">
+		insert into my_courseware
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="courseware_id != null">
+				courseware_id,
+			</if>
+			<if test="add_time != null">
+				add_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="courseware_id != null">
+				#{courseware_id},
+			</if>
+			<if test="add_time != null">
+				#{add_time}
+			</if>
+		</trim>
+	</insert>
+
+	<!--删除课件信息 -->
+	<delete id="deleteMyCourseWare" parameterType="com.jingren.jing.school.bean.courseware.MyCourseWare">
+		delete from
+		my_courseware where
+		courseware_id=#{courseware_id} and user_id=#{user_id}
+	</delete>
+	<!--获取课件信息 -->
+	<select id="getMyCourseWare" parameterType="Map" resultMap="BaseResultMap">
+		select * from my_courseware
+		<where>
+			<if test="courseware_id !=null">
+				courseware_id=#{courseware_id}
+			</if>
+			<if test="user_id !=null">
+				and user_id=#{user_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询课件列表 -->
+	<select id="getMyCourseWareList" parameterType="Map" resultMap="BaseResultMap">
+		select * from my_courseware
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+			<if test="courseware_id != null">
+				courseware_id =#{courseware_id}
+			</if>
+		</where>
+		order by add_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询课件数量 -->
+	<select id="getMyCourseWareNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from my_courseware
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+			<if test="courseware_id != null">
+				courseware_id =#{courseware_id}
+			</if>
+		</where>
+	</select>
+</mapper>

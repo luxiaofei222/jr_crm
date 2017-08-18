@@ -1,0 +1,166 @@
+.clear {
+	clear: both;
+}
+/* 加载动画样式 */
+.loading {
+	width:100%;
+	height:100%;
+	position:fixed;
+	background-color:#000;
+	opacity:0.4;
+	z-index:999;
+	}
+.loader-inner {
+	top:50%;
+	left:50%;
+	}
+
+@-webkit-keyframes ball-spin-fade-loader {
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes ball-spin-fade-loader {
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+.ball-spin-fade-loader {
+  position: relative; }
+  .ball-spin-fade-loader > div:nth-child(1) {
+    top: 25px;
+    left: 0;
+    -webkit-animation: ball-spin-fade-loader 1s 0s infinite linear;
+            animation: ball-spin-fade-loader 1s 0s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(2) {
+    top: 17.04545px;
+    left: 17.04545px;
+    -webkit-animation: ball-spin-fade-loader 1s 0.12s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.12s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(3) {
+    top: 0;
+    left: 25px;
+    -webkit-animation: ball-spin-fade-loader 1s 0.24s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.24s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(4) {
+    top: -17.04545px;
+    left: 17.04545px;
+    -webkit-animation: ball-spin-fade-loader 1s 0.36s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.36s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(5) {
+    top: -25px;
+    left: 0;
+    -webkit-animation: ball-spin-fade-loader 1s 0.48s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.48s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(6) {
+    top: -17.04545px;
+    left: -17.04545px;
+    -webkit-animation: ball-spin-fade-loader 1s 0.6s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.6s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(7) {
+    top: 0;
+    left: -25px;
+    -webkit-animation: ball-spin-fade-loader 1s 0.72s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.72s infinite linear; }
+  .ball-spin-fade-loader > div:nth-child(8) {
+    top: 17.04545px;
+    left: -17.04545px;
+    -webkit-animation: ball-spin-fade-loader 1s 0.84s infinite linear;
+            animation: ball-spin-fade-loader 1s 0.84s infinite linear; }
+  .ball-spin-fade-loader > div {
+    background-color: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin: 2px;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    position: absolute; }
+/*  添加企业信息 */
+form.add_qiye_dialog table {
+	margin:0 auto;
+	}
+form.add_qiye_dialog table tr td {
+	font-size:14px;
+	color:#444;
+	height:35px;
+	line-height:35px;
+	border:#d8ddf6 solid 1px;
+	}
+form.add_qiye_dialog table tr td.td_bg {
+	background-color:#88abda;
+	text-align:center;
+	color:#fff;
+	}
+form.add_qiye_dialog table tr td.error {
+	background-color: red;
+}
+form.add_qiye_dialog table tr td.correct {
+	background-color: green;
+}
+form.add_qiye_dialog table tr td input,form.add_qiye_dialog table tr td select {
+	border:none;
+	width: 100%;
+	height: 100%;
+}
+form.add_qiye_dialog .add_diy {
+	width:800px;
+	margin:20px auto;
+	text-align:left;
+	height:30px;
+	}
+form.add_qiye_dialog .add_diy i {
+	color:#e74c3c;
+	font-size:30px;
+	float:left;
+	cursor:pointer;
+	}
+form.add_qiye_dialog .pro i {
+	color:#e74c3c;
+	font-size:30px;
+	margin-left:10px;
+	cursor:pointer;
+	float:left;
+	}
+form.add_qiye_dialog .add_diy span {
+	float:left;
+	margin-left:10px;
+	line-height:30px;
+	}
+form.add_qiye_dialog .pro input {
+	border:#d8ddf6 solid 1px;
+	height:35px;
+	line-height:35px;
+	float:left;
+	}
+form.add_qiye_dialog .pro span {
+	display:inline-block;
+	float:left;
+	font-weight:bold;
+	width:20px;
+	height:35px;
+	line-height:35px;
+	font-size:20px;
+	color:#444;
+	text-align:center;
+	}
+form.add_qiye_dialog .pro,form.add_qiye_dialog .suc_diy {
+	width:800px;
+	margin:10px auto;
+	height:40px;
+	}
+form.add_qiye_dialog .suc_diy .btn {
+	margin-right:30px;
+	}

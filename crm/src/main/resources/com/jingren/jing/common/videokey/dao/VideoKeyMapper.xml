@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.videokey.dao.VideoKeyMapper">
+	<resultMap type="com.jingren.jing.common.videokey.bean.VideoKey"
+		id="BaseResultMap">
+		<id column="key_id" property="key_id" />
+		<result column="video_key" property="video_key" />
+		<result column="video_time" property="video_time" />
+	</resultMap>
+	<insert id="saveVideoKey"  useGeneratedKeys="true" keyProperty="company_id"
+		parameterType="com.jingren.jing.common.videokey.bean.VideoKey" >
+		insert into video_key
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="video_key != null">
+				video_key,
+			</if>
+			<if test="video_time != null">
+				video_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="video_key != null">
+				#{video_key},
+			</if>
+			<if test="video_time != null">
+				#{video_time}
+			</if>
+		</trim>
+	</insert>
+	<delete id="deleteVideoKey"  parameterType="java.lang.String">
+		delete from
+		video_key where
+		video_key=#{video_key}
+	</delete>
+	<delete id="deleteAllVideoKey"  >
+		delete from video_key 
+	</delete>
+	<select id="getVideoKey" parameterType="Map" resultMap="BaseResultMap">
+		select * from video_key
+		<where>
+			<if test="video_key !=null">
+				video_key=#{video_key}
+			</if>
+		</where>
+	</select>
+</mapper>

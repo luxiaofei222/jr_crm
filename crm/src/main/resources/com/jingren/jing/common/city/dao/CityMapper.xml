@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.city.dao.CityMapper">
+	<resultMap type="com.jingren.jing.common.city.bean.City" id="BaseResultMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="parentid" property="parentid" />
+		<result column="shortname" property="shortname" />
+		<result column="leveltype" property="leveltype" />
+		<result column="citycode" property="citycode" />
+		<result column="zipcode" property="zipcode" />
+		<result column="lng" property="lng" />
+		<result column="lat" property="lat" />
+		<result column="pinyin" property="pinyin" />
+		<result column="status" property="status" />
+	</resultMap>
+	<!--获取城市列表 -->
+	<select id="getCityList" parameterType="Map" resultMap="BaseResultMap">
+		select * from city
+		<where>
+			<if test="parentid !=null">
+				parentid=#{parentid}
+			</if>
+			<if test="leveltype !=null">
+				leveltype=#{leveltype}
+			</if>
+		</where>
+	</select>
+	<!--  获取城市信息-->
+	<select id="getCity" parameterType="Map" resultMap="BaseResultMap">
+		select * from city
+		<where>
+			<if test="id !=null">
+				id=#{id}
+			</if>
+			<if test="name !=null">
+				name=#{name}
+			</if>
+		</where>
+	</select>
+</mapper>

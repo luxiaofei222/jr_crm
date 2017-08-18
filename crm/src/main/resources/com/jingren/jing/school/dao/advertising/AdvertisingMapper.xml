@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.advertising.AdvertisingMapper">
+	<resultMap type="com.jingren.jing.school.bean.advertising.Advertising"
+		id="BaseResultMap">
+		<id column="adver_id" property="adver_id" />
+		<result column="adver_link" property="adver_link" />
+		<result column="adver_name" property="adver_name" />
+		<result column="adver_pic" property="adver_pic" />
+		<result column="adver_type" property="adver_type" />
+		<result column="adver_time" property="adver_time" />
+		<result column="is_show" property="is_show" />
+	</resultMap>
+	<!--添加广告信息 -->
+	<insert id="saveAdvertising"
+		parameterType="com.jingren.jing.school.bean.advertising.Advertising">
+		insert into advertising
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="adver_link != null">
+				adver_link,
+			</if>
+			<if test="adver_name != null">
+				adver_name,
+			</if>
+			<if test="adver_pic != null">
+				adver_pic,
+			</if>
+			<if test="adver_type != null">
+				adver_type,
+			</if>
+			<if test="adver_time != null">
+				adver_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="adver_link != null">
+				#{adver_link},
+			</if>
+			<if test="adver_name != null">
+				#{adver_name},
+			</if>
+			<if test="adver_pic != null">
+				#{adver_pic},
+			</if>
+			<if test="adver_type != null">
+				#{adver_type},
+			</if>
+			<if test="adver_time != null">
+				#{adver_time}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改广告信息 -->
+<update id="updateAdvertising" parameterType="com.jingren.jing.school.bean.advertising.Advertising">
+		update advertising
+		<set>
+		<if test="adver_link != null">
+				adver_link=#{adver_link},
+			</if>
+			<if test="adver_name != null">
+				adver_name=#{adver_name},
+			</if>
+			<if test="adver_pic != null">
+				adver_pic=#{adver_pic},
+			</if>
+			<if test="adver_type != null">
+				adver_type=#{adver_type},
+			</if>
+			<if test="adver_time != null">
+				adver_time=#{adver_time},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show}
+			</if>
+		</set>
+		where adver_id=#{adver_id}
+	</update>
+	<!--删除广告信息 -->
+	<delete id="deleteAdvertising" parameterType="java.lang.Integer">
+		delete from
+		advertising where
+		adver_id=#{adver_id}
+	</delete>
+	<!-- 查询广告信息 -->
+	<select id="getAdvertising" parameterType="Map" resultMap="BaseResultMap">
+		select * from advertising
+		<where>
+			<if test="adver_id != null">
+				adver_id = #{adver_id}
+			</if>
+		</where>
+	</select>
+	<!--查询广告列表 -->
+	<select id="getAdvertisingList" parameterType="Map" resultMap="BaseResultMap">
+		select * from advertising
+		<where>
+			<if test="adver_type != null">
+				adver_type = #{adver_type}
+			</if>
+			<if test="is_show != null">
+				and	is_show = #{is_show}
+			</if>
+		</where>
+		order by adver_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询广告数量 -->
+	<select id="getAdvertisingNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from advertising
+		<where>
+			<if test="adver_type != null">
+				adver_type = #{adver_type}
+			</if>
+			<if test="is_show != null">
+				and	is_show = #{is_show}
+			</if>
+		</where>
+	</select>
+</mapper>

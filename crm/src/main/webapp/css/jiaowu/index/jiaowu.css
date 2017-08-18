@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+.right_content .operation button {
+	background-color: #53C1FE!important;
+	color: #fff;
+}
+.right_content .opera_right .top_select {
+    background-color: #53C1FE!important;
+}
+.select2-chosen {
+    color: white!important;
+}
+.right_content .opera_right .select2-arrow {
+	border-color: #fff transparent;
+}
+.select2-drop .select2-highlighted>.select2-result-label {
+	background-color: #53C1FE!important;
+}
+.right_content .table tr td label.label-success {
+	background-color: #53C1FE!important;
+}
+.right_content .table tr td label.label-success:hover {
+	background-color: #53C1FE!important;
+}
+#check_val:focus{
+	border-color:#53C1FE!important;
+}
+
+/* pages */
+.right_content .pages .pagination li>a:hover,.right_content .pages .pagination li>span:hover,.right_content .pages .pagination li>a:focus,.right_content .pages .pagination li>span:focus {
+	background-color: #53C1FE!important;
+}
+.right_content .pages .pagination li>a:hover,.right_content .pages .pagination li>span:hover,.right_content .pages .pagination li>a:focus,.right_content .pages .pagination li>span:focus {
+	background-color: #53C1FE!important;
+}
+.right_content .pages .pagination li.active>a,.right_content .pages  .pagination li.active>span,.right_content .pages  .pagination li.active>a:hover,.right_content .pages  .pagination li.active>span:hover,.right_content .pages  .pagination li.active>a:focus,.right_content .pages  .pagination li.active>span:focus {
+	background-color: #53C1FE!important;
+}
+
+.pages .pagination li.pagination-dropdown ul.dropdown-menu {
+	background-color: #53C1FE!important;
+}
+.pages .go_page a {
+	background-color: #53C1FE!important;
+}
+.pages .pagination li.pagination-dropdown ul.dropdown-menu li a:hover {
+    background-color: #66c9ff!important;
+}
+
+.right_content .table tr td i{
+	font-size:25px;
+	}
+.right_content .table tr td i.one{
+	color:#fb9613;	
+}
+.right_content .table tr td i.two{
+	color:#51b7f1;	
+}
+.right_content .table tr td i.three{
+	color:#f15151;	
+}

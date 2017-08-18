@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+.person_nav {
+	width:175px;
+	min-height:530px;
+	background-color:#fff;
+	position: relative;
+	padding-bottom:25px;
+	}
+.person_nav .person_head {
+	width:110px;
+	text-align:center;
+	color:#06c1ae;
+	position:absolute;
+	top:-75px;
+	left: 35px;
+	cursor: pointer;
+	}
+.person_nav .person_head img {
+	width:110px;
+	height:110px;
+	border-radius:50%;
+	text-align:center;
+	margin-bottom:12px;
+	}
+.person_nav ul {
+	width:135px;
+	margin: 0 auto;
+    margin-top: 100px;
+	color: #666;
+	font-size: 16px;
+	}
+.person_nav ul li {
+	margin-top:30px;
+	cursor:pointer;
+	}
+.person_nav ul li span.inbox {
+	position:relative;
+	}
+.person_nav ul li span.inbox p {
+	position: absolute;
+    font-size: 12px;
+    background-color: #06c1ae;
+    color: #fff;
+    border-radius: 25px;
+    width: 30px;
+    text-align: center;
+    top: 3px;
+    right: -40px;
+	}
+.person_nav ul li.on {
+	color:#06c1ae;
+	}
+.person_nav ul li:hover {
+	color:#06c1ae;
+	}
+.person_nav ul i {
+	margin-left:10px;
+	margin-right:15px;
+	font-size:18px;
+	}
+.person_nav ul i.fa-caret-square-o-down {
+	font-size:14px;
+	margin-right:0px;
+	}
+.person_nav ul li span.fangxiang i {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+	}
+.person_nav ul .person_nav_child ul {
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	width: 80px;
+    margin-left: 60px;
+	}
+.person_nav ul .person_nav_child ul li {
+	margin-top:20px;
+	}
+

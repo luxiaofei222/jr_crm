@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.crm.dao.customer.CustomerMapper">
+<cache eviction="FIFO" flushInterval="60000"  size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.crm.bean.customer.Customer"
+		id="BaseResultMap">
+		<id column="customer_id" property="customer_id" />
+		<result column="company_id" property="company_id" />
+		<result column="customer_name" property="customer_name" />
+		<result column="customer_depart" property="customer_depart" />
+		<result column="customer_position" property="customer_position" />
+		<result column="customer_officephone" property="customer_officephone" />
+		<result column="customer_phone" property="customer_phone" />
+		<result column="customer_qq" property="customer_qq" />
+		<result column="customer_weixin" property="customer_weixin" />
+		<result column="customer_mail" property="customer_mail" />
+		<result column="course_id" property="course_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="distribution_employee_id" property="distribution_employee_id" />	
+		<result column="customer_situation" property="customer_situation" />
+		<result column="customer_time" property="customer_time" />
+		<result column="customer_sex" property="customer_sex" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="customer_note" property="customer_note" />
+		<result column="is_my_customer" property="is_my_customer" />
+	</resultMap>
+	<!--添加客户信息 -->
+	<insert id="saveCustomer" flushCache="true" useGeneratedKeys="true" keyProperty="customer_id"
+		parameterType="com.jingren.jing.crm.bean.customer.Customer">
+		insert into customer
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="company_id != null">
+				company_id,
+			</if>
+			<if test="customer_name != null">
+				customer_name,
+			</if>
+			<if test="customer_depart != null">
+				customer_depart,
+			</if>
+			<if test="customer_position != null">
+				customer_position,
+			</if>
+			<if test="customer_officephone != null">
+				customer_officephone,
+			</if>
+			<if test="customer_phone != null">
+				customer_phone,
+			</if>
+			<if test="customer_qq != null">
+				customer_qq,
+			</if>
+			<if test="customer_weixin != null">
+				customer_weixin,
+			</if>
+			<if test="customer_mail != null">
+				customer_mail,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="distribution_employee_id != null">
+				distribution_employee_id,
+			</if>
+			<if test="customer_situation != null">
+				customer_situation,
+			</if>
+			<if test="customer_time != null">
+				customer_time,
+			</if>
+			<if test="customer_sex != null">
+				customer_sex,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="customer_note != null">
+				customer_note,
+			</if>
+			<if test="is_my_customer != null">
+				is_my_customer
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="company_id != null">
+				#{company_id},
+			</if>
+			<if test="customer_name != null">
+				#{customer_name},
+			</if>
+			<if test="customer_depart != null">
+				#{customer_depart},
+			</if>
+			<if test="customer_position != null">
+				#{customer_position},
+			</if>
+			<if test="customer_officephone != null">
+				#{customer_officephone},
+			</if>
+			<if test="customer_phone != null">
+				#{customer_phone},
+			</if>
+			<if test="customer_qq != null">
+				#{customer_qq},
+			</if>
+			<if test="customer_weixin != null">
+				#{customer_weixin},
+			</if>
+			<if test="customer_mail != null">
+				#{customer_mail},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="distribution_employee_id != null">
+				#{distribution_employee_id},
+			</if>
+			<if test="customer_situation != null">
+				#{customer_situation},
+			</if>
+			<if test="customer_time != null">
+				#{customer_time},
+			</if>
+			<if test="customer_sex != null">
+				#{customer_sex},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="customer_note != null">
+				#{customer_note},
+			</if>
+			<if test="is_my_customer != null">
+				#{is_my_customer}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改客户信息 -->
+	<update id="updateCustomer" flushCache="true"
+		parameterType="com.jingren.jing.crm.bean.customer.Customer">
+		update customer
+		<set>
+			<if test="company_id != null">
+				company_id=#{company_id},
+			</if>
+			<if test="customer_name != null">
+				customer_name=#{customer_name},
+			</if>
+			<if test="customer_depart != null">
+				customer_depart=#{customer_depart},
+			</if>
+			<if test="customer_position != null">
+				customer_position=#{customer_position},
+			</if>
+			<if test="customer_officephone != null">
+				customer_officephone=#{customer_officephone},
+			</if>
+			<if test="customer_phone != null">
+				customer_phone=#{customer_phone},
+			</if>
+			<if test="customer_qq != null">
+				customer_qq=#{customer_qq},
+			</if>
+			<if test="customer_weixin != null">
+				customer_weixin=#{customer_weixin},
+			</if>
+			<if test="customer_mail != null">
+				customer_mail=#{customer_mail},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="distribution_employee_id != null">
+				distribution_employee_id=#{distribution_employee_id},
+			</if>
+			<if test="customer_situation != null">
+				customer_situation=#{customer_situation},
+			</if>
+			<if test="customer_time != null">
+				customer_time=#{customer_time},
+			</if>
+			<if test="customer_sex != null">
+				customer_sex=#{customer_sex},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="customer_note != null">
+				customer_note=#{customer_note}
+			</if>
+		</set>
+		where customer_id=#{customer_id}
+	</update>
+	<!-- 员工离职后清除痕迹 -->
+	<update id="updateCustomerLizhi" flushCache="true" parameterType="java.lang.Integer">
+		update customer set is_my_customer = 0 where employee_id=#{employee_id}
+	</update>
+	<!--删除客户信息 -->
+	<delete id="deleteCustomer" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		customer where
+		customer_id=#{customer_id}
+	</delete>
+	<!--获取客户信息 -->
+	<select id="getCustomer" parameterType="Map" resultMap="BaseResultMap">
+		select * from customer
+		<where>
+			<if test="customer_id !=null">
+				customer_id=#{customer_id}
+			</if>
+		</where>
+	</select>
+<!-- 通过ID获取 -->
+	<select id="getCustomerByid" parameterType="int" resultMap="BaseResultMap">
+		select * from customer where customer_id=#{customer_id}
+	</select>
+	<!--查询客户列表 -->
+	<select id="getCustomerList" parameterType="Map" resultMap="BaseResultMap">
+		select * from customer
+		<where>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="employee_id_lizhi != null">
+				employee_id =#{employee_id_lizhi}
+			</if>
+			<if test="customer_situation != null">
+				customer_situation =#{customer_situation}
+			</if>
+			<if test="customer_phone != null">
+				customer_phone =#{customer_phone}
+			</if>
+			<if test="customer_officephone != null">
+				customer_officephone =#{customer_officephone}
+			</if>
+			<if test="customer_name != null">
+				customer_name like "%"#{customer_name}"%"
+			</if>
+			<if test="company_id != null">
+				company_id =#{company_id}
+			</if>
+			<if test="customer_phone_call != null">
+			and	customer_phone =#{customer_phone_call}
+			</if>
+			<if test="customer_officephone_call != null">
+			and	customer_officephone =#{customer_officephone_call}
+			</if>
+			<if test="is_my_customer != null">
+			and	is_my_customer =#{is_my_customer}
+			</if>
+			<if test="employee_id != null">
+			and	(employee_id=#{employee_id} or employee_id is null or is_my_customer =0)
+			</if>
+		</where>
+		order by customer_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询客户数量 -->
+	<select id="getCustomerNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from customer
+		<where>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="customer_situation != null">
+				customer_situation =#{customer_situation}
+			</if>
+			<if test="customer_name != null">
+				customer_name like "%"#{customer_name}"%"
+			</if>
+			<if test="company_id != null">
+				company_id =#{company_id}
+			</if>
+			<if test="employee_id != null">
+			and	(employee_id=#{employee_id} or employee_id is null or is_my_customer =0)
+			</if>
+		</where>
+	</select>
+</mapper>

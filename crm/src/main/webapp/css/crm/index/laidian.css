@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* CSS Document */
+	
+.form-horizontal .form-group .right_wz{
+    text-align:right;
+}
+.form-horizontal .form-group .left_wz{
+  text-align:left;
+}
+.phone{
+  font-size:16px;
+  font-weight:bold;
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:10px;
+  font-family:"微软雅黑";
+}
+.phone_left{
+  text-align:left;
+  margin-bottom:5px;
+}
+.qiye_input{
+  width:100%;
+  border: none;
+  background:white;
+  text-align:left;
+  font-size:15px;
+}
+.qiye_input1{
+  width:100%;
+  background: #FEF0F0;
+  text-align:left;
+  font-size:15px;
+}
+.person_right.table {
+	border:#b2b2b2 solid 1px;
+	border-bottom:none;
+	}
+.person_right.table .tr_bgcolor {
+	background-color:#fdf0f0;
+	}
+.person_right.table .tr_bgcolor th{
+	text-align:center;
+	}
+.person_right.table td,.person_right .table th {
+	border-bottom:#b2b2b2 solid 1px;
+	text-align:center;
+	}	
+/*  添加企业信息 */
+form table {
+	margin:0 auto;
+	}
+form table tr td {
+	font-size:14px;
+	color:#444;
+	height:35px;
+	line-height:35px;
+	border:#d8ddf6 solid 1px;
+	}
+form table tr td.td_bg {
+	background-color:#f15151;
+	text-align:center;
+	color:#fff;
+	}
+form .add_diy {
+	width:800px;
+	margin:20px auto;
+	text-align:left;
+	height:30px;
+	}
+form .add_diy i {
+	color:#e74c3c;
+	font-size:30px;
+	float:left;
+	cursor:pointer;
+	}
+form .pro i {
+	color:#e74c3c;
+	font-size:30px;
+	margin-left:10px;
+	cursor:pointer;
+	float:left;
+	}
+form .add_diy span {
+	float:left;
+	margin-left:10px;
+	line-height:30px;
+	}
+form .pro input {
+	border:#d8ddf6 solid 1px;
+	height:35px;
+	line-height:35px;
+	float:left;
+	}
+form .pro span {
+	display:inline-block;
+	float:left;
+	font-weight:bold;
+	width:20px;
+	height:35px;
+	line-height:35px;
+	font-size:20px;
+	color:#444;
+	text-align:center;
+	}
+form .pro,form .suc_diy {
+	width:800px;
+	margin:10px auto;
+	height:40px;
+	}
+form .suc_diy .btn {
+	margin-right:30px;
+	}
+
+.qiye_select{
+	width:100%;
+	height: 100%;
+    border: none;
+}
+.laidian_zanwu{
+	text-align:center;
+	color:#f51515;
+	font-size:20px;
+	display:inline-block;
+	margin:0 auto;
+	width:100%;
+	margin-bottom:10px;
+	position:absolute;
+	top:67%;
+	left:0;
+}

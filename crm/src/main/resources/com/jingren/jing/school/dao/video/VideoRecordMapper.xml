@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.video.VideoRecordMapper">
+	<resultMap type="com.jingren.jing.school.bean.video.VideoRecord"
+		id="BaseResultMap">
+		<id column="record_id" property="record_id" />
+		<result column="user_id" property="user_id" />
+		<result column="record_time" property="record_time" />
+		<result column="video_id" property="video_id" />
+		<result column="course_id" property="course_id" />
+		<result column="video_parent_id" property="video_parent_id" />
+		<result column="paly_time" property="paly_time" />
+		<result column="zong_shichang" property="zong_shichang" />
+		<result column="video_parent" property="video_parent" />
+	</resultMap>
+	<!--添加视频播放记录 -->
+	<insert id="saveVideoRecord" parameterType="com.jingren.jing.school.bean.video.VideoRecord"
+		useGeneratedKeys="true" keyProperty="record_id">
+		insert into video_record
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="record_time != null">
+				record_time,
+			</if>
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="video_parent_id != null">
+				video_parent_id,
+			</if>
+			<if test="paly_time != null">
+				paly_time,
+			</if>
+			<if test="zong_shichang != null">
+				zong_shichang,
+			</if>
+			<if test="video_parent != null">
+				video_parent
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="record_time != null">
+				#{record_time},
+			</if>
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="video_parent_id != null">
+				#{video_parent_id},
+			</if>
+			<if test="paly_time != null">
+				#{paly_time},
+			</if>
+			<if test="zong_shichang != null">
+				#{zong_shichang},
+			</if>
+			<if test="video_parent != null">
+				#{video_parent}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改视频播放记录 -->
+	<update id="updateVideoRecord" parameterType="com.jingren.jing.school.bean.video.VideoRecord">
+		update video_record
+		<set>
+			<if test="user_id != null">
+				user_id=#{user_id},
+			</if>
+			<if test="record_time != null">
+				record_time=#{record_time},
+			</if>
+			<if test="video_id != null">
+				video_id=#{video_id},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="video_parent_id != null">
+				video_parent_id=#{video_parent_id},
+			</if>
+			<if test="paly_time != null">
+				paly_time=#{paly_time}
+			</if>
+		</set>
+		where record_id=#{record_id}
+	</update>
+	<!--删除视频播放记录 -->
+	<delete id="deleteVideoRecord" parameterType="Map">
+		delete from video_record where
+		<if test="user_id != null">
+			user_id=#{user_id}
+		</if>
+		<if test="record_id != null">
+			record_id=#{record_id}
+		</if>
+	</delete>
+	<!--获取视频播放记录 -->
+	<select id="getVideoRecord" parameterType="Map" resultMap="BaseResultMap">
+		select * from video_record
+		<where>
+			<if test="record_id !=null">
+				record_id=#{record_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询视频播放记录列表 -->
+	<select id="getVideoRecordList" parameterType="Map" resultMap="BaseResultMap">
+		select * from video_record
+		<where>
+			1=1
+			<if test="user_id != null">
+				and user_id = #{user_id}
+			</if>
+			<if test="video_id != null">
+				and video_id = #{video_id}
+			</if>
+			<if test="course_id != null">
+				and course_id = #{course_id}
+			</if>
+			<if test="video_parent_id != null">
+				and video_parent_id = #{video_parent_id}
+			</if>
+			<if test="video_parent != null">
+				and video_parent = #{video_parent}
+			</if>
+		</where>
+		<if test="dis_video_parent != null">
+				group by video_parent 
+		</if>
+		order by paly_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询视频播放记录数量 -->
+	<select id="getVideoRecordNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from video_record
+		<where>
+			1=1
+			<if test="user_id != null">
+				and user_id = #{user_id}
+			</if>
+			<if test="video_id != null">
+				and video_id = #{video_id}
+			</if>
+			<if test="course_id != null">
+				and course_id = #{course_id}
+			</if>
+			<if test="video_parent_id != null">
+				and video_parent_id = #{video_parent_id}
+			</if>
+			<if test="video_parent != null">
+				and video_parent = #{video_parent}
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.crm.dao.setcalltime.SetCallTimeMapper">
+	<resultMap type="com.jingren.jing.crm.bean.setcalltime.SetCallTime"
+		id="BaseResultMap">
+		<id column="call_time_id" property="call_time_id" />
+		<result column="call_time" property="call_time" />
+	</resultMap>
+	<!-- 重新设置有效时间 -->
+	<update id="updateSetCallTime" parameterType="com.jingren.jing.crm.bean.setcalltime.SetCallTime">
+		update set_call_time
+		<set>
+			<if test="call_time != null">
+				call_time=#{call_time}
+			</if>
+		</set>
+		where call_time_id=#{call_time_id}
+	</update>
+	<!--查询设置的有效时间 -->
+	<select id="getSetCallTime" parameterType="Map" resultMap="BaseResultMap">
+		select * from set_call_time
+	</select>
+</mapper>

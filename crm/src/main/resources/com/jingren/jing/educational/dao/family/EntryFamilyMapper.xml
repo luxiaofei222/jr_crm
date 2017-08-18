@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.educational.dao.family.EntryFamilyMapper">
+	<resultMap
+		type="com.jingren.jing.educational.bean.family.EntryFamily"
+		id="BaseResultMap">
+		<id column="family_id" property="family_id" />
+		<result column="entry_info_id" property="entry_info_id" />
+		<result column="family_name" property="family_name" />
+		<result column="guanxi" property="guanxi" />
+		<result column="nianling" property="nianling" />
+		<result column="gongzuodanwei" property="gongzuodanwei" />
+	</resultMap>
+	<!--添加家庭成员信息 -->
+	<insert id="saveEntryFamily"
+		parameterType="com.jingren.jing.educational.bean.family.EntryFamily">
+		insert into entry_info_family
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="entry_info_id != null">
+				entry_info_id,
+			</if>
+			<if test="family_name != null">
+				family_name,
+			</if>
+			<if test="guanxi != null">
+				guanxi,
+			</if>
+			<if test="nianling != null">
+				nianling,
+			</if>
+			<if test="gongzuodanwei != null">
+				gongzuodanwei
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		<if test="entry_info_id != null">
+				#{entry_info_id},
+			</if>
+			<if test="family_name != null">
+				#{family_name},
+			</if>
+			<if test="guanxi != null">
+				#{guanxi},
+			</if>
+			<if test="nianling != null">
+				#{nianling},
+			</if>
+			<if test="gongzuodanwei != null">
+				#{gongzuodanwei}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改家庭关系 -->
+	<update id="updateEntryFamily"
+		parameterType="com.jingren.jing.educational.bean.family.EntryFamily">
+		update entry_info_family
+		<set>
+			<if test="entry_info_id != null">
+				entry_info_id=#{entry_info_id},
+			</if>
+			<if test="family_name != null">
+				family_name=#{family_name},
+			</if>
+			<if test="guanxi != null">
+				guanxi=#{guanxi},
+			</if>
+			<if test="nianling != null">
+				nianling=#{nianling},
+			</if>
+			<if test="gongzuodanwei != null">
+				gongzuodanwei=#{gongzuodanwei}
+			</if>
+		</set>
+		where 
+		<if test=" family_id != null">
+		family_id=#{family_id}
+		</if>
+	</update>
+	<!--删除家庭成员信息 -->
+	<delete id="deleteEntryFamily" parameterType="java.lang.Integer">
+		delete from
+		entry_info_family where
+		entry_info_id=#{entry_info_id}
+	</delete>
+
+	<!--查询家庭成员列表 -->
+	<select id="getEntryFamilyList" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select * from entry_info_family where entry_info_id=#{entry_info_id}
+	</select>
+</mapper>

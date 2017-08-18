@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.crm.dao.company.CompanyMapper">
+<cache eviction="FIFO" flushInterval="60000"  size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.crm.bean.company.Company"
+		id="BaseResultMap">
+		<id column="company_id" property="company_id" />
+		<result column="company_guimo" property="company_guimo" />
+		<result column="company_zongjingli_one" property="company_zongjingli_one" />
+		<result column="company_zongjingli_one_phone" property="company_zongjingli_one_phone" />
+		<result column="company_zongjingli_two" property="company_zongjingli_two" />
+		<result column="company_zongjingli_two_phone" property="company_zongjingli_two_phone" />
+		<result column="company_fax" property="company_fax" />
+		<result column="suoshuhangye" property="suoshuhangye" />
+		<result column="company_type" property="company_type" />
+		<result column="company_jituan" property="company_jituan" />
+		<result column="company_jingying" property="company_jingying" />
+		<result column="company_province" property="company_province" />
+		<result column="company_city" property="company_city" />	
+		<result column="company_youbian" property="company_youbian" />
+		<result column="company_quhao" property="company_quhao" />
+		<result column="company_mail" property="company_mail" />
+		<result column="company_addr" property="company_addr" />
+		<result column="company_web" property="company_web" />
+		<result column="is_xiehui" property="is_xiehui" />
+		<result column="employee_id" property="employee_id" />
+		<result column="company_time" property="company_time" />
+		<result column="company_name" property="company_name" />
+		<result column="company_note" property="company_note" />
+		<association property="employee" column="employee_id" 
+		select="com.jingren.jing.school.dao.employee.EmployeeMapper.getEmployeeByid"></association>
+	</resultMap>
+	<!--添加企业信息 -->
+	<insert id="saveCompany" flushCache="true" useGeneratedKeys="true" keyProperty="company_id"
+		parameterType="com.jingren.jing.crm.bean.company.Company" >
+		insert into company
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="company_guimo != null">
+				company_guimo,
+			</if>
+			<if test="company_zongjingli_one != null">
+				company_zongjingli_one,
+			</if>
+			<if test="company_zongjingli_one_phone != null">
+				company_zongjingli_one_phone,
+			</if>
+			<if test="company_zongjingli_two != null">
+				company_zongjingli_two,
+			</if>
+			<if test="company_zongjingli_two_phone != null">
+				company_zongjingli_two_phone,
+			</if>
+			<if test="company_fax != null">
+				company_fax,
+			</if>
+			<if test="suoshuhangye != null">
+				suoshuhangye,
+			</if>
+			<if test="company_type != null">
+				company_type,
+			</if>
+			<if test="company_jituan != null">
+				company_jituan,
+			</if>
+			<if test="company_jingying != null">
+				company_jingying,
+			</if>
+			<if test="company_province != null">
+				company_province,
+			</if>
+			<if test="company_city != null">
+				company_city,
+			</if>
+			<if test="company_youbian != null">
+				company_youbian,
+			</if>
+			<if test="company_quhao != null">
+				company_quhao,
+			</if>
+			<if test="company_mail != null">
+				company_mail,
+			</if>
+			<if test="company_addr != null">
+				company_addr,
+			</if>
+			<if test="company_web != null">
+				company_web,
+			</if>
+			<if test="is_xiehui != null">
+				is_xiehui,
+			</if>
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="company_time != null">
+				company_time,
+			</if>
+			<if test="company_name != null">
+				company_name,
+			</if>
+			<if test="company_note != null">
+				company_note
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="company_guimo != null">
+				#{company_guimo},
+			</if>
+			<if test="company_zongjingli_one != null">
+				#{company_zongjingli_one},
+			</if>
+			<if test="company_zongjingli_one_phone != null">
+				#{company_zongjingli_one_phone},
+			</if>
+			<if test="company_zongjingli_two != null">
+				#{company_zongjingli_two},
+			</if>
+			<if test="company_zongjingli_two_phone != null">
+				#{company_zongjingli_two_phone},
+			</if>
+			<if test="company_fax != null">
+				#{company_fax},
+			</if>
+			<if test="suoshuhangye != null">
+				#{suoshuhangye},
+			</if>
+			<if test="company_type != null">
+				#{company_type},
+			</if>
+			<if test="company_jituan != null">
+				#{company_jituan},
+			</if>
+			<if test="company_jingying != null">
+				#{company_jingying},
+			</if>
+			<if test="company_province != null">
+				#{company_province},
+			</if>
+			<if test="company_city != null">
+				#{company_city},
+			</if>
+			<if test="company_youbian != null">
+				#{company_youbian},
+			</if>
+			<if test="company_quhao != null">
+				#{company_quhao},
+			</if>
+			<if test="company_mail != null">
+				#{company_mail},
+			</if>
+			<if test="company_addr != null">
+				#{company_addr},
+			</if>
+			<if test="company_web != null">
+				#{company_web},
+			</if>
+			<if test="is_xiehui != null">
+				#{is_xiehui},
+			</if>
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="company_time != null">
+				#{company_time},
+			</if>
+			<if test="company_name != null">
+				#{company_name},
+			</if>
+			<if test="company_note != null">
+				#{company_note}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改企业信息 -->
+	<update id="updateCompany" flushCache="true"
+		parameterType="com.jingren.jing.crm.bean.company.Company">
+		update company
+		<set>
+			<if test="company_guimo != null">
+				company_guimo=#{company_guimo},
+			</if>
+			<if test="company_zongjingli_one != null">
+				company_zongjingli_one=#{company_zongjingli_one},
+			</if>
+			<if test="company_zongjingli_one_phone != null">
+				company_zongjingli_one_phone=#{company_zongjingli_one_phone},
+			</if>
+			<if test="company_zongjingli_two != null">
+				company_zongjingli_two=#{company_zongjingli_two},
+			</if>
+			<if test="company_zongjingli_two_phone != null">
+				company_zongjingli_two_phone=#{company_zongjingli_two_phone},
+			</if>
+			<if test="company_fax != null">
+				company_fax=#{company_fax},
+			</if>
+			<if test="suoshuhangye != null">
+				suoshuhangye=#{suoshuhangye},
+			</if>
+			<if test="company_type != null">
+				company_type=#{company_type},
+			</if>
+			<if test="company_jituan != null">
+				company_jituan=#{company_jituan},
+			</if>
+			<if test="company_jingying != null">
+				company_jingying=#{company_jingying},
+			</if>
+			<if test="company_province != null">
+				company_province=#{company_province},
+			</if>
+			<if test="company_city != null">
+				company_city=#{company_city},
+			</if>
+			<if test="company_youbian != null">
+				company_youbian=#{company_youbian},
+			</if>
+			<if test="company_quhao != null">
+				company_quhao=#{company_quhao},
+			</if>
+			<if test="company_mail != null">
+				company_mail=#{company_mail},
+			</if>
+			<if test="company_addr != null">
+				company_addr=#{company_addr},
+			</if>
+			<if test="company_web != null">
+				company_web=#{company_web},
+			</if>
+			<if test="is_xiehui != null">
+				is_xiehui=#{is_xiehui},
+			</if>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="company_time != null">
+				company_time=#{company_time},
+			</if>
+			<if test="company_name != null">
+				company_name=#{company_name},
+			</if>
+			<if test="company_note != null">
+				company_note=#{company_note}
+			</if>
+		</set>
+		where company_id=#{company_id}
+	</update>
+	<!--删除企业信息 -->
+	<delete id="deleteCompany" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		company where
+		company_id=#{company_id}
+	</delete>
+	<!--获取企业信息 -->
+	<select id="getCompany" parameterType="Map" resultMap="BaseResultMap">
+		select * from company
+		<where>
+			<if test="company_id !=null">
+				company_id=#{company_id}
+			</if>
+			<if test="company_name !=null">
+				company_name=#{company_name}
+			</if>
+		</where>
+	</select>
+<!-- 通过ID获取企业信息 -->
+	<select id="getCompanyById" parameterType="int" resultMap="BaseResultMap">
+		select * from company where company_id=#{company_id}
+	</select>
+	<!--查询企业列表 -->
+	<select id="getCompanyList" parameterType="Map" resultMap="BaseResultMap">
+		select * from company
+		<where>
+			<if test="company_name != null">
+				company_name like "%"#{company_name}"%"
+			</if>
+			<if test="company_name_upload != null">
+				company_name = #{company_name_upload}
+			</if>
+			<if test="company_name_seacher != null">
+				company_name like "%"#{company_name_seacher}"%" and
+			</if>
+			<if test="employee_id != null">
+				employee_id =#{employee_id}
+			</if>
+			<if test="suoshuhangye != null">
+				suoshuhangye like "%"#{suoshuhangye}"%"
+			</if>
+			<if test="company_province != null">
+				company_province like "%"#{company_province}"%"
+			</if>
+			<if test="company_city != null">
+				company_city like "%"#{company_city}"%"
+			</if>
+		</where>
+		<!-- order by company_time DESC -->
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询企业数量 -->
+	<select id="getCompanyNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from company
+		<where>
+			<if test="company_name != null">
+				company_name like "%"#{company_name}"%"
+			</if>
+			<if test="company_name_seacher != null">
+				company_name like "%"#{company_name_seacher}"%" and
+			</if>
+			<if test="employee_id != null">
+				employee_id =#{employee_id}
+			</if>
+			<if test="suoshuhangye != null">
+				suoshuhangye like "%"#{suoshuhangye}"%"
+			</if>
+			<if test="company_province != null">
+				company_province like "%"#{company_province}"%"
+			</if>
+			<if test="company_city != null">
+				company_city like "%"#{company_city}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

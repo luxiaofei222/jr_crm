@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.chapter_exercises.ChapterQuerstionOptionMapper">
+	<cache></cache>
+	<resultMap
+		type="com.jingren.jing.question.bean.chapter_exercises.ChapterQuerstionOption"
+		id="BaseResultMap">
+		<id column="chapter_question_option_id" property="chapter_question_option_id" />
+		<result column="chapter_question_id" property="chapter_question_id" />
+		<result column="option_number" property="option_number" />
+		<result column="option_content" property="option_content" />
+		<result column="optioan_pic" property="optioan_pic" />
+		<result column="option_time" property="option_time" />
+	</resultMap>
+	<!--添加章节练习-章节信息题目选项 -->
+	<insert id="saveChapterQuerstionOption"
+		parameterType="com.jingren.jing.question.bean.chapter_exercises.ChapterQuerstionOption">
+		insert into chapter_querstion_option
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="chapter_question_id != null">
+				chapter_question_id,
+			</if>
+			<if test="option_number != null">
+				option_number,
+			</if>
+			<if test="option_content != null">
+				option_content,
+			</if>
+			<if test="optioan_pic != null">
+				optioan_pic,
+			</if>
+			<if test="option_time != null">
+				option_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		<if test="chapter_question_id != null">
+				#{chapter_question_id},
+			</if>
+			<if test="option_number != null">
+				#{option_number},
+			</if>
+			<if test="option_content != null">
+				#{option_content},
+			</if>
+			<if test="optioan_pic != null">
+				#{optioan_pic},
+			</if>
+			<if test="option_time != null">
+				#{option_time}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改章节练习-章节信息题目选项 -->
+	<update id="updateChapterQuerstionOption"
+		parameterType="com.jingren.jing.question.bean.chapter_exercises.ChapterQuerstionOption">
+		update chapter_querstion_option
+		<set>
+		<if test="chapter_question_id != null">
+				chapter_question_id=#{chapter_question_id},
+			</if>
+			<if test="option_number != null">
+				option_number=#{option_number},
+			</if>
+			<if test="option_content != null">
+				option_content=#{option_content},
+			</if>
+			<if test="optioan_pic != null">
+				optioan_pic=#{optioan_pic},
+			</if>
+			<if test="option_time != null">
+				option_time=#{option_time}
+			</if>
+		</set>
+		where chapter_question_option_id=#{chapter_question_option_id}
+	</update>
+	<!--删除章节练习-章节信息题目选项 -->
+	<delete id="deleteChapterQuerstionOption" parameterType="java.lang.Integer">
+		delete from
+		chapter_querstion_option where
+		chapter_question_option_id=#{chapter_question_option_id}
+	</delete>
+	<!--获取章节练习-章节信息题目选项 -->
+	<select id="getChapterQuerstionOption" parameterType="Map" resultMap="BaseResultMap">
+		select * from chapter_querstion_option
+		<where>
+			<if test="chapter_question_option_id !=null">
+				chapter_question_option_id=#{chapter_question_option_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询章节练习-章节信列表 -->
+	<select id="getChapterQuerstionOptionList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from chapter_querstion_option
+		<where>
+			<if test="chapter_question_id != null">
+				chapter_question_id =#{chapter_question_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-章节信息题目选项数量 -->
+	<select id="getChapterQuerstionOptionNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from chapter_querstion_option
+		<where>
+			<if test="chapter_question_id != null">
+				chapter_question_id =#{chapter_question_id}
+			</if>
+		</where>
+	</select>
+</mapper>

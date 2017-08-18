@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.zhentirecord.ZhentiRecordMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.zhentirecord.ZhentiRecord"
+		id="BaseResultMap">
+		<id column="zhenti_record_id" property="zhenti_record_id" />
+		<result column="user_id" property="user_id" />
+		<result column="zhenti_id" property="zhenti_id" />
+		<result column="zhenti_question_id" property="zhenti_question_id" />
+		<result column="question_course_id" property="question_course_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="recourd_time" property="recourd_time" />
+		<result column="user_answer" property="user_answer" />
+		<result column="answer_length" property="answer_length" />
+		<result column="is_right" property="is_right" />
+		<result column="question_order_number" property="question_order_number" />
+		<result column="question_type" property="question_type" />
+		<result column="recourd_state" property="recourd_state" />
+		<result column="zhenti_type" property="zhenti_type" />
+	</resultMap>
+	<!--添加历年真题-真题记录信息 -->
+	<insert id="saveZhentiRecord" keyProperty="zhenti_record_id" useGeneratedKeys="true"
+		parameterType="com.jingren.jing.question.bean.zhentirecord.ZhentiRecord">
+		insert into zhenti_record
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="zhenti_id != null">
+				zhenti_id,
+			</if>
+			<if test="zhenti_question_id != null">
+				zhenti_question_id,
+			</if>
+			<if test="question_course_id != null">
+				question_course_id,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="recourd_time != null">
+				recourd_time,
+			</if>
+			<if test="user_answer != null">
+				user_answer,
+			</if>
+			<if test="answer_length != null">
+				answer_length,
+			</if>
+			<if test="is_right != null">
+				is_right,
+			</if>
+			<if test="question_order_number != null">
+				question_order_number,
+			</if>
+			<if test="question_type != null">
+				question_type,
+			</if>
+			<if test="zhenti_type != null">
+				zhenti_type,
+			</if>
+			<if test="recourd_state != null">
+				recourd_state
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="zhenti_id != null">
+				#{zhenti_id},
+			</if>
+			<if test="zhenti_question_id != null">
+				#{zhenti_question_id},
+			</if>
+			<if test="question_course_id != null">
+				#{question_course_id},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="recourd_time != null">
+				#{recourd_time},
+			</if>
+			<if test="user_answer != null">
+				#{user_answer},
+			</if>
+			<if test="answer_length != null">
+				#{answer_length},
+			</if>
+			<if test="is_right != null">
+				#{is_right},
+			</if>
+			<if test="question_order_number != null">
+				#{question_order_number},
+			</if>
+			<if test="question_type != null">
+				#{question_type},
+			</if>
+			<if test="zhenti_type != null">
+				#{zhenti_type},
+			</if>
+			<if test="recourd_state != null">
+				#{recourd_state}
+			</if>
+		</trim>
+	</insert>
+	<!--删除历年真题-真题记录信息 -->
+	<delete id="deleteZhentiRecord" parameterType="com.jingren.jing.question.bean.zhentirecord.ZhentiRecord">
+		delete from
+		zhenti_record where
+		<if test="zhenti_record_id != null">
+				zhenti_record_id=#{zhenti_record_id}
+		</if>
+	</delete>
+	<!--获取历年真题-真题记录信息 -->
+	<select id="getZhentiRecord" parameterType="Map" resultMap="BaseResultMap">
+		select * from zhenti_record
+		<where>
+			<if test="zhenti_record_id !=null">
+				zhenti_record_id=#{zhenti_record_id}
+			</if>
+		</where>
+	</select>
+	<!--题型列表  -->
+	<select id="getZhentiRecordList" parameterType="Map" resultMap="BaseResultMap">
+		select * from zhenti_record
+		<where>
+			<if test="user_id !=null">
+				user_id=#{user_id}
+			</if>
+			<if test="parent_id_jixu != null">
+				parent_id=#{parent_id_jixu}
+			</if>
+			<if test="end_time != null">
+			recourd_time &lt;=#{end_time}
+			</if>
+			<if test="zhenti_id !=null">
+			and	zhenti_id=#{zhenti_id}
+			</if>
+			<if test="recourd_state != null">
+			and	recourd_state=#{recourd_state}
+			</if>
+			<if test="question_course_id != null">
+			and	question_course_id=#{question_course_id}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id=#{parent_id}
+			</if>
+			<if test="zhenti_type != null">
+			and	zhenti_type=#{zhenti_type}
+			</if>
+			<if test="question_type != null">
+			and	question_type=#{question_type}
+			</if>
+		</where>
+		order by recourd_time DESC
+	</select>
+	<!-- 历年真题-记录数量 -->
+	<select id="getZhentiRecordNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from zhenti_record
+		<where>
+			<if test="user_id !=null">
+				user_id=#{user_id}
+			</if>
+			<if test="parent_id_nengli != null"><!-- 能力评估获取正确个数的方法 -->
+			 	parent_id=#{parent_id_nengli}
+			</if>
+			<if test="zhenti_type != null">
+			and	zhenti_type=#{zhenti_type}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id=#{parent_id}
+			</if>
+			<if test="zhenti_question_id != null">
+			and	zhenti_question_id=#{zhenti_question_id}
+			</if>
+			<if test="question_course_id !=null">
+			and question_course_id=#{question_course_id}
+			</if>
+			<if test="is_right != null">
+			and	is_right=#{is_right}
+			</if>
+			<if test="user_answer_wu != null">
+			and	user_answer !=#{user_answer_wu}
+			</if>
+		</where>
+	</select>
+</mapper>

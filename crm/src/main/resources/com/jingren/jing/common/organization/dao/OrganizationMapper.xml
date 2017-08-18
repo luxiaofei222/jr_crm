@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.organization.dao.OrganizationMapper">
+	<resultMap type="com.jingren.jing.common.organization.bean.Organization"
+		id="BaseResultMap">
+		<id column="organization_id" property="organization_id" />
+		<result column="organization_name" property="organization_name" />
+		<result column="organization_level" property="organization_level" />
+		<result column="parent_id" property="parent_id" />
+		<result column="organization_dis" property="organization_dis" />
+		<result column="organization_time" property="organization_time" />
+		<result column="bumen_id" property="bumen_id" />
+	</resultMap>
+	<!--添加组织结构信息 -->
+	<insert id="saveOranization"
+		parameterType="com.jingren.jing.common.organization.bean.Organization">
+		insert into organization
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="organization_name != null">
+				organization_name,
+			</if>
+			<if test="organization_level != null">
+				organization_level,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="organization_dis != null">
+				organization_dis,
+			</if>
+			<if test="organization_time != null">
+				organization_time,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="organization_name != null">
+				#{organization_name},
+			</if>
+			<if test="organization_level != null">
+				#{organization_level},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="organization_dis != null">
+				#{organization_dis},
+			</if>
+			<if test="organization_time != null">
+				#{organization_time},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改组织结构信息 -->
+	<update id="updateOranization"
+		parameterType="com.jingren.jing.common.organization.bean.Organization">
+		update organization
+		<set>
+			<if test="organization_name != null">
+				organization_name=#{organization_name},
+			</if>
+			<if test="organization_level != null">
+				organization_level=#{organization_level},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="organization_dis != null">
+				organization_dis=#{organization_dis},
+			</if>
+			<if test="organization_time != null">
+				organization_time=#{organization_time},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id}
+			</if>
+		</set>
+		where organization_id=#{organization_id}
+	</update>
+	<!--删除组织结构信息 -->
+	<delete id="deleteOranization" parameterType="java.lang.Integer">
+		delete from
+		organization where
+		organization_id=#{organization_id}
+	</delete>
+	<!--获取组织结构信息 -->
+	<select id="getOranization" parameterType="Map" resultMap="BaseResultMap">
+		select * from organization
+		<where>
+			<if test="organization_id !=null">
+				organization_id=#{organization_id}
+			</if>
+			<if test="bumen_id !=null">
+				organization_id=#{bumen_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询组织结构列表 -->
+	<select id="getOranizationList" parameterType="Map" resultMap="BaseResultMap">
+		select * from organization
+		<where>
+			1=1
+			<if test="organization_id !=null">
+				and organization_id=#{organization_id}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id = #{bumen_id}
+			</if>
+			<if test="parent_id != null">
+				and parent_id = #{parent_id}
+			</if>
+			<if test="organization_level != null">
+				and	organization_level = #{organization_level}
+			</if>
+			<if test="sub_level != null">
+				and organization_level = #{sub_level}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询组织结构数量 -->
+	<select id="getOranizationNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from organization
+		<where>
+			<if test="parent_id != null">
+				parent_id = #{parent_id}
+			</if>
+			<if test="organization_level != null">
+				organization_level = #{organization_level}
+			</if>
+		</where>
+	</select>
+</mapper>

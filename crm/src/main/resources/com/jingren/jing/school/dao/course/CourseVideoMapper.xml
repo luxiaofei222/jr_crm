@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.course.CourseVideoMapper">
+	<cache eviction="FIFO" flushInterval="60000"  size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.school.bean.course.CourseVideo"
+		id="BaseResultMap">
+		<id column="video_id" property="video_id" />
+		<result column="course_id" property="course_id" />
+		<result column="video_pic" property="video_pic" />
+		<result column="video_file" property="video_file" />
+		<result column="video_type" property="video_type" />
+		<result column="video_time" property="video_time" />
+		<result column="video_name" property="video_name" />
+		<result column="video_parent_id" property="video_parent_id" />
+		<result column="video_chapter" property="video_chapter" />
+		<result column="video_money_now" property="video_money_now" />
+		<result column="video_moey_new" property="video_moey_new" />
+		<result column="play_times" property="play_times" />
+		<result column="is_tuijian" property="is_tuijian" />
+		<result column="video_dis" property="video_dis" />
+		<result column="banxing" property="banxing" />
+		<result column="dictionary_id" property="dictionary_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="video_level" property="video_level" />
+		<result column="video_section" property="video_section" />
+		<result column="teacher_id" property="teacher_id" />
+		<result column="course_jieshao" property="course_jieshao" />
+		<result column="is_info" property="is_info" />
+		<result column="top_paixu" property="top_paixu" />
+		<result column="is_jinzhi" property="is_jinzhi" />
+		<result column="daoqi_time" property="daoqi_time" />
+	</resultMap>
+	<!--添加课程视频 -->
+	<insert id="saveCourseVideo" flushCache="true" parameterType="com.jingren.jing.school.bean.course.CourseVideo">
+		insert into course_video
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="video_pic != null">
+				video_pic,
+			</if>
+			<if test="video_file != null">
+				video_file,
+			</if>
+			<if test="video_type != null">
+				video_type,
+			</if>
+			<if test="video_time != null">
+				video_time,
+			</if>
+			<if test="video_name != null">
+				video_name,
+			</if>
+			<if test="video_parent_id != null">
+				video_parent_id,
+			</if>
+			<if test="video_chapter != null">
+				video_chapter,
+			</if>
+			<if test="video_money_now != 0">
+				video_money_now,
+			</if>
+			<if test="video_moey_new != 0">
+				video_moey_new,
+			</if>
+			<if test="play_times != null">
+				play_times,
+			</if>
+			<if test="is_tuijian != null">
+				is_tuijian,
+			</if>
+			<if test="video_dis != null">
+				video_dis,
+			</if>
+			<if test="banxing != null">
+				banxing,
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="video_level != null">
+				video_level,
+			</if>
+			<if test="video_section != null">
+				video_section,
+			</if>
+			<if test="teacher_id != null">
+				teacher_id,
+			</if>
+			<if test="course_jieshao != null">
+				course_jieshao,
+			</if>
+			<if test="is_jinzhi != null">
+				is_jinzhi,
+			</if>
+			<if test="daoqi_time != null">
+				daoqi_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="video_pic != null">
+				#{video_pic},
+			</if>
+			<if test="video_file != null">
+				#{video_file},
+			</if>
+			<if test="video_type != null">
+				#{video_type},
+			</if>
+			<if test="video_time != null">
+				#{video_time},
+			</if>
+			<if test="video_name != null">
+				#{video_name},
+			</if>
+			<if test="video_parent_id != null">
+				#{video_parent_id},
+			</if>
+			<if test="video_chapter != null">
+				#{video_chapter},
+			</if>
+			<if test="video_money_now != 0">
+				#{video_money_now},
+			</if>
+			<if test="video_moey_new != 0">
+				#{video_moey_new},
+			</if>
+			<if test="play_times != null">
+				#{play_times},
+			</if>
+			<if test="is_tuijian != null">
+				#{is_tuijian},
+			</if>
+			<if test="video_dis != null">
+				#{video_dis},
+			</if>
+			<if test="banxing != null">
+				#{banxing},
+			</if>
+			<if test="dictionary_id != null">
+				#{dictionary_id},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="video_level != null">
+				#{video_level},
+			</if>
+			<if test="video_section != null">
+				#{video_section},
+			</if>
+			<if test="teacher_id != null">
+				#{teacher_id},
+			</if>
+			<if test="course_jieshao != null">
+				#{course_jieshao},
+			</if>
+			<if test="is_jinzhi != null">
+				#{is_jinzhi},
+			</if>
+			<if test="daoqi_time != null">
+				#{daoqi_time}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改课程视频信息 -->
+	<update id="updateCourseVideo" flushCache="true" parameterType="com.jingren.jing.school.bean.course.CourseVideo">
+		update course_video
+		<set>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="video_pic != null">
+				video_pic=#{video_pic},
+			</if>
+			<if test="video_file != null">
+				video_file=#{video_file},
+			</if>
+			<if test="video_type != null">
+				video_type=#{video_type},
+			</if>
+			<if test="video_time != null">
+				video_time=#{video_time},
+			</if>
+			<if test="video_name != null">
+				video_name=#{video_name},
+			</if>
+			<if test="video_parent_id != null">
+				video_parent_id=#{video_parent_id},
+			</if>
+			<if test="video_chapter != null">
+				video_chapter=#{video_chapter},
+			</if>
+			<if test="video_money_now != 0">
+				video_money_now=#{video_money_now},
+			</if>
+			<if test="video_moey_new != 0">
+				video_moey_new=#{video_moey_new},
+			</if>
+			<if test="play_times != null">
+				play_times=#{play_times},
+			</if>
+			<if test="is_tuijian != null">
+				is_tuijian=#{is_tuijian},
+			</if>
+			<if test="video_dis != null">
+				video_dis=#{video_dis},
+			</if>
+			<if test="banxing != null">
+				banxing=#{banxing},
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id=#{dictionary_id},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="video_level != null">
+				video_level=#{video_level},
+			</if>
+			<if test="video_section != null">
+				video_section=#{video_section},
+			</if>
+			<if test="teacher_id != null">
+				teacher_id=#{teacher_id},
+			</if>
+			<if test="course_jieshao != null">
+				course_jieshao=#{course_jieshao},
+			</if>
+			<if test="is_info != null">
+				is_info=#{is_info},
+			</if>
+			<if test="top_paixu != null">
+				top_paixu=#{top_paixu},
+			</if>
+			<if test="is_jinzhi != null">
+				is_jinzhi=#{is_jinzhi},
+			</if>
+			<if test="daoqi_time != null">
+				daoqi_time=#{daoqi_time}
+			</if>
+		</set>
+		where video_id=#{video_id}
+	</update>
+	<!-- 一键禁止点击 -->
+	<update id="updateVideoDianji" flushCache="true" parameterType="com.jingren.jing.school.bean.course.CourseVideo">
+		update course_video
+		<set>
+			<if test="is_jinzhi != null">
+				is_jinzhi=#{is_jinzhi}
+			</if>
+		</set>
+		where video_level=#{video_level}
+	</update>
+	<!--删除课程视频信息 -->
+	<delete id="deleteCourseVideo" flushCache="true" parameterType="java.lang.Integer">
+		delete from
+		course_video where
+		video_id=#{video_id}
+	</delete>
+	<!--获取课程视频信息 -->
+	<select id="getCourseVideo" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_video
+		<where>
+			<if test="video_id !=null">
+				video_id=#{video_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询推荐课程视频列表 -->
+	<select id="getCourseVideoTuijianList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from course_video
+		<where>
+			<if test="video_parent_id != null">
+				video_parent_id = #{video_parent_id}
+			</if>
+			<if test="course_id != null">
+				course_id = #{course_id}
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id = #{course_parent_id}
+			</if>
+			<if test="video_type != null">
+				and video_type = #{video_type}
+			</if>
+			<if test="moren != null">
+				and video_type !="下架"
+			</if>
+			<if test="is_tuijian != null">
+				and is_tuijian = #{is_tuijian}
+			</if>
+			<if test="video_level != null">
+				and	video_level=#{video_level}
+			</if>
+		</where>
+		order by video_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!--查询课程视频列表 -->
+	<select id="getCourseVideoList" parameterType="Map" resultMap="BaseResultMap">
+		select * from course_video
+		<where>
+			<if test="video_parent_id != null">
+				video_parent_id = #{video_parent_id}
+			</if>
+			<if test="course_id != null">
+				course_id = #{course_id}
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id = #{course_parent_id}
+			</if>
+			<if test="video_name != null">
+				and video_name like "%"#{video_name}"%"
+			</if>
+			<if test="dictionary_id != null">
+				and dictionary_id = #{dictionary_id}
+			</if>
+			<if test="banxing != null">
+				and banxing = #{banxing}
+			</if>
+			<if test="video_type != null">
+				and video_type = #{video_type}
+			</if>
+			<if test="moren != null">
+				and video_type !="下架"
+			</if>
+			<if test="is_tuijian != null">
+				and is_tuijian = #{is_tuijian}
+			</if>
+			<if test="video_level != null">
+				and	video_level=#{video_level}
+			</if>
+			<if test="is_info != null">
+				and	is_info=#{is_info}
+			</if>
+		</where>
+		<if test="jibie !=null">
+			order by top_paixu ASC,video_time ASC
+		</if>
+		<if test="jiage_paixu == 'DESC'  and jiage_paixu!=null">
+			order by video_money_now DESC
+		</if>
+		<if test="jiage_paixu == 'ASC' and jiage_paixu!=null">
+			order by video_money_now ASC
+		</if>
+		<if test="zuire !=null">
+			order by play_times DESC
+		</if>
+		<if test="gr_banxing !=null">
+			group by banxing
+		</if>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询课程视频数量 -->
+	<select id="getCourseVideoNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from course_video
+		<where>
+			<if test="video_parent_id != null">
+				video_parent_id = #{video_parent_id}
+			</if>
+			<if test="course_id != null">
+				course_id = #{course_id}
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id = #{course_parent_id}
+			</if>
+			<if test="video_name != null">
+				and video_name like "%"#{video_name}"%"
+			</if>
+			<if test="dictionary_id != null">
+				and dictionary_id = #{dictionary_id}
+			</if>
+			<if test="banxing != null">
+				and banxing = #{banxing}
+			</if>
+			<if test="video_type != null">
+				and video_type = #{video_type}
+			</if>
+			<if test="moren != null">
+				and video_type !="下架"
+			</if>
+			<if test="is_tuijian != null">
+				and is_tuijian = #{is_tuijian}
+			</if>
+			<if test="video_level != null">
+				and	video_level=#{video_level}
+			</if>
+			<if test="is_info != null">
+				and	is_info=#{is_info}
+			</if>
+		</where>
+	</select>
+</mapper>

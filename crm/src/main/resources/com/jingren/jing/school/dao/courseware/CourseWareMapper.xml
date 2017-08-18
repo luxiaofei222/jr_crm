@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.courseware.CourseWareMapper">
+	<resultMap type="com.jingren.jing.school.bean.courseware.CourseWare"
+		id="BaseResultMap">
+		<id column="courseware_id" property="courseware_id" />
+		<result column="courseware_name" property="courseware_name" />
+		<result column="video_id" property="video_id" />
+		<result column="courseware_file" property="courseware_file" />
+		<result column="courseware_time" property="courseware_time" />
+		<result column="top_paixu" property="top_paixu" />
+	</resultMap>
+	<!--添加课件信息 -->
+	<insert id="saveCourseWare"
+		parameterType="com.jingren.jing.school.bean.courseware.CourseWare">
+		insert into courseware
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="courseware_name != null">
+				courseware_name,
+			</if>
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="courseware_file != null">
+				courseware_file,
+			</if>
+			<if test="courseware_time != null">
+				courseware_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="courseware_name != null">
+				#{courseware_name},
+			</if>
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="courseware_file != null">
+				#{courseware_file},
+			</if>
+			<if test="courseware_time != null">
+				#{courseware_time}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改课件信息 -->
+	<update id="updateCourseWare"
+		parameterType="com.jingren.jing.school.bean.courseware.CourseWare">
+		update courseware
+		<set>
+		<if test="courseware_name != null">
+				courseware_name=#{courseware_name},
+			</if>
+			<if test="video_id != null">
+				video_id=#{video_id},
+			</if>
+			<if test="courseware_file != null">
+				courseware_file=#{courseware_file},
+			</if>
+			<if test="courseware_time != null">
+				courseware_time=#{courseware_time},
+			</if>
+			<if test="top_paixu != null">
+				top_paixu=#{top_paixu}
+			</if>
+		</set>
+		where courseware_id=#{courseware_id}
+	</update>
+	<!--删除课件信息 -->
+	<delete id="deleteCourseWare" parameterType="java.lang.Integer">
+		delete from
+		courseware where
+		courseware_id=#{courseware_id}
+	</delete>
+	<!--获取课件信息 -->
+	<select id="getCourseWare" parameterType="Map" resultMap="BaseResultMap">
+		select * from courseware
+		<where>
+			<if test="courseware_id !=null">
+				courseware_id=#{courseware_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询课件列表 -->
+	<select id="getCourseWareList" parameterType="Map" resultMap="BaseResultMap">
+		select * from courseware
+		<where>
+			<if test="video_id != null">
+				video_id =#{video_id}
+			</if>
+		</where>
+		order by top_paixu ASC,courseware_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询课件数量 -->
+	<select id="getCourseWareNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from courseware
+		<where>
+			<if test="video_id != null">
+				video_id =#{video_id}
+			</if>
+		</where>
+	</select>
+</mapper>

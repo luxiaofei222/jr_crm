@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.zhentioption.ZhentiQuestionOptionMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.zhentioption.ZhentiQuestionOption"
+		id="BaseResultMap">
+		<id column="option_id" property="option_id" />
+		<result column="zhenti_question_id" property="zhenti_question_id" />
+		<result column="option_number" property="option_number" />
+		<result column="option_content" property="option_content" />
+		<result column="optioan_pic" property="optioan_pic" />
+		<result column="option_time" property="option_time" />
+	</resultMap>
+	<!--添加历年真题-题目选项信息 -->
+	<insert id="saveZhentiQuestionOption"
+		parameterType="com.jingren.jing.question.bean.zhentioption.ZhentiQuestionOption">
+		insert into zhenti_question_option
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="zhenti_question_id != null">
+				zhenti_question_id,
+			</if>
+			<if test="option_number != null">
+				option_number,
+			</if>
+			<if test="option_content != null">
+				option_content,
+			</if>
+			<if test="optioan_pic != null">
+				optioan_pic,
+			</if>
+			<if test="option_time != null">
+				option_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="zhenti_question_id != null">
+				#{zhenti_question_id},
+			</if>
+			<if test="option_number != null">
+				#{option_number},
+			</if>
+			<if test="option_content != null">
+				#{option_content},
+			</if>
+			<if test="optioan_pic != null">
+				#{optioan_pic},
+			</if>
+			<if test="option_time != null">
+				#{option_time}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改历年真题-题目选项信息-->
+	<update id="updateZhentiQuestionOption"
+		parameterType="com.jingren.jing.question.bean.zhentioption.ZhentiQuestionOption">
+		update zhenti_question_option
+		<set>
+		<if test="zhenti_question_id != null">
+				zhenti_question_id=#{zhenti_question_id},
+			</if>
+			<if test="option_number != null">
+				option_number=#{option_number},
+			</if>
+			<if test="option_content != null">
+				option_content=#{option_content},
+			</if>
+			<if test="optioan_pic != null">
+				optioan_pic=#{optioan_pic},
+			</if>
+			<if test="option_time != null">
+				option_time=#{option_time}
+			</if>
+		</set>
+		where 
+		<if test=" option_id != null">
+		option_id=#{option_id}
+		</if>
+	</update>
+	<!--删除历年真题-题目选项信息 -->
+	<delete id="deleteZhentiQuestionOption" parameterType="java.lang.Integer">
+		delete from
+		zhenti_question_option where
+		zhenti_question_id=#{zhenti_question_id}
+	</delete>
+
+	<!--查询章节练习-章节信列表 -->
+	<select id="getZhentiQuestionOptionList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from zhenti_question_option
+		<where>
+			<if test="zhenti_question_id !=null">
+				zhenti_question_id=#{zhenti_question_id}
+			</if>
+		</where>
+	</select>
+</mapper>

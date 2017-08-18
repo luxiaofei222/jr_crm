@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.dictionary.DictionaryMapper">
+	<resultMap type="com.jingren.jing.school.bean.dictionary.Dictionary" id="BaseResultMap">
+		<id column="dictionary_id" property="dictionary_id" />
+		<result column="dictionary_name" property="dictionary_name" />
+		<result column="course_id" property="course_id" />
+		<result column="dictionary_parent_id" property="dictionary_parent_id" />
+		<result column="dic_dis" property="dic_dis" />
+		<result column="dic_time" property="dic_time" />
+	</resultMap>
+	<!--添加字典信息 -->
+	<insert id="saveDictionary" parameterType="com.jingren.jing.school.bean.dictionary.Dictionary">
+		insert into dictionary
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="dictionary_name != null">
+				dictionary_name,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="dictionary_parent_id != null">
+				dictionary_parent_id,
+			</if>
+			<if test="dic_dis != null">
+				dic_dis,
+			</if>
+			<if test="dic_time != null">
+				dic_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="dictionary_name != null">
+				#{dictionary_name},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="dictionary_parent_id != null">
+				#{dictionary_parent_id},
+			</if>
+			<if test="dic_dis != null">
+				#{dic_dis},
+			</if>
+			<if test="dic_time != null">
+				#{dic_time}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改字典信息 -->
+	<update id="updateDictionary" parameterType="com.jingren.jing.school.bean.dictionary.Dictionary">
+		update dictionary
+		<set>
+				<if test="dictionary_name != null">
+				dictionary_name=#{dictionary_name},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="dictionary_parent_id != null">
+				dictionary_parent_id=#{dictionary_parent_id},
+			</if>
+			<if test="dic_dis != null">
+				dic_dis=#{dic_dis},
+			</if>
+			<if test="dic_time != null">
+				dic_time=#{dic_time}
+			</if>
+		</set>
+		where
+		<if test="dictionary_id != null">
+			dictionary_id=#{dictionary_id}
+		</if>
+	</update>
+	<!--删除字典信息 -->
+	<delete id="delteDictionary" parameterType="java.lang.Integer">
+		delete from dictionary where
+		dictionary_id=#{dictionary_id}
+	</delete>
+	<!--获取字典信息 -->
+	<select id="getDictionary" parameterType="Map" resultMap="BaseResultMap">
+		select * from dictionary
+		<where>
+			<if test="dictionary_id !=null">
+				dictionary_id=#{dictionary_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询字典列表 -->
+	<select id="getDictionaryList" parameterType="Map" resultMap="BaseResultMap">
+		select * from dictionary
+		<where>
+			<if test="course_id != null">
+				course_id =#{course_id} 
+			</if>
+			<if test="dictionary_parent_id != null">
+				dictionary_parent_id =#{dictionary_parent_id} 
+			</if>
+			<if test="no_parent != null">
+				and dictionary_parent_id !=0 
+			</if>
+		</where>
+		order by dic_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询字典数量 -->
+	<select id="getDictionaryNumber" parameterType="Map" resultType="int">
+		select count(*) from dictionary
+		<where>
+			<if test="dictionary_parent_id != null">
+				dictionary_parent_id =#{dictionary_parent_id} 
+			</if>
+		</where>
+	</select>
+</mapper>

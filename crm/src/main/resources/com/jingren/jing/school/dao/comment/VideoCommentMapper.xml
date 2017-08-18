@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.comment.VideoCommentMapper">
+	<resultMap type="com.jingren.jing.school.bean.comment.VideoComment"
+		id="BaseResultMap">
+		<id column="v_comment_id" property="v_comment_id" />
+		<result column="v_comment_content" property="v_comment_content" />
+		<result column="video_id" property="video_id" />
+		<result column="user_id" property="user_id" />
+		<result column="v_comment_time" property="v_comment_time" />
+		<result column="parent_id" property="parent_id" />
+		<result column="v_comment_ip" property="v_comment_ip" />
+		<result column="pingfen" property="pingfen" />
+	</resultMap>
+	<!--添加评论信息 -->
+	<insert id="saveComment" parameterType="com.jingren.jing.school.bean.comment.VideoComment">
+		insert into video_comment
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="v_comment_content != null">
+				v_comment_content,
+			</if>
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="v_comment_time != null">
+				v_comment_time,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="pingfen != null">
+				pingfen,
+			</if>
+			<if test="v_comment_ip != null">
+				v_comment_ip
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="v_comment_content != null">
+				#{v_comment_content},
+			</if>
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="v_comment_time != null">
+				#{v_comment_time},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="pingfen != null">
+				#{pingfen},
+			</if>
+			<if test="v_comment_ip != null">
+				#{v_comment_ip}
+			</if>
+		</trim>
+	</insert>
+
+	<!--删除评论信息 -->
+	<delete id="deleteComment" parameterType="java.lang.Integer">
+		delete from
+		video_comment where
+		v_comment_id=#{v_comment_id}
+	</delete>
+	<!--获取评论信息 -->
+	<select id="getVideoComment" parameterType="Map" resultMap="BaseResultMap">
+		select * from video_comment
+		<where>
+			<if test="v_comment_id !=null">
+				v_comment_id=#{v_comment_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询评论列表 -->
+	<select id="getVideoCommentList" parameterType="Map" resultMap="BaseResultMap">
+		select * from video_comment
+		<where>
+			1=1
+			<if test="video_id != null">
+				and video_id =#{video_id}
+			</if>
+			<if test="user_id != null">
+				and user_id =#{user_id}
+			</if>
+		</where>
+		order by v_comment_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询评论数量 -->
+	<select id="getCommentNumber" parameterType="Map" resultType="int">
+		select count(*) from video_comment
+		<where>
+			1=1
+			<if test="video_id != null">
+				and video_id =#{video_id}
+			</if>
+			<if test="user_id != null">
+				and user_id =#{user_id}
+			</if>
+		</where>
+	</select>
+</mapper>

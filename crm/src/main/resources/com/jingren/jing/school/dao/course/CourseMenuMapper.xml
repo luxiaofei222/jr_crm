@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.course.CourseMenuMapper">
+	<cache eviction="FIFO" flushInterval="60000"  size="512" readOnly="true" />
+	<resultMap type="com.jingren.jing.school.bean.course.CourseMenu"
+		id="BaseResultMap">
+		<id column="course_id" property="course_id" />
+		<result column="course_name" property="course_name" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="course_link" property="course_link" />
+		<result column="course_icon" property="course_icon" />
+		<result column="course_leavl" property="course_leavl" />
+		<result column="course_dis" property="course_dis" />
+		<result column="course_time" property="course_time" />
+		<result column="course_index_pic" property="course_index_pic" />
+		<result column="is_show" property="is_show" />
+		<result column="meta_title" property="meta_title" />
+		<result column="meta_dis" property="meta_dis" />
+		<result column="meta_key" property="meta_key" />
+		<result column="exam_time" property="exam_time" />
+		<result column="question_class" property="question_class" />
+		<result column="question_index_pic" property="question_index_pic" />
+		<result column="phone_index_pic" property="phone_index_pic" />
+		<result column="phone_link" property="phone_link" />
+	</resultMap>
+
+	<!-- 修改课程目录信息 -->
+	<update id="updateCourserMuen" flushCache="true" parameterType="com.jingren.jing.school.bean.course.CourseMenu">
+		update course
+		<set>
+			<if test="course_name != null">
+				course_name=#{course_name},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="course_link != null">
+				course_link=#{course_link},
+			</if>
+			<if test="course_icon != null">
+				course_icon=#{course_icon},
+			</if>
+			<if test="course_leavl != null">
+				course_leavl=#{course_leavl},
+			</if>
+			<if test="course_dis != null">
+				course_dis=#{course_dis},
+			</if>
+			<if test="course_time != null">
+				course_time=#{course_time},
+			</if>
+			<if test="course_index_pic != null">
+				course_index_pic=#{course_index_pic},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show},
+			</if>
+			<if test="meta_title != null">
+				meta_title=#{meta_title},
+			</if>
+			<if test="meta_dis != null">
+				meta_dis=#{meta_dis},
+			</if>
+			<if test="meta_key != null">
+				meta_key=#{meta_key},
+			</if>
+			<if test="exam_time != null">
+				exam_time=#{exam_time},
+			</if>
+			<if test="phone_index_pic != null">
+				phone_index_pic=#{phone_index_pic},
+			</if>
+			<if test="phone_link != null">
+				phone_link=#{phone_link}
+			</if>
+		</set>
+		where course_id=#{course_id}
+	</update>
+	<!--获取课程目录信息信息 -->
+	<select id="getCouerseMenu" parameterType="Map" resultMap="BaseResultMap">
+		select * from course
+		<where>
+			<if test="course_id !=null">
+				course_id=#{course_id}
+			</if>
+			<if test="course_name !=null">
+				course_name=#{course_name}
+			</if>
+		</where>
+	</select>
+
+	<!--查询课程目录列表 -->
+	<select id="getCourserMenuList" parameterType="Map" resultMap="BaseResultMap">
+		select * from course
+		<where>
+			<if test="course_parent_id != null">
+				course_parent_id = #{course_parent_id} 
+			</if>
+			<if test="course_leavl != null">
+				course_leavl = #{course_leavl} 
+			</if>
+			<if test="is_show != null">
+				and	is_show = #{is_show} 
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询课程目录数量 -->
+	<select id="getCourseMenuNumber" parameterType="Map" resultType="int">
+		select count(*) from course
+		<where>
+			<if test="course_parent_id != null">
+				course_parent_id = #{course_parent_id}
+			</if>
+			<if test="course_leavl != null">
+				course_leavl = #{course_leavl}
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+.welcome {
+	width:80%;
+	margin: 0 auto;
+	}
+.welcome_left_img,.welcome_right_center {
+	margin-top:10%;
+	}
+.welcome_right_center {
+    margin-top: 20%;
+	}
+.welcome_right_center h3,.welcome_right_center p {
+	font-size:7.5rem;
+	color:#08475a;
+	font-family:"楷体";
+	}
+.welcome_right_center p {
+	font-size:2.5rem;
+	margin-top:20px;
+	}
+.welcome_right_center .operate a {
+	display: block;
+	float: left;
+	padding: 10px 15px;
+	color: #fff;
+	background-color: orange;
+	font-size: 14px;
+	margin-right: 35px;
+	border-radius:5px;
+}
+.welcome_right_center .operate a:hover {
+	text-decoration: none;
+}
+.welcome_right_center .operate a i {
+	margin-right: 10px;
+}
+.welcome_left_img {
+	position: relative;
+	}
+.welcome_info_bottom {
+	font-size:3.4rem;
+	font-family: Aparajita;
+	color:#08475a;
+	margin-left:20%;
+	}

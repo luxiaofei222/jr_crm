@@ -1,0 +1,56 @@
+.pages .pagination li.pagination-dropdown ul.dropdown-menu {
+    bottom: 45px;
+    left: -15px;
+    background-color: #e74c3c;
+}
+.pages .pagination li.pagination-dropdown ul.dropdown-menu li a {
+    color: #fff;
+}
+
+.pages button,.pages .go_page,.pages .tongji {
+    float:left;
+}
+.pages .go_page span {
+    float:left;
+    font-size: 14px;
+    color: #4444;
+    height:36px;
+    line-height:36px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.pages .go_page input {
+height: 34px;
+border: #d2d2d2 solid 1px;
+line-height: 34px;
+width: 80px;
+float: left;
+}
+.pages .go_page a {
+width: 36px;
+height: 36px;
+border-radius:50%;
+display: block;
+background-color: #e74c3c;
+color: #fff;
+font-size: 14px;
+line-height: 36px;
+text-align: center;
+float: left;
+}
+.pages .go_page a:hover {
+background-color: #FF6666;
+}
+.pages .tongji span {
+	height: 36px;
+	line-height: 36px;
+	display: inline-block;
+	margin-left: 15px;
+}
+.pages .tongji span em {
+	color: #e74c3c;
+	font-size: 16px;
+	margin: 0px 5px;
+	font-weight: bold;
+}

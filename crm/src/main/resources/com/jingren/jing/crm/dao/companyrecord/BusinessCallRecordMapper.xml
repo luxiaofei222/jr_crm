@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.crm.dao.companyrecord.BusinessCallRecordMapper">
+	<resultMap type="com.jingren.jing.crm.bean.companyrecord.BusinessCallRecord"
+		id="BaseResultMap">
+		<id column="record_id" property="record_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="record_time" property="record_time" />
+		<result column="call_time" property="call_time" />
+		<result column="called_phone" property="called_phone" />
+		<result column="customer_id" property="customer_id" />
+		<result column="sound_file" property="sound_file" />
+		<result column="record_note" property="record_note" />
+		<result column="genjin_state" property="genjin_state" />
+		<result column="call_type" property="call_type" />
+		<result column="crm_recourd_uid" property="crm_recourd_uid" />
+		<result column="call_type" property="call_type" />
+		<result column="call_state" property="call_state" />
+		<result column="organization_id" property="organization_id" />
+		<result column="company_id" property="company_id" />
+		<association property="employee" column="employee_id" 
+		select="com.jingren.jing.school.dao.employee.EmployeeMapper.getEmployeeByid"></association>
+		<association property="customer" column="customer_id" 
+		select="com.jingren.jing.crm.dao.customer.CustomerMapper.getCustomerByid"></association>
+	</resultMap>
+	<!--添加企业通话记录信息 -->
+	<insert id="saveBusinessCallRecord" useGeneratedKeys="true" keyProperty="record_id"
+		parameterType="com.jingren.jing.crm.bean.companyrecord.BusinessCallRecord">
+		insert into business_call_record
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="record_time != null">
+				record_time,
+			</if>
+			<if test="call_time != null">
+				call_time,
+			</if>
+			<if test="called_phone != null">
+				called_phone,
+			</if>
+			<if test="customer_id != null">
+				customer_id,
+			</if>
+			<if test="sound_file != null">
+				sound_file,
+			</if>
+			<if test="record_note != null">
+				record_note,
+			</if>
+			<if test="genjin_state != null">
+				genjin_state,
+			</if>
+			<if test="call_type != null">
+				call_type,
+			</if>
+			<if test="zuoxi != null">
+				zuoxi,
+			</if>
+			<if test="crm_recourd_uid != null">
+				crm_recourd_uid,
+			</if>
+			<if test="call_state != null">
+				call_state,
+			</if>
+			<if test="organization_id != null">
+				organization_id,
+			</if>
+			<if test="company_id != null">
+				company_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="record_time != null">
+				#{record_time},
+			</if>
+			<if test="call_time != null">
+				#{call_time},
+			</if>
+			<if test="called_phone != null">
+				#{called_phone},
+			</if>
+			<if test="customer_id != null">
+				#{customer_id},
+			</if>
+			<if test="sound_file != null">
+				#{sound_file},
+			</if>
+			<if test="record_note != null">
+				#{record_note},
+			</if>
+			<if test="genjin_state != null">
+				#{genjin_state},
+			</if>
+			<if test="call_type != null">
+				#{call_type},
+			</if>
+			<if test="zuoxi != null">
+				#{zuoxi},
+			</if>
+			<if test="crm_recourd_uid != null">
+				#{crm_recourd_uid},
+			</if>
+			<if test="call_state != null">
+				#{call_state},
+			</if>
+			<if test="organization_id != null">
+				#{organization_id},
+			</if>
+			<if test="company_id != null">
+				#{company_id}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改企业通话记录信息 -->
+	<update id="updateBusinessCallRecord"
+		parameterType="com.jingren.jing.crm.bean.companyrecord.BusinessCallRecord">
+		update business_call_record
+		<set>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="record_time != null">
+				record_time=#{record_time},
+			</if>
+			<if test="call_time != null">
+				call_time=#{call_time},
+			</if>
+			<if test="called_phone != null">
+				called_phone=#{called_phone},
+			</if>
+			<if test="customer_id != null">
+				customer_id=#{customer_id},
+			</if>
+			<if test="sound_file != null">
+				sound_file=#{sound_file},
+			</if>
+			<if test="record_note != null">
+				record_note=#{record_note},
+			</if>
+			<if test="genjin_state != null">
+				genjin_state=#{genjin_state},
+			</if>
+			<if test="call_type != null">
+				call_type=#{call_type},
+			</if>
+			<if test="zuoxi != null">
+				zuoxi=#{zuoxi},
+			</if>
+			<if test="crm_recourd_uid != null">
+				crm_recourd_uid=#{crm_recourd_uid},
+			</if>
+			<if test="call_state != null">
+				call_state=#{call_state},
+			</if>
+			<if test="company_id != null">
+				company_id=#{company_id}
+			</if>
+		</set>
+		where record_id=#{record_id}
+	</update>
+	<!--删除企业通话记录信息 -->
+	<delete id="deleteBusinessCallRecord" parameterType="java.lang.Integer">
+		delete from
+		business_call_record where
+		record_id=#{record_id}
+	</delete>
+	<!--获取企业通话记录信息 -->
+	<select id="getBusinessCallRecord" parameterType="Map" resultMap="BaseResultMap">
+		select * from business_call_record
+		<where>
+			<if test="record_id !=null">
+				record_id=#{record_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询企业通话记录列表 -->
+	<select id="getBusinessCallRecordList" parameterType="Map" resultMap="BaseResultMap">
+		select * from business_call_record
+		<where>
+			1=1
+			<if test="customer_id != null">
+			and	customer_id =#{customer_id}
+			</if>
+			<if test="start_time != null">
+			and	call_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	call_time &lt;=#{end_time}
+			</if>
+			<if test="zhouyi_time != null">
+			and	call_time &gt;=#{zhouyi_time}
+			</if>
+			<if test="zhouwu_time != null">
+			and	call_time &lt;=#{zhouwu_time}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="beijiao != null">
+			and	called_phone =#{beijiao}
+			</if>
+			<if test="zhujiao != null">
+			and	zuoxi =#{zhujiao}
+			</if>
+			<if test="record_type != null">
+			and	call_type =#{record_type}
+			</if>
+			<if test="record_state != null">
+			and	call_state =#{record_state}
+			</if>
+			<if test="start_shichang != null">
+			and	record_time &gt;=#{start_shichang}
+			</if>
+			<if test="end_shichang != null">
+			and	record_time &lt;=#{end_shichang}
+			</if>
+			<if test="organization_id != null">
+			and	organization_id =#{organization_id}
+			</if>
+		</where>
+		order by call_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询企业通话记录数量 -->
+	<select id="getBusinessCallRecordNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from business_call_record
+		<where>
+			1=1
+			<if test="customer_id != null">
+			and	customer_id =#{customer_id}
+			</if>
+			<if test="start_time != null">
+			and	call_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	call_time &lt;=#{end_time}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="beijiao != null">
+			and	called_phone =#{beijiao}
+			</if>
+			<if test="zhujiao != null">
+			and	zuoxi =#{zhujiao}
+			</if>
+			<if test="record_type != null">
+			and	call_type =#{record_type}
+			</if>
+			<if test="record_state != null">
+			and	call_state =#{record_state}
+			</if>
+			<if test="price != null">
+			and	pay_money =#{price}
+			</if>
+			<if test="organization_id != null">
+			and	organization_id =#{organization_id}
+			</if>
+			<if test="start_shichang != null">
+			and	record_time &gt;=#{start_shichang}
+			</if>
+			<if test="end_shichang != null">
+			and	record_time &lt;=#{end_shichang}
+			</if>
+		</where>
+	</select>
+	<!-- 企业联系人恢复 -->
+	<select id="getBusinessCallRecordByHuifu" parameterType="Map" resultMap="BaseResultMap">
+		SELECT * from business_call_record WHERE company_id in(SELECT company_id from my_company WHERE  employee_id=#{employee_id}) AND employee_id=#{employee_id};
+	</select>
+</mapper>

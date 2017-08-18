@@ -1,0 +1,313 @@
+@charset "utf-8";
+/* CSS Document */
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color:#f0f0f0;
+	}
+.top {
+	width:100%;
+	height:70px;
+	background-color:#fff;
+	}
+.header {
+	width:1200px;
+	height:70px;
+	margin:0 auto;
+	}
+.header span.left img {
+	width:54px;
+	height:54px;
+	border-radius:50%;
+	margin-top:8px;
+	margin-right:15px;
+	}
+.header span.left p {
+	font-size:16px;
+	color:#444;
+	line-height: 30px;
+    margin-top: 8px;
+	}
+.header span.left span {
+	font-size:14px;
+	color:#999;
+	}
+
+.header span.right ul li {
+	float:left;
+	margin-right:50px;
+	color:#999;
+	font-size:16px;
+	line-height:46px;
+	cursor:pointer;
+	margin-top:12px;
+	}
+.header span.right ul li:nth-child(1):hover {
+	color:#80c26a;
+	}
+.header span.right ul li:nth-child(2):hover {
+	color:#fbce44;
+	}
+.header span.right ul li:nth-child(3):hover {
+	color:#00b8ee;
+	}
+.header span.right ul li:nth-child(4):hover {
+	color:#f39801;
+	}
+.header span.right ul li:nth-child(5):hover {
+	color:#e5004f;
+	}
+.header span.right ul li:last-child {
+	margin-right:15px;
+	}
+.header span.right ul li img,.header span.right ul li p {
+	float:left;
+	margin-right:10px;
+	}
+.header span.right div.left {
+	font-size:35px;
+	color:#ccc;
+	}
+.header span.right div.left i {
+	display: block;
+    width: 45px;
+    cursor: pointer;
+    font-size: 30px;
+    margin-top: 20px;
+	}
+.header span.right div.left span {
+	margin-right:15px;
+	font-size:20px;
+	margin-top: 20px;
+    display: block;
+	}
+
+.content {
+	width:1200px;
+	margin:15px auto;
+	min-height:580px;
+	background-color:#fff;
+	}
+.content .side_nav {
+	width:134px;
+	min-height:580px;
+	background-color:#f4f7f8;
+	}
+.content .side_nav ul li {
+	width:134px;
+	height:125px;
+	cursor:pointer;
+	position:relative;
+	}
+.content .side_nav ul li a {
+	display:block;
+	width:134px;
+	height:125px;
+	}
+.content .side_nav ul li:nth-child(1) {
+	background-image:url(/images/personal/task1.png);
+	}
+.content .side_nav ul li:nth-child(2) {
+	background-image:url(/images/personal/task2.png);
+	}
+.content .side_nav ul li:nth-child(3) {
+	background-image:url(/images/personal/task3.png);
+	}
+
+.content .side_nav ul li.active:nth-child(1) {
+	background-image:url(/images/personal/task1-1.jpg);
+	}
+.content .side_nav ul li.active:nth-child(2) {
+	background-image:url(/images/personal/task2-1.jpg);
+	}
+.content .side_nav ul li.active:nth-child(3) {
+	background-image:url(/images/personal/task3-1.jpg);
+	}
+
+.content .side_nav ul li:nth-child(1):hover {
+	background-image:url(/images/personal/task1-1.jpg);
+	}
+.content .side_nav ul li:nth-child(2):hover {
+	background-image:url(/images/personal/task2-1.jpg);
+	}
+.content .side_nav ul li:nth-child(3):hover {
+	background-image:url(/images/personal/task3-1.jpg);
+	}
+	
+.content .side_cont {
+	width:1006px;
+	padding-top:40px;
+	}
+.side_cont .task {
+	padding: 18px;
+    width: 937px;
+    margin: 0 auto;
+    background-color: #f4f7f8;
+    margin-left: 45px;
+	border-radius:10px;
+	margin-bottom:20px;
+	}
+.side_cont .tasks {
+	width:937px;
+	border-radius:8px;
+	background-color:#fff;
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, .5);  
+    -moz-box-shadow:0 0 10px rgba(0, 0, 0, .5);  
+    box-shadow:0 0 10px rgba(0, 0, 0, .5);
+	padding-bottom:1px;
+	}
+.side_cont .tasks ul {
+	height:57px;
+	border-bottom:dashed #f4f7f8 2px;
+	}
+.side_cont .tasks ul li {
+	float:left;
+	border-right:dashed #f4f7f8 2px;
+	text-align:center;
+	color:#999;
+	font-size:14px;
+	height:57px;
+	line-height:57px;
+	}
+.side_cont .tasks ul li span {
+	line-height:57px;
+	float:left;
+	margin-left:20px;
+	}
+.side_cont .tasks ul li em.grade {
+	display:inline-block;
+	width:10px;
+	height:10px;
+	border-radius:50%;
+	margin:0px 5px;
+	}
+.side_cont .tasks ul li em.grade.red {
+	background-color:#d43f3a;
+	}
+.side_cont .tasks ul li em.grade.green {
+	background-color:#1abc9c;
+	}
+.side_cont .tasks ul li em.grade.yellow {
+	background-color:#F9D749;
+	}
+
+.side_cont .tasks ul li span.name {
+	color:#ea592d;
+	line-height:57px;
+	margin-left:0px;
+	}
+.side_cont .tasks ul li:nth-child(1) img {
+	width:45px;
+	height:45px;
+	border-radius:50%;
+	margin:6px;
+	float:left;
+	}
+.side_cont .tasks ul li:nth-child(1) {
+	width:200px;
+	}
+.side_cont .tasks ul li:nth-child(3) {
+	width:183px;
+	}
+.side_cont .tasks ul li:nth-child(2),.side_cont .tasks ul li:nth-child(4) {
+	width:270px;
+	}
+.side_cont .tasks ul li:nth-child(4) {
+	border:none;
+	}
+
+.side_cont .tasks .task_con p {
+	width: 902px;
+    margin: 10px auto;
+    display: block;
+    line-height: 25px;
+	}
+.side_cont .tasks .task_con p.text {
+	color:#444;
+	font-size:14px;
+	}
+.side_cont .tasks .task_con p.fujian {
+	font-size:14px;
+	}
+.side_cont .tasks .task_con p em {
+	font-style:normal;
+	color:#ea592d;
+	font-weight:bold;
+	}
+.side_cont .tasks .task_con h5 {
+	border-top: dotted #cccccc 2px;
+	padding-left:20px;
+	font-size:16px;
+	color:#444;
+	padding-top:15px;
+	font-weight:bold;
+	}
+
+.side_cont .task .caozuo {
+	font-size:14px;
+	margin-top:20px;
+	color:#444;
+	}
+.side_cont .task .caozuo .riqi {
+	margin-left:45px;
+	}
+.side_cont .task .caozuo em {
+	font-style:normal;
+	color:#ea592d;
+	}
+.side_cont .task .caozuo .right a {
+	display:block;
+	width:70px;
+	height:30px;
+	border-radius:5px;
+	line-height:30px;
+	text-align:center;
+	color:#fff;
+	background-color:#ea592d;
+	float:left;
+	margin-left:15px;
+	}
+.side_cont .task .caozuo .right a:hover {
+	background-color:#FF9966;
+	}
+.side_cont .task .caozuo .right.assessment span {
+	float:left;
+	}
+.side_cont .task .caozuo .right.assessment img {
+	margin-top:-2px;
+	float:left;
+	margin-right:5px;
+	}
+
+ .page{
+	float:right;
+	margin-right:35px;
+	height:28px;
+	margin-top:23px;
+	}
+ .page span{
+	border:1px solid #999;
+	color:#999;
+	display:inline-block;
+	height:26px;
+	line-height:26px;
+	padding:0px 3px;
+	border-radius:3px;
+	min-width:20px;
+	text-align:center;
+   }
+.page span.active{
+	  background-color: #ea592d;
+	  color:white;
+	  border:1px solid #ea592d;
+	  }
+.page span:hover{
+	  background-color: #ea592d;
+	  color:white;
+	  border:1px solid #ea592d;
+	  }
+.page span.noacitve{
+	  background-color:  #999;
+	  color:white;
+	  border:1px solid #999;
+	  }

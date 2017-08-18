@@ -1,0 +1,237 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.top_header{ height:150px; width:100%; min-width:1200px;border-bottom:1px solid #ccc;}
+.top_nav{  background:#313131; width:100%; height:36px; line-height:36px;}
+.nav{  width:1200px;margin:0 auto; color:#ffffff; font-size:14px; }
+.nav_left{ float:left;}
+.nav_right{ float:right;position:relative;}
+.nav_right a{ margin:0 5px 0 5px;color:white;}
+.nav_right a:hover{
+	color:#06c1ae;
+}
+.nav_dl{ margin-right:50px;}
+.nicheng{overflow:hidden;}
+.nav_dl1{
+	display:inline-block;
+	 margin-right:50px;
+	/* width:150px; */
+	height:36px;
+	float:left;
+	/* border-left:1px solid #06c1ae;
+	border-right:1px solid #06c1ae;	 */
+}
+.nav_dl .nicheng{
+	overflow:hidden;	
+}
+.nav_dl1 .nicheng span{
+	float:left;
+	font-size:14px;
+	line-height:36px;
+	display:block;
+	margin-left:30px;
+	cursor: pointer;
+	margin-right:10px;
+}
+.nav_dl1 .nicheng img{
+	float:right;
+	margin-right:10px;
+	line-height:36px;
+	margin-top:14px;
+	transition:0.4s;
+	-webkit-transition:0.4s;
+	-trident-transition:0.4s;
+	-gecko-transition:0.4s; 
+}
+.nav_dl1 .nicheng .hover{
+	transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+	-trident-transform:rotate(180deg);
+	-gecko-transform:rotate(180deg);
+}
+.nicheng_info{
+	width:150px;
+	height:190px;
+	background-color:#fff;
+	font-size:14px;
+	color:#666;
+	position:absolute;
+	top:36px;
+	left:0;
+	z-index:999;
+	border:1px solid #06c1ae;
+	border-top:none;
+	display:none;	
+}
+.nicheng_info ul{
+	width:150px;
+	height:190px;
+	overflow:hidden;
+}
+.nicheng_info ul li{
+	text-align:center;
+	letter-spacing:1px;
+	float:left;
+	background-color:#fff;
+	width:150px;
+	height:38px;
+}
+.nicheng_info ul li a{
+	font-size:14px;
+	color:#666;
+}
+.nicheng_info ul li:hover{
+	background-color:#06c1ae;
+}
+.nicheng_info ul li:hover a{
+	color:white;
+}
+.nav_right em{ font-style:normal;}
+.nav_rx{float:right; position:relative;}
+.nav_right i{ background:url(/images/school/front/index/phone.png) no-repeat 0; width:15px; height:15px; left:-15%; position:absolute; top:50%; margin-top:-7px;}
+.nav_bottom{ width:1200px; margin:0 auto; height:113px; background:#fff;}
+.nav_bottom_wrap{
+	width:100%;
+	background-color:white;
+}
+.logo{ width:205px; float:left; height:114px; line-height:114px;cursor:pointer;}
+.logo img{ width:205px; height:51px; max-height:51px; max-width:205px; vertical-align:middle; display:inline-block;margin-top:31px;}
+.this_class {float: left; margin-top: 35px; height: 44px; line-height: 40px; font-size: 22px; margin-left: 25px; border-left: 1px solid #f1f1f1; width: 160px; text-align: center; color: #06c1ae;}
+.class_ss_div{ position:relative; float:left; width:402px; height:44px; margin:35px 0 0 65px; }
+.class_ss_div i{ background:url(/images/school/front/index/sousuo.png) no-repeat 0; position:absolute; top:50%; margin-top:-11px; left:2%; width:21px; height:22px;}
+.class_ss_div input[type="text"]{ width:400px; height:42px; border:solid 1px #06c1ae; float:left; text-indent:3em; font-size:16px;}
+.ss_div{ position:relative; float:left; width:512px; height:44px; margin:35px 0 0 95px; }
+.ss_div i{ background:url(/images/school/front/index/sousuo.png) no-repeat 0; position:absolute; top:50%; margin-top:-11px; left:2%; width:21px; height:22px;}
+.search_input{ width:510px; height:42px; border:solid 1px #06c1ae; float:left; text-indent:3em; font-size:16px;}
+.select{ display:block; width:90px; height:44px; float:left; background:#06c1ae; color:#fff!important; text-align:center; line-height:44px; margin-top:35px; cursor:pointer; font-size:18px;}
+.shop{ cursor:pointer; width:170px; height:42px; line-height:42px; border-radius:4px; display:block; float:right; position:relative; background:#fafafa; margin-top:35px; border:solid 1px #f0f0f0;}
+.shop i{ background:url(/images/school/front/index/gouwuche.png) no-repeat 0; width:20px;  height:18px; position:absolute; top:50%; margin:-9px 0 0 10px;}
+.shop .myshop{ color:#666666; font-size:16px; position:absolute; margin-left:37px;}
+.shop .right_jt{ background:url(/images/school/front/index/jiantou_gouwuche.png) no-repeat 0; height:16px; width:10px; position:absolute; top:50%; margin:-8px 10px 0 0; right:0;}
+.shop .number{
+	display:inline-block;
+	position:absolute;
+	top:50%;
+	margin:-9px 10px 0 0;
+	left:121px;
+	background-color:red;
+	width:20px;
+	height:20px;
+	border-radius:10px;
+	line-height:20px;
+	text-align:center;
+	color:white;
+}
+/* 右侧悬浮按钮  */
+.toolbar-item,.toolbar-layer{
+	background-image:url("/images/school/front/index/toolbar.png");
+	background-repeat:no-repeat;
+	}
+.toolbar-item{display:block;width:52px;height:52px;margin-top:1px;position:relative;-moz-transition:background-position 1s;-ms-transition:background-position 1s;-o-moz-transition:background-position 1s;-webkit-moz-transition:background-position 1s;transition:background-position 1s;}
+.toolbar-item:hover .toolbar-layer{opacity:1;filter:alpha(opacity=100);transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);}
+.toolbar-item-weixin{background-position:0 -798px;}
+.toolbar-item-weixin:hover{background-position:0 -860px;}
+.toolbar-item-weixin .toolbar-layer{height:212px;background-position:0 0;}
+.toolbar-item-app{background-position:0 -550px;}
+.toolbar-item-app:hover{background-position:0 -612px;}
+.toolbar-item-app .toolbar-layer{height:93px;background-position:0 -328px;}
+.toolbar-item-feiyong{background-position:0 -923px;}
+.toolbar-item-feiyong:hover{background-position:0 -986px;}
+.toolbar-item-feiyong .toolbar-layer{height:70px;background-position:0 -220px;}
+.toolbar-item-top{background-position:0 -674px;}
+.toolbar-item-top:hover{background-position:0 -736px;}
+.toolbar-layer{position:absolute;right:46px;bottom:-10px;width:172px;opacity:0;filter:alpha(opacity=0);
+transform-origin: 95% 95%;-moz-transform-origin: 95% 95%;-ms-transform-origin: 95% 95%;-o-transform-origin: 95% 95%;-webkit-transform-origin: 95% 95%;transform:scale(0.01);
+-moz-transform:scale(0.01);-ms-transform:scale(0.01);-o-transform:scale(0.01);-webkit-transform:scale(0.01);transition:all 1s;-moz-transition:all 1s;-ms-transition:all 1s;-o-transition:all 1s;-webkit-transition:all 1s;}
+.toolbar{
+	z-index:10000;
+	width:133px;
+	height:520px;
+	position:fixed;
+	right:20px;
+	bottom:50%;
+	margin-bottom:-420px;
+	background:url("/images/school/front/index/toolbar_bg.png")}/*假设网页宽度为1200px，导航条在右侧悬浮*/
+	}
+.toolbar_nei{
+	position:absolute;
+	top:112px;
+}
+.toolbar_btn_wra{
+	width:127px;
+	height:277px;
+	background-color:white;
+	border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	-ms-border-radius:10px;
+	-moz-border-radius:10px;
+	margin-top:7px;
+	margin-left:3px;
+}
+.toolbar_top{
+	color:white;
+	font-size:17px;
+	text-align:center;
+	margin-top:10px;
+}
+.toolbar_time{
+	color:white;
+	font-size:13px;
+	text-align:center;
+	margin-top:7px;
+}
+.toolbar_btn_wra a{
+	width:117px;
+	height:36px;
+	background-color:#f57c00;
+	display:inline-block;
+	color:white;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	-moz-border-radius:5px;
+	margin-top:10px;
+	margin-left:5px;
+	overflow:hidden;
+}
+.toolbar_btn_wra a:hover{
+	background-color:#ec7400;
+}
+.toolbar_btn_wra a img{
+	float:left;
+	line-height:36px;
+	display:inline-block;
+	margin-top:8.5px;
+	margin-left:10px;
+}
+.toolbar_btn_wra a span{
+	float:left;
+	line-height:36px;
+	font-weight:normal;
+	margin-left:18px;
+}
+.toolbar_rx{
+	font-size:14px;
+	color:#444;
+	display:block;
+	margin:0 auto;
+	margin-top:4px;
+	text-align:center;
+}
+.toolbar_phone{
+	font-size:14px;
+	color:#f57c00;
+	display:block;
+	margin:0 auto;
+	margin-top:2px;
+	text-align:center;
+}
+.toolbar_bottom{
+	color:white;
+	text-align:center;
+	margin-top:10px;
+	line-height:17px;
+}

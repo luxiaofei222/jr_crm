@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.oa.dao.oa_edu.OAEduMapper">
+	<resultMap
+		type="com.jingren.jing.oa.bean.oa_edu.OAEdu"
+		id="BaseResultMap">
+		<id column="oa_edu_id" property="oa_edu_id" />
+		<result column="oa_employee_id" property="oa_employee_id" />
+		<result column="start_time" property="start_time" />
+		<result column="end_time" property="end_time" />
+		<result column="school_name" property="school_name" />
+		<result column="zhuanye" property="zhuanye" />
+		<result column="xueli" property="xueli" />
+	</resultMap>
+	<!--添加员工入职信息-教育经历 -->
+	<insert id="saveOAEdu"
+		parameterType="com.jingren.jing.oa.bean.oa_edu.OAEdu">
+		insert into oa_edu
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="oa_employee_id != null">
+				oa_employee_id,
+			</if>
+			<if test="start_time != null">
+				start_time,
+			</if>
+			<if test="end_time != null">
+				end_time,
+			</if>
+			<if test="school_name != null">
+				school_name,
+			</if>
+			<if test="zhuanye != null">
+				zhuanye,
+			</if>
+			<if test="xueli != null">
+				xueli
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="oa_employee_id != null">
+				#{oa_employee_id},
+			</if>
+			<if test="start_time != null">
+				#{start_time},
+			</if>
+			<if test="end_time != null">
+				#{end_time},
+			</if>
+			<if test="school_name != null">
+				#{school_name},
+			</if>
+			<if test="zhuanye != null">
+				#{zhuanye},
+			</if>
+			<if test="xueli != null">
+				#{xueli}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改员工信息-->
+	<update id="updateOAEdu"
+		parameterType="com.jingren.jing.oa.bean.oa_edu.OAEdu">
+		update oa_edu
+		<set>
+			<if test="oa_employee_id != null">
+				oa_employee_id=#{oa_employee_id},
+			</if>
+			<if test="start_time != null">
+				start_time=#{start_time},
+			</if>
+			<if test="end_time != null">
+				end_time=#{end_time},
+			</if>
+			<if test="school_name != null">
+				school_name=#{school_name},
+			</if>
+			<if test="zhuanye != null">
+				zhuanye=#{zhuanye},
+			</if>
+			<if test="xueli != null">
+				xueli=#{xueli}
+			</if>
+		</set>
+		where 
+		<if test=" oa_edu_id != null">
+		oa_edu_id=#{oa_edu_id}
+		</if>
+	</update>
+	<!--查询员工信息列表 -->
+	<select id="getOAEduList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from oa_edu
+		<where>
+			<if test="oa_employee_id != null">
+			oa_employee_id =#{oa_employee_id}
+			</if>
+		</where>
+	</select>
+</mapper>

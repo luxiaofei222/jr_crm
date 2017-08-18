@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.teacher.TeacherMapper">
+	<resultMap type="com.jingren.jing.school.bean.teacher.Teacher"
+		id="BaseResultMap">
+		<id column="teacher_id" property="teacher_id" />
+		<result column="teacher_name" property="teacher_name" />
+		<result column="teacher_sex" property="teacher_sex" />
+		<result column="teacher_pic" property="teacher_pic" />
+		<result column="course_id" property="course_id" />
+		<result column="teacher_dis" property="teacher_dis" />
+		<result column="teacher_time" property="teacher_time" />
+		<result column="teacher_phone" property="teacher_phone" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="teacher_course" property="teacher_course" />
+	</resultMap>
+	<!--添加教师信息 -->
+	<insert id="saveTeacher" parameterType="com.jingren.jing.school.bean.teacher.Teacher">
+		insert into teacher
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="teacher_name != null">
+				teacher_name,
+			</if>
+			<if test="teacher_sex != null">
+				teacher_sex,
+			</if>
+			<if test="teacher_pic != null">
+				teacher_pic,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="teacher_dis != null">
+				teacher_dis,
+			</if>
+			<if test="teacher_time != null">
+				teacher_time,
+			</if>
+			<if test="teacher_phone != null">
+				teacher_phone,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="teacher_course != null">
+				teacher_course
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="teacher_name != null">
+				#{teacher_name},
+			</if>
+			<if test="teacher_sex != null">
+				#{teacher_sex},
+			</if>
+			<if test="teacher_pic != null">
+				#{teacher_pic},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="teacher_dis != null">
+				#{teacher_dis},
+			</if>
+			<if test="teacher_time != null">
+				#{teacher_time},
+			</if>
+			<if test="teacher_phone != null">
+				#{teacher_phone},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="teacher_course != null">
+				#{teacher_course}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改教师信息 -->
+	<update id="updateTeacher" parameterType="com.jingren.jing.school.bean.teacher.Teacher">
+		update teacher
+		<set>
+			<if test="teacher_name != null">
+				teacher_name=#{teacher_name},
+			</if>
+			<if test="teacher_sex != null">
+				teacher_sex=#{teacher_sex},
+			</if>
+			<if test="teacher_pic != null">
+				teacher_pic=#{teacher_pic},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="teacher_dis != null">
+				teacher_dis=#{teacher_dis},
+			</if>
+			<if test="teacher_time != null">
+				teacher_time=#{teacher_time},
+			</if>
+			<if test="teacher_phone != null">
+				teacher_phone=#{teacher_phone},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="teacher_course != null">
+				teacher_course=#{teacher_course}
+			</if>
+		</set>
+		where teacher_id=#{teacher_id}
+	</update>
+	<!--删除教师信息 -->
+	<delete id="deleteTeacher" parameterType="java.lang.Integer">
+		delete from
+		teacher
+		where
+		teacher_id=#{teacher_id}
+	</delete>
+	<!--获取教师信息 -->
+	<select id="getTeacher" parameterType="Map" resultMap="BaseResultMap">
+		select * from teacher
+		<where>
+			<if test="teacher_id !=null">
+				teacher_id=#{teacher_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询教师列表 -->
+	<select id="getTeacherList" parameterType="Map" resultMap="BaseResultMap">
+		select * from teacher
+		<where>
+			<if test="teacher_sex != null">
+				teacher_sex = #{teacher_sex}
+			</if>
+			<if test="teacher_name != null">
+				teacher_name like "%"#{teacher_name}"%"
+			</if>
+			<if test="course_id != null">
+				course_id = #{course_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询教师数量 -->
+	<select id="getTeacherNumber" parameterType="Map" resultType="int">
+		select count(*) from teacher
+		<where>
+			<if test="teacher_sex != null">
+				teacher_sex = #{teacher_sex}
+			</if>
+			<if test="teacher_name != null">
+				teacher_name like "%"#{teacher_name}"%"
+			</if>
+			<if test="course_id != null">
+				course_id = #{course_id}
+			</if>
+		</where>
+	</select>
+</mapper>

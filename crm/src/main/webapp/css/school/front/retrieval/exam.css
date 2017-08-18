@@ -1,0 +1,534 @@
+body {
+font-size:62.5%;
+margin: 0 auto;
+font-family:"Œ¢»Ì—≈∫⁄";
+} /* for IE/Win */
+html>body {
+font-size:12px;
+} 
+/* for everything else */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,header,section{padding: 0;
+ margin: 0;}
+table{border-collapse: collapse;border-spacing: 0;}
+fieldset,img {border: 0;}
+/* img {display:block;}*/
+ol,ul {list-style: none;}
+caption,th {text-align: left;}
+h1,h2,h3,h4,h5,h6 {font-weight: normal;font-size: 100%;}
+a {text-decoration:none;}
+em{font-style:normal;}
+html,body{
+	width:100%;
+	height:100%;
+}
+/*--------------------------header--------------------------*/
+.exam{
+	background: #e6e6e6;
+}
+.header1{
+	width:1200px;
+	margin:0 auto;
+}
+header{
+	height: 54px;
+	background: #ffffff;
+	border-bottom: 1px solid #f5f5f5;
+}
+header .home{
+	width:65px;
+	margin-right:63px;
+	margin:18px 0;
+	float: left;
+
+}
+header a{
+	float: left;
+	color:#444444;
+}
+header a:nth-child(2){
+	margin:3px 0 3px 6px;
+
+}
+header .test{
+	width:86px;
+	height: 27px;
+	float: left;
+	line-height: 27px;	
+	margin-top: 14px;
+}
+header .test select{
+	background:transparent;
+	border:1px solid #06c1ae;
+	width:86px;
+	height:27px;
+	line-height:27px;
+}
+.green1{
+	color:#06C1AE !important;
+}
+/*-----------------------section---------------------------*/
+section{
+	/* height:244px; */
+	background: #e6e6e6;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+section .nav_retrieval{
+	margin: 0 auto;
+	width:1200px;
+	/* height:213px; */
+	background:#fff;
+	
+}
+section .nav_retrieval dl:nth-child(1){
+	/* height:109px; */
+	border-bottom: 1px solid #e6e6e6;
+	line-height: 48px;
+}
+section .nav_retrieval dl:nth-child(2){
+	height:51px;
+	border-bottom: 1px solid #e6e6e6;
+	line-height: 50px;
+}
+section .nav_retrieval dl:nth-child(3){
+	line-height:50px;
+}
+section .nav_retrieval dl dt{
+	width:37px;
+	float: left;
+	padding-left:27px;
+}
+section .nav_retrieval dl dd{
+	margin-left:88px;
+}
+section .nav_retrieval dl:nth-child(1) dd{
+	width:729px;
+}
+section .nav_retrieval dl dd a{
+	margin-right:58px;
+	display:inline-block;
+	color:#444444;
+}
+section .nav_retrieval dl dd a:hover{
+	color: #06c1ae;
+}
+/*--------------------------footer--------------------------*/
+footer{
+	background: #e6e6e6;
+	padding: 0 40px;
+}
+footer .container{
+	width:1200px;
+/* 	height:1121px; */
+	margin: 0 auto;
+	overflow:hidden;
+	background:#e6e6e6;
+}
+footer .left{
+	width:900px;
+	background:#fff;
+	float: left;
+	padding-bottom:15px;
+	margin:0 auto; 
+}
+footer .left .topd{
+	width:900px;
+	height:50px;
+	border-bottom: 1px solid #e6e6e6;
+}
+footer .left .topd>.tab{
+	float: left;
+	height:50px;
+	line-height: 50px;
+}
+footer .left .topd>.tab a{
+	display: block;
+	color:#444;
+	float: left;
+	/*background:#fff;*/
+	padding:0 25px;
+	position: relative;
+}
+/* footer .left .topd>.tab a:first-child{
+	color:#fff;
+	background: #06c1ae;
+} */
+.green3{
+	color:#fff!important;
+	background: #06c1ae;
+}
+footer .left .topd>.tab a:hover{
+	color:#fff;
+	background:#06c1ae;
+}
+
+footer .left .topd>.tab a img.oneimg{
+	/*background: url(/images/school/front/retrieval/price1.png) no-repeat 55px 19px;*/
+	position:absolute;
+	left:55px;
+	top:18px;
+}
+footer .left .topd>.tab a img.twoimg{
+	/*background: url(/images/school/front/retrieval/price1.png) no-repeat 55px 19px;*/
+	position:absolute;
+	left:55px;
+	top:26px;
+}
+footer .left .topd>.list{
+	height:50px;
+	float: right;
+	margin-right:20px;
+}
+footer .left .topd>.list a:nth-child(1){
+	display: block;
+	width: 59px;
+	height:50px;
+	/*background:url(/images/school/front/retrieval/hengxiang.png) no-repeat;*/
+	float:left; 
+}
+footer .left .topd>.list a:nth-child(2){
+	width:61px;
+	height:50px;
+	/*background:url(/images/school/front/retrieval/zongxiang.png) no-repeat;*/
+	display: block;
+	float:right;
+	border-right:1px solid #b3b3b3;
+}
+footer .left .topd>.list a{
+	position: relative;
+}
+footer .left .topd>.list a img{
+	position: absolute;
+	/*left:17px;
+	bottom:11px;*/
+}
+footer .left .content{
+	width:900px;
+	/* height:1000px; */
+	padding-top:27px;
+	/*padding-right:28px;*/
+	margin:0 auto;
+	z-index: 0;
+	overflow:hidden;
+	text-align:center;
+	/*display:none;*/
+}
+footer .left .content p{
+	margin:0 auto;
+	line-height:28px;
+}
+footer .left .content dl{
+	margin:0 0 0px 27px;
+	float: left;
+}
+/*footer .left .content dl dt img{
+	width:100%;
+	height:100%;
+}*/
+footer .left .content .title{
+	text-align:left;
+}
+footer .left .content .title a{
+	color:#444;
+}
+footer .left .content .title a:hover{
+	color:#06C1AE;
+}
+footer .left .content dl h3{
+	font-size: 15px;
+	color:#444444;
+	line-height:20px;
+	width: 240px; 
+}
+footer .left .content dl dd p>span{
+	color:#b3b3b3;
+	line-height: 22px;
+}
+footer .left .content dl dd p .green{
+	color:#6ed3c6;
+}
+footer .left .content dl dd p .red{
+	color:#f94c4c;
+	font-weight: bold;
+}
+footer .left .content span:nth-child(3){
+	float: right;
+}
+footer .left .content p:last-child span:nth-child(1){
+	background: url(/images/school/front/retrieval/pinglun.png) no-repeat ;
+	padding-left:17px;
+	padding-top:4px; 
+}
+footer .left .content p:last-child span:nth-child(2){
+	float: right;
+	background: url(/images/school/front/retrieval/liulan.png) no-repeat left center;
+	padding-left:19px; 
+	padding-top:3px; 
+}
+footer .paging{
+	width:900px;
+	height:26px;
+	margin:0 auto;
+	text-align:center;
+	margin-top:20px;
+}
+footer .paging ul{
+	overflow:hidden;
+	/* width:280px; */
+	height:26px;
+	text-align:center;
+	margin:0 auto;
+	display:inline-block;
+}
+footer .paging ul li{
+	color:#949494;
+	float:left;
+	border:1px solid #959595;
+	background: #fff;
+	margin-right:6px;
+	text-align:center; 
+	width:48px;
+	background: #ebebeb;
+}
+footer .paging ul li:hover{
+	background:#06C1AE;
+}
+footer .paging ul li.active{
+	background:#06C1AE!important;
+}
+footer .paging ul li a{
+	display: block;
+	height:23px;
+	line-height: 23px;
+	color:#444;
+}
+.fenye_green {
+    background-color: #06C1AE !important;
+}
+.fenye_green a {
+    color: white !important;
+}
+
+footer .right{
+	/*height:1087px;*/
+	width:22%;
+	float: right;
+	background: #e6e6e6;
+}
+footer .right .recommendation{
+	height:42px;
+	line-height: 30px;
+	font-size: 15px;
+	color:#444444;
+	background: url(/images/school/front/retrieval/tuijian.png) no-repeat;
+	padding-left:28px;
+}
+footer .right .recommend dl{
+	background: #fff;
+	padding:17px 15px;
+	margin-bottom: 18px;
+}
+/*footer .right .recommend dl dt img{
+	width:100%;
+	height:100%;
+}*/
+footer .right .recommend dl h3{
+	color:#444444;
+	line-height: 36px;
+	font-size: 15px;
+}
+footer .right .recommend dl dd p>span{
+	color:#b3b3b3;
+	line-height: 22px;
+}
+footer .right .recommend dl dd p .green{
+	color:#6ed3c6;
+}
+footer .right .recommend dl dd p .red{
+	color:#f94c4c;
+	font-weight: bold;
+}
+footer .right .recommend span:nth-child(3){
+	float: right;
+}
+footer .right .recommend p:last-child span:nth-child(1){
+	background: url(/images/school/front/retrieval/pinglun.png) no-repeat ;
+	padding-left:17px;
+	padding-top:4px; 
+}
+footer .right .recommend p:last-child span:nth-child(2){
+	float: right;
+	background: url(/images/school/front/retrieval/liulan.png) no-repeat left center;
+	padding-left:19px; 
+	padding-top:3px; 
+}
+
+/*----------------------vertical------------------------------*/
+.content2{
+	width:900px;
+	/* height:1000px; */
+	padding-top:27px;
+	/*padding-right:28px;*/
+	margin:0 auto;
+	/* z-index: -99; */
+	text-align:center;
+}
+.content2 p{
+	margin:0 auto;
+	line-height:28px;
+}
+.content2 .kc_con{
+	width:838px;
+	height:121px;
+	border-bottom: 1px solid #e6e6e6;
+	padding:28px 23px 34px 27px;
+	overflow:hidden;
+}
+.content2 .kc_con dl{
+	float:left;
+	overflow:hidden;
+}
+.content2 dl dt{
+	float: left;
+	margin-right:15px;
+
+}
+.content2 dd{
+	position: relative;
+	text-align:left;
+	float:left;
+}
+.content2 .kc_con dd img{
+	position: absolute;
+	left:188px;
+	top:3px;
+}
+.content2 h3{
+	font-size: 15px;
+	color:#444444;
+	line-height: 30px;
+}
+.content2 h3 a{
+	color:#444;
+}
+.content2 h3 a:hover{
+	color:#06C1AE;
+}
+.content2 .green{
+	color:#06c1ae!important;
+	font-size: 17px;
+	margin: 0;
+}
+.content2 .red{
+	color:#f94c4c;
+	font-size: 14px;
+	margin:0;
+	font-weight: bold;
+}
+.content2 .introduce{
+	color:#808080;
+	width: 445px;
+}
+.content2 .kc_con dl dd p span{
+	color:#b3b3b3;
+	cursor:pointer;
+}
+.content2 .kc_con dl dd .keshi span{
+	margin-right:43px;
+}
+.content2 .kc_con dl dd .keshi span:nth-child(2){
+	background: url(/images/school/front/retrieval/pinglun.png) no-repeat ;
+	padding-left:17px;
+	padding-top:4px; 
+}
+.content2 .kc_con dl dd .keshi span:nth-child(3){
+	background: url(/images/school/front/retrieval/liulan.png) no-repeat ;
+	padding-left:17px;
+	padding-top:3px;
+}
+.check_xq{
+	width:105px;
+	height: 36px;
+	border:1px solid #06c1ae;
+	border-radius: 5px;
+	color:#06c1ae;
+	background:#fff;
+	float: right;
+	margin-top:76px;
+	line-height:36px;
+}
+
+/* —”≥Ÿº”‘ÿ∂Øª≠ */
+.main3{
+		width: 100%;
+		height: auto;
+	}
+	.loadEffect3{
+		width: 100px;
+		height: 100px;
+		position: relative;
+		margin: 0 auto;
+		margin-top:20px;
+	}
+	.loadEffect3 span{
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: lightgreen;
+		position: absolute;
+		-webkit-animation: load3 1.04s ease infinite;
+	}
+	@-webkit-keyframes load3{
+		0%{
+			opacity: 1;
+		}
+		100%{
+			opacity: 0.2;
+		}
+	}
+	.loadEffect3 span:nth-child(1){
+		left: 0;
+		top: 50%;
+		margin-top:-8px;
+		-webkit-animation-delay:0.13s;
+	}
+	.loadEffect3 span:nth-child(2){
+		left: 14px;
+		top: 14px;
+		-webkit-animation-delay:0.26s;
+	}
+	.loadEffect3 span:nth-child(3){
+		left: 50%;
+		top: 0;
+		margin-left: -8px;
+		-webkit-animation-delay:0.39s;
+	}
+	.loadEffect3 span:nth-child(4){
+		top: 14px;
+		right:14px;
+		-webkit-animation-delay:0.52s;
+	}
+	.loadEffect3 span:nth-child(5){
+		right: 0;
+		top: 50%;
+		margin-top:-8px;
+		-webkit-animation-delay:0.65s;
+	}
+	.loadEffect3 span:nth-child(6){
+		right: 14px;
+		bottom:14px;
+		-webkit-animation-delay:0.78s;
+	}
+	.loadEffect3 span:nth-child(7){
+		bottom: 0;
+		left: 50%;
+		margin-left: -8px;
+		-webkit-animation-delay:0.91s;
+	}
+	.loadEffect3 span:nth-child(8){
+		bottom: 14px;
+		left: 14px;
+		-webkit-animation-delay:1.04s;
+	}

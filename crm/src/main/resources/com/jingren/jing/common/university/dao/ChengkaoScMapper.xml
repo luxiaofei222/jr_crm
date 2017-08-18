@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.university.dao.ChengkaoScMapper">
+	<resultMap type="com.jingren.jing.common.university.bean.ChengkaoSc" id="BaseResultMap">
+		<id column="chengkao_id" property="chengkao_id" />
+		<result column="chengkao_name" property="chengkao_name" />
+		<result column="parent_id" property="parent_id" />
+		<result column="daima" property="daima" />
+		<result column="kelei" property="kelei" />
+		<result column="cengci" property="cengci" />
+		<result column="xuezhi" property="xuezhi" />
+		<result column="study_xingshi" property="study_xingshi" />
+		<result column="chengkao_time" property="chengkao_time" />
+	</resultMap>
+	<!--获取大学详情-->
+	<select id="getChengkaoSc" parameterType="Map" resultMap="BaseResultMap">
+		select * from chengkao_sc
+		<where>
+			<if test="chengkao_id !=null">
+				chengkao_id=#{chengkao_id}
+			</if>
+		</where>
+	</select>
+	<!--获取大学列表-->
+	<select id="getChengkaoScList" parameterType="Map" resultMap="BaseResultMap">
+		select * from chengkao_sc
+		<where>
+			1=1
+			<if test="parent_id !=null">
+				and parent_id=#{parent_id}
+			</if>
+			<if test="cengci !=null">
+				and cengci=#{cengci}
+			</if>
+			<if test="study_xingshi !=null">
+				and study_xingshi like "%"#{study_xingshi}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

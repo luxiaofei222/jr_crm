@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.correction.CorrectionQuestionMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.correction.CorrectionQuestion"
+		id="BaseResultMap">
+		<id column="correction_id" property="correction_id" />
+		<result column="user_id" property="user_id" />
+		<result column="question_type" property="question_type" />
+		<result column="question_id" property="question_id" />
+		<result column="correction_time" property="correction_time" />
+		<result column="correction_content" property="correction_content" />
+		<result column="correction_type" property="correction_type" />
+		<result column="correction_state" property="correction_state" />
+	</resultMap>
+	<!--添加章节练习-纠错信息 -->
+	<insert id="saveCorrectionQuestion"
+		parameterType="com.jingren.jing.question.bean.correction.CorrectionQuestion">
+		insert into correction_question
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="question_type != null">
+				question_type,
+			</if>
+			<if test="question_id != null">
+				question_id,
+			</if>
+			<if test="correction_time != null">
+				correction_time,
+			</if>
+			<if test="correction_content != null">
+				correction_content,
+			</if>
+			<if test="correction_type != null">
+				correction_type,
+			</if>
+			<if test="correction_state != null">
+				correction_state
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="question_type != null">
+				#{question_type},
+			</if>
+			<if test="question_id != null">
+				#{question_id},
+			</if>
+			<if test="correction_time != null">
+				#{correction_time},
+			</if>
+			<if test="correction_content != null">
+				#{correction_content},
+			</if>
+			<if test="correction_type != null">
+				#{correction_type},
+			</if>
+			<if test="correction_state != null">
+				#{correction_state}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改章节练习-纠错信息 -->
+	<update id="updateCorrectionQuestion"
+		parameterType="com.jingren.jing.question.bean.correction.CorrectionQuestion">
+		update correction_question
+		<set>
+			<if test="user_id != null">
+				user_id=#{user_id},
+			</if>
+			<if test="question_type != null">
+				question_type#{question_type},
+			</if>
+			<if test="question_id != null">
+				question_id=#{question_id},
+			</if>
+			<if test="correction_time != null">
+				correction_time=#{correction_time},
+			</if>
+			<if test="correction_content != null">
+				correction_content=#{correction_content},
+			</if>
+			<if test="correction_type != null">
+				correction_type=#{correction_type},
+			</if>
+			<if test="correction_state != null">
+				correction_state=#{correction_state}
+			</if>
+		</set>
+		where 
+		<if test=" correction_id != null">
+		correction_id=#{correction_id}
+		</if>
+	</update>
+	<!--删除章节练习-纠错信息 -->
+	<delete id="deleteCorrectionQuestion" parameterType="java.lang.Integer">
+		delete from
+		correction_question where
+		correction_id=#{correction_id}
+	</delete>
+	<!--获取章节练习-纠错信息 -->
+	<select id="getCorrectionQuestion" parameterType="Map" resultMap="BaseResultMap">
+		select * from correction_question
+		<where>
+			<if test="correction_id !=null">
+				correction_id=#{correction_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询章节练习-纠错信息列表 -->
+	<select id="getCorrectionQuestionList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from correction_question
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-纠错信息数量 -->
+	<select id="getgetCorrectionQuestionNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from correction_question
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.myshoping.MyShopingMapper">
+	<resultMap type="com.jingren.jing.school.bean.myshoping.MyShoping"
+		id="BaseResultMap">
+		<id column="my_shoping_id" property="my_shoping_id" />
+		<result column="video_id" property="video_id" />
+		<result column="user_id" property="user_id" />
+		<result column="my_shoping_time" property="my_shoping_time" />
+	</resultMap>
+	<!--添加我的购物车信息 -->
+	<insert id="saveMyShoping"
+		parameterType="com.jingren.jing.school.bean.myshoping.MyShoping">
+		insert into my_shoping
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="video_id != null">
+				video_id,
+			</if>
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="my_shoping_time != null">
+				my_shoping_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="video_id != null">
+				#{video_id},
+			</if>
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="my_shoping_time != null">
+				#{my_shoping_time}
+			</if>
+		</trim>
+	</insert>
+
+	<!--删除我的购物车信息 -->
+	<delete id="deleteMyShoping" parameterType="java.lang.Integer">
+		delete from
+		my_shoping where
+		my_shoping_id=#{my_shoping_id}
+	</delete>
+	<!--  支付成功后清空购物车-->
+	<delete id="deleteMyshopingForPay" parameterType="Map">
+		delete from my_shoping 
+		<where>
+		<if test="user_id != null">
+		user_id=#{user_id}
+		</if>
+		<if test="video_id != null">
+		and video_id=#{video_id}
+		</if>
+		</where>
+	</delete>
+	<!--获取我的购物车信息 -->
+	<select id="getMyShoping" parameterType="Map" resultMap="BaseResultMap">
+		select * from my_shoping
+		<where>
+			<if test="my_shoping_id !=null">
+				my_shoping_id=#{my_shoping_id}
+			</if>
+			<if test="video_id !=null">
+				video_id=#{video_id}
+			</if>
+			<if test="user_id !=null">
+			and	user_id=#{user_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询我的购物车列表 -->
+	<select id="getMyShopingList" parameterType="Map" resultMap="BaseResultMap">
+		select * from my_shoping
+		<where>
+			<if test="video_id != null">
+				video_id = #{video_id}
+			</if>
+			<if test="user_id != null">
+				user_id = #{user_id}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询我的购物车数量 -->
+	<select id="getMyShopingNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from my_shoping
+		<where>
+			<if test="video_id != null">
+				video_id = #{video_id}
+			</if>
+			<if test="user_id != null">
+				user_id = #{user_id}
+			</if>
+		</where>
+	</select>
+</mapper>

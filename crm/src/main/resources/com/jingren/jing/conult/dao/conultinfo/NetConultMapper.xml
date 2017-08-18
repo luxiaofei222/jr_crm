@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.conult.dao.conultinfo.NetConultMapper">
+	<resultMap
+		type="com.jingren.jing.conult.bean.conultinfo.NetConult"
+		id="BaseResultMap">
+		<id column="consult_id" property="consult_id" />
+		<result column="user_name" property="user_name" />
+		<result column="user_phone" property="user_phone" />
+		<result column="consult_type" property="consult_type" />
+		<result column="search_word" property="search_word" />
+		<result column="now_edu" property="now_edu" />
+		<result column="hope_edu" property="hope_edu" />
+		<result column="hope_sc" property="hope_sc" />
+		<result column="zhuanye" property="zhuanye" />
+		<result column="province" property="province" />
+		<result column="city" property="city" />
+		<result column="area" property="area" />
+		<result column="user_ip" property="user_ip" />
+		<result column="user_sex" property="user_sex" />
+		<result column="user_qq" property="user_qq" />
+		<result column="user_weixin" property="user_weixin" />
+		<result column="note" property="note" />
+		<result column="huifang" property="huifang" />
+		<result column="course_id" property="course_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="review_id" property="review_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="consult_time" property="consult_time" />
+		<result column="yuyue_time" property="yuyue_time" />
+		<result column="zixun_time" property="zixun_time" />
+		<result column="conult_state" property="conult_state" />
+		<result column="question_info" property="question_info" />
+		<result column="employee_name" property="employee_name" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="dictionary_id" property="dictionary_id" />
+	</resultMap>
+	<!--添加网络咨询客户信息 -->
+	<insert id="saveNetConult" useGeneratedKeys="true" keyProperty="consult_id"
+		parameterType="com.jingren.jing.conult.bean.conultinfo.NetConult">
+		insert into net_conult
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_name != null">
+				user_name,
+			</if>
+			<if test="user_phone != null">
+				user_phone,
+			</if>
+			<if test="consult_type != null">
+				consult_type,
+			</if>
+			<if test="search_word != null">
+				search_word,
+			</if>
+			<if test="now_edu != null">
+				now_edu,
+			</if>
+			<if test="hope_edu != null">
+				hope_edu,
+			</if>
+			<if test="hope_sc != null">
+				hope_sc,
+			</if>
+			<if test="zhuanye != null">
+				zhuanye,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="area != null">
+				area,
+			</if>
+			<if test="user_ip != null">
+				user_ip,
+			</if>
+			<if test="user_sex != null">
+				user_sex,
+			</if>
+			<if test="user_qq != null">
+				user_qq,
+			</if>
+			<if test="user_weixin != null">
+				user_weixin,
+			</if>
+			<if test="note != null">
+				note,
+			</if>
+			<if test="huifang != null">
+				huifang,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="review_id != null">
+				review_id,
+			</if>
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="consult_time != null">
+				consult_time,
+			</if>
+			<if test="yuyue_time != null">
+				yuyue_time,
+			</if>
+			<if test="zixun_time != null">
+				zixun_time,
+			</if>
+			<if test="conult_state != null">
+				conult_state,
+			</if>
+			<if test="question_info != null">
+				question_info,
+			</if>
+			<if test="employee_name != null">
+				employee_name,
+			</if>
+			<if test="bumen_id != null">
+				bumen_id,
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_name != null">
+				#{user_name},
+			</if>
+			<if test="user_phone != null">
+				#{user_phone},
+			</if>
+			<if test="consult_type != null">
+				#{consult_type},
+			</if>
+			<if test="search_word != null">
+				#{search_word},
+			</if>
+			<if test="now_edu != null">
+				#{now_edu},
+			</if>
+			<if test="hope_edu != null">
+				#{hope_edu},
+			</if>
+			<if test="hope_sc != null">
+				#{hope_sc},
+			</if>
+			<if test="zhuanye != null">
+				#{zhuanye},
+			</if>
+			<if test="province != null">
+				#{province},
+			</if>
+			<if test="city != null">
+				#{city},
+			</if>
+			<if test="area != null">
+				#{area},
+			</if>
+			<if test="user_ip != null">
+				#{user_ip},
+			</if>
+			<if test="user_sex != null">
+				#{user_sex},
+			</if>
+			<if test="user_qq != null">
+				#{user_qq},
+			</if>
+			<if test="user_weixin != null">
+				#{user_weixin},
+			</if>
+			<if test="note != null">
+				#{note},
+			</if>
+			<if test="huifang != null">
+				#{huifang},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="review_id != null">
+				#{review_id},
+			</if>
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="consult_time != null">
+				#{consult_time},
+			</if>
+			<if test="yuyue_time != null">
+				#{yuyue_time},
+			</if>
+			<if test="zixun_time != null">
+				#{zixun_time},
+			</if>
+			<if test="conult_state != null">
+				#{conult_state},
+			</if>
+			<if test="question_info != null">
+				#{question_info},
+			</if>
+			<if test="employee_name != null">
+				#{employee_name},
+			</if>
+			<if test="bumen_id != null">
+				#{bumen_id},
+			</if>
+			<if test="dictionary_id != null">
+				#{dictionary_id}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改客户咨询信息-->
+	<update id="updateNetConult"
+		parameterType="com.jingren.jing.conult.bean.conultinfo.NetConult">
+		update net_conult
+		<set>
+			<if test="user_name != null">
+				user_name=#{user_name},
+			</if>
+			<if test="user_phone != null">
+				user_phone=#{user_phone},
+			</if>
+			<if test="consult_type != null">
+				consult_type=#{consult_type},
+			</if>
+			<if test="search_word != null">
+				search_word=#{search_word},
+			</if>
+			<if test="now_edu != null">
+				now_edu=#{now_edu},
+			</if>
+			<if test="hope_edu != null">
+				hope_edu=#{hope_edu},
+			</if>
+			<if test="hope_sc != null">
+				hope_sc=#{hope_sc},
+			</if>
+			<if test="zhuanye != null">
+				zhuanye=#{zhuanye},
+			</if>
+			<if test="province != null">
+				province=#{province},
+			</if>
+			<if test="city != null">
+				city=#{city},
+			</if>
+			<if test="area != null">
+				area=#{area},
+			</if>
+			<if test="user_ip != null">
+				user_ip=#{user_ip},
+			</if>
+			<if test="user_sex != null">
+				user_sex=#{user_sex},
+			</if>
+			<if test="user_qq != null">
+				user_qq=#{user_qq},
+			</if>
+			<if test="user_weixin != null">
+				user_weixin=#{user_weixin},
+			</if>
+			<if test="note != null">
+				note=#{note},
+			</if>
+			<if test="huifang != null">
+				huifang=#{huifang},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="review_id != null">
+				review_id=#{review_id},
+			</if>
+			<if test="employee_id != null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="consult_time != null">
+				consult_time=#{consult_time},
+			</if>
+			<if test="yuyue_time != null">
+				yuyue_time=#{yuyue_time},
+			</if>
+			<if test="zixun_time != null">
+				zixun_time=#{zixun_time},
+			</if>
+			<if test="conult_state != null">
+				conult_state=#{conult_state},
+			</if>
+			<if test="question_info != null">
+				question_info=#{question_info},
+			</if>
+			<if test="employee_name != null">
+				employee_name=#{employee_name},
+			</if>
+			<if test="bumen_id != null">
+				bumen_id=#{bumen_id},
+			</if>
+			<if test="dictionary_id != null">
+				dictionary_id=#{dictionary_id}
+			</if>
+			<if test="dictionary_id == null">
+				dictionary_id = null
+			</if>
+		</set>
+		where consult_id=#{consult_id}
+	</update>
+	<!--删除客户咨询信息 -->
+	<delete id="deleteNetConult" parameterType="java.lang.Integer">
+		delete from net_conult where consult_id=#{consult_id}
+	</delete>
+	<!--获取客户咨询详细信息 -->
+	<select id="getNetConult" parameterType="Map" resultMap="BaseResultMap">
+		select * from net_conult
+		<where>
+			<if test="consult_id !=null">
+				consult_id=#{consult_id}
+			</if>
+			<if test="user_phone !=null">
+				user_phone=#{user_phone}
+			</if>
+		</where>
+	</select>
+
+	<!--查询客户咨询信息列表 -->
+	<select id="getNetConultList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from net_conult
+		<where>
+			1=1
+			<if test="user_sex != null">
+			and	user_sex =#{user_sex}
+			</if>
+			<if test="user_name != null">
+			and	user_name like "%"#{user_name}"%"
+			</if>
+			<if test="user_phone != null">
+			and	user_phone like "%"#{user_phone}"%"
+			</if>
+			<if test="consult_type != null">
+			and	consult_type =#{consult_type}
+			</if>
+			<if test="search_word != null">
+			and	search_word like "%"#{search_word}"%"
+			</if>
+			<if test="hope_sc != null">
+			and	hope_sc =#{hope_sc}
+			</if>
+			<if test="zhuanye != null">
+			and	zhuanye =#{zhuanye}
+			</if>
+			<if test="city != null">
+			and	city =#{city}
+			</if>
+			<if test="course_id != null">
+			and	course_id =#{course_id}
+			</if>
+			<if test="course_parent_id != null">
+			and	course_parent_id =#{course_parent_id}
+			</if>
+			<if test="review_id != null">
+			and	review_id =#{review_id}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+			and	bumen_id =#{bumen_id}
+			</if>
+			<if test="consult_start_time != null">
+			and	consult_time &gt;=#{consult_start_time}
+			</if>
+			<if test="consult_end_time != null">
+			and	consult_time &lt;=#{consult_end_time}
+			</if>
+			<if test="zixun_start_time != null">
+			and	zixun_time &gt;=#{zixun_start_time}
+			</if>
+			<if test="zixun_end_time != null">
+			and	zixun_time &lt;=#{zixun_end_time}
+			</if>
+		</where>
+		order by yuyue_time ASC,consult_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询章节练习-纠错信息数量 -->
+	<select id="getNetConultNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from net_conult
+		<where>
+			1=1
+			<if test="user_sex != null">
+			and	user_sex =#{user_sex}
+			</if>
+			<if test="user_name != null">
+			and	user_name like "%"#{user_name}"%"
+			</if>
+			<if test="user_phone != null">
+			and	user_phone like "%"#{user_phone}"%"
+			</if>
+			<if test="consult_type != null">
+			and	consult_type =#{consult_type}
+			</if>
+			<if test="search_word != null">
+			and	search_word like "%"#{search_word}"%"
+			</if>
+			<if test="hope_sc != null">
+			and	hope_sc =#{hope_sc}
+			</if>
+			<if test="zhuanye != null">
+			and	zhuanye =#{zhuanye}
+			</if>
+			<if test="city != null">
+			and	city =#{city}
+			</if>
+			<if test="course_id != null">
+			and	course_id =#{course_id}
+			</if>
+			<if test="course_parent_id != null">
+			and	course_parent_id =#{course_parent_id}
+			</if>
+			<if test="review_id != null">
+			and	review_id =#{review_id}
+			</if>
+			<if test="employee_id != null">
+			and	employee_id =#{employee_id}
+			</if>
+			<if test="bumen_id != null">
+			and	bumen_id =#{bumen_id}
+			</if>
+			<if test="consult_start_time != null">
+			and	consult_time &gt;=#{consult_start_time}
+			</if>
+			<if test="consult_end_time != null">
+			and	consult_time &lt;=#{consult_end_time}
+			</if>
+			<if test="zixun_start_time != null">
+			and	zixun_time &gt;=#{zixun_start_time}
+			</if>
+			<if test="zixun_end_time != null">
+			and	zixun_time &lt;=#{zixun_end_time}
+			</if>
+		</where>
+	</select>
+</mapper>

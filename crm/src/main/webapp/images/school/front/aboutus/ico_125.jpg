@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>中和教育-404错误</title>
+<style>
+*{ margin:0; padding:0;}
+body{ background:url(http://www.negroup.cn/404/images/bg.jpg) repeat 0 0; width:100%; height:100%;}
+.logo{ background:rgba(250,250,250,0.5); border-bottom:#f1f0ed 1px solid; height:65px; width:100%;}
+.logo-pic{ width:1000px; margin:0 auto; padding-top:7px;}
+.run,.btn,#wait{ position:absolute; left:50%; top:15%;}
+.run{ width:640px; margin-left:-320px;}
+.btn{ margin-top:324px; margin-left:150px;}
+#wait{ font-size:40px; color:#ff0508;font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;font-weight:600; margin-left:13px; margin-top:312px;}
+.footer{ font-size:14px; color:#202020; font-family:Microsoft Yahei; position:absolute; bottom:0; border-top:#c7c7c7 1px solid; width:100%;}
+.footer .con{background:url(http://www.negroup.cn/404/images/bottom-logo.png) no-repeat right center; width:1000px; margin:0 auto; padding:10px 0;  }
+.footer .con p{ line-height:23px;}
+.footer .con p a{ color:#202020; text-decoration:none;}
+.footer .con p a:hover{ color:#f00;}
+</style>
+</head>
+
+<body>
+<div class="warp">
+    <div class="logo">
+        <div class="logo-pic"><a href="http://www.negroup.cn/"><img src="http://www.negroup.cn/404/images/logo.png" width="240" height="50" alt="中和教育学习像呼吸一样自然" /></a></div>
+    </div>
+    <div class="run"><img src="http://www.negroup.cn/404/images/run.png" width="640" height="380" alt=""/>
+    </div>
+    <div id="wait">5</div>
+    <a class="btn" href="http://www.negroup.cn/"><img src="http://www.negroup.cn/404/images/btn.png" width="100" height="37"  alt=""/></a>
+    <div class="footer">
+        <div class="con">
+            <p><a href="http://www.negroup.cn/news/list_about.html">关于我们</a>｜<a href="http://www.negroup.cn/news/Contact.html"> 联系我们</a></p>
+            <p>版权所有：中和基石国际教育科技（北京）有限公司&nbsp;&nbsp;备案号：京ICP备09030494号</p>
+        </div>
+    </div>
+</div>
+<script>
+window.onload=function(){
+    var oWait=document.getElementById("wait");
+    var timer=null;
+    var count=oWait.innerHTML;
+    timer=setInterval(function(){
+        count--;
+        oWait.innerHTML=count;
+        if(count<=0){
+            location.href="http://www.negroup.cn/";
+            clearInterval(timer);
+        }
+    },1000);
+}
+</script>
+<div style="display:none;">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259904884'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259904884' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

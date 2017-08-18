@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.recruit.dao.material.MaterialMapper">
+	<resultMap
+		type="com.jingren.jing.recruit.bean.material.Material"
+		id="BaseResultMap">
+		<id column="material_id" property="material_id" />
+		<result column="material_jihua" property="material_jihua" />
+		<result column="ruxue_pici" property="ruxue_pici" />
+		<result column="cengci" property="cengci" />
+		<result column="zhuanye_id" property="zhuanye_id" />
+		<result column="zhuanye_name" property="zhuanye_name" />
+		<result column="parent_id" property="parent_id" />
+		<result column="kecheng_name" property="kecheng_name" />
+		<result column="is_dianzi" property="is_dianzi" />
+		<result column="kecheng_leibie" property="kecheng_leibie" />
+		<result column="shuming" property="shuming" />
+		<result column="zuozhe" property="zuozhe" />
+		<result column="xuanxiu_leixing" property="xuanxiu_leixing" />
+		<result column="shangpin_fenlei" property="shangpin_fenlei" />
+		<result column="beizhu" property="beizhu" />
+		<result column="tijiao_time" property="tijiao_time" />
+		<result column="zhaosheng_id" property="zhaosheng_id" />
+		<result column="zongxuefen" property="zongxuefen" />
+		<result column="bixiuxuefen" property="bixiuxuefen" />
+		<result column="xuanxiuxuefen" property="xuanxiuxuefen" />
+		<result column="kechengshuxing" property="kechengshuxing" />
+		<result column="kecheng_xuefen" property="kecheng_xuefen" />
+	</resultMap>
+	<!--添加教材计划 -->
+	<insert id="saveMaterial" useGeneratedKeys="true" keyProperty="material_id"
+		parameterType="com.jingren.jing.recruit.bean.material.Material">
+		insert into material
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="material_jihua != null">
+				material_jihua,
+			</if>
+			<if test="ruxue_pici != null">
+				ruxue_pici,
+			</if>
+			<if test="cengci != null">
+				cengci,
+			</if>
+			<if test="zhuanye_id != null">
+				zhuanye_id,
+			</if>
+			<if test="zhuanye_name != null">
+				zhuanye_name,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="kecheng_name != null">
+				kecheng_name,
+			</if>
+			<if test="is_dianzi != null">
+				is_dianzi,
+			</if>
+			<if test="kecheng_leibie != null">
+				kecheng_leibie,
+			</if>
+			<if test="shuming != null">
+				shuming,
+			</if>
+			<if test="zuozhe != null">
+				zuozhe,
+			</if>
+			<if test="xuanxiu_leixing != null">
+				xuanxiu_leixing,
+			</if>
+			<if test="shangpin_fenlei != null">
+				shangpin_fenlei,
+			</if>
+			<if test="beizhu != null">
+				beizhu,
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time,
+			</if>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id,
+			</if>
+			<if test="zongxuefen != null">
+				zongxuefen,
+			</if>
+			<if test="bixiuxuefen != null">
+				bixiuxuefen,
+			</if>
+			<if test="xuanxiuxuefen != null">
+				xuanxiuxuefen,
+			</if>
+			<if test="kechengshuxing != null">
+				kechengshuxing,
+			</if>
+			<if test="kecheng_xuefen != null">
+				kecheng_xuefen
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="material_jihua != null">
+				#{material_jihua},
+			</if>
+			<if test="ruxue_pici != null">
+				#{ruxue_pici},
+			</if>
+			<if test="cengci != null">
+				#{cengci},
+			</if>
+			<if test="zhuanye_id != null">
+				#{zhuanye_id},
+			</if>
+			<if test="zhuanye_name != null">
+				#{zhuanye_name},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="kecheng_name != null">
+				#{kecheng_name},
+			</if>
+			<if test="is_dianzi != null">
+				#{is_dianzi},
+			</if>
+			<if test="kecheng_leibie != null">
+				#{kecheng_leibie},
+			</if>
+			<if test="shuming != null">
+				#{shuming},
+			</if>
+			<if test="zuozhe != null">
+				#{zuozhe},
+			</if>
+			<if test="xuanxiu_leixing != null">
+				#{xuanxiu_leixing},
+			</if>
+			<if test="shangpin_fenlei != null">
+				#{shangpin_fenlei},
+			</if>
+			<if test="beizhu != null">
+				#{beizhu},
+			</if>
+			<if test="tijiao_time != null">
+				#{tijiao_time},
+			</if>
+			<if test="zhaosheng_id != null">
+				#{zhaosheng_id},
+			</if>
+			<if test="zongxuefen != null">
+				#{zongxuefen},
+			</if>
+			<if test="bixiuxuefen != null">
+				#{bixiuxuefen},
+			</if>
+			<if test="xuanxiuxuefen != null">
+				#{xuanxiuxuefen},
+			</if>
+			<if test="kechengshuxing != null">
+				#{kechengshuxing},
+			</if>
+			<if test="kecheng_xuefen != null">
+				#{kecheng_xuefen}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改教材计划-->
+	<update id="updateMaterial"
+		parameterType="com.jingren.jing.recruit.bean.material.Material">
+		update material
+		<set>
+			<if test="material_jihua != null">
+				material_jihua=#{material_jihua},
+			</if>
+			<if test="ruxue_pici != null">
+				ruxue_pici=#{ruxue_pici},
+			</if>
+			<if test="cengci != null">
+				cengci=#{cengci},
+			</if>
+			<if test="zhuanye_id != null">
+				zhuanye_id=#{zhuanye_id},
+			</if>
+			<if test="zhuanye_name != null">
+				zhuanye_name=#{zhuanye_name},
+			</if>
+			<if test="parent_id != null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="kecheng_name != null">
+				kecheng_name=#{kecheng_name},
+			</if>
+			<if test="is_dianzi != null">
+				is_dianzi=#{is_dianzi},
+			</if>
+			<if test="kecheng_leibie != null">
+				kecheng_leibie=#{kecheng_leibie},
+			</if>
+			<if test="shuming != null">
+				shuming=#{shuming},
+			</if>
+			<if test="zuozhe != null">
+			zuozhe=	#{zuozhe},
+			</if>
+			<if test="xuanxiu_leixing != null">
+				xuanxiu_leixing=#{xuanxiu_leixing},
+			</if>
+			<if test="shangpin_fenlei != null">
+				shangpin_fenlei=#{shangpin_fenlei},
+			</if>
+			<if test="beizhu != null">
+				beizhu=#{beizhu},
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time=#{tijiao_time},
+			</if>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id=#{zhaosheng_id},
+			</if>
+			<if test="zongxuefen != null">
+				zongxuefen=#{zongxuefen},
+			</if>
+			<if test="bixiuxuefen != null">
+				bixiuxuefen=#{bixiuxuefen},
+			</if>
+			<if test="xuanxiuxuefen != null">
+				xuanxiuxuefen=#{xuanxiuxuefen},
+			</if>
+			<if test="kechengshuxing != null">
+				kechengshuxing=#{kechengshuxing},
+			</if>
+			<if test="kecheng_xuefen != null">
+				kecheng_xuefe=#{kecheng_xuefen}
+			</if>
+		</set>
+		where material_id=#{material_id}
+	</update>
+	<!--删除教材计划 -->
+	<delete id="deleteMaterial" parameterType="java.lang.Integer">
+			<if test="material_id !=null">
+			delete from material where	material_id=#{material_id}
+			</if>
+			<if test="parent_id !=null">
+			delete from material where	parent_id=#{parent_id}
+			</if>
+			<if test="zhaosheng_id !=null">
+			delete from material where	zhaosheng_id=#{zhaosheng_id}
+			</if>
+	</delete>
+	<!--获取教材计划信息 -->
+	<select id="getMaterial" parameterType="Map" resultMap="BaseResultMap">
+		select * from material
+		<where>
+			<if test="material_id !=null">
+				material_id=#{material_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询教材计划列表 -->
+	<select id="getMaterialList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from material
+		<where>
+			1=1
+			<if test="ruxue_pici != null">
+			and	ruxue_pici =#{ruxue_pici}
+			</if>
+			<if test="parent_id != null">
+			and	parent_id =#{parent_id}
+			</if>
+			<if test="parent_id_not != null">
+			and	parent_id !=0
+			</if>
+			<if test="cengci != null">
+			and	cengci =#{cengci}
+			</if>
+			<if test="zhuanye_id != null">
+			and	zhuanye_id =#{zhuanye_id}
+			</if>
+			<if test="zhaosheng_id != null">
+			and	zhaosheng_id =#{zhaosheng_id}
+			</if>
+			<if test="material_jihua != null">
+			and	material_jihua like "%"#{material_jihua}"%"
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询教材计划数量 -->
+	<select id="getMaterialNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from material
+		<where>
+			1=1
+			<if test="ruxue_pici != null">
+			and	ruxue_pici =#{ruxue_pici}
+			</if>
+			<if test="cengci != null">
+			and	cengci =#{cengci}
+			</if>
+			<if test="zhuanye_id != null">
+			and	zhuanye_id =#{zhuanye_id}
+			</if>
+			<if test="zhaosheng_id != null">
+			and	zhaosheng_id =#{zhaosheng_id}
+			</if>
+			<if test="material_jihua != null">
+			and	material_jihua like "%"#{material_jihua}"%"
+			</if>
+			<if test="parent_id != null">
+			and	parent_id =#{parent_id}
+			</if>
+			<if test="parent_id_not != null">
+			and	parent_id !=0
+			</if>
+		</where>
+	</select>
+</mapper>

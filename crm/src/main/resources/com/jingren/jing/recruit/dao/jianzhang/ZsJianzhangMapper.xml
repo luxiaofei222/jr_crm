@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.recruit.dao.jianzhang.ZsJianzhangMapper">
+	<resultMap
+		type="com.jingren.jing.recruit.bean.jianzhang.ZsJianzhang"
+		id="BaseResultMap">
+		<id column="jianzhang_id" property="jianzhang_id" />
+		<result column="zhaosheng_id" property="zhaosheng_id" />
+		<result column="jianzhang_file" property="jianzhang_file" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="tijiao_time" property="tijiao_time" />
+		<result column="nianfen" property="nianfen" />
+	</resultMap>
+	<!--添加招生简章 -->
+	<insert id="saveZsJianzhang" useGeneratedKeys="true" keyProperty="jianzhang_id"
+		parameterType="com.jingren.jing.recruit.bean.jianzhang.ZsJianzhang">
+		insert into zs_jianzhang
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="zhaosheng_id != null">
+				zhaosheng_id,
+			</if>
+			<if test="jianzhang_file != null">
+				jianzhang_file,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time,
+			</if>
+			<if test="nianfen != null">
+				nianfen
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="zhaosheng_id != null">
+				#{zhaosheng_id},
+			</if>
+			<if test="jianzhang_file != null">
+				#{jianzhang_file},
+			</if>
+			<if test="title != null">
+				#{title},
+			</if>
+			<if test="content != null">
+				#{content},
+			</if>
+			<if test="tijiao_time != null">
+				#{tijiao_time},
+			</if>
+			<if test="nianfen != null">
+				#{nianfen}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改招生简章-->
+	<update id="updateZsJianzhang"
+		parameterType="com.jingren.jing.recruit.bean.jianzhang.ZsJianzhang">
+		update zs_jianzhang
+		<set>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id=#{zhaosheng_id},
+			</if>
+			<if test="jianzhang_file != null">
+				jianzhang_file=#{jianzhang_file},
+			</if>
+			<if test="title != null">
+				title=#{title},
+			</if>
+			<if test="content != null">
+				content=#{content},
+			</if>
+			<if test="tijiao_time != null">
+				tijiao_time=#{tijiao_time},
+			</if>
+			<if test="nianfen != null">
+				nianfen=#{nianfen}
+			</if>
+		</set>
+		where jianzhang_id=#{jianzhang_id}
+	</update>
+	<!--删除招生简章 -->
+	<delete id="deleteZsJianzhang" parameterType="com.jingren.jing.recruit.bean.jianzhang.ZsJianzhang">
+		delete from zs_jianzhang where 
+			<if test="jianzhang_id !=null">
+				jianzhang_id=#{jianzhang_id}
+			</if>
+			<if test="zhaosheng_id !=null">
+				zhaosheng_id=#{zhaosheng_id}
+			</if>
+	</delete>
+	<!--获取招生简章信息 -->
+	<select id="getZsJianzhang" parameterType="Map" resultMap="BaseResultMap">
+		select * from zs_jianzhang
+		<where>
+			<if test="jianzhang_id !=null">
+				jianzhang_id=#{jianzhang_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询招生简章列表 -->
+	<select id="getZsJianzhangList" parameterType="Map"
+		resultMap="BaseResultMap">
+		 select * from zs_jianzhang
+		<where>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id =#{zhaosheng_id}
+			</if>
+			<if test="jianzhang_file != null">
+				and	jianzhang_file is NOT null
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询招生简章数量 -->
+	<select id="getZsJianzhangNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from zs_jianzhang
+		<where>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id =#{zhaosheng_id}
+			</if>
+			<if test="jianzhang_file != null">
+				and	jianzhang_file is NOT null
+			</if>
+		</where>
+	</select>
+</mapper>

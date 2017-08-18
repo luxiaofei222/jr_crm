@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.pricesys.PriceSysMapper">
+	<resultMap type="com.jingren.jing.school.bean.pricesys.PriceSys"
+		id="BaseResultMap">
+		<id column="price_sys_id" property="price_sys_id" />
+		<result column="price_sys_title" property="price_sys_title" />
+		<result column="price_sys_content" property="price_sys_content" />
+		<result column="price_sys_time" property="price_sys_time" />
+	</resultMap>
+	<!--添加低价体系信息 -->
+	<insert id="addPriceSys"
+		parameterType="com.jingren.jing.school.bean.pricesys.PriceSys">
+		insert into price_sys
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="price_sys_title != null">
+				price_sys_title,
+			</if>
+			<if test="price_sys_content != null">
+				price_sys_content,
+			</if>
+			<if test="price_sys_time != null">
+				price_sys_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="price_sys_title != null">
+				#{price_sys_title},
+			</if>
+			<if test="price_sys_content != null">
+				#{price_sys_content},
+			</if>
+			<if test="price_sys_time != null">
+				#{price_sys_time}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改低价体系信息 -->
+	<update id="updatePriceSys"
+		parameterType="com.jingren.jing.school.bean.pricesys.PriceSys">
+		update price_sys
+		<set>
+			<if test="price_sys_title != null">
+				price_sys_title=#{price_sys_title},
+			</if>
+			<if test="price_sys_content != null">
+				price_sys_content=#{price_sys_content},
+			</if>
+			<if test="price_sys_time != null">
+				price_sys_time=#{price_sys_time}
+			</if>
+		</set>
+		where price_sys_id=#{price_sys_id}
+	</update>
+	<!--删除低价体系信息 -->
+	<delete id="deletePriceSys" parameterType="java.lang.Integer">
+		delete from
+		price_sys where
+		price_sys_id=#{price_sys_id}
+	</delete>
+	<!--获取低价体系信息 -->
+	<select id="getPriceSys" parameterType="Map" resultMap="BaseResultMap">
+		select * from price_sys
+		<where>
+			<if test="price_sys_id !=null">
+				price_sys_id=#{price_sys_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询低价体系列表 -->
+	<select id="getPriceSysList" parameterType="Map" resultMap="BaseResultMap">
+		select * from price_sys
+		<where>
+			<if test="price_sys_title != null">
+				price_sys_title like "%"#{price_sys_title}"%"
+			</if>
+		</where>
+		order by price_sys_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询低价体系数量 -->
+	<select id="getPriceSysNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from price_sys
+		<where>
+			<if test="price_sys_title != null">
+				price_sys_title like "%"#{price_sys_title}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

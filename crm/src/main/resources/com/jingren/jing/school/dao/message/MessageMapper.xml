@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.message.MessageMapper">
+	<resultMap type="com.jingren.jing.school.bean.message.JRMessage"
+		id="BaseResultMap">
+		<id column="message_id" property="message_id" />
+		<result column="user_id" property="user_id" />
+		<result column="employee_id" property="employee_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="message_title" property="message_title" />
+		<result column="message_content" property="message_content" />
+		<result column="message_type" property="message_type" />
+		<result column="message_time" property="message_time" />
+		<result column="is_read" property="is_read" />
+		<result column="send_type" property="send_type" />
+		<result column="is_show" property="is_show" />
+		<result column="user_nickname" property="user_nickname" />
+	</resultMap>
+	<!--添加消息信息 -->
+	<insert id="saveMessage" useGeneratedKeys="true" keyProperty="message_id"
+	parameterType="com.jingren.jing.school.bean.message.JRMessage">
+		insert into message
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				user_id,
+			</if>
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="parent_id != null">
+				parent_id,
+			</if>
+			<if test="message_title != null">
+				message_title,
+			</if>
+			<if test="message_content != null">
+				message_content,
+			</if>
+			<if test="message_type != null">
+				message_type,
+			</if>
+			<if test="message_time != null">
+				message_time,
+			</if>
+			<if test="send_type !=null">
+				send_type,
+			</if>
+			<if test="user_nickname !=null">
+				user_nickname
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="parent_id != null">
+				#{parent_id},
+			</if>
+			<if test="message_title != null">
+				#{message_title},
+			</if>
+			<if test="message_content != null">
+				#{message_content},
+			</if>
+			<if test="message_type != null">
+				#{message_type},
+			</if>
+			<if test="message_time != null">
+				#{message_time},
+			</if>
+			<if test="send_type !=null">
+				#{send_type},
+			</if>
+			<if test="user_nickname !=null">
+				#{user_nickname}
+			</if>
+		</trim>
+	</insert>
+	<!--修改消息 -->
+	<update id="updateJrmessage" parameterType="com.jingren.jing.school.bean.message.JRMessage">
+		update message
+		<set>
+			<if test="is_read != null">
+				is_read=#{is_read},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show},
+			</if>
+		</set>
+		where message_id=#{message_id}
+	</update>
+	<!--删除消息信息 -->
+	<delete id="deleteMessage" parameterType="java.lang.Integer">
+		delete from
+		message where
+		message_id=#{message_id}
+	</delete>
+	<!--获取消息信息 -->
+	<select id="getMessage" parameterType="Map" resultMap="BaseResultMap">
+		select * from message
+		<where>
+			<if test="message_id !=null">
+				message_id=#{message_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询消息列表 -->
+	<select id="getMessageList" parameterType="Map" resultMap="BaseResultMap">
+		select * from message
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+			<if test="parent_id != null">
+				parent_id =#{parent_id}
+			</if>
+			<if test="employee_id != null">
+				employee_id =#{employee_id}
+			</if>
+			<if test="user_nickname != null">
+				user_nickname like "%"#{user_nickname}"%"
+			</if>
+			<if test="send_type != null">
+				and send_type =#{send_type}
+			</if>
+			<if test="is_read != null">
+				and is_read =#{is_read}
+			</if>
+			<if test="is_show != null">
+				and is_show =#{is_show}
+			</if>
+		</where>
+		order by message_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询消息数量 -->
+	<select id="getMessageNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from message
+		<where>
+			<if test="user_id != null">
+				user_id =#{user_id}
+			</if>
+			<if test="parent_id != null">
+				parent_id =#{parent_id}
+			</if>
+			<if test="employee_id != null">
+				employee_id =#{employee_id}
+			</if>
+			<if test="user_nickname != null">
+				user_nickname like "%"#{user_nickname}"%"
+			</if>
+			<if test="send_type != null">
+				and send_type =#{send_type}
+			</if>
+			<if test="is_read != null">
+				and is_read =#{is_read}
+			</if>
+			<if test="is_show != null">
+				and is_show =#{is_show}
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,1367 @@
+/*****网校课程报名中心开始*****/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
+	fieldset, input, textarea, blockquote, p {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: "Microsoft Yahei";
+	color: #333;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+img, fieldset {
+	vertical-align: top;
+	border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+address, cite, code, em, th, b, i, strong {
+	font-weight: normal;
+	font-style: normal;
+}
+
+input, button, textarea, select {
+	font: 100% Arial, '';
+	vertical-align: middle
+}
+
+table, td, tr, th {
+	font-size: 12px;
+}
+
+.clearfix:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: "."
+}
+
+.clearfix {
+	zoom: 1
+}
+
+.clear {
+	clear: both;
+}
+
+a {
+	blr: expression(this.onFocus = this.blur ());
+	text-decoration: none;
+} /*针对 IE*/
+a {
+	outline: none;
+} /*针对火狐*/
+a {
+	color: #383838;
+}
+
+.layout-box {
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.fb {
+	font-weight: bold;
+}
+
+.curriculumBox {
+	font: 12px "微软雅黑", san-serif;
+	color: #333;
+	clear: both;
+}
+
+.curriculumBox .clearfix:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: "."
+}
+
+.curriculumBox .clearfix {
+	zoom: 1
+}
+
+.curriculumBox i {
+	font-style: normal;
+}
+
+/*****标题*****/
+.curr-title {
+	padding: 20px 0px;
+	clear: both;
+}
+
+.curr-title .title-l {
+	float: left;
+}
+
+.curr-title .title-l i {
+	width: 4px;
+	height: 31px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	background: #06C1AE;
+	overflow: hidden;
+}
+
+.curr-title .title-l {
+	font-size: 24px;
+	color: #666;
+}
+
+.curr-title .title-rNav {
+	float: right;
+}
+
+.curr-title .title-rNav li {
+	display: inline-block;
+	padding-left: 10px;
+	float: left;
+}
+
+.curr-title .title-rNav li a {
+	display: block;
+	padding-top: 8px;
+}
+
+.curr-title .title-rNav li a i {
+	display: inline-block;
+	width: 11px;
+	height: 12px;
+	background: url("/images/school/front/courseinfo/ico_wx.png") no-repeat;
+	padding-right: 5px;
+}
+
+.curr-title .title-rNav li a.mssk-nav i {
+	background-position: 0px -35px;
+	width: 12px;
+	height: 15px;
+}
+
+.curr-title .title-rNav li a.ytmzl-nav i {
+	background-position: 0px -83px;
+	width: 15px;
+	height: 15px;
+	margin-bottom: -2px;
+}
+
+.curr-title .title-rNav li a.nvzl-nav i {
+	background-position: 0px -125px;
+	width: 15px;
+	height: 17px;
+	margin-bottom: -3px;
+}
+
+.curr-title .title-rNav li a.sptk-nav i {
+	background-position: 0px -178px;
+	width: 16px;
+	height: 16px;
+	margin-bottom: -4px;
+}
+
+.curr-title .title-rNav li a.ydkt-nav i {
+	background-position: 0px -216px;
+	width: 9px;
+	height: 13px;
+	margin-bottom: -1px;
+}
+
+.curr-title .title-rNav li a em {
+	display: inline-block;
+	background: #efefef;
+	width: 1px;
+	height: 8px;
+	margin-left: 10px;
+}
+
+.curr-title .title-rNav li a {
+	font-size: 14px;
+	color: #666;
+}
+
+.curr-title .title-rNav li a:hover {
+	color: #06C1AE;
+}
+
+.curr-title .title-rNav li a:hover i {
+	background-position: -63px 0px;
+}
+
+.curr-title .title-rNav li a.mssk-nav:hover i {
+	background-position: -63px -35px;
+}
+
+.curr-title .title-rNav li a.ytmzl-nav:hover i {
+	background-position: -63px -83px;
+}
+
+.curr-title .title-rNav li a.nvzl-nav:hover i {
+	background-position: -63px -125px;
+}
+
+.curr-title .title-rNav li a.sptk-nav:hover i {
+	background-position: -63px -178px;
+}
+
+.curr-title .title-rNav li a.ydkt-nav:hover i {
+	background-position: -67px -216px;
+}
+
+/*****视频列表*****/
+.jcsp-listBox ul {
+	width: 1200px;
+}
+
+.jcsp-listBox li {
+	width: 226px;
+	float: left;
+	padding-right: 30px;
+}
+
+.jcsp-listBox li a {
+	display: block;
+}
+
+.jcsp-listBox li a span.img {
+	border: solid 1px #e8e7e7;
+	display: block;
+	padding: 3px;
+	position: relative;
+}
+
+.jcsp-listBox li a span.img i {
+	width: 49px;
+	height: 49px;
+	display: block;
+	background: url("/images/school/front/courseinfo/ico_wx.png") no-repeat
+		-130px -174px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -25px 0px 0px -25px;
+}
+
+.jcsp-listBox li a .p-txt {
+	font-size: 14px;
+	color: #666;
+	line-height: 36px;
+}
+
+.jcsp-listBox li a .p-txt i {
+	float: left;
+	width: 180px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.jcsp-listBox li a .p-txt em {
+	float: right;
+}
+
+.jcsp-listBox li a:hover span.img {
+	border-color: #06C1AE;
+}
+
+.jcsp-listBox li a:hover span.img i {
+	background-position: -130px -239px;
+}
+
+.jcsp-listBox li a:hover .p-txt {
+	text-decoration: underline;
+	color: #06C1AE;
+}
+
+/*****班级课程中心*****/
+
+/*.tab-kczxBox{ margin-top:25px;}*/
+.curriculumBox .tel-box {
+	padding-bottom: 10px;
+}
+
+.curriculumBox .tel-box span {
+	float: right;
+	font-size: 16px;
+	color: #06C1AE;
+	line-height: 30px;
+	margin-left: 25px;
+}
+
+.curriculumBox .tel-box span i {
+	background: url("/images/school/front/courseinfo/ico_wx.png") no-repeat
+		-141px -75px;
+	width: 23px;
+	height: 23px;
+	display: inline-block;
+	margin-right: 5px;
+	margin-bottom: -2px;
+}
+
+.curriculumBox .tel-box span i.tel-ico {
+	background-position: -143px -122px;
+}
+
+.curriculumBox .tel-box span a {
+	color: #06C1AE;
+}
+
+.tab-conBox {
+	border: solid 1px #06C1AE;
+	position: relative;
+}
+
+.tab-conBox dl {
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+
+.tab-conBox dt {
+	width: 205px;
+	float: left;
+	border-right: 1px solid #06C1AE;
+	overflow: hidden;
+}
+
+.tab-conBox ul li a {
+	border-bottom: solid 1px #06C1AE;
+	text-align: center;
+	height: 120px;
+	display: block;
+	line-height: 120px;
+	position: relative;
+	_margin-top: -6px;
+	text-decoration: none;
+}
+
+.tab-conBox ul li a strong {
+	font-weight: bold;
+	font-size: 30px;
+	display: block;
+	color: #666;
+}
+
+.tab-conBox ul li a font {
+	font-size: 12px;
+	line-height: 18px;
+	position: absolute;
+	left: 0px;
+	top: 85px;
+	display: block;
+	width: 100%;
+	color: #666;
+}
+
+.tab-conBox ul li a:hover i {
+	position: absolute;
+	top: 50%;
+	right: -10px;
+	width: 11px;
+	height: 22px;
+	display: block;
+	background: url("/images/school/front/courseinfo/ico_wx.png") no-repeat
+		-68px -250px;
+	margin-top: -11px;
+}
+
+.tab-conBox ul li a:hover {
+	background: #06C1AE;
+	border-bottom: solid 1px #06C1AE;
+}
+
+.tab-conBox ul li a:hover font {
+	color: #fff;
+}
+
+.tab-conBox ul li a:hover strong {
+	color: #ff0;
+}
+
+.tab-conBox ul li a.hover {
+	border-bottom: solid 1px #06C1AE;
+	background: #06C1AE;
+}
+
+.tab-conBox dt ul li a.hover {
+	width: 207px;
+	margin: -1px 0px 0px -1px;
+}
+
+.tab-conBox dt ul li a:hover:hover {
+	width: 207px;
+	margin: -1px 0px 0px -1px;
+}
+
+.tab-conBox ul li a.hover strong {
+	color: #ff0;
+}
+
+.tab-conBox ul li a.hover font {
+	color: #fff;
+}
+
+.tab-conBox ul li a.hover i {
+	position: absolute;
+	top: 50%;
+	right: -10px;
+	width: 11px;
+	height: 22px;
+	display: block;
+	background: url("/images/school/front/courseinfo/ico_wx.png") no-repeat
+		-68px -250px;
+	margin-top: -11px;
+}
+
+.tab-conBox ul li a em {
+	background: url("/images/school/front/courseinfo/ico_wx.png") no-repeat
+		0px -252px;
+	display: block;
+	position: absolute;
+}
+
+.tab-conBox ul li a .hot-ico {
+	width: 41px;
+	height: 23px;
+	right: 20px;
+	top: 20px;
+}
+
+.tab-conBox ul li a .yhxk-ico {
+	background-position: -143px 0px;
+	width: 57px;
+	height: 57px;
+	left: 0px;
+	top: 0px;
+}
+
+.tab-conBox ul li a .more-ico {
+	border: solid 1px #06C1AE;
+	color: #06C1AE;
+	width: 75px;
+	height: 20px;
+	line-height: 20px;
+	background: #fff;
+	border-radius: 5px;
+	left: 68px;
+	top: 85px;
+}
+
+.tab-conBox ul li a.hover em {
+	display: none;
+	_display: inherit;
+}
+
+.tab-conBox ul li a:hover em {
+	display: none;
+	_display: inherit;
+}
+
+.tab-conBox dd {
+	padding: 20px;
+	padding-bottom: 0;
+	margin-left: 204px;
+	overflow: hidden;
+}
+
+.tab-title {
+	border-bottom: solid 3px #06C1AE;
+	margin-bottom: 20px;
+	border-left: solid 1px #ffdcc7;
+}
+
+.tab-title ul {
+	float: left;
+}
+
+.tab-title ul li {
+	float: left;
+}
+
+.tab-title ul li a {
+	display: block;
+	height: 46px;
+	line-height: 46px;
+	float: left;
+	color: #333;
+	border: solid 1px #ffdcc7;
+	font-size: 16px;
+	border-left: none;
+	padding: 0px 20px;
+}
+
+.tab-title ul li a:hover, .tab-title ul li a.hover {
+	background: #06C1AE;
+	color: #fff;
+	border: solid 1px #06C1AE;
+}
+
+.tab-title a.a-more-btn {
+	float: right;
+	border: solid 1px #06C1AE;
+	color: #06C1AE;
+	text-align: center;
+	width: 98px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.tab-title a.a-more-btn:hover {
+	color: #fff;
+	background: #06C1AE;
+	border-color: #06C1AE;
+}
+
+.tab-conBox .table-box {
+	border: solid 1px #ffedd2;
+	border-width: 0px 0px 1px 1px;
+}
+
+.tab-conBox .table-box tr.title td {
+	background: #fff3e0;
+	color: #fff;
+	font-size: 16px;
+	color: #666;
+	border: solid 1px #ffedd2;
+	border-width: 1px 1px 0px 0px;
+}
+
+.tab-conBox .table-box td {
+	text-align: center;
+	line-height: 36px;
+	border: solid 1px #ffedd2;
+	border-width: 1px 1px 0px 0px;
+	font-size: 14px;
+}
+
+.tab-conBox .table-box td.name {
+	color: #01669a;
+	max-width: 400px;
+}
+
+.tab-conBox .table-box td a.a-btn {
+	background: #ff3300;
+	color: #fff;
+	border-radius: 3px;
+	width: 52px;
+	line-height: 25px;
+	display: block;
+	margin: 0 auto;
+}
+
+.tab-conBox .table-box td a.a-btn:hover {
+	color: #ff0;
+	background: #f33100;
+}
+
+.tab-conBox .table-box td a img {
+	margin-left: 30px;
+}
+
+.tab-RconBox .bjjs-box table {
+	border: solid 1px #ffedd2;
+	border-width: 0px 0px 1px 1px;
+}
+
+.tab-RconBox .bjjs-box tr.tr-t td {
+	background: #fff2df;
+	line-height: 40px;
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	border-width: 1px 1px 0px 0px;
+	border: solid 1px #ffedd2;
+}
+
+.tab-RconBox .bjjs-box td {
+	text-align: center;
+	line-height: 36px;
+	border: solid 1px #ffedd2;
+	border-width: 1px 1px 0px 0px;
+	font-size: 14px;
+	padding: 10px;
+	color: #666;
+}
+
+.tab-RconBox .bjjs-box td.align-left {
+	text-align: left;
+}
+
+.tab-RconBox .bjjs-box td.line28 {
+	line-height: 28px;
+}
+
+.tab-RconBox .bjjs-box td.td-bj {
+	font-size: 16px;
+	color: #ef522b;
+	line-height: 24px;
+}
+
+.tab-RconBox .bjjs-box td.td-bj i {
+	color: #999;
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.tab-RconBox .bjjs-box td.td-ts {
+	color: #39769c;
+	line-height: 20px;
+	width: 300px;
+	text-align: left;
+}
+
+.tab-conBox dd.tab-RconBox div h6.tab-title ul li a {
+	_position: fixed;
+}
+
+.tab-RconBox .ptfw-box .tr-header td {
+	font-size: 22px;
+	color: #444;
+	text-align: center;
+	height: 55px;
+	line-height: 55px;
+}
+
+.tab-RconBox .ptfw-box {
+	/* border: solid 1px #ffedd2; */
+	border-width: 0px 0px 1px 1px;
+}
+.tab-RconBox .ptfw-box td.td-jg {
+	color: #333;
+}
+
+.tab-RconBox .ptfw-box td.td-jg em {
+	color: #f00;
+	padding-right: 15px;
+	display: inline-block;
+}
+
+.tab-RconBox .ptfw-box td {
+	background: #fff8ef;
+	color: #666;
+	font-size: 16px;
+	width: 55px;
+	text-align: center;
+	padding: 10px;
+}
+
+.tab-RconBox .ptfw-box td.td-yhhd {
+	color: #f00;
+}
+
+.tab-RconBox .ptfw-box .tr-bjbh em {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.tab-RconBox .ptfw-box .a-btn a {
+	border: solid 1px #06C1AE;
+	color: #06C1AE;
+	display: inline-block;
+	border-radius: 5px;
+	text-align: center;
+	width: 80px;
+	height: 32px;
+	line-height: 32px;
+}
+
+.tab-RconBox .ptfw-box .a-btn a.bm-btn {
+	border-color: #eb2300;
+	color: #eb2300;
+}
+
+.tab-RconBox .ptfw-box .a-btn a:hover {
+	color: #fff;
+	background: #06C1AE;
+}
+
+.tab-RconBox .ptfw-box .a-btn a.bm-btn:hover {
+	background: #eb2300;
+}
+
+.color-0000ff {
+	color: #0000ff;
+}
+
+.tab-RconBox .ptfw-box .tr-ts a {
+	color: #06C1AE;
+}
+
+/*****班级课程中心结束*****/
+/****** 通关方案开始* *****/
+.tg_wrapper {
+	overflow: hidden;
+	border-top:1px solid #ffedd2;
+	border-right:1px solid #ffedd2;
+}
+.tg_wrapper .oneul{
+	float:left;
+	width:95px;
+	background: #fff8ef;
+}
+.tg_wrapper .twoul{
+	float:left;
+}
+.tg_wrapper .threeul{
+	float:left;
+}
+.tg_wrapper .oneul ul {
+	color: #666;
+	font-size: 16px;
+	width: 95px;
+	text-align: center;
+}
+.tg_wrapper .twoul ul {
+	color: #666;
+	font-size: 16px;
+	width: 328px;
+	text-align: center;
+}
+.tg_wrapper .threeul ul {
+	color: #666;
+	font-size: 16px;
+	width: 326px;
+	text-align: center;
+}
+.tg_wrapper .oneul ul li{
+	border-bottom:1px solid #ffedd2;
+	border-right:1px solid #ffedd2;
+	text-align:center;
+	width:95px;
+
+}
+.tg_wrapper .twoul ul li{
+	border-bottom:1px solid #ffedd2;
+	border-right:1px solid #ffedd2;
+	text-align:center;
+	width:328px;
+}
+.tg_wrapper .threeul ul li{
+	border-bottom:1px solid #ffedd2;
+	border-right:1px solid #ffedd2;
+	text-align:center;
+	width:328px;
+}
+.tg_wrapper .oneg{
+	height:45px;
+	line-height:45px;
+}
+.tg_wrapper .twog{
+	height:45px;
+	line-height:45px;
+}
+.tg_wrapper .threeg{
+	height:45px;
+	line-height:45px;
+}
+.tg_wrapper .fourg{
+	height:185px;
+	line-height:20px;
+}
+.tg_wrapper .fiveg{
+	height:45px;
+	line-height:45px;
+}
+.tg_wrapper .sixg{
+	height:60px;
+	line-height:60px;
+}
+.tg_wrapper .sixbg{
+	height:270px;
+	line-height:45px;
+}
+/*****通关方案结束*****/
+/*****网校模板*****/
+.wx-templateLayout {
+	width: 1000px;
+	margin: 0px auto 50px auto;
+	overflow: hidden;
+}
+
+.wx-templateLayout .wx-layout {
+	width: 1050px;
+}
+
+.wx-templateLayout dl {
+	width: 490px;
+	float: left;
+	margin-right: 20px;
+}
+
+.wx-templateLayout dl dt {
+	background: #2e3f51;
+	color: #fff;
+	border-radius: 5px 5px 0px 0px;
+	height: 75px;
+	padding: 5px 20px;
+}
+
+.wx-templateLayout dl dt em {
+	float: left;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 75px;
+}
+
+.wx-templateLayout dl dt span {
+	float: right;
+	padding-top: 5px;
+	width: 90px;
+	text-align: center;
+}
+
+.wx-templateLayout dl dt span i {
+	font-size: 30px;
+	color: #ff0;
+	margin-right: 15px;
+	display: block;
+	line-height: 30px;
+}
+
+.wx-templateLayout dl dt span a {
+	background: #f60;
+	color: #fff;
+	font-size: 18px;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 5px auto 0px auto;
+}
+
+.wx-templateLayout dl dt span a:hover {
+	color: #ff0;
+	text-decoration: underline;
+	background: #ef6000;
+}
+
+.wx-templateLayout dl dd {
+	border: solid 5px #f3f3f3;
+	background: #fff;
+	padding: 20px;
+}
+
+.wx-templateLayout dl dd span.img {
+	position: relative;
+	display: block;
+}
+
+.wx-templateLayout dl dd span.img i {
+	width: 76px;
+	height: 76px;
+	display: block;
+	position: absolute;
+	background: url("/images/school/front/courseinfo/wx-ico_wx.png")
+		no-repeat 0px -34px;
+	left: 50%;
+	top: 50%;
+	margin: -28px 0px 0px -28px;
+}
+
+.wx-templateLayout dl dd span.img:hover i {
+	background-position: -124px -34px;
+}
+
+.wx-tcCon-tableBox {
+	padding-top: 15px;
+}
+
+.wx-tcCon-tableBox td {
+	padding: 5px;
+	font-size: 14px;
+}
+
+.wx-tcCon-tableBox td.td-LtcCon {
+	border: solid 1px #dedede;
+	text-align: center;
+	width: 40px;
+	font-size: 16px;
+	position: relative;
+}
+
+.wx-tcCon-tableBox td.td-LtcCon i {
+	background: url("/images/school/front/courseinfo/wx-ico_wx.png")
+		no-repeat;
+	width: 6px;
+	height: 11px;
+	position: absolute;
+	top: 50%;
+	margin-top: -5px;
+	right: -6px;
+}
+
+.wx-tcCon-tableBox td.td-RtcCon {
+	padding-left: 20px;
+	line-height: 24px;
+}
+
+.wx-tcCon-tableBox td.td-RtcCon i {
+	color: #00f;
+	font-size: 14px;
+}
+
+.wx-tcCon-tableBox td.td-RtcCon a {
+	color: #f00;
+	text-decoration: underline;
+}
+
+.wx-templateLayout dd.wx-btn-box {
+	background: #f3f3f3;
+	padding: 5px 0px;
+}
+
+.wx-templateLayout dd.wx-btn-box a {
+	border-radius: 5px;
+	background: #f60;
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+	width: 155px;
+	line-height: 52px;
+	height: 52px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 55px;
+}
+
+.wx-templateLayout dd.wx-btn-box a:hover {
+	text-decoration: underline;
+	color: #ff0;
+	background: #ef6000;
+}
+
+.wx-templateLayout dd.wx-btn-box a.bm-btn {
+	background: #2e3f51;
+}
+
+.wx-templateLayout dd.wx-btn-box a.bm-btn:hover {
+	background: #223446;
+}
+
+.tab-conBox dd.tab-RconBox, .tab-RconBox .table-box {
+	display: none;
+}
+
+/*32地区-样式从这开始*/
+.vido_kebg {
+	width: 1000px;
+	margin-bottom: 10px;
+}
+
+.vido_kebg ul.wxdq {
+	position: relative;
+	background: #ff6305;
+	padding-bottom: 5px;
+	border-radius: 5px;
+}
+
+.vido_kebg ul.wxdq li.country {
+	float: left;
+	width: 88px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+	font-size: 24px;
+	height: 52px;
+	font-family: "microsoft Yahei"
+}
+
+.vido_kebg ul.wxdq li {
+	float: left;
+	width: 50px;
+	line-height: 24px;
+	margin-top: 4px;
+	margin-left: 5px;
+	text-align: center;
+	font-size: 14px;
+	display: inline;
+	background: #ff7a00;
+	border-radius: 3px;
+}
+
+.vido_kebg ul.wxdq li a {
+	width: 50px;
+	color: #fff;
+	text-align: center;
+	display: block;
+	border-radius: 3px;
+}
+
+.vido_kebg ul.wxdq li a:hover {
+	background: #ff7d2e;
+	text-decoration: underline;
+	color: #ff0;
+}
+
+.vido_kebg ul.wxdq li.w71 {
+	width: 71px
+}
+
+.vido_kebg ul.wxdq li.w71 a {
+	width: 71px
+}
+
+.tab-RconBox .ptfw-box .mr10 {
+	margin-right: 10px;
+}
+
+.tab-RconBox .ptfw-box .mr20 {
+	margin-right: 20px;
+}
+
+/* 视频 */
+.kcst-box {
+	height: 390px;
+}
+
+.sp-leftBox {
+	width: 430px;
+	float: left;
+}
+
+.sp-leftBox .sp-box {
+	height: 260px;
+	background: #000;
+}
+
+.kcjs-title {
+	font-size: 20px;
+	padding: 5px 0px;
+	font-size: 20px;
+}
+
+.sp-leftBox .kcjsBox .kcjs-txtcon {
+	border: solid 1px #ececec;
+	padding: 10px;
+}
+
+.kcjs-txtcon span {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.kcjs-txtcon p {
+	width: 200px;
+	float: left;
+}
+
+.kcjs-txtcon p strong {
+	display: block;
+	line-height: 20px;
+	color: #666;
+}
+
+.kcjs-txtcon p strong i {
+	color: #f00;
+}
+
+.kcml-rightBox {
+	width: 305px;
+	float: right;
+}
+
+.kcml-tabBox {
+	border: solid 1px #ececec;
+}
+
+.ls-tabTitle {
+	border-bottom: solid 1px #ececec;
+	padding: 0px 20px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 16px;
+}
+
+.kcml-rightBox .ls-tabTitle li {
+	float: left;
+	background: #fff;
+	width: auto;
+}
+
+.kcml-rightBox .ls-tabTitle li a {
+	height: 45px;
+	line-height: 45px;
+	border-bottom: solid #ececec 1px;
+	padding: 0px 8px;
+	text-decoration: none;
+	display: block;
+	width: auto;
+}
+
+.kcml-rightBox .ls-tabTitle li a.hover, .kcml-rightBox .ls-tabTitle li a:hover
+	{
+	display: block;
+	background: #fff;
+	border-bottom: solid 1px #06C1AE;
+	color: #06C1AE;
+	width: auto;
+	height: 45px;
+	line-height: 45px;
+}
+
+.ml-listBox {
+	padding: 15px;
+	max-height: 267px;
+	height: auto !important;
+	height: 267px;
+	overflow: auto;
+	position: relative;
+}
+
+.scroll-y {
+	border-left: solid 1px #ececec;
+	margin-left: 25px;
+	margin-top: 10px;
+}
+
+.ml-listBox .kcml-list ul li a {
+	height: auto;
+	font-size: 14px;
+	padding-left: 20px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 18px;
+	border: none;
+}
+
+.ml-listBox .kcml-list ul li a:hover {
+	background: none;
+	border-bottom: none;
+	text-decoration: none;
+	color: #f00;
+}
+
+.ml-listBox .kcml-list ul li a.collapsed {
+	background: url("/images/school/front/courseinfo/kcml-ico.png")
+		no-repeat 0px -40px;
+	color: #666;
+}
+
+.ml-listBox .kcml-list ul li a.expanded {
+	background: #fff url("/images/school/front/courseinfo/kcml-ico.png")
+		no-repeat 0px -61px;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+.ml-listBox .kcml-list ul li.hover a.expanded {
+	background-position: 0 -40px;
+}
+
+.kcml-list p {
+	padding-bottom: 15px;
+}
+
+.kcml-list p i {
+	float: left;
+	width: 16px;
+	height: 16px;
+	display: block;
+	background: url("/images/school/front/courseinfo/kcml-ico.png")
+		no-repeat;
+	margin-left: -7px;
+}
+
+.ml-listBox .kcml-list ul li p a {
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+	padding: 0px 10px;
+	display: block;
+	float: left;
+	line-height: 18px;
+	max-width: 50%;
+	display: inline-block;
+	float: left;
+	_background: none;
+	_color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ml-listBox .kcml-list ul li p em {
+	width: 38px;
+	height: 16px;
+	line-height: 16px;
+	display: block;
+	float: left;
+	background: url("/images/school/front/courseinfo/kcml-ico.png")
+		no-repeat 0px -24px;
+	color: #fff;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	margin-top: 2px;
+}
+
+.kc-btnBox {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.kc-btnBox a {
+	width: 190px;
+	height: 50px;
+	line-height: 50px;
+	display: inline-block;
+	border: solid 1px #008fd9;
+	color: #008fd9;
+	font-size: 24px;
+	border-radius: 3px;
+	margin: 0px 20px;
+}
+
+.kc-btnBox a:hover {
+	background: #008fd9;
+	color: #fff;
+}
+
+.kc-btnBox a.gm-btn {
+	background: #ff3300;
+	border-color: #ff3300;
+	color: #fff;
+}
+
+.kc-btnBox a.gm-btn:hover {
+	color: #ff0;
+	text-decoration: underline;
+}
+
+.ml-listBox .kcml-list ul li .scroll-y {
+	display: none;
+}
+
+.ml-listBox .kcml-list ul li.hover .scroll-y {
+	display: block;
+}
+
+.ml-listBox .kcml-list {
+	display: none;
+}
+
+.ml-listBox .kcml-list:first-child {
+	display: block;
+}
+
+.ml-listBox .kcml-list ul li p a.act {
+	color: #f00;
+}
+
+.tab-conBox .table-box.noborder {
+	border: none;
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+/* 双11 */
+.Nov_arrow {
+	width: 0;
+	height: 0;
+	border-top: 4px solid transparent;
+	border-bottom: 5px solid transparent;
+	display: inline-block;
+	vertical-align: middle;
+	_display: none
+}
+
+.Nov_plate {
+	height: 16px;
+	line-height: 16px;
+	font-size: 18px;
+	color: #fff;
+	font-style: normal;
+	padding: 8px 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.Nov_gray_line {
+	border-right: 4px solid #999;
+}
+
+.Nov_red_line {
+	border-right: 4px solid #f00;
+}
+
+.Nov_plate_red {
+	background: #f00;
+}
+
+.Nov_plate_gray {
+	background: #999;
+}
+
+/* 观看结束 */
+.finish {
+	width: 430px;
+	height: 260px;
+	background-color: #000;
+	float: left;
+	display: none;
+}
+
+.finish span {
+	background-image: url(/images/school/front/course_video/finish.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	color: #fff;
+	font-size: 16px;
+	display: block;
+	width: 355px;
+	padding-left: 60px;
+	height: 60px;
+	margin-left: 16px;
+	margin-top: 80px;
+}
+
+.finish .f_buy {
+	padding: 10px 15px;
+	text-align: center;
+	width: 115px;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 5px;
+	background-color: #06c1ae;
+	margin-left: 273px;
+	margin-top: 35px;
+}
+
+/* 更改后的通关方案 */
+.tg_table{
+	border:1px solid #ffedd2;
+}
+.tg_table th{
+	width:12.5%;
+	font-size:16px;
+	font-weight:bolder;
+	line-height: 62px;
+    text-align: center;
+    color:#666;
+    letter-spacing:1px;
+    border:1px solid #ffedd2;
+    background-color:#fff8ef;
+}
+.yuanjia{
+	text-decoration:line-through;
+}
+.xianjia{
+	color:red;
+}

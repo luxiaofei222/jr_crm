@@ -1,0 +1,407 @@
+@charset "utf-8";
+.form-group button[type="reset"] {
+	margin-left:20px;
+	}
+.form-group i.fa-check {
+  float: left;
+  line-height: 42px;
+  color: #1abc9c;
+}
+
+/* 课程添加页面样式 */
+.form-group .image_container {
+    float:left;
+	background-image: url(/images/school/back/course/mr_img.jpg);
+	background-repeat:no-repeat;
+	width:105px;
+	height:60px;
+} 
+.form-group .input_container {
+    position:relative;
+	float:left;
+	margin-left:15px;
+}
+.form-group .input_container input[type="file"] {
+	width:100px;
+	height:30px;
+	cursor:pointer;
+	position:absolute;
+	top:5px;
+	left:0px;
+	opacity:0;
+}
+.form-group .input_container input[type="button"] {
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	color:#fff;
+	font-size:12px;
+	background-color:#1abc9c;
+	cursor:pointer;
+	border:none;
+	border-radius: 3px;
+	margin-top:5px;
+}
+.form-group .input_container span {
+	color:#cf0000;
+	font-size:12px;
+	display:block;
+	margin-top:5px;
+}
+form.add_class_dialog input.form-control,form.add_class_dialog textarea {
+	border:2px solid #bdc3c7;
+	height:42px;
+}
+form.add_class_dialog textarea {
+	height:auto;
+}
+form.add_class_dialog input.form-control:focus,form.add_class_dialog textarea:focus {
+	border:2px solid #1abc9c;
+}
+/* 上传视频进度条样式 */
+.form-group #file_name {
+	float: left;
+	font-size: 15px;
+	color: #444;
+	margin-left: 20px;
+	line-height: 41px;
+}
+
+.form-group .progress .progress-bar {
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255,
+		255, 0.15)), color-stop(0.25, transparent),
+		color-stop(0.5, transparent),
+		color-stop(0.5, rgba(255, 255, 255, 0.15)),
+		color-stop(0.75, rgba(255, 255, 255, 0.15)),
+		color-stop(0.75, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15)
+		25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%,
+		rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15)
+		25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%,
+		rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15)
+		25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%,
+		rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%,
+		transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%,
+		rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	-webkit-background-size: 40px 40px;
+	-moz-background-size: 40px 40px;
+	-o-background-size: 40px 40px;
+	background-size: 40px 40px;
+	-webkit-animation: progress-bar-stripes 2s linear infinite;
+	-moz-animation: progress-bar-stripes 2s linear infinite;
+	-ms-animation: progress-bar-stripes 2s linear infinite;
+	-o-animation: progress-bar-stripes 2s linear infinite;
+	animation: progress-bar-stripes 2s linear infinite;
+}
+.form-group .progress {
+    height: 25px;
+    position: relative;
+}
+.form-group .progress #baifenbi {
+    position: absolute;
+    width: 35px;
+    height: 15px;
+    color: #fff;
+    font-size: 12px;
+    top: 50%;
+    margin-top: -6px;
+    left: 50%;
+    margin-left: -17.5px;
+    text-align: center;
+}
+/* 课件查看样式 */  /* 节视频上传样式 */
+.form-group .col-xs-9 a.check_kejian {
+	display: block;
+	line-height: 39px;
+	color: #444;
+	font-size: 14px;
+	float:left;
+}
+/* .form-group .col-xs-10 a:hover {
+	text-decoration:underline;
+} */
+form.check_kejian_dialog .form-group,form.add_videos_dialog .form-group {
+	 padding: 0px 20px;
+}
+form.check_kejian_dialog .form-group .col-xs-1 .btn {
+	margin-top:8px;
+}
+form.check_kejian_dialog .check_info {
+	min-height:250px;
+}
+form.check_kejian_dialog .check_info span.zanwu {
+	font-size: 15px;
+	color: orange;
+	width: 100px;
+	text-align: center;
+	margin: 10px auto;
+	display: block;
+}
+form.check_kejian_dialog .btn-success,form.add_videos_dialog .btn-success {
+	width:60px;
+	margin:0 auto;
+	display:block;
+	margin-top: 10px;
+}
+form.add_videos_dialog .videos {
+	width: 585px;
+	margin: 10px auto;
+	min-height:250px;
+}
+form.add_videos_dialog .videos label {
+	float: left;
+}
+form.add_videos_dialog .videos p {
+    float: left;
+    font-size: 14px;
+    color: #444;
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+/* 加载动画样式   */
+#preloader_3{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-20px;
+	margin-left:0px;
+}
+#preloader_3:before{
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	background:blue;
+	content:'';
+	position:absolute;
+	background:#9b59b6;
+	-webkit-animation: preloader_3_before 1.5s infinite ease-in-out;
+	-moz-animation: preloader_3_before 1.5s infinite ease-in-out;
+	-ms-animation: preloader_3_before 1.5s infinite ease-in-out;
+	animation: preloader_3_before 1.5s infinite ease-in-out;
+}
+
+#preloader_3:after{
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	background:blue;
+	content:'';
+	position:absolute;
+	background:#2ecc71;
+	left:22px;
+	-webkit-animation: preloader_3_after 1.5s infinite ease-in-out;
+	-moz-animation: preloader_3_after 1.5s infinite ease-in-out;
+	-ms-animation: preloader_3_after 1.5s infinite ease-in-out;
+	animation: preloader_3_after 1.5s infinite ease-in-out;
+}
+
+@-webkit-keyframes preloader_3_before {
+    0% {-webkit-transform: translateX(0px) rotate(0deg)}
+    50% {-webkit-transform: translateX(50px) scale(1.2) rotate(260deg); background:#2ecc71;border-radius:0px;}
+  	100% {-webkit-transform: translateX(0px) rotate(0deg)}
+}
+@-webkit-keyframes preloader_3_after {
+    0% {-webkit-transform: translateX(0px)}
+    50% {-webkit-transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0px;}
+  	100% {-webkit-transform: translateX(0px)}
+}
+
+@-moz-keyframes preloader_3_before {
+    0% {-moz-transform: translateX(0px) rotate(0deg)}
+    50% {-moz-transform: translateX(50px) scale(1.2) rotate(260deg); background:#2ecc71;border-radius:0px;}
+  	100% {-moz-transform: translateX(0px) rotate(0deg)}
+}
+@-moz-keyframes preloader_3_after {
+    0% {-moz-transform: translateX(0px)}
+    50% {-moz-transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0px;}
+  	100% {-moz-transform: translateX(0px)}
+}
+
+
+@-ms-keyframes preloader_3_before {
+    0% {-ms-transform: translateX(0px) rotate(0deg)}
+    50% {-ms-transform: translateX(50px) scale(1.2) rotate(260deg); background:#2ecc71;border-radius:0px;}
+  	100% {-ms-transform: translateX(0px) rotate(0deg)}
+}
+@-ms-keyframes preloader_3_after {
+    0% {-ms-transform: translateX(0px)}
+    50% {-ms-transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0px;}
+  	100% {-ms-transform: translateX(0px)}
+}
+
+@keyframes preloader_3_before {
+    0% {transform: translateX(0px) rotate(0deg)}
+    50% {transform: translateX(50px) scale(1.2) rotate(260deg); background:#2ecc71;border-radius:0px;}
+  	100% {transform: translateX(0px) rotate(0deg)}
+}
+@keyframes preloader_3_after {
+    0% {transform: translateX(0px)}
+    50% {transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0px;}
+  	100% {transform: translateX(0px)}
+}
+/* 查看我的记录 */
+.record_zanwu{
+	display:block;
+	text-align:center;
+	font-size:19px;
+	margin-top:150px;
+	color:#06C1AE;
+}
+.record_wrapper{
+	overflow:hidden;
+}
+/* .study_record{
+	float:left;
+	width:46%;
+} */
+/* .study_record:nth-child(odd){
+	margin-right:4%;
+} */
+.line{
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    margin-top: 10px;
+    display:block;
+}
+.study_list{
+	margin-top:20px;
+	overflow:hidden;
+}
+.study_record{
+	margin-top:10px;
+}
+.study_list li{
+	margin-bottom: 15px;
+    float: left;
+    width: 46%;
+    padding: 15px;
+    margin-right: 2%;
+    background: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    border-radius: 13px;
+}
+.jindu{
+	color:#999;
+	font-size:14px;
+}
+ .jindu .jindu_title{
+	font-size: 16px;
+    color: #444;
+    line-height: 35px;
+	text-align:left;
+}
+ .jindu .jindu_al{
+	float:left;
+	font-size:14px;
+	margin-top:3px;
+}
+.progress {
+	height: 25px!important;
+	background: #262626!important;
+	padding: 3px!important;
+	overflow: visible!important;
+	border-radius: 20px!important;
+	border-top: 1px solid #000!important;
+	border-bottom: 1px solid #7992a8!important;
+	float:left!important;
+	position:relative;
+	margin-bottom:0px!important;
+	width:60%;
+}
+
+.progress .progress-bar {
+	border-radius: 20px;
+	position: relative;
+	animation: animate-positive 2s;
+}
+
+.progress .progress-value {
+	display: block;
+    font-size: 13px;
+    color: #fff;
+    text-align:center;
+    border-radius: 4px;
+    background: orange;
+    border: 1px solid #f3a517;
+    position: absolute;
+    right: -80px;
+    padding: 1px 7px;
+    top: -5px;
+    height:30px;
+    line-height:30px;
+}
+
+.progress .progress-value:after {
+	content: "";
+	border-right: 10px solid orange;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	position: absolute;
+	bottom:4px;
+    left: -10px;
+}
+
+.progress-bar.active {
+	animation: reverse progress-bar-stripes 0.40s linear infinite,
+		animate-positive 2s;
+}
+@-webkit-keyframes animate-positive { 0% {
+	width: 0;
+}
+
+}
+@keyframes animate-positive { 0% {
+	width: 0;
+}
+}
+.study_time{
+    margin-top: 10px;
+    text-align:left;
+}
+.record_caption{
+	overflow:hidden;
+}
+.record_title_wrapper{
+	float:left;	
+}
+.record_title{
+	float:left;
+	font-size: 16px;
+	line-height: 30px;
+}
+.title_number{
+	border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #06C1AE;
+    float: left;
+    color: #06c1ae;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.course_time{
+	float:left;
+	font-size: 14px;
+	color:#06C1AE;
+	line-height: 30px;
+	margin-left:27px;
+}
+.record_caption i{
+	float:right;
+	margin-left: 20px;
+    line-height: 30px;
+}
+.record_caption i.zhuan{
+	transform:rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+}

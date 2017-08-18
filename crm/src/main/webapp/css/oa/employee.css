@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+.entry_table {
+	width:1000px;
+	margin:0 auto;
+	}
+.entry_table h3 {
+	text-align:center;
+	font-size:18px;
+	color:#323232;
+	line-height:55px;
+	font-weight:bold;
+	}
+.entry_table table {
+	border-color:#f1f1f1;
+	border-collapse: inherit;
+    border-spacing: inherit;
+	box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	}
+table tr td {
+	text-align:center;
+	width: 125px;
+	height:35px;
+	line-height:35px;
+	}
+table tr td input,table tr td select {
+	width:100%;
+	height:100%;
+	border:none;
+	line-height:35px;
+	text-align:center;
+	}
+.layui-input {
+	width:100%;
+	border:none;
+	padding-left:0px;
+	}
+table tr td .input_str {
+	width:45%;
+	float:left;
+	text-align:center;
+	}
+table tr td .input_end {
+	width:45%;
+	float:right;
+	text-align:center;
+	}
+table tr td img#zhiyuan {
+	margin:5px;
+	}
+table tr td a.btn-info {
+    position: relative;
+    display: block;
+    background-color: #18d1bb;
+    width: 80px;
+    height: 30px;
+    margin: 10px auto;
+    color: #fff;
+    line-height: 30px;
+    border-radius: 5px;
+	}
+.entry_table .add_reset {
+	width:330px;
+	margin:20px auto;
+	}
+.entry_table .add_reset button {
+	float: left;
+	min-width:85px;
+	height:35px;
+	line-height:35px;
+	border-radius:5px;
+}
+.entry_table .add_reset .layui-btn.layui-add {
+	background-color:#18d1bb;
+	border-radius:5px;
+	}
+.entry_table .layui-btn.layui-xiugai {
+	background-color:#FF0033;
+	height: 28px;
+	line-height:28px;
+}
+

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.clearance.ClearanceMapper">
+	<resultMap type="com.jingren.jing.school.bean.clearance.Clearance"
+		id="BaseResultMap">
+		<id column="clearance_id" property="clearance_id" />
+		<result column="clearance_name" property="clearance_name" />
+		<result column="clearance_price" property="clearance_price" />
+		<result column="clearrance_baohan" property="clearrance_baohan" />
+		<result column="clearrance_tese" property="clearrance_tese" />
+		<result column="clearrance_baozhang" property="clearrance_baozhang" />
+		<result column="clearrance_time" property="clearrance_time" />
+		<result column="course_id" property="course_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="new_price" property="new_price" />
+		<result column="daoqi_time" property="daoqi_time" />
+		<result column="dengji" property="dengji" />
+	</resultMap>
+	<!--添加通关方案信息 -->
+	<insert id="saveClearance"
+		parameterType="com.jingren.jing.school.bean.clearance.Clearance">
+		insert into clearance
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="clearance_name != null">
+				clearance_name,
+			</if>
+			<if test="clearance_price != null">
+				clearance_price,
+			</if>
+			<if test="clearrance_baohan != null">
+				clearrance_baohan,
+			</if>
+			<if test="clearrance_tese != null">
+				clearrance_tese,
+			</if>
+			<if test="clearrance_baozhang != null">
+				clearrance_baozhang,
+			</if>
+			<if test="clearrance_time != null">
+				clearrance_time,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="new_price != null">
+				new_price,
+			</if>
+			<if test="daoqi_time != null">
+				daoqi_time,
+			</if>
+			<if test="dengji != null">
+				dengji
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="clearance_name != null">
+				#{clearance_name},
+			</if>
+			<if test="clearance_price != null">
+				#{clearance_price},
+			</if>
+			<if test="clearrance_baohan != null">
+				#{clearrance_baohan},
+			</if>
+			<if test="clearrance_tese != null">
+				#{clearrance_tese},
+			</if>
+			<if test="clearrance_baozhang != null">
+				#{clearrance_baozhang},
+			</if>
+			<if test="clearrance_time != null">
+				#{clearrance_time},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="new_price != null">
+				#{new_price},
+			</if>
+			<if test="daoqi_time != null">
+				#{daoqi_time},
+			</if>
+			<if test="dengji != null">
+				#{dengji}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改通关方案信息 -->
+	<update id="updateClearance"
+		parameterType="com.jingren.jing.school.bean.clearance.Clearance">
+		update clearance
+		<set>
+			<if test="clearance_name != null">
+				clearance_name=#{clearance_name},
+			</if>
+			<if test="clearance_price != null">
+				clearance_price=#{clearance_price},
+			</if>
+			<if test="clearrance_baohan != null">
+				clearrance_baohan=#{clearrance_baohan},
+			</if>
+			<if test="clearrance_tese != null">
+				clearrance_tese=#{clearrance_tese},
+			</if>
+			<if test="clearrance_baozhang != null">
+				clearrance_baozhang=#{clearrance_baozhang},
+			</if>
+			<if test="clearrance_time != null">
+				clearrance_time=#{clearrance_time},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="new_price != null">
+				new_price=#{new_price},
+			</if>
+			<if test="daoqi_time != null">
+				daoqi_time=#{daoqi_time},
+			</if>
+			<if test="dengji != null">
+			dengji=#{dengji}
+			</if>
+		</set>
+		where clearance_id=#{clearance_id}
+	</update>
+	<!--删除通关方案信息 -->
+	<delete id="deleteClearance" parameterType="java.lang.Integer">
+		delete from
+		clearance where
+		clearance_id=#{clearance_id}
+	</delete>
+	<!--获取通关方案信息 -->
+	<select id="getClearance" parameterType="Map" resultMap="BaseResultMap">
+		select * from clearance
+		<where>
+			<if test="clearance_id !=null">
+				clearance_id=#{clearance_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询通关方案列表 -->
+	<select id="getClearanceList" parameterType="Map" resultMap="BaseResultMap">
+		select * from clearance
+		<where>
+		1=1
+			<if test="course_id != null">
+			and	course_id =#{course_id}
+			</if>
+			<if test="clearance_name != null">
+			and	clearance_name like "%"#{clearance_name}"%"
+			</if>
+			<if test="dengji != null">
+			and	dengji =#{dengji}
+			</if>
+		</where>
+		<if test="dengji_gro != null">
+			group by dengji
+		</if>
+		order by clearrance_time ASC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询通关方案数量 -->
+	<select id="getClearanceNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from clearance
+		<where>
+		1=1
+			<if test="course_id != null">
+			and	course_id =#{course_id}
+			</if>
+			<if test="clearance_name != null">
+			and	clearance_name like "%"#{clearance_name}"%"
+			</if>
+			<if test="dengji != null">
+			and	dengji =#{dengji}
+			</if>
+		</where>
+	</select>
+</mapper>

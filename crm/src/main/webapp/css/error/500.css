@@ -1,0 +1,63 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	background-color:#F8F5EC;
+	font-family:"微软雅黑";
+}
+.error4_wrapper{
+	width:1200px;
+	height:800px;
+	margin:0 auto;
+	background:url("/images/error/500.jpg");
+	position:relative;
+}
+.error4_info{
+	position:absolute;
+	top:60%;
+	left:26%;
+}
+.error4_info1{
+	font-size:16px;
+	color:#41ad76;
+}
+.error4_info2{
+	margin-top:20px;
+	overflow:hidden;
+}
+.error4_info2_one{
+	float:left;
+	width:109px;
+	height:26px;
+	cursor:pointer;
+	line-height:26px;
+	text-align:center;
+	font-size:18px;
+	color:#D78600;
+	border:1px solid #D78600;
+	text-decoration:none;
+	border-radius:5px;
+}
+.error4_info2_one:hover{
+	color:#06C1AE;
+	border:1px solid #06C1AE;
+}
+.error4_info2_two{
+	margin-left:20px;
+	float:left;
+	width:63px;
+	height:26px;
+	cursor:pointer;
+	line-height:26px;
+	text-align:center;
+	font-size:18px;
+	color:#D78600;
+	border:1px solid #D78600;
+	text-decoration:none;
+	border-radius:5px;
+}
+.error4_info2_two:hover{
+	color:#06C1AE;
+	border:1px solid #06C1AE;
+}

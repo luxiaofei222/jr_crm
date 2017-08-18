@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.user.UserMapper">
+	<resultMap type="com.jingren.jing.school.bean.user.User" id="BaseResultMap">
+		<id column="user_id" property="user_id" />
+		<result column="user_name" property="user_name" />
+		<result column="user_password" property="user_password" />
+		<result column="user_phone" property="user_phone" />
+		<result column="user_mail" property="user_mail" />
+		<result column="user_nickname" property="user_nickname" />
+		<result column="user_card" property="user_card" />
+		<result column="user_auth_name" property="user_auth_name" />
+		<result column="user_pay_pass" property="user_pay_pass" />
+		<result column="user_vip_leavl" property="user_vip_leavl" />
+		<result column="user_time" property="user_time" />
+		<result column="user_state" property="user_state" />
+		<result column="user_integral" property="user_integral" />
+		<result column="user_ip" property="user_ip" />
+		<result column="user_pic" property="user_pic" />
+		<result column="user_qq" property="user_qq" />
+		<result column="user_city" property="user_city" />
+		<result column="user_bus" property="user_bus" />
+		<result column="user_sex" property="user_sex" />
+		<result column="user_birthday" property="user_birthday" />
+		<result column="user_zhiye" property="user_zhiye" />
+		<result column="user_province" property="user_province" />
+		<result column="employee_id" property="employee_id" />
+		<result column="employee_name" property="employee_name" />
+	</resultMap>
+	<!--添加用户信息 -->
+	<insert id="saveUser" parameterType="com.jingren.jing.school.bean.user.User"
+		useGeneratedKeys="true" keyProperty="user_id">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="user_name != null">
+				user_name,
+			</if>
+			<if test="user_password != null">
+				user_password,
+			</if>
+			<if test="user_phone != null">
+				user_phone,
+			</if>
+			<if test="user_mail != null">
+				user_mail,
+			</if>
+			<if test="user_nickname != null">
+				user_nickname,
+			</if>
+			<if test="user_card != null">
+				user_card,
+			</if>
+			<if test="user_auth_name != null">
+				user_auth_name,
+			</if>
+			<if test="user_pay_pass != null">
+				user_pay_pass,
+			</if>
+			<if test="user_vip_leavl != null">
+				user_vip_leavl,
+			</if>
+			<if test="user_time != null">
+				user_time,
+			</if>
+			<if test="user_state != null">
+				user_state,
+			</if>
+			<if test="user_integral != null">
+				user_integral,
+			</if>
+			<if test="user_ip != null">
+				user_ip,
+			</if>
+			<if test="user_pic != null">
+				user_pic,
+			</if>
+			<if test="user_qq != null">
+				user_qq,
+			</if>
+			<if test="user_city != null">
+				user_city,
+			</if>
+			<if test="user_bus != null">
+				user_bus,
+			</if>
+			<if test="user_sex != null">
+				user_sex,
+			</if>
+			<if test="user_birthday != null">
+				user_birthday,
+			</if>
+			<if test="user_zhiye != null">
+				user_zhiye,
+			</if>
+			<if test="user_province !=null">
+				user_province,
+			</if>
+			<if test="employee_id !=null">
+				employee_id,
+			</if>
+			<if test="employee_name !=null">
+				employee_name
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="user_name != null">
+				#{user_name},
+			</if>
+			<if test="user_password != null">
+				#{user_password},
+			</if>
+			<if test="user_phone != null">
+				#{user_phone},
+			</if>
+			<if test="user_mail != null">
+				#{user_mail},
+			</if>
+			<if test="user_nickname != null">
+				#{user_nickname},
+			</if>
+			<if test="user_card != null">
+				#{user_card},
+			</if>
+			<if test="user_auth_name != null">
+				#{user_auth_name},
+			</if>
+			<if test="user_pay_pass != null">
+				#{user_pay_pass},
+			</if>
+			<if test="user_vip_leavl != null">
+				#{user_vip_leavl},
+			</if>
+			<if test="user_time != null">
+				#{user_time},
+			</if>
+			<if test="user_state != null">
+				#{user_state},
+			</if>
+			<if test="user_integral != null">
+				#{user_integral},
+			</if>
+			<if test="user_ip != null">
+				#{user_ip},
+			</if>
+			<if test="user_pic != null">
+				#{user_pic},
+			</if>
+			<if test="user_qq != null">
+				#{user_qq},
+			</if>
+			<if test="user_city != null">
+				#{user_city},
+			</if>
+			<if test="user_bus != null">
+				#{user_bus},
+			</if>
+			<if test="user_sex != null">
+				#{user_sex},
+			</if>
+			<if test="user_birthday != null">
+				#{user_birthday},
+			</if>
+			<if test="user_zhiye != null">
+				#{user_zhiye},
+			</if>
+			<if test="user_province !=null">
+				#{user_province},
+			</if>
+			<if test="employee_id !=null">
+				#{employee_id},
+			</if>
+			<if test="employee_name !=null">
+				#{employee_name}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改用户信息 -->
+	<update id="updateUser" parameterType="com.jingren.jing.school.bean.user.User">
+		update user
+		<set>
+			<if test="user_name != null">
+				user_name=#{user_name},
+			</if>
+			<if test="user_password != null">
+				user_password=#{user_password},
+			</if>
+			<if test="user_nickname != null">
+				user_nickname=#{user_nickname},
+			</if>
+			<if test="user_card != null">
+				user_card=#{user_card},
+			</if>
+			<if test="user_auth_name != null">
+				user_auth_name=#{user_auth_name},
+			</if>
+			<if test="user_pay_pass != null">
+				user_pay_pass=#{user_pay_pass},
+			</if>
+			<if test="user_vip_leavl != null">
+				user_vip_leavl=#{user_vip_leavl},
+			</if>
+			<if test="user_time != null">
+				user_time=#{user_time},
+			</if>
+			<if test="user_state != null">
+				user_state=#{user_state},
+			</if>
+			<if test="user_integral != null">
+				user_integral=#{user_integral},
+			</if>
+			<if test="user_pic != null">
+				user_pic=#{user_pic},
+			</if>
+			<if test="user_qq != null">
+				user_qq=#{user_qq},
+			</if>
+			<if test="user_city != null">
+				user_city=#{user_city},
+			</if>
+			<if test="user_bus != null">
+				user_bus=#{user_bus},
+			</if>
+			<if test="user_sex != null">
+				user_sex=#{user_sex},
+			</if>
+			<if test="user_birthday != null">
+				user_birthday=#{user_birthday},
+			</if>
+			<if test="user_zhiye != null">
+				user_zhiye=#{user_zhiye},
+			</if>
+			<if test="user_province !=null">
+				user_province=#{user_province},
+			</if>
+			<if test="employee_id !=null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="employee_name !=null">
+				employee_name=#{employee_name}
+			</if>
+		</set>
+		where
+		<if test="user_mail != null">
+			user_mail=#{user_mail}
+		</if>
+		<if test="user_id != null">
+			user_id=#{user_id}
+		</if>
+		<if test="user_phone != null">
+			user_phone=#{user_phone}
+		</if>
+	</update>
+	<!-- 修改绑定手机号或者邮箱 -->
+	<update id="updateUserMailAndPhone" parameterType="com.jingren.jing.school.bean.user.User">
+		update user
+		<set>
+			<if test="user_mail != null">
+				user_mail=#{user_mail},
+			</if>
+			<if test="user_phone != null">
+				user_phone=#{user_phone}
+			</if>
+		</set>
+		where
+		<if test="user_id != null">
+			user_id=#{user_id}
+		</if>
+	</update>
+	<!--删除用户信息 -->
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+		delete from user where
+		user_id=#{user_id}
+	</delete>
+	<!--获取用户信息 -->
+	<select id="getUser" parameterType="Map" resultMap="BaseResultMap">
+		select * from user
+		<where>
+			<if test="user_id !=null">
+				user_id=#{user_id}
+			</if>
+			<if test="user_mail != null">
+				user_mail=#{user_mail}
+			</if>
+			<if test="user_phone != null">
+				user_phone=#{user_phone}
+			</if>
+		</where>
+	</select>
+
+	<!--查询用户列表 -->
+	<select id="getUserlist" parameterType="Map" resultMap="BaseResultMap">
+		select * from user
+		<where>
+			1=1
+			<if test="user_name != null">
+				and user_name like "%"#{user_name}"%"
+			</if>
+			<if test="user_nickname != null">
+				and user_nickname like "%"#{user_nickname}"%"
+			</if>
+			<if test="user_sex != null">
+				and user_sex like "%"#{user_sex}"%"
+			</if>
+			<if test="user_mail != null">
+				and user_mail like "%"#{user_mail}"%"
+			</if>
+			<if test="user_phone != null">
+				and user_phone like "%"#{user_phone}"%"
+			</if>
+			<if test="user_state != null">
+				and user_state like "%"#{user_state}"%"
+			</if>
+		</where>
+		order by user_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询用户数量 -->
+	<select id="getUserNumber" parameterType="Map" resultType="int">
+		select count(*) from user
+		<where>
+			1=1
+			<if test="user_name != null">
+				and user_name like "%"#{user_name}"%"
+			</if>
+			<if test="user_nickname != null">
+				and user_nickname like "%"#{user_nickname}"%"
+			</if>
+			<if test="user_sex != null">
+				and user_sex like "%"#{user_sex}"%"
+			</if>
+			<if test="user_mail != null">
+				and user_mail like "%"#{user_mail}"%"
+			</if>
+			<if test="user_phone != null">
+				and user_phone like "%"#{user_phone}"%"
+			</if>
+			<if test="user_state != null">
+				and user_state like "%"#{user_state}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

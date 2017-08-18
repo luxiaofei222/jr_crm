@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.common.yixiang.dao.IntentMapper">
+	<resultMap type="com.jingren.jing.common.yixiang.bean.Intent"
+		id="BaseResultMap">
+		<id column="yixiang_id" property="yixiang_id" />
+		<result column="yixiang_phone" property="yixiang_phone" />
+		<result column="yixiang_province" property="yixiang_province" />
+		<result column="yixiang_city" property="yixiang_city" />
+		<result column="yixiang_ip" property="yixiang_ip" />
+		<result column="yixiang_time" property="yixiang_time" />
+		<result column="course_id" property="course_id" />
+	</resultMap>
+	<!--添加角色信息 -->
+	<insert id="saveIntent" parameterType="com.jingren.jing.common.yixiang.bean.Intent">
+		insert into tuiguang_yixiang
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="yixiang_phone != null">
+				yixiang_phone,
+			</if>
+			<if test="yixiang_province != null">
+				yixiang_province,
+			</if>
+			<if test="yixiang_city != null">
+				yixiang_city,
+			</if>
+			<if test="yixiang_ip != null">
+				yixiang_ip,
+			</if>
+			<if test="yixiang_time != null">
+				yixiang_time,
+			</if>
+			<if test="course_id != null">
+				course_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="yixiang_phone != null">
+				#{yixiang_phone},
+			</if>
+			<if test="yixiang_province != null">
+				#{yixiang_province},
+			</if>
+			<if test="yixiang_city != null">
+				#{yixiang_city},
+			</if>
+			<if test="yixiang_ip != null">
+				#{yixiang_ip},
+			</if>
+			<if test="yixiang_time != null">
+				#{yixiang_time},
+			</if>
+			<if test="course_id != null">
+				#{course_id}
+			</if>
+		</trim>
+	</insert>
+</mapper>

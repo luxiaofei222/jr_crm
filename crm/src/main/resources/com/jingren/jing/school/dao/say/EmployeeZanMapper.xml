@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.say.EmployeeZanMapper">
+	<resultMap type="com.jingren.jing.school.bean.say.EmployeeZan"
+		id="BaseResultMap">
+		<id column="say_id" property="say_id" />
+		<result column="employee_id" property="employee_id" />
+	</resultMap>
+	<!--添加赞记录 -->
+	<insert id="saveEmployeeZan" parameterType="com.jingren.jing.school.bean.say.EmployeeZan">
+		insert into zan
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				employee_id,
+			</if>
+			<if test="say_id != null">
+				say_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="employee_id != null">
+				#{employee_id},
+			</if>
+			<if test="say_id != null">
+				#{say_id}
+			</if>
+		</trim>
+	</insert>
+	
+	<select id="getemployeeZans" parameterType="Map" resultMap="BaseResultMap">
+		select * from zan
+		<where>
+			<if test="say_id != null">
+				say_id=#{say_id}
+			</if>
+			<if test="employee_id != null">
+				and	employee_id=#{employee_id}
+			</if>
+		</where>
+	</select>
+</mapper>

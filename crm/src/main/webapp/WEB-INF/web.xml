@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>crm</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:application-context.xml</param-value>
+	</context-param>
+	 <listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 特殊符号过滤器 -->
+    <filter>  
+	    <filter-name>ReplaceFilter</filter-name>  
+	    <filter-class>com.jingren.jing.util.ReplaceFilter</filter-class>  
+	    <init-param>  
+	        <param-name>blackListURL</param-name> <!-- 配置黑名单url 表示不走过滤器的url order：1  --> 
+	        <param-value>  
+	        </param-value>  
+	    </init-param>  
+	    <init-param>  
+	        <param-name>whiteListURL</param-name> <!-- 配置白名单url 表示走过滤器的url order：2   -->
+	        <param-value>  
+	           /sc_comment/*.*<!--评论过滤  -->
+	           /sc_message/*.*
+	           /sc_register/*.*
+	           /back_role/save_role.jr
+	        </param-value>  
+	    </init-param>  
+	    <async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>  
+	    <filter-name>ReplaceFilter</filter-name>  
+	    <url-pattern>/*</url-pattern>  
+	</filter-mapping> 
+	<!-- 中文过滤器 -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>  
+	    <filter-name>ReplaceFilter</filter-name>  
+	    <url-pattern>/*</url-pattern>  
+	</filter-mapping> 
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.jr</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<!-- 视频过滤器 -->
+	<filter>
+	<filter-name>Videofileter</filter-name>
+	<filter-class>com.jingren.jing.interceptor.Videofileter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+	<async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>
+		<filter-name>Videofileter</filter-name>
+		<url-pattern>*.mp4</url-pattern>
+	</filter-mapping>
+	<!-- 是否移动端过滤器 -->
+	<filter>
+		<filter-name>PCfileter</filter-name>
+		<filter-class>com.jingren.jing.interceptor.PCfileter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>
+		<filter-name>PCfileter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 前台访问规则 -->
+	<servlet>
+		<servlet-name>front</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc-front.xml</param-value>
+		</init-param>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>front</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<!-- 后台访问规则 -->
+ 	<servlet>
+		<servlet-name>back</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc-back.xml</param-value>
+		</init-param>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>back</servlet-name>
+		<url-pattern>*.jr</url-pattern>
+	</servlet-mapping> 
+	<!--设置session过期时间为4小时 -->
+	<session-config>
+		<session-timeout>240</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- 404 页面不存在错误 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/404.jsp</location>
+	</error-page>
+
+	<!-- 500 服务器内部错误 -->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/500.jsp</location>
+	</error-page>
+</web-app>

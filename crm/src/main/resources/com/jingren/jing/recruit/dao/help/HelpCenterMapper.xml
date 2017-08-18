@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.recruit.dao.help.HelpCenterMapper">
+	<resultMap
+		type="com.jingren.jing.recruit.bean.help.HelpCenter"
+		id="BaseResultMap">
+		<id column="help_id" property="help_id" />
+		<result column="title" property="title" />
+		<result column="help_type" property="help_type" />
+		<result column="help_laiyuan" property="help_laiyuan" />
+		<result column="mate_title" property="mate_title" />
+		<result column="mate_key" property="mate_key" />
+		<result column="mate_dis" property="mate_dis" />
+		<result column="contente" property="contente" />
+		<result column="help_time" property="help_time" />
+		<result column="bianji" property="bianji" />
+		<result column="zhaosheng_id" property="zhaosheng_id" />
+	</resultMap>
+	<!--添加帮助信息 -->
+	<insert id="saveHelpCenter" useGeneratedKeys="true" keyProperty="help_id"
+		parameterType="com.jingren.jing.recruit.bean.help.HelpCenter">
+		insert into help_center
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="title != null">
+				title,
+			</if>
+			<if test="help_type != null">
+				help_type,
+			</if>
+			<if test="help_laiyuan != null">
+				help_laiyuan,
+			</if>
+			<if test="mate_title != null">
+				mate_title,
+			</if>
+			<if test="mate_key != null">
+				mate_key,
+			</if>
+			<if test="mate_dis != null">
+				mate_dis,
+			</if>
+			<if test="contente != null">
+				contente,
+			</if>
+			<if test="help_time != null">
+				help_time,
+			</if>
+			<if test="bianji != null">
+				bianji,
+			</if>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="title != null">
+				#{title},
+			</if>
+			<if test="help_type != null">
+				#{help_type},
+			</if>
+			<if test="help_laiyuan != null">
+				#{help_laiyuan},
+			</if>
+			<if test="mate_title != null">
+				#{mate_title},
+			</if>
+			<if test="mate_key != null">
+				#{mate_key},
+			</if>
+			<if test="mate_dis != null">
+				#{mate_dis},
+			</if>
+			<if test="contente != null">
+				#{contente},
+			</if>
+			<if test="help_time != null">
+				#{help_time},
+			</if>
+			<if test="bianji != null">
+				#{bianji},
+			</if>
+			<if test="zhaosheng_id != null">
+				#{zhaosheng_id}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改帮助信息-->
+	<update id="updateHelpCenter"
+		parameterType="com.jingren.jing.recruit.bean.help.HelpCenter">
+		update help_center
+		<set>
+			<if test="title != null">
+				title=#{title},
+			</if>
+			<if test="help_type != null">
+				help_type=#{help_type},
+			</if>
+			<if test="help_laiyuan != null">
+				help_laiyuan=#{help_laiyuan},
+			</if>
+			<if test="mate_title != null">
+				mate_title=#{mate_title},
+			</if>
+			<if test="mate_key != null">
+				mate_key=#{mate_key},
+			</if>
+			<if test="mate_dis != null">
+				mate_dis=#{mate_dis},
+			</if>
+			<if test="contente != null">
+				contente=#{contente},
+			</if>
+			<if test="help_time != null">
+				help_time=#{help_time},
+			</if>
+			<if test="bianji != null">
+				bianji=#{bianji},
+			</if>
+			<if test="zhaosheng_id != null">
+				zhaosheng_id=#{zhaosheng_id}
+			</if>
+		</set>
+		where help_id=#{help_id}
+	</update>
+	<!--删除帮助信息 -->
+	<delete id="deleteHelpCenter"  parameterType="Map">
+	<if test="help_id !=null">
+		delete from help_center where help_id=#{help_id}
+	</if>
+	<if test="zhaosheng_id !=null">
+		delete from help_center where zhaosheng_id=#{zhaosheng_id}
+	</if>
+	</delete>
+	<!--获取帮助信息信息 -->
+	<select id="getHelpCenter" parameterType="Map" resultMap="BaseResultMap">
+		select * from help_center
+		<where>
+			<if test="help_id !=null">
+				help_id=#{help_id}
+			</if>
+			<if test="zhaosheng_id !=null">
+				zhaosheng_id=#{zhaosheng_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询帮助信息列表 -->
+	<select id="getHelpCenterList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from help_center
+		<where>
+			1=1
+			<if test="help_type != null">
+			and	help_type =#{help_type}
+			</if>
+			<if test="title != null">
+			and	title like "%"#{title}"%"
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询帮助信息数量 -->
+	<select id="getHelpCenterNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from help_center
+		<where>
+			1=1
+			<if test="help_type != null">
+			and	help_type =#{help_type}
+			</if>
+			<if test="title != null">
+			and	title like "%"#{title}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

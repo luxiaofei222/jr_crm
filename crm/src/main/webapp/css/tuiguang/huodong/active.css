@@ -1,0 +1,64 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	background-color:#e6004d;
+}
+.banner_wrapper{
+	background:url("/images/tuiguang/huodong/banner_bg.png") no-repeat top center;
+	width:100%;
+	text-align: center;
+	min-width:1200px;
+}
+.banner_wrapper img{
+	margin:0 auto;
+	width:1200px;
+}
+.active_info{
+	width:1200px;
+	background:#fbdd01;
+	text-align: center;
+	margin:0 auto;
+	margin-top:-5px;
+	padding-top:60px;
+	margin-bottom:100px;
+}
+.active_one{
+	background-color:#ffed82;
+	border:2px solid #856e00;
+	width:1040px;
+	margin:0 auto;
+	border-radius:20px;
+	position:relative;
+	padding:30px;
+	padding-top:60px;
+}
+.active_one .active_gift{
+	position:absolute;
+	top:-43px;
+	left:50%;
+	margin-left:-180px;
+}
+.active_info .gift_wz,.gift_wz1,.gift_wz2,.zhu_label p{
+	color:#410000;
+	font-size:20px;		
+	line-height:35px;
+}
+.gift_wz{
+	text-indent:2em;
+	text-align: left;
+}
+.gift_wz1{
+	text-align:center;
+}
+.gift_wz2{
+	text-align:left;
+}
+.active_one:not(:first-child){
+	margin-top:100px;
+}
+.zhu_label{
+	padding:50px;
+	text-align:left;
+}

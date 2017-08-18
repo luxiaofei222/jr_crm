@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.message.PrivateMessageMapper">
+	<resultMap type="com.jingren.jing.school.bean.message.PrivateMessage"
+		id="BaseResultMap">
+		<id column="private_message_id" property="private_message_id" />
+		<result column="private_message_content" property="private_message_content" />
+		<result column="private_message_time" property="private_message_time" />
+		<result column="send_employee_id" property="send_employee_id" />
+		<result column="get_employee_id" property="get_employee_id" />
+		<result column="is_read" property="is_read" />
+		<result column="send_employee_name" property="send_employee_name" />
+		<result column="get_employee_name" property="get_employee_name" />
+	</resultMap>
+	<!--添加消息信息 -->
+	<insert id="savePrivateMessage" useGeneratedKeys="true" keyProperty="private_message_id"
+	parameterType="com.jingren.jing.school.bean.message.PrivateMessage">
+		insert into private_message
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="private_message_content != null">
+				private_message_content,
+			</if>
+			<if test="private_message_time != null">
+				private_message_time,
+			</if>
+			<if test="send_employee_id != null">
+				send_employee_id,
+			</if>
+			<if test="get_employee_id != null">
+				get_employee_id,
+			</if>
+			<if test="is_read != null">
+				is_read,
+			</if>
+			<if test="send_employee_name != null">
+				send_employee_name,
+			</if>
+			<if test="get_employee_name != null">
+				get_employee_name
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+				<if test="private_message_content != null">
+				#{private_message_content},
+			</if>
+			<if test="private_message_time != null">
+				#{private_message_time},
+			</if>
+			<if test="send_employee_id != null">
+				#{send_employee_id},
+			</if>
+			<if test="get_employee_id != null">
+				#{get_employee_id},
+			</if>
+			<if test="is_read != null">
+				#{is_read},
+			</if>
+			<if test="send_employee_name != null">
+				#{send_employee_name},
+			</if>
+			<if test="get_employee_name != null">
+				#{get_employee_name}
+			</if>
+		</trim>
+	</insert>
+	<!--修改消息 -->
+	<update id="updatePrivateMessage" parameterType="com.jingren.jing.school.bean.message.PrivateMessage">
+		update private_message
+		<set>
+			<if test="is_read != null">
+				is_read=#{is_read}
+			</if>
+		</set>
+		where private_message_id=#{private_message_id}
+	</update>
+	<!--删除消息信息 -->
+	<delete id="deletePrivateMessage" parameterType="java.lang.Integer">
+		delete from
+		private_message where
+		private_message_id=#{private_message_id}
+	</delete>
+	<!--获取消息信息 -->
+	<select id="getPrivateMessage" parameterType="Map" resultMap="BaseResultMap">
+		select * from private_message
+		<where>
+			<if test="private_message_id !=null">
+				private_message_id=#{private_message_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询消息列表 -->
+	<select id="getPrivateMessageList" parameterType="Map" resultMap="BaseResultMap">
+		select * from private_message
+		<where> 
+			1=1
+			<if test="send_employee_id != null">
+			and	send_employee_id =#{send_employee_id}
+			</if>
+			<if test="get_employee_id != null">
+			and	get_employee_id =#{get_employee_id}
+			</if>
+			<if test="all_xiangguan_id != null and	all_other_id !=null">
+			and	get_employee_id =#{all_xiangguan_id} and send_employee_id =#{all_other_id} or send_employee_id =#{all_xiangguan_id} and	get_employee_id =#{all_other_id} 
+			</if>
+			<if test="is_read != null">
+				and	is_read =#{is_read}
+			</if>
+		</where>
+		order by private_message_time ASC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询消息数量 -->
+	<select id="getPrivateMessageNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from private_message
+		<where>
+			1=1
+		<if test="send_employee_id != null">
+			and	send_employee_id =#{send_employee_id}
+			</if>
+			<if test="get_employee_id != null">
+			and	get_employee_id =#{get_employee_id}
+			</if>
+			<if test="is_read != null">
+				and	is_read =#{is_read}
+			</if>
+		</where>
+	</select>
+	
+	<!--查询消息列表 -->
+	<select id="getPrivateMessageLianxiList" parameterType="Map" resultMap="BaseResultMap">
+		select * from private_message
+		<where>
+			<if test="get_employee_id != null">
+				get_employee_id =#{get_employee_id}
+			</if>
+		</where>
+		GROUP BY send_employee_id 
+		order by private_message_time DESC
+	</select>
+</mapper>

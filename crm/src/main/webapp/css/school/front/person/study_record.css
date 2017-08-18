@@ -1,0 +1,139 @@
+.person_content>h1 {
+	font-size: 16px;
+	color: #444;
+	width: 100%;
+	font-weight: normal;
+	line-height: 50px;
+	border-bottom: #06c1ae solid 2px;
+	padding-left: 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.person_content>h1>a {
+	color: #444;
+}
+
+.person_content>h1>a:hover {
+	color: #06c1ae;
+	text-decoration: underline;
+}
+.record_text{
+	width: 862px;
+    padding: 20px 0px 20px 12px;
+}
+.study_list li{
+	overflow:hidden;
+}
+.study_list li .list_left{
+	float:left;
+	width:650px;
+}
+.study_list li .list_left h2{
+	font-size:16px;
+	text-align:left;
+	color:#444;
+	padding-left: 20px;
+    position: relative;
+    line-height:30px;
+}
+.study_list li .list_left h2:before{
+	content: url(/images/school/front/person/stop.png);
+    position: absolute;
+    top: 9px;
+    left: 0px;
+}
+.study_list li .list_left .jindu{
+	overflow:hidden;
+	color:#999;
+	font-size:14px;
+	line-height:30px;
+}
+.study_list li .list_left .jindu .jindu_title{
+	float:left;
+	font-size:14px;
+	margin-top: 5px;
+}
+.progress {
+	height: 25px!important;
+	background: #262626!important;
+	padding: 3px!important;
+	overflow: visible!important;
+	border-radius: 20px!important;
+	border-top: 1px solid #000!important;
+	border-bottom: 1px solid #7992a8!important;
+	float:left!important;
+	position:relative;
+	margin-bottom:0px!important;
+}
+
+.progress .progress-bar {
+	border-radius: 20px;
+	position: relative;
+	animation: animate-positive 2s;
+}
+
+.progress .progress-value {
+	display: block;
+    padding: 1px 7px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 4px;
+    background: orange;
+    border: 1px solid #f3a517;
+    position: absolute;
+    top: -6px;
+    right: -82px;
+}
+
+.progress .progress-value:after {
+	content: "";
+	border-right: 10px solid orange;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	position: absolute;
+	bottom: 6px;
+    left: -10px;
+}
+
+.progress-bar.active {
+	animation: reverse progress-bar-stripes 0.40s linear infinite,
+		animate-positive 2s;
+}
+@-webkit-keyframes animate-positive { 0% {
+	width: 0;
+}
+
+}
+@keyframes animate-positive { 0% {
+	width: 0;
+}
+}
+.study_list li .list_left .jindu .study_time{
+	float:left;
+	margin-left: 83px;
+    margin-top: 5px;
+}
+.study_list li .list_right{
+	float: right;
+    width: 103px;
+    height: 32px;
+    color: #ff5252;
+    text-align: center;
+    line-height: 32px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: #ff5252 solid 1px;
+    display: block;
+    margin-top:26px;
+}
+.study_list li .list_right:hover{
+	text-decoration: none;
+	background:#ff5252;
+	color:white;
+}
+.study_list li .list_right_img{
+	float:right;
+	margin-top: 30px;
+}

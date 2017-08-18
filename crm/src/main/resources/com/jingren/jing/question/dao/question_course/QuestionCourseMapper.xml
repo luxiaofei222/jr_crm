@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.question.dao.question_course.QuestionCourseMapper">
+	<resultMap
+		type="com.jingren.jing.question.bean.question_course.QuestionCourse"
+		id="BaseResultMap">
+		<id column="question_course_id" property="question_course_id" />
+		<result column="course_id" property="course_id" />
+		<result column="course_parent_id" property="course_parent_id" />
+		<result column="question_course_name" property="question_course_name" />
+		<result column="question_course_dis" property="question_course_dis" />
+		<result column="question_course_time" property="question_course_time" />
+		<result column="is_show" property="is_show" />
+	</resultMap>
+	<!--添加题库课程分类信息 -->
+	<insert id="saveQuestionCourse"
+		parameterType="com.jingren.jing.question.bean.question_course.QuestionCourse">
+		insert into question_course
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id,
+			</if>
+			<if test="question_course_name != null">
+				question_course_name,
+			</if>
+			<if test="question_course_dis != null">
+				question_course_dis,
+			</if>
+			<if test="question_course_time != null">
+				question_course_time
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id},
+			</if>
+			<if test="question_course_name != null">
+				#{question_course_name},
+			</if>
+			<if test="question_course_dis != null">
+				#{question_course_dis},
+			</if>
+			<if test="question_course_time != null">
+				#{question_course_time}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改题库课程分类信息 -->
+	<update id="updateQuestionCourse"
+		parameterType="com.jingren.jing.question.bean.question_course.QuestionCourse">
+		update question_course
+		<set>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id},
+			</if>
+			<if test="question_course_name != null">
+				question_course_name=#{question_course_name},
+			</if>
+			<if test="question_course_dis != null">
+				question_course_dis=#{question_course_dis},
+			</if>
+			<if test="question_course_time != null">
+				question_course_time=#{question_course_time},
+			</if>
+			<if test="is_show != null">
+				is_show=#{is_show}
+			</if>
+		</set>
+		where question_course_id=#{question_course_id}
+	</update>
+	<!--删除题库课程分类信息 -->
+	<delete id="deleteQuestionCourse" parameterType="java.lang.Integer">
+		delete from
+		question_course where
+		question_course_id=#{question_course_id}
+	</delete>
+	<!--获取题库课程分类信息 -->
+	<select id="getQuestionCourse" parameterType="Map" resultMap="BaseResultMap">
+		select * from question_course
+		<where>
+			<if test="question_course_id !=null">
+				question_course_id=#{question_course_id}
+			</if>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="question_course_name != null">
+				and question_course_name =#{question_course_name}
+			</if>
+		</where>
+	</select>
+
+	<!--查询课程分类信列表 -->
+	<select id="getQuestionCourseList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from question_course
+		<where>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="is_show != null">
+				and is_show=#{is_show}
+			</if>
+		</where>
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询课程分类信息数量 -->
+	<select id="getQuestionCourseNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from question_course
+		<where>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="is_show != null">
+				and is_show=#{is_show}
+			</if>
+		</where>
+	</select>
+	<!-- 去重查询 -->
+	<select id="getQuestionCourseQuchongList" parameterType="Map"
+		resultMap="BaseResultMap">
+		SELECT DISTINCT(course_id) FROM question_course 
+		<where>
+			<if test="is_show != null">
+				 is_show=#{is_show}
+			</if>
+		</where>
+	</select>
+</mapper>

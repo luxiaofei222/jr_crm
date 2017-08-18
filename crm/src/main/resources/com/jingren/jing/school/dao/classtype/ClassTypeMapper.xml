@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jingren.jing.school.dao.classtype.ClassTypeMapper">
+	<resultMap type="com.jingren.jing.school.bean.classtype.ClassType"
+		id="BaseResultMap">
+		<id column="class_id" property="class_id" />
+		<result column="dictionary_id" property="dictionary_id" />
+		<result column="course_id" property="course_id" />
+		<result column="class_name" property="class_name" />
+		<result column="class_feature" property="class_feature" />
+		<result column="neirong_feature" property="neirong_feature" />
+		<result column="class_beizhu" property="class_beizhu" />
+		<result column="class_time" property="class_time" />
+		<result column="course_parent_id" property="course_parent_id" />
+	</resultMap>
+	<!--添加班型信息 -->
+	<insert id="saveClassType"
+		parameterType="com.jingren.jing.school.bean.classtype.ClassType">
+		insert into class_type
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="dictionary_id != null">
+				dictionary_id,
+			</if>
+			<if test="course_id != null">
+				course_id,
+			</if>
+			<if test="class_name != null">
+				class_name,
+			</if>
+			<if test="class_feature != null">
+				class_feature,
+			</if>
+			<if test="neirong_feature != null">
+				neirong_feature,
+			</if>
+			<if test="class_beizhu != null">
+				class_beizhu,
+			</if>
+			<if test="class_time != null">
+				class_time,
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="dictionary_id != null">
+				#{dictionary_id},
+			</if>
+			<if test="course_id != null">
+				#{course_id},
+			</if>
+			<if test="class_name != null">
+				#{class_name},
+			</if>
+			<if test="class_feature != null">
+				#{class_feature},
+			</if>
+			<if test="neirong_feature != null">
+				#{neirong_feature},
+			</if>
+			<if test="class_beizhu != null">
+				#{class_beizhu},
+			</if>
+			<if test="class_time != null">
+				#{class_time},
+			</if>
+			<if test="course_parent_id != null">
+				#{course_parent_id}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改班型信息 -->
+	<update id="updateClassType"
+		parameterType="com.jingren.jing.school.bean.classtype.ClassType">
+		update class_type
+		<set>
+			<if test="dictionary_id != null">
+				dictionary_id=#{dictionary_id},
+			</if>
+			<if test="course_id != null">
+				course_id=#{course_id},
+			</if>
+			<if test="class_name != null">
+				class_name=#{class_name},
+			</if>
+			<if test="class_feature != null">
+				class_feature=#{class_feature},
+			</if>
+			<if test="neirong_feature != null">
+				neirong_feature=#{neirong_feature},
+			</if>
+			<if test="class_beizhu != null">
+				class_beizhu=#{class_beizhu},
+			</if>
+			<if test="course_parent_id != null">
+				course_parent_id=#{course_parent_id}
+			</if>
+		</set>
+		where class_id=#{class_id}
+	</update>
+	<!--删除班型信息 -->
+	<delete id="deleteClassType" parameterType="java.lang.Integer">
+		delete from
+		class_type where
+		class_id=#{class_id}
+	</delete>
+	<!--获取班型信息 -->
+	<select id="getClassType" parameterType="Map" resultMap="BaseResultMap">
+		select * from class_type
+		<where>
+			<if test="class_id !=null">
+				class_id=#{class_id}
+			</if>
+			<if test="course_id !=null">
+				course_id=#{course_id}
+			</if>
+			<if test="dictionary_id !=null">
+			 and dictionary_id=#{dictionary_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询班型列表 -->
+	<select id="getClassTypeList" parameterType="Map" resultMap="BaseResultMap">
+		select * from class_type
+		<where>
+			<if test="dictionary_id != null">
+				dictionary_id =#{dictionary_id}
+			</if>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="class_name != null">
+				class_name like "%"#{class_name}"%"
+			</if>
+		</where>
+		order by class_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询班型数量 -->
+	<select id="getClassTypeNumber" parameterType="Map"
+		resultType="int">
+		select count(*) from class_type
+		<where>
+			<if test="dictionary_id != null">
+				dictionary_id =#{dictionary_id}
+			</if>
+			<if test="course_id != null">
+				course_id =#{course_id}
+			</if>
+			<if test="class_name != null">
+				class_name like "%"#{class_name}"%"
+			</if>
+		</where>
+	</select>
+</mapper>

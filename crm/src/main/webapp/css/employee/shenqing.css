@@ -1,0 +1,407 @@
+@charset "utf-8";
+/* CSS Document */
+.content {
+	width:1200px;
+	margin:15px auto;
+	min-height:595px;
+	background-color:#fff;
+	}
+.content .side_nav {
+	width:134px;
+	min-height:595px;
+	background-color:#f4f7f8;
+	}
+.content .side_nav ul li {
+	width:134px;
+	height:125px;
+	cursor:pointer;
+	position:relative;
+	}
+.content .side_nav ul li:nth-child(1) {
+	background-image:url(/images/personal/sq1.png);
+	}
+.content .side_nav ul li:nth-child(2) {
+	background-image:url(/images/personal/sq2.png);
+	}
+.content .side_nav ul li:nth-child(3) {
+	background-image:url(/images/personal/sq3.png);
+	}
+.content .side_nav ul li:nth-child(4) {
+	background-image:url(/images/personal/sq4.png);
+	}
+.content .side_nav ul li.active:nth-child(1) {
+	background-image:url(/images/personal/sq1-1.jpg);
+	}
+.content .side_nav ul li.active:nth-child(2) {
+	background-image:url(/images/personal/sq2-1.jpg);
+	}
+.content .side_nav ul li.active:nth-child(3) {
+	background-image:url(/images/personal/sq3-1.jpg);
+	}
+.content .side_nav ul li.active:nth-child(4) {
+	background-image:url(/images/personal/sq4-1.jpg);
+	}
+.content .side_nav ul li:nth-child(5) {
+	background-image:url(/images/personal/sq5.png);
+	}
+.content .side_nav ul li.active:nth-child(5) {
+	background-image:url(/images/personal/sq5-1.jpg);
+	}
+.content .side_nav ul li span {
+	width:8px;
+	height:8px;
+	border-radius:50%;
+	background-color:#ea592d;
+	position:absolute;
+	top: 30px;
+    right: 30px;
+	}
+.content .side_cont {
+	width:1006px;
+	padding-left:60px;
+	padding-top:40px;
+	}
+.content .side_cont .cont {
+	display:none;
+	}
+.side_cont h4 {
+	font-size:16px;
+	color:#444;
+	}
+.side_cont .kind .kinds {
+	margin-top:25px;
+	}
+.side_cont .kind ul li {
+	float:left;
+	position:relative;
+	margin-right:45px;
+	color:#444;
+	font-size:16px;
+	cursor:pointer;
+	}
+.side_cont .kind ul li p {
+	float:left;
+	}
+.side_cont .kind ul li input {
+	width:18px;
+	height:18px;
+	float:left;
+	margin-top:3px;
+	margin-right:10px;
+	visibility:hidden;
+	}
+.side_cont .kind ul li .input_style {
+	position:absolute;
+	top:3px;
+	left:0px;
+	}
+.side_cont .reason,.side_cont .time {
+	margin-top:30px;
+	}
+.side_cont .reception {
+    margin-top: 30px;
+    }
+.side_cont .reception .receptions input, .side_cont .reception .receptions select,.receptions select{
+    width: 310px;
+    height: 45px;
+    border: none;
+    padding-left: 5px;
+    border: #cfd8dc solid 1px;
+    color: #999;
+    margin-top: 15px;
+}
+.side_cont .reason textarea {
+	width:685px;
+	height:105px;
+	border:#cfd8dc solid 1px;
+	resize:none;
+	margin-top:15px;
+	padding:5px;
+	line-height:25px;
+	font-size:14px;
+	}
+.side_cont .send{
+	/* margin-top:70px; */
+	float: right;
+    margin-right: 65px;
+	}
+.side_cont .send input ,.send1 input{
+	border:none;
+	width:120px;
+	height:40px;
+	border-radius:5px;
+	text-align:center;
+	line-height:40px;
+	font-size:16px;
+	background-color:#ea592d;
+	color:#fff;
+	cursor:pointer;
+	font-family:Microsoft Yahei;
+	}
+.side_cont .send input[type="reset"] {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #444;
+    font-size: 16px;
+    margin-left: 25px;
+    background-color: #fff;
+    }
+.side_cont .send a ,.send1 a{
+	width:120px;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	color:#444;
+	font-size:16px;
+	margin-left:25px;
+	}
+
+.side_cont .time .time_input,.side_cont .wj_riqi .time_input {
+	margin-top:15px;
+	}
+.side_cont .time input,.side_cont .wj_riqi input {
+	width:310px;
+	height:45px;
+	line-height:45px;
+	padding-left:5px;
+	border:none;
+	border:#cfd8dc solid 1px;
+	cursor:pointer;
+	}
+.side_cont .time .time_input span,.side_cont .wj_riqi .time_input span {
+	margin-right:18px;
+	}
+.side_cont .str_time,.side_cont .end_time {
+	position:relative;
+	}
+.side_cont .str_time i,.side_cont .end_time i {
+	position:absolute;
+	top:-5px;
+	right:10px;
+	color:#ea592d;
+	font-size:25px;
+	}
+
+/*离职申请&转正申请&审批进度中的离职申请*/
+.side_cont .lizhi_condi,.shenpi_jindu .lizhi_condi{
+	overflow:hidden;
+	}
+.side_cont .lizhi_condi li,.shenpi_jindu .lizhi_condi li{
+	float:left;
+	width:363px;
+	padding-bottom:23px;
+	padding-right:148px;
+	}
+.side_cont .lizhi_condi li select{
+	width:345px;
+	height:44px;
+	border:1px solid #cfd8dc;
+	margin-top:10px;
+	padding-left:11px;
+  /*很关键：将默认的select选择框样式清除*/  
+    appearance:none;  
+    -moz-appearance:none;  
+    -webkit-appearance:none;  
+  
+  /*在选择框的最右侧中间显示小箭头图片*/  
+  background: url("/images/personal/arrow.png") no-repeat scroll right center transparent;  
+  
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/  
+  padding-right: 20px;  
+}  
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/  
+select::-ms-expand { display: none; } 
+.side_cont .lizhi_condi li .leave_time{
+	position:relative;
+	margin-top:10px;
+	display:block;
+	}
+.side_cont .lizhi_condi li .leave_time i {
+	position:absolute;
+	top:5px;
+	right:10px;
+	color:#ea592d;
+	font-size:25px;
+	}
+.side_cont .lizhi_sq textarea,.zhuanzheng_sq textarea,.shenpi_jindu textarea{
+	width: 685px;
+    height: 194px;
+    border: 1px solid #cfd8dc;
+    margin-top: 10px;
+	text-indent:15px;
+	line-height: 24px;
+    padding: 5px;
+    display:block;
+    margin-bottom: 27px;
+	}
+.send1{
+	margin-top:30px;
+	float:right;
+	margin-right:90px;
+	margin-bottom:5px;
+	}
+
+/*审批进度*/
+.shenpi_jindu .leave_plan,.shenpi_jindu .leave_plan1{
+	overflow:hidden;
+	}
+.shenpi_jindu .leave_plan select,.shenpi_jindu .leave_plan1 select{
+	float:right;
+	margin-right:35px;
+	width:220px;
+	height:40px;
+	border:1px solid #cfd8dc;
+	padding-left:11px;
+  /*很关键：将默认的select选择框样式清除*/  
+    appearance:none;  
+    -moz-appearance:none;  
+    -webkit-appearance:none;  
+  
+  /*在选择框的最右侧中间显示小箭头图片*/  
+  background: url("/images/personal/arrow.png") no-repeat scroll right center transparent;  
+  
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/  
+  padding-right: 20px; 
+  margin-bottom:10px; 
+}  
+.shenpi_jindu .leave_plan ul{
+	width:919px;
+	border:1px dotted #cfd8dc;
+	overflow:hidden;
+	padding:15px 25px;
+	background-color:#fafafa;
+	margin-bottom:10px;
+	}
+.shenpi_jindu .leave_plan ul li{
+	float: left;
+    width: 400px;
+    /* height: 33px; */
+    line-height: 33px;
+	}
+.shenpi_jindu .leave_plan ul li .lp_title{
+	color:#444;
+	}
+.shenpi_jindu .leave_plan ul li span{
+	color:#999;
+	}
+.shenpi_jindu .leave_plan ul li .orange,.shenpi_jindu h4 .orange{
+	color:#ea592d;
+	}
+.shenpi_jindu .page{
+	float:right;
+	margin-right:35px;
+	height:28px;
+	margin-top:23px;
+	}
+.shenpi_jindu .page span{
+	border:1px solid #999;
+	color:#999;
+	display:inline-block;
+	height:26px;
+	line-height:26px;
+	padding:0px 3px;
+	border-radius:3px;
+	min-width:20px;
+	text-align:center;
+   }
+.shenpi_jindu .page span.active{
+	  background-color: #ea592d;
+	  color:white;
+	  border:1px solid #ea592d;
+	  }
+.shenpi_jindu .page span:hover{
+	  background-color: #ea592d;
+	  color:white;
+	  border:1px solid #ea592d;
+	  }
+.shenpi_jindu .page span.noacitve{
+	  background-color:  #999;
+	  color:white;
+	  border:1px solid #999;
+	  }
+.shenpi_jindu .lizhi_condi input{
+	width:345px;
+	height:44px;
+	border:1px solid #cfd8dc;
+	margin-top:10px;
+	padding-left:15px;
+	}
+
+#leave_list ul {
+	position: relative;
+}
+#leave_list ul li input.xiaojia {
+	width: 90px; 
+	height: 35px; 
+	text-align: center; 
+	line-height: 35px;
+	border: none; 
+	border-radius:5px; 
+	background-color: #ea592d;
+	color: #fff;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.side_cont .wj_time {
+	margin-top:15px;
+	}
+.side_cont .wj_time .wj_times {
+margin-top: 25px;
+}
+.side_cont .wj_times ul li {
+	float: left;
+	position: relative;
+	margin-right: 45px;
+	color: #444;
+	font-size: 16px;
+	cursor: pointer;
+	}
+.side_cont .wj_times ul li input {
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-top: 3px;
+	margin-right: 10px;
+	visibility: hidden;
+	}
+.side_cont .wj_times ul li .input_style {
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	}
+.side_cont .wj_times ul li p {
+	float: left;
+	}
+.side_cont .wangji_daka .send {
+	margin-top: 25px;
+	margin-left:577px;
+	}
+.side_cont .wangji_daka hr {
+	width:100%;
+	height:3px;
+	background-color:#ea592d;
+	margin:20px 0px;
+	}
+.wj_times ul li {
+	display:block !important;
+	}
+.pagination {
+	float: right;
+}
+.jilu span {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	color: #ea592d;
+	margin: 20px 0px;
+}
+
+.wangji_daka table tr th {
+	font-weight: bold;
+}

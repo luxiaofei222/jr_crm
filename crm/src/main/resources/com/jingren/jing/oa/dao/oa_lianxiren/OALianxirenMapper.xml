@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.oa.dao.oa_lianxiren.OALianxirenMapper">
+	<resultMap
+		type="com.jingren.jing.oa.bean.oa_lianxiren.OALianxiren"
+		id="BaseResultMap">
+		<id column="oa_lianxiren_id" property="oa_lianxiren_id" />
+		<result column="oa_employee_id" property="oa_employee_id" />
+		<result column="guanxi" property="guanxi" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+		<result column="danwei" property="danwei" />
+		<result column="zhiwu" property="zhiwu" />
+		<result column="phone" property="phone" />
+		<result column="type" property="type" />
+	</resultMap>
+	<!--添加员工入职信息-联系人-->
+	<insert id="saveOALianxiren"
+		parameterType="com.jingren.jing.oa.bean.oa_lianxiren.OALianxiren">
+		insert into oa_employee_lianxiren
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="oa_employee_id != null">
+				oa_employee_id,
+			</if>
+			<if test="guanxi != null">
+				guanxi,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="age != null">
+				age,
+			</if>
+			<if test="danwei != null">
+				danwei,
+			</if>
+			<if test="zhiwu != null">
+				zhiwu,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="type != null">
+				type
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="oa_employee_id != null">
+				#{oa_employee_id},
+			</if>
+			<if test="guanxi != null">
+				#{guanxi},
+			</if>
+			<if test="name != null">
+				#{name},
+			</if>
+			<if test="age != null">
+				#{age},
+			</if>
+			<if test="danwei != null">
+				#{danwei},
+			</if>
+			<if test="zhiwu != null">
+				#{zhiwu},
+			</if>
+			<if test="phone != null">
+				#{phone},
+			</if>
+			<if test="type != null">
+				#{type}
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改员工信息-联系人-->
+	<update id="updateOALianxiren"
+		parameterType="com.jingren.jing.oa.bean.oa_lianxiren.OALianxiren">
+		update oa_employee_lianxiren
+		<set>
+			<if test="oa_employee_id != null">
+				oa_employee_id=#{oa_employee_id},
+			</if>
+			<if test="guanxi != null">
+				guanxi=#{guanxi},
+			</if>
+			<if test="name != null">
+				name=#{name},
+			</if>
+			<if test="age != null">
+				age=#{age},
+			</if>
+			<if test="danwei != null">
+				danwei=#{danwei},
+			</if>
+			<if test="zhiwu != null">
+				zhiwu=#{zhiwu},
+			</if>
+			<if test="phone != null">
+				phone=#{phone},
+			</if>
+			<if test="type != null">
+				type=#{type}
+			</if>
+		</set>
+		where 
+		<if test=" oa_lianxiren_id != null">
+		oa_lianxiren_id=#{oa_lianxiren_id}
+		</if>
+	</update>
+	<!--查询员工信息列表-联系人 -->
+	<select id="getOALianxirenList" parameterType="Map"
+		resultMap="BaseResultMap">
+		select * from oa_employee_lianxiren
+		<where>
+			<if test="oa_employee_id != null">
+			oa_employee_id =#{oa_employee_id}
+			</if>
+			<if test="type != null">
+			and type =#{type}
+			</if>
+		</where>
+	</select>
+</mapper>

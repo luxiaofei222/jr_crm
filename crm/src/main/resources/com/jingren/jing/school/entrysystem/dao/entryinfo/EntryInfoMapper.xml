@@ -1,0 +1,1535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.jingren.jing.school.entrysystem.dao.entryinfo.EntryInfoMapper">
+	<resultMap
+		type="com.jingren.jing.school.entrysystem.bean.entryinfo.EntryInfo"
+		id="BaseResultMap">
+		<id column="entry_info_id" property="entryInfoId" jdbcType="INTEGER" />
+		<result column="entryplan_id" property="entryplanId" jdbcType="INTEGER" />
+		<result column="entrycondition_id" property="entrycondition_id"
+			jdbcType="INTEGER" />
+		<result column="entry_province" property="entryProvince"
+			jdbcType="VARCHAR" />
+		<result column="entry_city" property="entryCity" jdbcType="VARCHAR" />
+		<result column="entry_school" property="entrySchool" jdbcType="VARCHAR" />
+		<result column="entry_category" property="entryCategory"
+			jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="document_type" property="documentType"
+			jdbcType="VARCHAR" />
+		<result column="document_number" property="documentNumber"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_name" property="entryUserName"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_sex" property="entryUserSex"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_birthday" property="entryUserBirthday"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_nation" property="entryUserNation"
+			jdbcType="VARCHAR" />
+		<result column="entry_political" property="entryPolitical"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_province" property="entryUserProvince"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_city" property="entryUserCity"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_area" property="entryUserArea"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_mail" property="entryUserMail"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_unit" property="entryUserUnit"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_position" property="entryUserPosition"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_address" property="entryUserAddress"
+			jdbcType="VARCHAR" />
+		<result column="zip_code" property="zipCode" jdbcType="VARCHAR" />
+		<result column="work_years" property="workYears" jdbcType="VARCHAR" />
+		<result column="entry_user_education" property="entryUserEducation"
+			jdbcType="VARCHAR" />
+		<result column="in_work_time" property="inWorkTime" jdbcType="VARCHAR" />
+		<result column="entry_user_photo" property="entryUserPhoto"
+			jdbcType="VARCHAR" />
+		<result column="entry_user_phone" property="entryUserPhone"
+			jdbcType="VARCHAR" />
+		<result column="user_card_positive" property="userCardPositive"
+			jdbcType="VARCHAR" />
+		<result column="user_card_opposite" property="userCardOpposite"
+			jdbcType="VARCHAR" />
+		<result column="certificate_pic" property="certificatePic"
+			jdbcType="VARCHAR" />
+		<result column="entry_info_time" property="entryInfoTime"
+			jdbcType="TIMESTAMP" />
+		<result column="entry_info_state" property="entryInfoState"
+			jdbcType="INTEGER" />
+		<result column="is_pay" property="isPay" jdbcType="INTEGER" />
+		<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
+		<result column="pay_money" property="payMoney" jdbcType="VARCHAR" />
+		<result column="pay_type" property="payType" jdbcType="CHAR" />
+		<result column="document_photo" property="document_photo"
+			jdbcType="VARCHAR" />
+		<result column="caiwushenhe_message" property="caiwushenhe_message"
+			jdbcType="VARCHAR" />
+		<result column="jiaowushenhe_message" property="jiaowushenhe_message"
+			jdbcType="VARCHAR" />
+		<result column="ying_pay" property="ying_pay" jdbcType="VARCHAR" />
+		<result column="tingkezheng" property="tingkezheng" jdbcType="VARCHAR" />
+		<result column="jiaocai" property="jiaocai" jdbcType="VARCHAR" />
+		<result column="jiaofu" property="jiaofu" jdbcType="VARCHAR" />
+		<result column="jiaofulingqu" property="jiaofulingqu" jdbcType="VARCHAR" />
+		<result column="note" property="note" jdbcType="VARCHAR" />
+		<result column="wangluoxuexika" property="wangluoxuexika"
+			jdbcType="VARCHAR" />
+		<result column="zhuanshufuwuka" property="zhuanshufuwuka"
+			jdbcType="VARCHAR" />
+		<result column="mianshoubanxing" property="mianshoubanxing"
+			jdbcType="VARCHAR" />
+		<result column="kaoshimoey" property="kaoshimoey" jdbcType="VARCHAR" />
+		<result column="peixunfei" property="peixunfei" jdbcType="VARCHAR" />
+		<result column="jiaocaofei" property="jiaocaofei" jdbcType="VARCHAR" />
+		<result column="baokao_qudao" property="baokao_qudao" jdbcType="VARCHAR" />
+		<result column="company_id" property="company_id" />
+		<result column="pay_time" property="pay_time" />
+		<result column="employee_id" property="employee_id" />
+		<result column="jinji_name" property="jinji_name" />
+		<result column="jinji_phone" property="jinji_phone" />
+		<result column="zhiye_leibie" property="zhiye_leibie" />
+		<result column="qianfei" property="qianfei" />
+		<result column="qianfei_info" property="qianfei_info" />
+		<result column="zhuanye_id" property="zhuanye_id" />
+		<result column="university_id" property="university_id" />
+		<result column="health" property="health" />
+		<result column="before_name" property="before_name" />
+		<result column="user_qq" property="user_qq" />
+		<result column="studry_type" property="studry_type" />
+		<result column="is_daochu" property="is_daochu" />
+		<result column="jiguan" property="jiguan" />
+		<result column="isbukao" property="isbukao" />
+		<result column="zuzhifei" property="zuzhifei" />
+		<result column="fan_fei" property="fan_fei" />
+		<result column="bumen_yijian" property="bumen_yijian" />
+		<result column="zongjian_yijian" property="zongjian_yijian" />
+		<result column="boss_yijian" property="boss_yijian" />
+		<result column="bumen_id" property="bumen_id" />
+		<result column="feiyong_shuoming" property="feiyong_shuoming" />
+		<result column="xuefei" property="xuefei" />
+		<result column="xueweiyingyu" property="xueweiyingyu" />
+		<result column="jisuanjiyiji" property="jisuanjiyiji" />
+		<result column="yingyusanji" property="yingyusanji" />
+		<result column="cailiaofei" property="cailiaofei" />
+		<result column="biye_leibie" property="biye_leibie" />
+		<result column="is_nongmin" property="is_nongmin" />
+		<result column="queendian" property="queendian" />
+		<result column="review_id" property="review_id" />
+		<result column="parent_id" property="parent_id" />
+		<result column="course_id" property="course_id" />
+		<result column="zhengshu_num" property="zhengshu_num" />
+		<result column="lunwen_timu" property="lunwen_timu" />
+		<result column="lunwen_qikan" property="lunwen_qikan" />
+		<result column="lunwen_time" property="lunwen_time" />
+		<result column="lunwen_duzhu" property="lunwen_duzhu" />
+		<result column="lunwen_zhaiyao" property="lunwen_zhaiyao" />
+		<result column="diyi_xueli" property="diyi_xueli" />
+		<result column="zuigao_xueli" property="zuigao_xueli" />
+		<result column="biye_sc" property="biye_sc" />
+		<result column="suoxue_zhuanye" property="suoxue_zhuanye" />
+		<result column="xuewei" property="xuewei" />
+		<result column="biye_time" property="biye_time" />
+		<result column="xuezhi" property="xuezhi" />
+		<result column="zuigao_biye_time" property="zuigao_biye_time" />
+		<result column="zuigao_xuexiao" property="zuigao_xuexiao" />
+		<result column="zuigao_zhuanye" property="zuigao_zhuanye" />
+		<result column="zuigao_xuewei" property="zuigao_xuewei" />
+		<result column="zuigaoxuezhi" property="zuigaoxuezhi" />
+		<result column="zuigao_bianhao" property="zuigao_bianhao" />
+		<result column="zuigao_xuexi_type" property="zuigao_xuexi_type" />
+		<result column="zhicheng_yingyu" property="zhicheng_yingyu" />
+		<result column="jisuanjinengli" property="jisuanjinengli" />
+		<result column="can_mian_liyou" property="can_mian_liyou" />
+		<result column="rongyuchenghao" property="rongyuchenghao" />
+		<result column="keyanchengguo" property="keyanchengguo" />
+		<result column="now_zhuanye_zhicheng" property="now_zhuanye_zhicheng" />
+		<result column="qude_time" property="qude_time" />
+		<result column="xuexin_beian" property="xuexin_beian" />
+		<result column="zhengshu_dabao" property="zhengshu_dabao" />
+		<result column="zhichenglunwen" property="zhichenglunwen" />
+		<result column="ercunzhao" property="ercunzhao" />
+		<result column="baokao_banci" property="baokao_banci" />
+		<result column="tuifei" property="tuifei" />
+		<result column="tuifei_shuoming" property="tuifei_shuoming" />
+		<result column="tuifei_time" property="tuifei_time" />
+		<result column="shenqing_tuifei" property="shenqing_tuifei" />
+		<result column="tuifei_state" property="tuifei_state" />
+		<result column="jingli_tuifei_infeo" property="jingli_tuifei_infeo" />
+		<result column="zongjian_tuifei_infeo" property="zongjian_tuifei_infeo" />
+		<result column="boss_tuifei_infeo" property="boss_tuifei_infeo" />
+		<result column="caiwu_tuifei_infeo" property="caiwu_tuifei_infeo" />
+	</resultMap>
+	<!--添加报名信息信息 -->
+	<insert id="saveEntryInfo" useGeneratedKeys="true" keyProperty="entryInfoId"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entryinfo.EntryInfo">
+		insert into entry_user_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="entryplanId != null">
+				entryplan_id,
+			</if>
+			<if test="entrycondition_id != null">
+				entrycondition_id,
+			</if>
+			<if test="entryProvince != null">
+				entry_province,
+			</if>
+			<if test="entryCity != null">
+				entry_city,
+			</if>
+			<if test="entrySchool != null">
+				entry_school,
+			</if>
+			<if test="entryCategory != null">
+				entry_category,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="documentType != null">
+				document_type,
+			</if>
+			<if test="documentNumber != null">
+				document_number,
+			</if>
+			<if test="entryUserName != null">
+				entry_user_name,
+			</if>
+			<if test="entryUserSex != null">
+				entry_user_sex,
+			</if>
+			<if test="entryUserBirthday != null">
+				entry_user_birthday,
+			</if>
+			<if test="entryUserNation != null">
+				entry_user_nation,
+			</if>
+			<if test="entryPolitical != null">
+				entry_political,
+			</if>
+			<if test="entryUserProvince != null">
+				entry_user_province,
+			</if>
+			<if test="entryUserCity != null">
+				entry_user_city,
+			</if>
+			<if test="entryUserArea != null">
+				entry_user_area,
+			</if>
+			<if test="entryUserMail != null">
+				entry_user_mail,
+			</if>
+			<if test="entryUserUnit != null">
+				entry_user_unit,
+			</if>
+			<if test="entryUserPosition != null">
+				entry_user_position,
+			</if>
+			<if test="entryUserAddress != null">
+				entry_user_address,
+			</if>
+			<if test="zipCode != null">
+				zip_code,
+			</if>
+			<if test="workYears != null">
+				work_years,
+			</if>
+			<if test="entryUserEducation != null">
+				entry_user_education,
+			</if>
+			<if test="inWorkTime != null">
+				in_work_time,
+			</if>
+			<if test="entryUserPhoto != null">
+				entry_user_photo,
+			</if>
+			<if test="entryUserPhone != null">
+				entry_user_phone,
+			</if>
+			<if test="userCardPositive != null">
+				user_card_positive,
+			</if>
+			<if test="userCardOpposite != null">
+				user_card_opposite,
+			</if>
+			<if test="certificatePic != null">
+				certificate_pic,
+			</if>
+			<if test="entryInfoTime != null">
+				entry_info_time,
+			</if>
+			<if test="entryInfoState != null">
+				entry_info_state,
+			</if>
+			<if test="isPay != null">
+				is_pay,
+			</if>
+			<if test="orderNumber != null">
+				order_number,
+			</if>
+			<if test="payMoney != null">
+				pay_money,
+			</if>
+			<if test="payType != null">
+				pay_type,
+			</if>
+			<if test="document_photo != null">
+				document_photo,
+			</if>
+			<if test="caiwushenhe_message != null">
+				caiwushenhe_message,
+			</if>
+			<if test="jiaowushenhe_message != null">
+				jiaowushenhe_message,
+			</if>
+			<if test="ying_pay != null">
+				ying_pay,
+			</if>
+			<if test="tingkezheng != null">
+				tingkezheng,
+			</if>
+			<if test="jiaocai != null">
+				jiaocai,
+			</if>
+			<if test="jiaofu != null">
+				jiaofu,
+			</if>
+			<if test="jiaofulingqu != null">
+				jiaofulingqu,
+			</if>
+			<if test="note != null">
+				note,
+			</if>
+			<if test="wangluoxuexika != null">
+				wangluoxuexika,
+			</if>
+			<if test="zhuanshufuwuka != null">
+				zhuanshufuwuka,
+			</if>
+			<if test="mianshoubanxing !=null">
+				mianshoubanxing,
+			</if>
+			<if test="kaoshimoey !=null">
+				kaoshimoey,
+			</if>
+			<if test="peixunfei !=null">
+				peixunfei,
+			</if>
+			<if test="jiaocaofei !=null">
+				jiaocaofei,
+			</if>
+			<if test="baokao_qudao !=null">
+				baokao_qudao,
+			</if>
+			<if test="employee_id !=null">
+				employee_id,
+			</if>
+			<if test="pay_time !=null">
+				pay_time,
+			</if>
+			<if test="company_id !=null">
+				company_id,
+			</if>
+			<if test="jinji_name !=null">
+				jinji_name,
+			</if>
+			<if test="jinji_phone !=null">
+				jinji_phone,
+			</if>
+			<if test="zhiye_leibie !=null">
+				zhiye_leibie,
+			</if>
+			<if test="qianfei !=null">
+				qianfei,
+			</if>
+			<if test="qianfei_info !=null">
+				qianfei_info,
+			</if>
+			<if test="zhuanye_id !=null">
+				zhuanye_id,
+			</if>
+			<if test="university_id !=null">
+				university_id,
+			</if>
+			<if test="health !=null">
+				health,
+			</if>
+			<if test="before_name !=null">
+				before_name,
+			</if>
+			<if test="user_qq !=null">
+				user_qq,
+			</if>
+			<if test="studry_type !=null">
+				studry_type,
+			</if>
+			<if test="jiguan !=null">
+				jiguan,
+			</if>
+			<if test="isbukao !=null">
+				isbukao,
+			</if>
+			<if test="zuzhifei !=null">
+				zuzhifei,
+			</if>
+			<if test="fan_fei !=null">
+				fan_fei,
+			</if>
+			<if test="bumen_id !=null">
+				bumen_id,
+			</if>
+			<if test="feiyong_shuoming !=null">
+				feiyong_shuoming,
+			</if>
+			<if test="xuefei !=null">
+				xuefei,
+			</if>
+			<if test="xueweiyingyu !=null">
+				xueweiyingyu,
+			</if>
+			<if test="jisuanjiyiji !=null">
+				jisuanjiyiji,
+			</if>
+			<if test="yingyusanji !=null">
+				yingyusanji,
+			</if>
+			<if test="cailiaofei !=null">
+				cailiaofei,
+			</if>
+			<if test="biye_leibie !=null">
+				biye_leibie,
+			</if>
+			<if test="is_nongmin !=null">
+				is_nongmin,
+			</if>
+			<if test="queendian !=null">
+				queendian,
+			</if>
+			<if test="review_id !=null">
+				review_id,
+			</if>
+			<if test="parent_id !=null">
+				parent_id,
+			</if>
+			<if test="course_id !=null">
+				course_id,
+			</if>
+			<if test="zhengshu_num !=null">
+				zhengshu_num,
+			</if>
+			<if test="lunwen_timu !=null">
+				lunwen_timu,
+			</if>
+			<if test="lunwen_qikan !=null">
+				lunwen_qikan,
+			</if>
+			<if test="lunwen_time !=null">
+				lunwen_time,
+			</if>
+			<if test="lunwen_duzhu !=null">
+				lunwen_duzhu,
+			</if>
+			<if test="lunwen_zhaiyao !=null">
+				lunwen_zhaiyao,
+			</if>
+			<if test="diyi_xueli !=null">
+				diyi_xueli,
+			</if>
+			<if test="zuigao_xueli !=null">
+				zuigao_xueli,
+			</if>
+			<if test="biye_sc !=null">
+				biye_sc,
+			</if>
+			<if test="suoxue_zhuanye !=null">
+				suoxue_zhuanye,
+			</if>
+			<if test="xuezhi !=null">
+				xuezhi,
+			</if>
+			<if test="xuewei !=null">
+				xuewei,
+			</if>
+			<if test="biye_time !=null">
+				biye_time,
+			</if>
+			<if test="zuigao_biye_time !=null">
+				zuigao_biye_time,
+			</if>
+			<if test="zuigao_xuexiao !=null">
+				zuigao_xuexiao,
+			</if>
+			<if test="zuigao_zhuanye !=null">
+				zuigao_zhuanye,
+			</if>
+			<if test="zuigao_xuewei !=null">
+				zuigao_xuewei,
+			</if>
+			<if test="zuigaoxuezhi !=null">
+				zuigaoxuezhi,
+			</if>
+			<if test="zuigao_bianhao !=null">
+				zuigao_bianhao,
+			</if>
+			<if test="zuigao_xuexi_type !=null">
+				zuigao_xuexi_type,
+			</if>
+			<if test="zhicheng_yingyu !=null">
+				zhicheng_yingyu,
+			</if>
+			<if test="jisuanjinengli !=null">
+				jisuanjinengli,
+			</if>
+			<if test="can_mian_liyou !=null">
+				can_mian_liyou,
+			</if>
+			<if test="rongyuchenghao !=null">
+				rongyuchenghao,
+			</if>
+			<if test="keyanchengguo !=null">
+				keyanchengguo,
+			</if>
+			<if test="now_zhuanye_zhicheng !=null">
+				now_zhuanye_zhicheng,
+			</if>
+			<if test="qude_time !=null">
+				qude_time,
+			</if>
+			<if test="xuexin_beian !=null">
+				xuexin_beian,
+			</if>
+			<if test="zhengshu_dabao !=null">
+				zhengshu_dabao,
+			</if>
+			<if test="zhichenglunwen !=null">
+				zhichenglunwen,
+			</if>
+			<if test="ercunzhao !=null">
+				ercunzhao,
+			</if>
+			<if test="baokao_banci !=null">
+				baokao_banci
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="entryplanId != null">
+				#{entryplanId,jdbcType=INTEGER},
+			</if>
+			<if test="entrycondition_id != null">
+				#{entrycondition_id,jdbcType=INTEGER},
+			</if>
+			<if test="entryProvince != null">
+				#{entryProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="entryCity != null">
+				#{entryCity,jdbcType=VARCHAR},
+			</if>
+			<if test="entrySchool != null">
+				#{entrySchool,jdbcType=VARCHAR},
+			</if>
+			<if test="entryCategory != null">
+				#{entryCategory,jdbcType=VARCHAR},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="documentType != null">
+				#{documentType,jdbcType=VARCHAR},
+			</if>
+			<if test="documentNumber != null">
+				#{documentNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserName != null">
+				#{entryUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserSex != null">
+				#{entryUserSex,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserBirthday != null">
+				#{entryUserBirthday,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserNation != null">
+				#{entryUserNation,jdbcType=VARCHAR},
+			</if>
+			<if test="entryPolitical != null">
+				#{entryPolitical,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserProvince != null">
+				#{entryUserProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserCity != null">
+				#{entryUserCity,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserArea != null">
+				#{entryUserArea,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserMail != null">
+				#{entryUserMail,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserUnit != null">
+				#{entryUserUnit,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserPosition != null">
+				#{entryUserPosition,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserAddress != null">
+				#{entryUserAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="zipCode != null">
+				#{zipCode,jdbcType=VARCHAR},
+			</if>
+			<if test="workYears != null">
+				#{workYears,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserEducation != null">
+				#{entryUserEducation,jdbcType=VARCHAR},
+			</if>
+			<if test="inWorkTime != null">
+				#{inWorkTime,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserPhoto != null">
+				#{entryUserPhoto,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserPhone != null">
+				#{entryUserPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="userCardPositive != null">
+				#{userCardPositive,jdbcType=VARCHAR},
+			</if>
+			<if test="userCardOpposite != null">
+				#{userCardOpposite,jdbcType=VARCHAR},
+			</if>
+			<if test="certificatePic != null">
+				#{certificatePic,jdbcType=VARCHAR},
+			</if>
+			<if test="entryInfoTime != null">
+				#{entryInfoTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="entryInfoState != null">
+				#{entryInfoState,jdbcType=INTEGER},
+			</if>
+			<if test="isPay != null">
+				#{isPay,jdbcType=INTEGER},
+			</if>
+			<if test="orderNumber != null">
+				#{orderNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="payMoney != null">
+				#{payMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="payType != null">
+				#{payType,jdbcType=CHAR},
+			</if>
+			<if test="document_photo != null">
+				#{document_photo},
+			</if>
+			<if test="caiwushenhe_message != null">
+				#{caiwushenhe_message},
+			</if>
+			<if test="jiaowushenhe_message != null">
+				#{jiaowushenhe_message},
+			</if>
+			<if test="ying_pay != null">
+				#{ying_pay},
+			</if>
+			<if test="tingkezheng != null">
+				#{tingkezheng},
+			</if>
+			<if test="jiaocai != null">
+				#{jiaocai},
+			</if>
+			<if test="jiaofu != null">
+				#{jiaofu},
+			</if>
+			<if test="jiaofulingqu != null">
+				#{jiaofulingqu},
+			</if>
+			<if test="note != null">
+				#{note},
+			</if>
+			<if test="wangluoxuexika != null">
+				#{wangluoxuexika},
+			</if>
+			<if test="zhuanshufuwuka != null">
+				#{zhuanshufuwuka},
+			</if>
+			<if test="mianshoubanxing !=null">
+				#{mianshoubanxing},
+			</if>
+			<if test="kaoshimoey !=null">
+				#{kaoshimoey},
+			</if>
+			<if test="peixunfei !=null">
+				#{peixunfei},
+			</if>
+			<if test="jiaocaofei !=null">
+				#{jiaocaofei},
+			</if>
+			<if test="baokao_qudao !=null">
+				#{baokao_qudao},
+			</if>
+			<if test="employee_id !=null">
+				#{employee_id},
+			</if>
+			<if test="pay_time !=null">
+				#{pay_time},
+			</if>
+			<if test="company_id !=null">
+				#{company_id},
+			</if>
+			<if test="jinji_name !=null">
+				#{jinji_name},
+			</if>
+			<if test="jinji_phone !=null">
+				#{jinji_phone},
+			</if>
+			<if test="zhiye_leibie !=null">
+				#{zhiye_leibie},
+			</if>
+			<if test="qianfei !=null">
+				#{qianfei},
+			</if>
+			<if test="qianfei_info !=null">
+				#{qianfei_info},
+			</if>
+			<if test="zhuanye_id !=null">
+				#{zhuanye_id},
+			</if>
+			<if test="university_id !=null">
+				#{university_id},
+			</if>
+			<if test="health !=null">
+				#{health},
+			</if>
+			<if test="before_name !=null">
+				#{before_name},
+			</if>
+			<if test="user_qq !=null">
+				#{user_qq},
+			</if>
+			<if test="studry_type !=null">
+				#{studry_type},
+			</if>
+			<if test="jiguan !=null">
+				#{jiguan},
+			</if>
+			<if test="isbukao !=null">
+				#{isbukao},
+			</if>
+			<if test="zuzhifei !=null">
+				#{zuzhifei},
+			</if>
+			<if test="fan_fei !=null">
+				#{fan_fei},
+			</if>
+			<if test="bumen_id !=null">
+				#{bumen_id},
+			</if>
+			<if test="feiyong_shuoming !=null">
+				#{feiyong_shuoming},
+			</if>
+			<if test="xuefei !=null">
+				#{xuefei},
+			</if>
+			<if test="xueweiyingyu !=null">
+				#{xueweiyingyu},
+			</if>
+			<if test="jisuanjiyiji !=null">
+				#{jisuanjiyiji},
+			</if>
+			<if test="yingyusanji !=null">
+				#{yingyusanji},
+			</if>
+			<if test="cailiaofei !=null">
+				#{cailiaofei},
+			</if>
+			<if test="biye_leibie !=null">
+				#{biye_leibie},
+			</if>
+			<if test="is_nongmin !=null">
+				#{is_nongmin},
+			</if>
+			<if test="queendian !=null">
+				#{queendian},
+			</if>
+			<if test="review_id !=null">
+				#{review_id},
+			</if>
+			<if test="parent_id !=null">
+				#{parent_id},
+			</if>
+			<if test="course_id !=null">
+				#{course_id},
+			</if>
+			<if test="zhengshu_num !=null">
+				#{zhengshu_num},
+			</if>
+			<if test="lunwen_timu !=null">
+				#{lunwen_timu},
+			</if>
+			<if test="lunwen_qikan !=null">
+				#{lunwen_qikan},
+			</if>
+			<if test="lunwen_time !=null">
+				#{lunwen_time},
+			</if>
+			<if test="lunwen_duzhu !=null">
+				#{lunwen_duzhu},
+			</if>
+			<if test="lunwen_zhaiyao !=null">
+				#{lunwen_zhaiyao},
+			</if>
+			<if test="diyi_xueli !=null">
+				#{diyi_xueli},
+			</if>
+			<if test="zuigao_xueli !=null">
+				#{zuigao_xueli},
+			</if>
+			<if test="biye_sc !=null">
+				#{biye_sc},
+			</if>
+			<if test="suoxue_zhuanye !=null">
+				#{suoxue_zhuanye},
+			</if>
+			<if test="xuezhi !=null">
+				#{xuezhi},
+			</if>
+			<if test="xuewei !=null">
+				#{xuewei},
+			</if>
+			<if test="biye_time !=null">
+				#{biye_time},
+			</if>
+			<if test="zuigao_biye_time !=null">
+				#{zuigao_biye_time},
+			</if>
+			<if test="zuigao_xuexiao !=null">
+				#{zuigao_xuexiao},
+			</if>
+			<if test="zuigao_zhuanye !=null">
+				#{zuigao_zhuanye},
+			</if>
+			<if test="zuigao_xuewei !=null">
+				#{zuigao_xuewei},
+			</if>
+			<if test="zuigaoxuezhi !=null">
+				#{zuigaoxuezhi},
+			</if>
+			<if test="zuigao_bianhao !=null">
+				#{zuigao_bianhao},
+			</if>
+			<if test="zuigao_xuexi_type !=null">
+				#{zuigao_xuexi_type},
+			</if>
+			<if test="zhicheng_yingyu !=null">
+				#{zhicheng_yingyu},
+			</if>
+			<if test="jisuanjinengli !=null">
+				#{jisuanjinengli},
+			</if>
+			<if test="can_mian_liyou !=null">
+				#{can_mian_liyou},
+			</if>
+			<if test="rongyuchenghao !=null">
+				#{rongyuchenghao},
+			</if>
+			<if test="keyanchengguo !=null">
+				#{keyanchengguo},
+			</if>
+			<if test="now_zhuanye_zhicheng !=null">
+				#{now_zhuanye_zhicheng},
+			</if>
+			<if test="qude_time !=null">
+				#{qude_time},
+			</if>
+			<if test="xuexin_beian !=null">
+				#{xuexin_beian},
+			</if>
+			<if test="zhengshu_dabao !=null">
+				#{zhengshu_dabao},
+			</if>
+			<if test="zhichenglunwen !=null">
+				#{zhichenglunwen},
+			</if>
+			<if test="ercunzhao !=null">
+				#{ercunzhao},
+			</if>
+			<if test="baokao_banci !=null">
+				#{baokao_banci}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改报名信息信息 -->
+	<update id="updateEntryInfo"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entryinfo.EntryInfo">
+		update entry_user_info
+		<set>
+			<if test="entryplanId != null">
+				entryplan_id = #{entryplanId,jdbcType=INTEGER},
+			</if>
+			<if test="entrycondition_id != null">
+				entrycondition_id =
+				#{entrycondition_id,jdbcType=INTEGER},
+			</if>
+			<if test="entryProvince != null">
+				entry_province = #{entryProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="entryCity != null">
+				entry_city = #{entryCity,jdbcType=VARCHAR},
+			</if>
+			<if test="entrySchool != null">
+				entry_school = #{entrySchool,jdbcType=VARCHAR},
+			</if>
+			<if test="entryCategory != null">
+				entry_category = #{entryCategory,jdbcType=VARCHAR},
+			</if>
+			<if test="documentType != null">
+				document_type = #{documentType,jdbcType=VARCHAR},
+			</if>
+			<if test="documentNumber != null">
+				document_number = #{documentNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserName != null">
+				entry_user_name = #{entryUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserSex != null">
+				entry_user_sex = #{entryUserSex,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserBirthday != null">
+				entry_user_birthday =
+				#{entryUserBirthday,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserNation != null">
+				entry_user_nation = #{entryUserNation,jdbcType=VARCHAR},
+			</if>
+			<if test="entryPolitical != null">
+				entry_political = #{entryPolitical,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserProvince != null">
+				entry_user_province =
+				#{entryUserProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserCity != null">
+				entry_user_city = #{entryUserCity,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserArea != null">
+				entry_user_area = #{entryUserArea,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserMail != null">
+				entry_user_mail = #{entryUserMail,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserUnit != null">
+				entry_user_unit = #{entryUserUnit,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserPosition != null">
+				entry_user_position =
+				#{entryUserPosition,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserAddress != null">
+				entry_user_address =
+				#{entryUserAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="zipCode != null">
+				zip_code = #{zipCode,jdbcType=VARCHAR},
+			</if>
+			<if test="workYears != null">
+				work_years = #{workYears,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserEducation != null">
+				entry_user_education =
+				#{entryUserEducation,jdbcType=VARCHAR},
+			</if>
+			<if test="inWorkTime != null">
+				in_work_time = #{inWorkTime,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserPhoto != null">
+				entry_user_photo = #{entryUserPhoto,jdbcType=VARCHAR},
+			</if>
+			<if test="entryUserPhone != null">
+				entry_user_phone = #{entryUserPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="userCardPositive != null">
+				user_card_positive =
+				#{userCardPositive,jdbcType=VARCHAR},
+			</if>
+			<if test="userCardOpposite != null">
+				user_card_opposite =
+				#{userCardOpposite,jdbcType=VARCHAR},
+			</if>
+			<if test="certificatePic != null">
+				certificate_pic = #{certificatePic,jdbcType=VARCHAR},
+			</if>
+			<if test="entryInfoTime != null">
+				entry_info_time = #{entryInfoTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="entryInfoState != null">
+				entry_info_state = #{entryInfoState,jdbcType=INTEGER},
+			</if>
+			<if test="isPay != null">
+				is_pay = #{isPay,jdbcType=INTEGER},
+			</if>
+			<if test="orderNumber != null">
+				order_number = #{orderNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="payMoney != null">
+				pay_money = #{payMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="payType != null">
+				pay_type = #{payType,jdbcType=CHAR},
+			</if>
+			<if test="document_photo != null">
+				document_photo=#{document_photo},
+			</if>
+			<if test="caiwushenhe_message != null">
+				caiwushenhe_message=#{caiwushenhe_message},
+			</if>
+			<if test="jiaowushenhe_message != null">
+				jiaowushenhe_message=#{jiaowushenhe_message},
+			</if>
+			<if test="ying_pay != null">
+				ying_pay=#{ying_pay},
+			</if>
+			<if test="tingkezheng != null">
+				tingkezheng=#{tingkezheng},
+			</if>
+			<if test="jiaocai != null">
+				jiaocai=#{jiaocai},
+			</if>
+			<if test="jiaofu != null">
+				jiaofu=#{jiaofu},
+			</if>
+			<if test="jiaofulingqu != null">
+				jiaofulingqu=#{jiaofulingqu},
+			</if>
+			<if test="note != null">
+				note=#{note},
+			</if>
+			<if test="wangluoxuexika != null">
+				wangluoxuexika=#{wangluoxuexika},
+			</if>
+			<if test="zhuanshufuwuka != null">
+				zhuanshufuwuka=#{zhuanshufuwuka},
+			</if>
+			<if test="mianshoubanxing !=null">
+				mianshoubanxing=#{mianshoubanxing},
+			</if>
+			<if test="kaoshimoey !=null">
+				kaoshimoey=#{kaoshimoey},
+			</if>
+			<if test="peixunfei !=null">
+				peixunfei=#{peixunfei},
+			</if>
+			<if test="jiaocaofei !=null">
+				jiaocaofei=#{jiaocaofei},
+			</if>
+			<if test="employee_id !=null">
+				employee_id=#{employee_id},
+			</if>
+			<if test="baokao_qudao !=null">
+				baokao_qudao=#{baokao_qudao},
+			</if>
+			<if test="company_id !=null">
+				company_id=#{company_id},
+			</if>
+			<if test="pay_time !=null">
+				pay_time=#{pay_time},
+			</if>
+			<if test="company_id !=null">
+				company_id=#{company_id},
+			</if>
+			<if test="jinji_name !=null">
+				jinji_name=#{jinji_name},
+			</if>
+			<if test="jinji_phone !=null">
+				jinji_phone=#{jinji_phone},
+			</if>
+			<if test="zhiye_leibie !=null">
+				zhiye_leibie=#{zhiye_leibie},
+			</if>
+			<if test="qianfei !=null">
+				qianfei=#{qianfei},
+			</if>
+			<if test="qianfei_info !=null">
+				qianfei_info=#{qianfei_info},
+			</if>
+			<if test="zhuanye_id !=null">
+				zhuanye_id=#{zhuanye_id},
+			</if>
+			<if test="university_id !=null">
+				university_id=#{university_id},
+			</if>
+			<if test="health !=null">
+				health=#{health},
+			</if>
+			<if test="before_name !=null">
+				before_name=#{before_name},
+			</if>
+			<if test="user_qq !=null">
+				user_qq=#{user_qq},
+			</if>
+			<if test="studry_type !=null">
+				studry_type=#{studry_type},
+			</if>
+			<if test="is_daochu !=null">
+				is_daochu=#{is_daochu},
+			</if>
+			<if test="jiguan !=null">
+				jiguan=#{jiguan},
+			</if>
+			<if test="zuzhifei !=null">
+				zuzhifei=#{zuzhifei},
+			</if>
+			<if test="fan_fei !=null">
+				fan_fei=#{fan_fei},
+			</if>
+			<if test="bumen_yijian !=null">
+				bumen_yijian=#{bumen_yijian},
+			</if>
+			<if test="zongjian_yijian !=null">
+				zongjian_yijian=#{zongjian_yijian},
+			</if>
+			<if test="boss_yijian !=null">
+				boss_yijian=#{boss_yijian},
+			</if>
+			<if test="feiyong_shuoming !=null">
+				feiyong_shuoming=#{feiyong_shuoming},
+			</if>
+			<if test="xuefei !=null">
+				xuefei=#{xuefei},
+			</if>
+			<if test="xueweiyingyu !=null">
+				xueweiyingyu=#{xueweiyingyu},
+			</if>
+			<if test="jisuanjiyiji !=null">
+				jisuanjiyiji=#{jisuanjiyiji},
+			</if>
+			<if test="yingyusanji !=null">
+				yingyusanji=#{yingyusanji},
+			</if>
+			<if test="cailiaofei !=null">
+				cailiaofei=#{cailiaofei},
+			</if>
+			<if test="biye_leibie !=null">
+				biye_leibie=#{biye_leibie},
+			</if>
+			<if test="is_nongmin !=null">
+				is_nongmin=#{is_nongmin},
+			</if>
+			<if test="queendian !=null">
+				queendian=#{queendian},
+			</if>
+			<if test="review_id !=null">
+				review_id=#{review_id},
+			</if>
+			<if test="parent_id !=null">
+				parent_id=#{parent_id},
+			</if>
+			<if test="course_id !=null">
+				course_id=#{course_id},
+			</if>
+			<if test="zhengshu_num !=null">
+				zhengshu_num=#{zhengshu_num},
+			</if>
+			<if test="lunwen_timu !=null">
+				lunwen_timu=#{lunwen_timu},
+			</if>
+			<if test="lunwen_qikan !=null">
+				lunwen_qikan=#{lunwen_qikan},
+			</if>
+			<if test="lunwen_time !=null">
+				lunwen_time=#{lunwen_time},
+			</if>
+			<if test="lunwen_duzhu !=null">
+				lunwen_duzhu=#{lunwen_duzhu},
+			</if>
+			<if test="lunwen_zhaiyao !=null">
+				lunwen_zhaiyao=#{lunwen_zhaiyao},
+			</if>
+			<if test="diyi_xueli !=null">
+				diyi_xueli=#{diyi_xueli},
+			</if>
+			<if test="zuigao_xueli !=null">
+				zuigao_xueli=#{zuigao_xueli},
+			</if>
+			<if test="biye_sc !=null">
+				biye_sc=#{biye_sc},
+			</if>
+			<if test="suoxue_zhuanye !=null">
+				suoxue_zhuanye=#{suoxue_zhuanye},
+			</if>
+			<if test="xuezhi !=null">
+				xuezhi=#{xuezhi},
+			</if>
+			<if test="xuewei !=null">
+				xuewei=#{xuewei},
+			</if>
+			<if test="biye_time !=null">
+				biye_time=#{biye_time},
+			</if>
+			<if test="zuigao_biye_time !=null">
+				zuigao_biye_time=#{zuigao_biye_time},
+			</if>
+			<if test="zuigao_xuexiao !=null">
+				zuigao_xuexiao=#{zuigao_xuexiao},
+			</if>
+			<if test="zuigao_zhuanye !=null">
+				zuigao_zhuanye=#{zuigao_zhuanye},
+			</if>
+			<if test="zuigao_xuewei !=null">
+				zuigao_xuewei=#{zuigao_xuewei},
+			</if>
+			<if test="zuigaoxuezhi !=null">
+				zuigaoxuezhi=#{zuigaoxuezhi},
+			</if>
+			<if test="zuigao_bianhao !=null">
+				zuigao_bianhao=#{zuigao_bianhao},
+			</if>
+			<if test="zuigao_xuexi_type !=null">
+				zuigao_xuexi_type=#{zuigao_xuexi_type},
+			</if>
+			<if test="zhicheng_yingyu !=null">
+				zhicheng_yingyu=#{zhicheng_yingyu},
+			</if>
+			<if test="jisuanjinengli !=null">
+				jisuanjinengli=#{jisuanjinengli},
+			</if>
+			<if test="can_mian_liyou !=null">
+				can_mian_liyou=#{can_mian_liyou},
+			</if>
+			<if test="rongyuchenghao !=null">
+				rongyuchenghao=#{rongyuchenghao},
+			</if>
+			<if test="keyanchengguo !=null">
+				keyanchengguo=#{keyanchengguo},
+			</if>
+			<if test="now_zhuanye_zhicheng !=null">
+				now_zhuanye_zhicheng=#{now_zhuanye_zhicheng},
+			</if>
+			<if test="qude_time !=null">
+				qude_time=#{qude_time},
+			</if>
+			<if test="xuexin_beian !=null">
+				xuexin_beian=#{xuexin_beian},
+			</if>
+			<if test="zhengshu_dabao !=null">
+				zhengshu_dabao=#{zhengshu_dabao},
+			</if>
+			<if test="zhichenglunwen !=null">
+				zhichenglunwen=#{zhichenglunwen},
+			</if>
+			<if test="ercunzhao !=null">
+				ercunzhao=#{ercunzhao},
+			</if>
+			<if test="baokao_banci !=null">
+				baokao_banci=#{baokao_banci},
+			</if>
+			<if test="tuifei !=null">
+				tuifei=#{tuifei},
+			</if>
+			<if test="tuifei_shuoming !=null">
+				tuifei_shuoming=#{tuifei_shuoming},
+			</if>
+			<if test="tuifei_time !=null">
+				tuifei_time=#{tuifei_time},
+			</if>
+			<if test="shenqing_tuifei !=null">
+				shenqing_tuifei=#{shenqing_tuifei},
+			</if>
+			<if test="tuifei_state !=null">
+				tuifei_state=#{tuifei_state},
+			</if>
+			<if test="jingli_tuifei_infeo !=null">
+				jingli_tuifei_infeo=#{jingli_tuifei_infeo},
+			</if>
+			<if test="zongjian_tuifei_infeo !=null">
+				zongjian_tuifei_infeo=#{zongjian_tuifei_infeo},
+			</if>
+			<if test="boss_tuifei_infeo !=null">
+				boss_tuifei_infeo=#{boss_tuifei_infeo},
+			</if>
+			<if test="caiwu_tuifei_infeo !=null">
+				caiwu_tuifei_infeo=#{caiwu_tuifei_infeo}
+			</if>
+		</set>
+		where entry_info_id = #{entryInfoId,jdbcType=INTEGER}
+		<if test="userId != null">
+			and user_id = #{userId,jdbcType=INTEGER}
+		</if>
+	</update>
+
+	<update id="updateEntryInfoPic"
+		parameterType="com.jingren.jing.school.entrysystem.bean.entryinfo.EntryInfo">
+		update entry_user_info
+		<set>
+			<if test="entryUserPhoto != null">
+				entry_user_photo = #{entryUserPhoto,jdbcType=VARCHAR},
+			</if>
+			<if test="userCardPositive != null">
+				user_card_positive =
+				#{userCardPositive,jdbcType=VARCHAR},
+			</if>
+			<if test="userCardOpposite != null">
+				user_card_opposite =
+				#{userCardOpposite,jdbcType=VARCHAR},
+			</if>
+			<if test="certificatePic != null">
+				certificate_pic = #{certificatePic,jdbcType=VARCHAR},
+			</if>
+			<if test="document_photo != null">
+				document_photo=#{document_photo}
+			</if>
+		</set>
+		where document_number = #{documentNumber,jdbcType=VARCHAR}
+	</update>
+	<!--删除报名信息信息 -->
+	<delete id="deleteEntryInfo" parameterType="java.lang.Integer">
+		delete from
+		entry_user_info where
+		entry_info_id=#{entryInfoId}
+	</delete>
+	<!--获取报名信息信息 -->
+	<select id="getEntryInfo" parameterType="Map" resultMap="BaseResultMap">
+		select * from entry_user_info
+		<where>
+			<if test="entryInfoId !=null">
+				entry_info_id=#{entryInfoId}
+			</if>
+			<if test="userId !=null">
+				user_id=#{userId}
+			</if>
+			<if test="entrycondition_id !=null">
+				and entrycondition_id=#{entrycondition_id}
+			</if>
+		</where>
+	</select>
+
+	<!--查询报名信息列表 -->
+	<select id="getEntryInfoList" parameterType="Map" resultMap="BaseResultMap">
+		select * from entry_user_info
+		<where>
+			1=1
+			<if test="entryInfoId != null">
+				and entry_info_id = #{entryInfoId}
+			</if>
+			<if test="entryUserName != null">
+				and entry_user_name like "%"#{entryUserName}"%"
+			</if>
+			<if test="documentNumber != null">
+				and document_number = #{documentNumber}
+			</if>
+			<if test="employee_id != null">
+				and employee_id = #{employee_id}
+			</if>
+			<if test="userId != null">
+				and user_id = #{userId}
+			</if>
+			<if test="entryplanId != null">
+				and entryplan_id = #{entryplanId}
+			</if>
+			<if test="isPay != null">
+				and is_pay = #{isPay}
+			</if>
+			<if test="payType != null">
+				and pay_type = #{payType}
+			</if>
+			<if test="entryUserPosition != null">
+				and entry_user_position = #{entryUserPosition}
+			</if>
+			<if test="entry_info_state != null">
+				and entry_info_state = #{entry_info_state}
+			</if>
+			<!--财务账务筛选 -->
+			<if test="entry_info_state_zhangwu != null">
+				and entry_info_state = #{entry_info_state_zhangwu}
+			</if>
+			<!-- 教务-报考学员菜单 -->
+			<if test="jaiowu_info_state != null">
+				and entry_info_state = 3 or entry_info_state = 6
+			</if>
+			<if test="baokao_qudao != null">
+				and baokao_qudao = #{baokao_qudao}
+			</if>
+			<!-- 导出专用 学员状态 -->
+			<if test="entryinfo_state != null">
+				and entry_info_state = #{entryinfo_state}
+			</if>
+			<!--导出专用 是否支付 -->
+			<if test="is_pay != null">
+				and is_pay = #{is_pay}
+			</if>
+			<!-- 财务报考账务专用 -->
+			<if test="entryinfo_state_zhangwu != null">
+				and entry_info_state != #{entryinfo_state_zhangwu}
+			</if>
+			<!-- 教务 企业报考信息专用 -->
+			<if test="baokao_qudao_company != null">
+				and baokao_qudao = #{baokao_qudao_company}
+			</if>
+			<if test="orderNumber != null">
+				and order_number = #{orderNumber}
+			</if>
+			<if test="university_id != null">
+				and university_id = #{university_id}
+			</if>
+			<if test="zhuanye_id != null">
+				and zhuanye_id = #{zhuanye_id}
+			</if>
+			<if test="mianshoubanxing != null">
+				and mianshoubanxing = #{mianshoubanxing}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id = #{bumen_id}
+			</if>
+			<if test="start_time != null">
+			and	entry_info_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	entry_info_time &lt;=#{end_time}
+			</if>
+			<if test="bao_start_time != null">
+			and	pay_time &gt;=#{bao_start_time}
+			</if>
+			<if test="bao_end_time != null">
+			and	pay_time &lt;=#{bao_end_time}
+			</if>
+			<if test="review_id != null">
+				and review_id = #{review_id}
+			</if>
+			<if test="parent_id != null">
+				and parent_id = #{parent_id}
+			</if>
+			<if test="course_id != null">
+				and course_id = #{course_id}
+			</if>
+			<if test="company_id != null">
+				and company_id = #{company_id}
+			</if>
+			<if test="tuifei_state != null">
+				and tuifei_state = #{tuifei_state}
+			</if>
+			<if test="no_tuifei_state != null">
+				and tuifei_state != #{no_tuifei_state}
+			</if>
+		</where>
+		order by entry_info_time DESC
+		<if test="pageNumber != null and limit!=null">
+			limit #{pageNumber},#{limit}
+		</if>
+	</select>
+	<!-- 查询报名信息数量 -->
+	<select id="getEntryInfoNumber" parameterType="Map" resultType="int">
+		select count(*) from entry_user_info
+		<where>
+			1=1
+			<if test="entryInfoId != null">
+				and entry_info_id = #{entryInfoId}
+			</if>
+			<if test="entryUserName != null">
+				and entry_user_name like "%"#{entryUserName}"%"
+			</if>
+			<if test="documentNumber != null">
+				and document_number = #{documentNumber}
+			</if>
+			<if test="employee_id != null">
+				and employee_id = #{employee_id}
+			</if>
+			<if test="userId != null">
+				and user_id = #{userId}
+			</if>
+			<if test="entryplanId != null">
+				and entryplan_id = #{entryplanId}
+			</if>
+			<if test="isPay != null">
+				and is_pay = #{isPay}
+			</if>
+			<if test="payType != null">
+				and pay_type = #{payType}
+			</if>
+			<if test="entryUserPosition != null">
+				and entry_user_position = #{entryUserPosition}
+			</if>
+			<if test="entry_info_state != null">
+				and entry_info_state = #{entry_info_state}
+			</if>
+			<!--财务账务筛选 -->
+			<if test="entry_info_state_zhangwu != null">
+				and entry_info_state = #{entry_info_state_zhangwu}
+			</if>
+			<!-- 教务-报考学员菜单 -->
+			<if test="jaiowu_info_state != null">
+				and entry_info_state = 3 or entry_info_state = 6
+			</if>
+			<if test="baokao_qudao != null">
+				and baokao_qudao = #{baokao_qudao}
+			</if>
+			<!-- 导出专用 学员状态 -->
+			<if test="entryinfo_state != null">
+				and entry_info_state = #{entryinfo_state}
+			</if>
+			<!--导出专用 是否支付 -->
+			<if test="is_pay != null">
+				and is_pay = #{is_pay}
+			</if>
+			<!-- 财务报考账务专用 -->
+			<if test="entryinfo_state_zhangwu != null">
+				and entry_info_state != #{entryinfo_state_zhangwu}
+			</if>
+			<!-- 教务 企业报考信息专用 -->
+			<if test="baokao_qudao_company != null">
+				and baokao_qudao = #{baokao_qudao_company}
+			</if>
+			<if test="orderNumber != null">
+				and order_number = #{orderNumber}
+			</if>
+			<if test="university_id != null">
+				and university_id = #{university_id}
+			</if>
+			<if test="zhuanye_id != null">
+				and zhuanye_id = #{zhuanye_id}
+			</if>
+			<if test="mianshoubanxing != null">
+				and mianshoubanxing = #{mianshoubanxing}
+			</if>
+			<if test="bumen_id != null">
+				and bumen_id = #{bumen_id}
+			</if>
+			<if test="start_time != null">
+			and	entry_info_time &gt;=#{start_time}
+			</if>
+			<if test="end_time != null">
+			and	entry_info_time &lt;=#{end_time}
+			</if>
+			<if test="bao_start_time != null">
+			and	pay_time &gt;=#{bao_start_time}
+			</if>
+			<if test="bao_end_time != null">
+			and	pay_time &lt;=#{bao_end_time}
+			</if>
+			<if test="review_id != null">
+				and review_id = #{review_id}
+			</if>
+			<if test="parent_id != null">
+				and parent_id = #{parent_id}
+			</if>
+			<if test="course_id != null">
+				and course_id = #{course_id}
+			</if>
+			<if test="company_id != null">
+				and company_id = #{company_id}
+			</if>
+			<if test="tuifei_state != null">
+				and tuifei_state = #{tuifei_state}
+			</if>
+			<if test="no_tuifei_state != null">
+				and tuifei_state != #{no_tuifei_state}
+			</if>
+		</where>
+	</select>
+</mapper>
